@@ -10,9 +10,14 @@
 \usepackage{savesym}
 \savesymbol{degree}
 \usepackage{hepunits}
+\usepackage[hidelinks]{hyperref}
+\usepackage{glossaries}
+
+
 \let\degree\relax
 \restoresymbol{DEFAULT}{degree} % make sure this is ok
 % \usepackage{hyperref}		% to insert hyperrefs
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Some LaTeX macros
 
@@ -67,10 +72,14 @@
 
 % comment this to suppress prologue
 \MakeThesisPrologue % includes table of contents
-% \tableofcontents
+\tableofcontents
 
-%\include{ch1}		% file with Chapter 1 contents
-%\include{ch2}		% file with Chapter 2 contents
+\include{chapters/chapter1_theory/theory}		% file with Chapter 1 contents
+\include{chapters/chapter2_experiment/experiment}		% file with Chapter 2 contents
+\include{chapters/chapter3_eventreco/eventreco}		
+\include{chapters/chapter4_photonID/photonID}
+\include{chapters/chapter5_yybb/yybb}
+\include{chapters/chapter6_conclusion/conclusion}
 %\include{refs}		% file with references
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
