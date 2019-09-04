@@ -12,7 +12,11 @@
 \usepackage{hepunits}
 \usepackage[hidelinks]{hyperref}
 \usepackage{glossaries}
+\usepackage[style=numeric-comp,sorting=none,block=ragged,firstinits=true]{biblatex}
+\renewbibmacro{in:}{}
+\bibliography{biblio}
 
+\usepackage{xcolor}
 
 \let\degree\relax
 \restoresymbol{DEFAULT}{degree} % make sure this is ok
@@ -80,7 +84,7 @@
 \include{chapters/chapter4_photonID/photonID}
 \include{chapters/chapter5_yybb/yybb}
 \include{chapters/chapter6_conclusion/conclusion}
-%\include{refs}		% file with references
+\include{refs}		% file with references
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices
