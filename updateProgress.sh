@@ -1,9 +1,10 @@
 #!/bin/sh
 export PATH=/usr/local/bin:$PATH
 echo "Updating dissertation progress"
-DOCUMENT='/Users/tburch/Documents/gitDevelopment/thesis/mythesis.pdf'
+DOCUMENT='/Users/tburch/Documents/gitDevelopment/thesis/thesisBurch.pdf'
+TEX_DOC='/Users/tburch/Documents/gitDevelopment/thesis/thesisBurch.tex'
 PROGRESSFILE='/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/progress.csv'
-WORDCOUNT=`ps2ascii ${DOCUMENT} | wc -w`
+WORDCOUNT=`texcount -sum -total -merge {$TEX_DOC} | grep "Sum count:" | tr -d "Sum count: "`
 # Use this line in OSX
 PAGECOUNT=`mdls -name kMDItemNumberOfPages -raw ${DOCUMENT}`
 # Use this line in Linux
