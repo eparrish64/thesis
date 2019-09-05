@@ -11,7 +11,7 @@
 \savesymbol{degree}
 \usepackage{hepunits}
 \usepackage[hidelinks]{hyperref}
-\usepackage{glossaries}
+\usepackage[acronym]{glossaries}
 \usepackage[style=numeric-comp,sorting=none,block=ragged,firstinits=true]{biblatex}
 \renewbibmacro{in:}{}
 \bibliography{biblio}
@@ -44,11 +44,13 @@
 %\def\files{ch1,ch2,refs,app1,app2}
 
 %%% use this to work with only one chapter
-% \def\files{ch2}
+%\def\files{chapters/chapter2_experiment/experiment}
 
 %\includeonly{\files}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\loadglsentries{glossary}
+\makeglossaries
 \begin{document}
 
 \title{A search for resonant and non-resonant di-Higgs production in the $\gamma \gamma \lowercase{b \bar{b}}$ channel using the  ATLAS Detector}
@@ -92,5 +94,7 @@
 \appendix
 %\include{app1}			% file with Appendix A contents
 %\include{app2}			% file with Appendix B contents
+
+
 
 \end{document}
