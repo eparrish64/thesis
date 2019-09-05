@@ -2,6 +2,7 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+savedir = "/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/"
 
 df = pd.read_csv('/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/progress.csv')
 df['timestamp_fixed'] = pd.to_datetime(df['timestamp'], format="%Y-%m-%d %H:%M:%S")
@@ -18,7 +19,7 @@ df.plot(y='wordcount', legend=None, color=wc_color)
 plt.xlabel('Date',fontsize=16)
 plt.ylabel('Word Count',fontsize=16)
 plt.tight_layout()
-plt.savefig('plots/wordcount.png')
+plt.savefig(savedir+'plots/wordcount.png')
 plt.close()
 
 # Plot 2
@@ -26,7 +27,7 @@ df.plot(y='pagecount',legend=None, color=pc_color)
 plt.xlabel('Date',fontsize=16)
 plt.ylabel('Page Count',fontsize=16)
 plt.tight_layout()
-plt.savefig('plots/pagecount.png')
+plt.savefig(savedir+'plots/pagecount.png')
 plt.close()
 
 # Combined Plot
@@ -53,4 +54,4 @@ ax.xaxis.set_major_formatter(date_fmt)
 ax.tick_params(labelsize=12)
 ax2.tick_params(labelsize=12)
 plt.tight_layout()
-plt.savefig("plots/combinedProgress.png")
+plt.savefig(savedir+"plots/combinedProgress.png")
