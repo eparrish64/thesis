@@ -2,6 +2,7 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import seaborn as sns
 savedir = "/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/"
 
 df = pd.read_csv('/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/progress.csv')
@@ -18,6 +19,7 @@ pc_color="royalblue"
 df.plot(y='wordcount', legend=None, color=wc_color)
 plt.xlabel('Date',fontsize=16)
 plt.ylabel('Word Count',fontsize=16)
+sns.despine()
 plt.tight_layout()
 plt.savefig(savedir+'plots/wordcount.png')
 plt.close()
@@ -26,6 +28,7 @@ plt.close()
 df.plot(y='pagecount',legend=None, color=pc_color)
 plt.xlabel('Date',fontsize=16)
 plt.ylabel('Page Count',fontsize=16)
+sns.despine()
 plt.tight_layout()
 plt.savefig(savedir+'plots/pagecount.png')
 plt.close()
