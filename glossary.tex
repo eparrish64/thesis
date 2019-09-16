@@ -7,13 +7,26 @@
 
 
 %% Detector
-\newacronym{HLT}{HLT}{High-Level Trigger}
+\newacronym{LHC}{LHC}{Large Hadron Collider}
+\newacronym{CMS}{CMS}{Compact Muon Solenoid}
+\newacronym{CERN}{CERN}{European Organization for Nuclear Research}
 
+%% LHC
+\newacronym{Linac}{Linac}{Linear Accelerator}
+\newacronym{PSB}{PSB}{Proton Synchrotron Booster}
+\newacronym{PS}{PS}{Proton Synchrotron}
+\newacronym{SPS}{SPS}{Super Proton Synchrotron}
+\newacronym{RF}{RF}{radiofrequency}
+
+
+
+%%% ID
 \newacronym{ID}{ID}{Inner Detector}
 \newacronym{SCT}{SCT}{SemiConductor Tracker}
 \newacronym{TRT}{TRT}{Transition Radiation Tracker}
 \newacronym{IBL}{IBL}{Insertable B-Layer}
 
+%%% Calo
 \newacronym{LAr}{LAr}{Liquid Argon}
 \newacronym{EMB}{EMB}{Electromagnetic Barrel}
 \newglossaryentry{EMEC}{
@@ -32,11 +45,58 @@
     plural={PMTs},
     firstplural={\glsentrydesc{PMT}s (\glsentryplural{PMT})}
 }
+\newglossaryentry{X_0}{
+    description={radiation lengths},
+    name={$X_0$}
+}
+\newglossaryentry{intLen}{
+    description={interaction lengths},
+    name={$\lambda$}
+}
 
-\newacronym{X_0}{$X_0$}{radiation lengths}
-\newacronym{intLen}{$\lambda$}{interaction lengths}
 
+%%% Muon 
+\newglossaryentry{RPC}{
+    name={RPC},
+    description={Resistive Plate Chamber},
+    first={\glsentrydesc{RPC} (\glsentrytext{RPC})},
+    plural={RPCs},
+    firstplural={\glsentrydesc{RPC}s (\glsentryplural{RPC})}
+}
+\newglossaryentry{TGC}{
+    name={TGC},
+    description={Thin Gap Chamber},
+    first={\glsentrydesc{TGC} (\glsentrytext{TGC})},
+    plural={TGCs},
+    firstplural={\glsentrydesc{TGC}s (\glsentryplural{TGC})}
+}
+\newglossaryentry{MDT}{
+    name={MDT},
+    description={Monitored Drift Tube Chamber},
+    first={\glsentrydesc{MDT} (\glsentrytext{MDT})},
+    plural={MDTs},
+    firstplural={\glsentrydesc{MDT}s (\glsentryplural{MDT})}
+}
+\newglossaryentry{CSC}{
+    name={CSC},
+    description={Cathode Strip Chamber},
+    first={\glsentrydesc{CSC} (\glsentrytext{CSC})},
+    plural={CSCs},
+    firstplural={\glsentrydesc{CSC}s (\glsentryplural{CSC})}
+}
 
+%% Trigger, DAQ
+\newacronym{HLT}{HLT}{High-Level Trigger}
+\newacronym{L1}{L1}{Level 1}
+\newacronym{L2}{L2}{Level 2}
+\newacronym{EF}{EF}{Event Filter}
+\newglossaryentry{ROI}{
+    name={ROI},
+    description={Region of Interest},
+    first={\glsentrydesc{ROI} (\glsentrytext{ROI})},
+    plural={ROIs},
+    firstplural={\glsentrydesc{ROI}s (\glsentryplural{ROI})}
+}
 
 % nomenclature:
 %\newglossaryentry{Xperarea}{

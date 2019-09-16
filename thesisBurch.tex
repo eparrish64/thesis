@@ -11,10 +11,11 @@
 \savesymbol{degree}
 \usepackage{hepunits}
 \usepackage[hidelinks]{hyperref}
-\usepackage[acronym]{glossaries}
+\usepackage[acronym]{glossaries-extra}
 \usepackage[style=numeric-comp,sorting=none,block=ragged,firstinits=true]{biblatex}
 \renewbibmacro{in:}{}
 \bibliography{biblio}
+
 
 \usepackage{xcolor}
 \usepackage{microtype}
@@ -89,6 +90,7 @@
 \include{chapters/chapter6_conclusion/conclusion}
 \include{refs}		% file with references
 
+\printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices
 

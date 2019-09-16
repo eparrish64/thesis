@@ -1,5 +1,21 @@
 \chapter{The LHC and ATLAS Experiment}
 \section{The Large Hadron Collider}
+The \gls{LHC} \cite{lhc} is a hadron accelerator and collider 27 km in circumference located on the French-Swiss border. It collides beams of protons\footnote{The lhc also collides ions to study lead-lead (PbPb) interactions} at high rate and center-of-mass energy in order to . In ``Run 2,'' the center-of-mass energy was 13 TeV (6.5 TeV per beam), and bunches of about $10^11$ protons collided every 25 ns.
+
+The protons are created by ionizing hydrogen atoms using an electric field, then pass through several accelerators, which take advantage of \gls{RF} cavities to get to their final energy. First, the \gls{Linac} accelerates the bunches to 50 MeV, which then passes bunches to the \gls{PSB}. The remainder of the acceleration chain are all cricular accelerators, starting with the \gls{PSB}, which raises the energy to 1.4 GeV then passes to the \gls{PS}. The \gls{PS}, accelerates bunches to 26 GeV, then the \gls{SPS} accelerates them to 450 GeV before finally delivering to the \gls{LHC}, where they're accelerated to their ultimate energy of 6.5 TeV.
+
+
+Along the \gls{LHC}, collisions occur at four interaction points, where detectors are situated. LHCb (Large Hadron Collider beauty) is a forward physics experiment studying b physics \cite{lhcb}. ALICE (A Large Ion Collider Experiment) is a heavy-ion detector studying nuclear physics \cite{alice}. The ATLAS \cite{atlas-experiment} and \gls{CMS} \cite{cms} experiments are general-purpose detectors, serving to study a variety of physics. A schematic of the location of these interaction points can be found in figure \ref{fig:lhc}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\textwidth]{chapters/chapter2_experiment/images/lhc_interaction_points.png}
+    \caption{A schematic of the LHC with the various interaction points indicated \cite{lhc}.}
+    \label{fig:lhc}
+\end{figure}
+
+
+
 \section{The ATLAS Detector}
 \subsection{Magnet System}
 In order to measure the charge and momentum of particles in the detector, a magnetic field is induced. Through the curvature of a charged particle track, the charge to mass ratio can be derived. The sign of the charge is determined from the direction of the track.
@@ -85,6 +101,27 @@ A \gls{HEC} also works to detect hadronic decays, covering pseudorapidity range 
 
 
 \subsection{Muon Spectrometer}
-\section{Trigger}
+
+Timing information, useful for triggering, in the Muon Spectrometer is collected in the \glspl{RPC} and \glspl{TGC}. These both feature timing resolution better than 4.5 ns. The \glspl{RPC} cover the barrel ($|\eta| < 1.05$) region while the \glspl{TGC} covers the endcap ($1.0<|\eta|<2.4$).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.9\textwidth]{chapters/chapter2_experiment/images/muon_detector.png}
+    \caption{A schematic of a quarter of the Muon Spectrometer. The described systems, the \gls{RPC}, \gls{TGC}, \gls{MDT}, and \gls{CSC} are labeled. \cite{muon-performance2015}.}
+    \label{fig:muon-schematic}
+\end{figure}
 
 
+Momentum information is provided through Al tubes 30 mm in diameter and filled with a 0.05 mm gold-plated tungsten wire in the center, called a \gls{MDT}. Three layers of \glspl{MDT} cover the central region of the Muon Spectrometer, at $|\eta| < 2.7$. In the forward region, $2.0<|\eta|<2.7$, the first \glspl{MDT} layer is replaced by multi-wire proportional chambers with precision cathode strips, known as \glspl{CSC}.
+
+A schematic of the Muon Spectrometer is found in Figure \ref{fig:muon-schematic}.
+
+\subsection{Trigger and Data-Acquisition}
+
+Dataflow and storage are a major challenge for ATLAS. Bunches of protons interact every 25 ns, a rate of 40 MHz. On average, raw event contains about 1.6 MB \cite{ATLASfact-sheet}, recording all of those interactions would not be possible, so to isolate events which contain interesting physics, ATLAS utilizes a two-stage trigger system.
+
+First, the \gls{L1} trigger recieves events at 40 MHz and makes quick decisions based on coarse information. This trigger system is hardware based, constructed out of custom electronics, and targets specific features in the calorimeter or muon system. From hits in each detector, candidate physics objects (electrons, photons, muons, jets, and \gls{MET}) are formed, and then events are accepted or rejected based on features of these candidates in order to get to an average event rate of between 75 and 100 kHz, a reduction factor of about 400.
+
+The second stage of the trigger is software-based, known the \gls{HLT}. The \gls{HLT} itself is composed of two steps, the \gls{L2} trigger system and the \gls{EF}. \gls{L1} accepted events are passed to a computing farm, then split into \glspl{ROI}, which are cones in $\eta \times \phi$. The design rate of the \gls{L2} trigger
+
+Events that pass the \gls{L2} trigger are passed to the \gls{EF}, which reconstructs physics objects as close to offline reconstruction as possible, and then selects events using those objects. After the \gls{EF}, the final output is between 500 and 1000 Hz.
