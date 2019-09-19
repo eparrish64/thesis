@@ -147,7 +147,7 @@ Timing information, useful for triggering, in the Muon Spectrometer is collected
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=.9\textwidth]{chapters/chapter2_experiment/images/muon_detector.png}
-    \caption{A schematic of a quarter of the Muon Spectrometer. The described systems, the \gls{RPC}, \gls{TGC}, \gls{MDT}, and \gls{CSC} are labeled. \cite{muon-performance2015}.}
+    \caption{A schematic of a quarter of the Muon Spectrometer. The described systems, the \gls{RPC}, \gls{TGC}, \gls{MDT}, and \gls{CSC} are labeled \cite{muon-performance2015}.}
     \label{fig:muon-schematic}
 \end{figure}
 
@@ -158,13 +158,20 @@ A schematic of the Muon Spectrometer is found in Figure \ref{fig:muon-schematic}
 
 \subsection{Trigger and Data-Acquisition} \label{ssec:tdaq}
 
-Dataflow and storage are a major challenge for ATLAS. Bunches of protons interact every 25 ns, a rate of 40 MHz. On average, raw event contains about 1.6 MB \cite{ATLASfact-sheet}, recording all of those interactions would not be possible, so to isolate events which contain interesting physics, ATLAS utilizes a two-stage trigger system.
+Dataflow and storage are a major challenge for ATLAS. Bunches of protons interact every 25 ns, a rate of 40 MHz. On average, raw event contains about 1.6 MB \cite{ATLASfact-sheet}, recording all of those interactions would not be possible, so to isolate events which contain interesting physics, ATLAS utilizes a two-stage trigger system \cite{trigger2010}.
 
-First, the \gls{L1} trigger recieves events at 40 MHz and makes quick decisions based on coarse information. This trigger system is hardware based, constructed out of custom electronics, and targets specific features in the calorimeter or muon system. From hits in each detector, candidate physics objects (electrons, photons, muons, jets, and \gls{MET}) are formed, and then events are accepted or rejected based on features of these candidates in order to get to an average event rate of between 75 and 100 kHz, a reduction factor of about 400.
+First, the \gls{L1} trigger receives events at 40 MHz and makes quick decisions based on coarse information. This trigger system is hardware based, constructed out of custom electronics, and targets specific features in the calorimeter or muon system. From hits in each detector, candidate physics objects (electrons, photons, muons, jets, and \gls{MET}) are formed, and then events are accepted or rejected based on features of these candidates in order to get to an average event rate of between 75 and 100 kHz, a reduction factor of about 400. Additionally in this process, \glspl{ROI}, cones in $\eta \times \phi$ containing interesting physics, are identified, and passed down the trigger chain.
 
-%TODO: Finish this
-The second stage of the trigger is software-based, known the \gls{HLT}. The \gls{HLT} itself is composed of two steps, the \gls{L2} trigger system and the \gls{EF}. \gls{L1} accepted events are passed to a computing farm, then split into \glspl{ROI}, which are cones in $\eta \times \phi$. The design rate of the \gls{L2} trigger 
+The second stage of the trigger is software-based, known the \gls{HLT}. The \gls{HLT} itself is composed of two steps, the \gls{L2} trigger system and the \gls{EF}. \gls{L1} accepted events are passed to \glspl{ROB}, which are \glspl{ROB} are grouped into \glspl{ROS} and hold fragments until the \gls{L2} decision is made. The \gls{L2} makes decisions based on fast algorithms by reconstructing partial events within the \gls{ROI} identified by the \gls{L1} trigger. By using the \gls{ROI}, the \gls{L1} only requires 2\%-6\% of the total event data. At \gls{L2}, the event rate is reduced to around $\unit{3}{\kHz}$.
 
-Events that pass the \gls{L2} trigger are passed to the \gls{EF}, which reconstructs physics objects as close to offline reconstruction as possible, and then selects events using those objects. After the \gls{EF}, the final output is between 500 and 1000 Hz.
+Events that pass the \gls{L2} trigger are passed to the \gls{EF}, which reconstructs physics objects in the full event with offline-like algorithms, allowing for triggering on sophisticated signatures (e.g. \gls{MET}) and then selects events using those objects. After the \gls{EF}, the final output is between 500 and 1000 Hz. Events selected by the \gls{EF} are saved to the offline system based on their trigger decision, known as data streams. A schematic of the pipeline for trigger decisions can be seen in Figure \ref{fig:trigger-schematic}.
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.45\textwidth]{chapters/chapter2_experiment/images/trigger.png}
+    \caption{A flowchart indicating how trigger decisions are executed with rates labeled \cite{trigger2010}.}
+    \label{fig:trigger-schematic}
+\end{figure}
 
 % TODO: FTK?
