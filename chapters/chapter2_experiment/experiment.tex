@@ -75,9 +75,16 @@ The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between ``Run 1
 \noindent\textbf{SemiConductor Tracker}\\
 \indent The \gls{SCT} provides measurements at intermediate range from the \gls{IP}, vital for momentum, impact parameter, and vertex position measurements. It is composed of a barrel region and two end-caps, covering the distance $R=\unit{300}{\mm}$ to $R= \unit{520}{\mm}$ from the \gls{IP}. \gls{SCT} modules are made up of four strip sensors, two on each side, oriented at an angle of $\unit{40}{mrad}$ from each other. The sensors are single-sided p-in-n microstrip detectors on silicon wafers. The barrel is constructed of 2112 modules in four layers that are equally spaced, and each end-cap is constructed of 988 modules over nine disks. Collectively, the \gls{SCT} has about 6 million silicon strips.
 
-% TODO: fill this out more
 \noindent\textbf{Transition Radiation Tracker}\\
-\indent The \gls{TRT} is the outermost subdetctor of the \gls{ID}, spanning from a distance $R=\unit{554}{\mm}$ to $R= \unit{1082}{\mm}$ from the \gls{IP}, and pseudorapidity range $|\eta| < 2.0$. The \gls{TRT} contributes to the momentum measurement, aids in pattern recognition for tracking, and provides discrimination between electrons and hadrons. It is a proportional drift tube, composed of 372,032 straws, each with a 4 \text{\mm} inner diameter. The straws are filled with a gaseous mixture composed of 70\% $Xe$, 26\% $CO_2$, and 3\% $O_2$.
+\indent The \gls{TRT} is the outermost subdetector of the \gls{ID}, spanning from a distance $R=\unit{554}{\mm}$ to $R= \unit{1082}{\mm}$ from the \gls{IP}, and pseudorapidity range $|\eta| < 2.0$. The \gls{TRT} contributes to the momentum measurement, aids in pattern recognition for tracking, and provides discrimination between electrons and hadrons. 
+
+It is a proportional drift tube composed of 372,032 straws, each with a $\unit{4}{\mm}$ inner diameter. In the barrel, the straws have a length of $\unit{144}{\cm}$ and are arranged parallel to the beam axis. In the end-cap, straws are $\unit{37}{\cm}$ long, and arranged into 18 wheels, radially from the beam axis.
+
+The straws are filled with a gaseous mixture composed of 70\% $Xe$, 26\% $CO_2$, and 3\% $O_2$. The radiator between photons is made of polypropylene, which, having a different dielectric constant than the gaseous mixture, can produce transition radiation photons. These photons can ionize the xenon gas, which creates the signal pulse.
+
+
+For momentum measurement, the \gls{TRT} provides measurements equivalent to a single point with percision of $\unit{50}{\micron}$. For tracking, it provides around 36 hits per track. For electron-hadron discrimination, it has a pion rejection factor of between 15 and 200 (depending on $\eta$), at an electron efficiency of 90\%.
+
     
 
 \subsection{Calorimeters} \label{ssec:calorimeters}
