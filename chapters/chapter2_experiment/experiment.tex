@@ -52,25 +52,18 @@ The magnet system in ATLAS is a hybrid system comprised of four superconducting 
 
 
 \subsection{Inner Detector}  \label{ssec:innerdetector}
-\begin{figure}[!thp]
-    \begin{minipage}[c]{.53\textwidth}
-        \includegraphics[width=\textwidth]{chapters/chapter2_experiment/images/id_slice.png}
-    \end{minipage}
-    \begin{minipage}[c]{.45\textwidth}
-        \includegraphics[width=\textwidth]{chapters/chapter2_experiment/images/id_layer.jpg} 
-    \end{minipage}
-    \caption[Schematics of the \gls{ID}]{Schematics of the \gls{ID}. A scale cutaway view of the \gls{ID} with the Pixel and \gls{SCT} (left) \cite{pixel-electronics}, and a layer-by-layer view of the \gls{ID} subdetectors\footnotemark (right) \cite{id-perf2015}.}
-\end{figure}
-\footnotetext{The \gls{IBL} is not shown, but is positioned at $R=33.25$ mm.}
+
 
 % TODO: Rewrite this
 The \gls{ID} serves to identify the precise interaction point and trajectory of charged particles. The \gls{ID} is segmented into barrel and end-cap sections along the beam axis. The barrel extends 1.6 m, covering $|\eta| < 1$, and the end-cap sections cover the remainder of the 7 m length. With this setup, the \gls{ID} provides precision tracking up to $|\eta| = 2.5$ \cite{inner-detector-tdr}. It is composed of three subsystems, the Pixel Detector, the \gls{SCT}, and the \gls{TRT}.
 
-% TODO: Edit pixel
 \noindent\textbf{Pixel Detector}\\
-\indent The Pixel Detector is nearest the \gls{IP}, and provides high-granularity, high-precision measurements over the full acceptance. It is comprised of four layers. The three outside pixel layers are comprised of a barrel-layer on the . Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $50 \micron \times 400 \micron$, and a depth of 250 \micron. In total there are 1744 pixel sensors with 80 million readout channels.
+\indent Nearest the \gls{IP} is the Pixel Detector which provides high-granularity, high-precision measurements over the full acceptance. It is responsible for resolving precise tracks to the \gls{IP} or to secondary vertices, as well as determining impact parameter resolution. 
+
+Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $ \unit{50}{\micron} \times \unit{400}{\micron}$, and a depth of $\unit{250}{\micron}$. Each Pixel module contains one sensor and 16 readout channel. In total there are 1744 pixel sensors with 80 million readout channels.
     
 The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between ``Run 1'' and ``Run 2,'' from 2013 to 2015. takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. This improved distance helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
+% Mention radiation challenges?
 
 \noindent\textbf{SemiConductor Tracker}\\
 \indent The \gls{SCT} provides measurements at intermediate range from the \gls{IP}, vital for momentum, impact parameter, and vertex position measurements. It is composed of a barrel region and two end-caps, covering the distance $R=\unit{300}{\mm}$ to $R= \unit{520}{\mm}$ from the \gls{IP}. \gls{SCT} modules are made up of four strip sensors, two on each side, oriented at an angle of $\unit{40}{mrad}$ from each other. The sensors are single-sided p-in-n microstrip detectors on silicon wafers. The barrel is constructed of 2112 modules in four layers that are equally spaced, and each end-cap is constructed of 988 modules over nine disks. Collectively, the \gls{SCT} has about 6 million silicon strips.
@@ -85,6 +78,17 @@ The straws are filled with a gaseous mixture composed of 70\% $Xe$, 26\% $CO_2$,
 
 For momentum measurement, the \gls{TRT} provides measurements equivalent to a single point with percision of $\unit{50}{\micron}$. For tracking, it provides around 36 hits per track. For electron-hadron discrimination, it has a pion rejection factor of between 15 and 200 (depending on $\eta$), at an electron efficiency of 90\%.
 
+
+\begin{figure}[!thp]
+    \begin{minipage}[c]{.53\textwidth}
+        \includegraphics[width=\textwidth]{chapters/chapter2_experiment/images/id_slice.png}
+    \end{minipage}
+    \begin{minipage}[c]{.45\textwidth}
+        \includegraphics[width=\textwidth]{chapters/chapter2_experiment/images/id_layer.jpg} 
+    \end{minipage}
+    \caption[Schematics of the \gls{ID}]{Schematics of the \gls{ID}. A scale cutaway view of the \gls{ID} with the Pixel and \gls{SCT} (left) \cite{pixel-electronics}, and a layer-by-layer view of the \gls{ID} subdetectors\footnotemark (right) \cite{id-perf2015}.}
+\end{figure}
+\footnotetext{The \gls{IBL} is not shown, but is positioned at $R=33.25$ mm.}
     
 
 \subsection{Calorimeters} \label{ssec:calorimeters}
