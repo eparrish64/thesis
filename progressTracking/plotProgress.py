@@ -46,6 +46,8 @@ df.plot(y='wordcount', legend=None, ax=ax2, color=wc_color)
 ax.set_ylabel("Page Count", fontsize=16, color=pc_color)
 ax2.set_ylabel("Word Count", fontsize=16,color=wc_color)
 ax.set_xlabel('Date',fontsize=16)
+ax.set_ylim(ymin=0)
+ax2.set_ylim(ymin=0)
 
 plt.annotate(str(current_pagecount)+" Pages", xy=(.05,.88), xycoords="axes fraction",color=pc_color, fontsize=14)
 plt.annotate(str(current_wordcount)+" Words", xy=(.05,.8), xycoords="axes fraction",color=wc_color, fontsize=14)
