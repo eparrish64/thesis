@@ -15,6 +15,15 @@ current_wordcount = df["wordcount"].iloc[-1]
 wc_color="orangered"
 pc_color="royalblue"
 
+def add_watermark(text='Tyler James Burch'):
+    """
+    adds watermark to lower left corner of matplotlib plot
+
+    """
+    plt.annotate(s=text, xy=(.01,.007), xycoords='figure fraction',
+                 textcoords='figure fraction', color='grey',alpha=0.7, fontsize=14)
+
+
 # Plot 1
 df.plot(y='wordcount', legend=None, color=wc_color)
 plt.xlabel('Date',fontsize=16)
@@ -68,4 +77,11 @@ for title,dt in dates.items():
 ax.tick_params(labelsize=12)
 ax2.tick_params(labelsize=12)
 plt.tight_layout()
+add_watermark()
 plt.savefig(savedir+"plots/combinedProgress.png")
+
+# Twitter-friendly
+fig = plt.gcf()
+fig.set_size_inches(2*fig.get_figheight(),fig.get_figheight(),forward=True)
+add_watermark()
+plt.savefig(savedir+"plots/combinedProgress_twitter.png")
