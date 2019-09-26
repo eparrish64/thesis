@@ -13,13 +13,44 @@
 
         % TODO: leptons
 
+        Generally, the wave function of a fermion is given by $\psi(x)$, and is a spinor of four components. The motion is described by the relativistic version of the Schr{\"o}dinger equation known as the Dirac equation, given as
+
+        \begin{equation}
+            (i\gamma'^{\mu}\partial_{\mu}-m)\Psi' = 0
+        \end{equation}
+
+
         \subsection{Bosons}
 
 
 %%%%%% Forces %%%%%%%%        
 \subsection{Forces}
-\subsubsection{Strong Nuclear Force}
+In nature, there are four fundamental forces describing interactions: the strong nuclear force, the weak nuclear force, the electromagnetic force, and the gravitational force. The \gls{SM} models the former three of these forces\footnote{The gravitational force is not modeled by the \gls{SM}. It has relative strength of $10^{-37}$ at $\unit{1}{fm}$. In theories of quantum gravity, it is mediated by the ``graviton'' ($G$), a massless spin-2 particle.}, describing each via a \gls{QFT} corresponding to the exchange of a gauge boson. A broad summary of the forces and their associated \glspl{QFT} can be found in \ref{tab:forces}.
+
+\begin{table}[!ht]
+    \begin{tabular}{l|l|l|l}
+    Force & Field Theory & Boson & Relative Strength      \\ \hline
+    Strong Nuclear   & Quantum Chromodynamics  & Gluon ($g$) & $1$ \\
+    Electromagnetism & Quantum Electrodynamics & Photon ($\gamma$) & $10^{-3}$ \\
+    Weak Nuclear     & Quantum Flavordynamics  & $W^{\pm}$, $Z$ & $10^{-8}$
+    \end{tabular}
+    \caption{List of forces described by the \gls{SM}, as well as their associated field theory and gauge boson mediator. Relative strength is an order of magnitude estimate at a distance of $\unit{1}{fm}$.}
+    \label{tab:forces}
+\end{table}
+
 \subsubsection{Electromagnetic Force}
+The electromagnetic interaction corresponds to a \gls{QFT} known as \gls{QED}. In \gls{QED}, the fermonic spinor field, $\Psi$, carries electric charge proportional to the charge of the electron $Qe$. For electrons and positrons, Q takes the value -1, and for quarks it takes either +2/3 ($u$,$c$,$t$) or -1/3($d$,$s$,$b$). The interaction Lagrangian density for a fermion with this charge and electromagnetic field is
+
+\begin{equation}
+    \mathcal{L}_{int} = -eQ\bar{\Psi}\gamma^{\mu}\Psi A_{\mu}
+\end{equation}
+
+For electromagnetic field $A^{\mu}$.
+
+\subsubsection{Strong Nuclear Force}
+
+The strong nuclear force is the strongest force, but acts only at a short range. The mediator of the strong interaction is a massless spin-1 gauge boson called the gluon.
+
 \subsubsection{Weak Nuclear Force}
 
 
