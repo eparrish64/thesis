@@ -1,0 +1,27 @@
+
+\chapter{Multivariate Analysis and Machine Learning}
+
+\gls{ML} can be separated into two broad categories: supervised and unsupervised learning. Supervised learning utilizes data with a defined output label for training. Unsupervised learning works from unlabeled data in order to infer information about the dataset. The \gls{ML} methods used in this thesis all fall under the former label. Through the simulation methods (outlined in Section \ref{sec:simulation}), the physics process present in any given \gls{MC} sample are known, and this truth information is leveraged as the ``label'' of the data, making the problem suitable for a supervised classification task.
+
+When developing \gls{ML} algorithms, tuning is generally done by manipulating the ``hyperparameters'' of the algorithm. These are properties that define the parameters of the algorithm itself - its topology, how it learns, etc. Hyperparameters are fixed before the learning process begins.
+
+% TODO: Talk about loss functions
+
+In the work presented in this thesis, two primary machine learning algorithms are used: Boosted Decision Trees and Neural Networks. The following sections will outline those methods.
+
+\section{Rectangular Cuts}
+
+Although not strictly \gls{ML}, one classical method for signal selection is known as rectangular cuts. In this, a feature of the data set is cut at a single point, and values either above or below that are taken as the signal. Performing this procedure along many different input variables yields a signal region that mathematically appears like a N-dimensional hypercube, where N is the number of variables cut upon.
+
+\section{Boosted Decision Tree}
+
+The fundamental idea of a decision tree is a familiar one. Input data is split based on discriminating features, each level of the tree creating a new split (called node) motivated by best separating data from the target class from background data. This procedure is repeated until a stopping condition is met, typically either minimum number of samples in a node or a maximum tree depth is achieved (both hyperparameters). Once final splits have been made, the predominant sample type present in a node is assigned to all of the data in that node.
+
+Single decision trees do not typically do a good job at classification tasks, so the principle of ``boosting'' is used in order to improve the classification accuracy. Boosting is a type of ensemble method, which are a class of methods that combine the output of many weak learners (classifier with small correlation to truth) to form one strong learner (classifier well-correlated to truth). In boosting, single decision trees are trained, then misclassifications within that tree are identified and up-weighted in the next iteration. All of the trees are ultimately combined to create the final strong learner, called a \glsfirst{BDT}. 
+
+Via this construction, cutting on a \gls{BDT} score gives a more flexible solution space than that of a rectangular cuts method.
+
+There are various different boosting methods, notably ``Adaboost'' \cite{adaboost} and ``Gradient Boosting'' \cite{gradBoost}, which generally differ by the definition of their loss function.
+
+\section{Neural Networks}
+

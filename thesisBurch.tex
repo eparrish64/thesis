@@ -5,18 +5,21 @@
 \usepackage{lineno}
 \usepackage{latexsym}		% to get LASY symbols
 \usepackage{graphicx}		% to insert PostScript figures
+\usepackage{cancel}
 \usepackage{rotating}           % defines sidways table and figure env.
 % default env and hepunits has issues with degree - workaround 
 \usepackage{savesym}
 \savesymbol{degree}
 \usepackage{hepunits}
+\usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \usepackage[acronym]{glossaries}
 \usepackage[style=numeric-comp,sorting=none,block=ragged,firstinits=true]{biblatex}
 \renewbibmacro{in:}{}
 \bibliography{biblio}
 
-
+\usepackage{appendix} % Get appendix on own page
 \usepackage{xcolor}
 \usepackage{microtype}
 
@@ -88,15 +91,16 @@
 \include{chapters/chapter4_photonID/photonID}
 \include{chapters/chapter5_yybb/yybb}
 \include{chapters/chapter6_conclusion/conclusion}
-\include{refs}		% file with references
 
-\printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices
 
 \appendix
-%\include{app1}			% file with Appendix A contents
+\include{appendices/app1_mva}			% file with Appendix A contents
 %\include{app2}			% file with Appendix B contents
+
+\printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
+\include{refs}		% file with references
 
 
 \end{document}
