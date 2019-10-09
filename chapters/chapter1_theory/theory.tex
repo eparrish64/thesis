@@ -108,16 +108,22 @@
 
         In order to achieve invariance under said transformation, we substitute the derivative in the Dirac equation by the covariant derivative 
         \begin{equation}
-            D_{\mu} = \partial_{\mu} + ig {\boldsymbol \lambda\cdot G_{mu}}
+            D_{\mu} = \partial_{\mu} + ig {\boldsymbol \lambda\cdot G_{\mu}}.
         \end{equation}
         %
         In this, ${G_{mu}}$ are eight fields, corresponding to eight gluons with various color charge, the mediator of the strong force.
 
         This makes the \gls{QCD} Lagrangian
         \begin{equation}
-            \mathcal{L}_{QCD} = \bar{\psi}^j (i \gamma^{\mu} D_{\mu}^{jk} - m^{jk})\psi^{k} - \frac{1}{4} F_{\mu \nu}^{a} F^{\mu \nu}_{a}
+            \mathcal{L}_{QCD} = \bar{\psi}^j (i \gamma^{\mu} D_{\mu}^{jk} - m^{jk})\psi^{k} - \frac{1}{4} F_{\mu \nu}^{a} F^{\mu \nu}_{a},
         \end{equation}
         %
+        for mass $m$, indices j and k taking values 1 to 3, and gluon field tensor $F_{\mu \nu}$, given as
+        \begin{equation}
+            F^{\mu \nu}_{a} = \partial_{\mu} G_{\nu}^a - \partial_{\nu}G_{\mu}^a - g f^{abc} \lambda^a G_{\mu}^b G_{\nu}^c.
+        \end{equation}
+        %        
+        Here $f_{abc}$ are the structure constants associated with the $SU(3)$ group, and indices $a,b,c$ represent the gluons, running from values 1 to 8. Of special note, this tensor contains triplet and quartic gluon self-coupling, a product of the gluon color charge.
 
 
         \subsubsection{Weak Nuclear Force}
@@ -185,13 +191,14 @@ This value is known as the \glsfirst{vev}. When $\mu^2 < 0$, this value is non-z
 The analysis presented in this thesis searches for di-Higgs production - processes that pair produce Higgs bosons.   This process is rare, the total cross-section being {\color{red} 30} fb at 13 TeV center-of-mass energy.
 
 \subsection{Production in the Standard Model}
-In the standard model, several production modes pair produce Higgs bosons. Gluon-gluon Fusion (ggF) is the most dominant with a cross-section of {\color{red} 33} fb, accounting for {\color{red} 89\%} of di-Higgs production. The next most dominant is Vector Boson Fusion. The remaining production modes, VHH, ttHH, and bbHH collectively comprise less than 5\% of di-Higgs production, and have a cross-section too small to make a meaningful contribution to the proposed analysis.
+In the standard model, several production modes pair produce Higgs bosons. \gls{ggF} is the most dominant with a cross-section of {\color{red} 33} fb, accounting for {\color{red} 89\%} of di-Higgs production. The next most dominant is Vector Boson Fusion. The remaining production modes, VHH, ttHH, and bbHH collectively comprise less than 5\% of di-Higgs production, and have a cross-section too small to make a meaningful contribution to the proposed analysis.
 
 \subsubsection{Gluon-Gluon Fusion}
 
+The predominant di-Higgs production mode is \gls{ggF}, in which the production is mediated by a quark loop. In the \gls{SM}, this proceeds through two diagrams at tree level, where the quark loop either forms a box or a triangle. The former directly pair produces two Higgs bosons while the latter pair produces via a virtual Higgs boson, making it sensitive to the Higgs self-coupling, $\lambda_{HHH}$.
 
 \subsubsection{Vector Boson Fusion}
-The second-most dominant HH production mode is \gls{VBF}, in which two quarks scatter via the exchange of a vector boson, $W$ or $Z$ (generally denoted $V$), and from that boson, a di-Higgs system is produced. This proceeds via three Feynman diagrams at tree level, shown in Figure \ref{fig:vbf_feyn}.
+The second-most dominant HH production mode is \gls{VBF} ($qq \rightarrow HHqq$), in which two quarks scatter via the exchange of a virtual vector boson, $W$ or $Z$ (generally denoted $V$), and from that boson, a di-Higgs system is produced. This proceeds via three Feynman diagrams at tree level, shown in Figure \ref{fig:vbf_feyn}.
 
 \begin{figure}[!thp]
     \begin{minipage}[c]{.31\textwidth}
@@ -208,18 +215,34 @@ The second-most dominant HH production mode is \gls{VBF}, in which two quarks sc
     \label{fig:vbf_feyn}
 \end{figure}
 
+% TODO: Maybe this goes in analysis?
+Despite the low cross-section of \gls{VBF} production, the unique kinematics make the channel appealing for searches. The diphoton \gls{VBF} channel was one included in the 2012 Higgs discovery. Notably, the \gls{VBF} quarks yield a high $m_{jj}$ system and are largely separated in $\eta$. The kinematics of \gls{VBF} di-Higgs production are similar to that of mono-Higgs. The major difference is that mono-Higgs searches take advantage of the low central jet activity by applying a veto. In $HH \rightarrow \gamma \gamma b\bar{b}$, however, the $H \rightarrow b\bar{b}$ system causes central jet activity, making such a veto impossible.
 
 
 \subsection{Production Beyond the Standard Model}
+
+Due to the small cross-section of $HH$ production, the LHC does not have sensitivity to \gls{SM} production. An enhancement to the cross-section, however, may be noticeable with the current data set and would indicate the presence of physics beyond the standard model. There are a variety of scenarios in which this could occur, both through a resonance and through non-resonant enhancements.
+
+\subsubsection{Non-Resonant BSM Production}
+
+Non-resonant enhancements to the $HH$ cross-section could occur through two major routes: deviations in couplings from \gls{SM} value, or the presence of couplings not predicted by the \gls{SM}.
+
+
+
+\noindent\textbf{VBF}\\
+
+
 \subsubsection{Resonant BSM Production}
+
+Several \gls{BSM} theories predict particles that would decay to a pair of Higgs bosons, which would result in a resonant enhancement to the $HH$ cross-section. Notably, two Higgs doublet models extend the Higgs sector with the presence of a heavy scalar doublet \cite{THDM}. Among these models are the minimal supersymmetric extension of the \gls{SM} \cite{mssm}, twin Higgs models, and composite Higgs models \cite{compositeHiggs}.
+
+\noindent\textbf{\gls{ggF}}\\
+\indent
 
 \noindent\textbf{VBF}\\
 \indent Similarly to the searches for resonant ggF Higgs boson pair production, VBF HH
 production involving an intermediate resonance may be considered. This kind of search would be complementary to the ggF searches, as in this case the vector bosons are the ones coupling to the new resonance, which then decays to a pair of Higgs bosons. However, this production mode is not
 particularly well studied (Reference \cite{res_vbf} presents an analysis in the context of a model with warped extra dimensions), since its very small cross section poses a question on the ability of the LHC to impose significant constraints through this type of search.
 
-\subsubsection{Non-Resonant BSM Production}
-
-\noindent\textbf{VBF}\\
 
 
