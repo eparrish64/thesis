@@ -1,11 +1,28 @@
-\chapter{Event Reconstruction}
+\chapter{Event Simulation and Reconstruction}
 
-\section{Trigger}
-\section{Egamma}
+\section{Simulation} \label{sec:simulation}
+
+In order to interpret and understand a physical process, it must be compared to theoretical prediction. In the context of particle colliders, this means an understanding of the underlying process as well as predictions of detector effects. To do this, a simulation framework has been developed. The framework is a serial process starting with event generation, those events then undergo parton showering, hadronization, detector simulation, and reconstruction.
+
+At each step, a \gls{MC} integration is performed. A \gls{MC} simulation attempts to model a complex process by taking a function's underlying probability distribution and sampling it randomly {\color{red}}. Furthermore, when a process can be factorized, meaning it evolves serially, with each step dependent on only the prior, a method called \gls{MCMC}.
+
+\noindent\textbf{Event Generation}\\
+\indent The first step of the ATLAS simulation is known as event generation. Here an ``event generator'' is used. Event generators calculate the matrix element for a given process 
+
+\noindent\textbf{Parton Showering}\\
+\indent Parton showering 
+
+There are two parton shower generators generally used int the ATLAS simulation software, \textsc{PYTHIA} and \textsc{HERWIG}. \textsc{PYTHIA} orders its showers by $p_{T}$. \textsc{HERWIG} utilizes angular ordering, to account for coherence effects. 
+
+\noindent\textbf{Hadronization}\\
+\indent 
+
+\noindent\textbf{Detector Simulation}\\
+\indent After hadronization, the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \textsc{GEANT4} \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
+
+\section{Object Reconstruction} \label{sec:reconstruction}
 \subsection{Electrons}
 \subsection{Photons} % Make a full section?
-\section{Jets}
-\subsection{Jet Tagging}
-\section{Muons}
-\section{Missing Transverse Energy}
-
+\subsection{Jets}
+\subsubsection{Jet Flavor Tagging}
+\subsection{Muons}
