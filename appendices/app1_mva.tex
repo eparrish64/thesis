@@ -1,6 +1,10 @@
 
 \chapter{Multivariate Analysis and Machine Learning}
 
+In the broad class of problems known as classification, distinct features of events can be taken advantage of to label the event as a product of a signal process or background process. Over the last several decades, methods to approach this problem have grown increasingly sophisticated, using a multi-dimensional observable space rather than univariate techniques. These algorithms broadly are known as \glsfirst{MVA} algorithms.
+
+%TODO: fill in the difference between ML and MVA
+
 \gls{ML} can be separated into two broad categories: supervised and unsupervised learning. Supervised learning utilizes data with a defined output label for training. Unsupervised learning works from unlabeled data in order to infer information about the dataset. The \gls{ML} methods used in this thesis all fall under the former label. Through the simulation methods (outlined in Section \ref{sec:simulation}), the physics process present in any given \gls{MC} sample are known, and this truth information is leveraged as the ``label'' of the data, making the problem suitable for a supervised classification task.
 
 When developing \gls{ML} algorithms, tuning is generally done by manipulating the ``hyperparameters'' of the algorithm. These are properties that define the parameters of the algorithm itself - its topology, how it learns, etc. Hyperparameters are fixed before the learning process begins.
@@ -23,5 +27,26 @@ Via this construction, cutting on a \gls{BDT} score gives a more flexible soluti
 
 There are various different boosting methods, notably ``Adaboost'' \cite{adaboost} and ``Gradient Boosting'' \cite{gradBoost}, which generally differ by the definition of their loss function.
 
+
 \section{Neural Networks}
 
+An \glsfirst{ANN}\footnote{The name ``Artificial Neural Network'' comes from such models being inspired by neurological structures. At each neuron, signals are received by dendrites, passed along an axon to produce some output, which is passed along through axon terminals. Many of these neurons come together to process sophisticated information. This loosely mirrors the topology of an \gls{ANN}, where basis functions parallel neurons.} is a nonlinear machine learning algorithm that attempts to perform a task via a combination of nonlinear basis functions ($h(x)$) where weights ($w$) are learned in the training procedure. The resulting function is:
+
+\begin{equation}
+    y(x) = w_0^2 + \sum_{m=1}^{M} \big [w_m^2 \cdot h \big (w_{0m}^1 + \sum_{k=1}^{D} w_{km}^1 x_k) ]
+\end{equation}
+
+Where $D$ is the number of inputs and $M$ is the number of basis functions. Here $h$ is known as an \textit{activation function}, and given a summation over enough of these activation functions, any possible function can be approximated \cite{nn-basis}. Common choices are:
+\begin{itemize}
+    \item The sigmoid function, given by $h(t) = 1/(1+e^{-t})$.
+    \item The hyperbolic tangent function, given by $h(t) = (e^t - e^{-t}/(e^t + e^{-t}))$.
+    \item The rectified linear unit (ReLU), given by $h(t)=max(0,x)$, in other words, returning 0 below $x=0$ and $y=x$ otherwise.
+\end{itemize}
+
+An illustration of a \gls{ANN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:nn}. 
+
+\begin{figure}[!ht] \label{fig:nn}
+    \centering
+    \includegraphics[width=.7\textwidth]{appendices/images/neural_network.png}
+    \caption{A sample \gls{ANN} with $D=4$ and $M=5$ {\color{red} cite book}.}
+\end{figure}
