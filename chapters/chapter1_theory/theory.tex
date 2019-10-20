@@ -1,51 +1,37 @@
 \chapter{Theory}
 
-    Humans have been concerned with the fundamental nature and constituents of matter since as early as sixth century BC, when philosophers such as Democritus and Leucippus first proposed indivisible building blocks of nature known as ``atoms'' \cite{democritus}. It wasn't until Dalton in the nineteenth century when scientific modeling of the particle nature began to take shape \cite{dalton}. Fundamental advances on the nature of atoms were made over the next centuries by Mendeleev, Thomson, Rutherford, amongst others. Over the course of the 1900s, particle theory advanced rapidly and many particles were discovered forming what was known as the ``particle zoo.'' In order to classify these particles, Gell-Mann and Zweig proposed the quark model in 1964 \cite{quark-model}. In the 1970s Glashow, Weinberg, and Salam put forth electroweak theory, which gave a model for vector bosons, leading to successful mass predictions of the $W^{\pm}$ and $Z$ bosons confirmed at \gls{CERN} in 1983 \cite{w-discovery, z-discovery}. The \glsfirst{SM} was . It remains our best model for describing fundamental particles and their interactions\footnote{While the \gls{SM} has been extraordinarily successful in providing experimental predictions, it has several known shortcomings. Notably, the \gls{SM} only explains 3 of the 4 fundamental forces, the exception being gravitation. It does not have an explanation of dark energy or a dark matter candidate. Neutrino flavor oscillation is not predicted by the \gls{SM}, and it predicts their mass to be zero, which has been experimentally disproven \cite{neutrino-oscillation}. The matter-antimatter asymmetry is not addressed by the \gls{SM}. Nevertheless, it remains the most accurate theory of describing particle physics.}, successfully predicting the top quark \cite{top-quark}, tau neutrino \cite{tau-neutrino}, and Higgs boson \cite{higgs-discovery-atlas,higgs-discovery-cms}.
+    Humans have been concerned with the fundamental nature and constituents of matter since as early as sixth century BC, when philosophers such as Democritus and Leucippus first proposed indivisible building blocks of nature known as ``atoms'' \cite{democritus}. It wasn't until Dalton in the nineteenth century when scientific modeling of the atomic theory began to take shape \cite{dalton}. Fundamental advances on the nature of atoms and their substructure were made over the next centuries by Mendeleev, Thomson, Rutherford, amongst others. Over the course of the 1900s, particle theory advanced rapidly and many particles were discovered forming what was known as the ``particle zoo.'' In order to classify these particles, Gell-Mann and Zweig proposed the quark model in 1964 \cite{quark-model}. In the 1970s Glashow, Weinberg, and Salam put forth electroweak theory, which gave a model for vector bosons, leading to successful mass predictions of the $W^{\pm}$ and $Z$ bosons confirmed at \gls{CERN} in 1983 \cite{w-discovery, z-discovery}. The collective of these works is known as the \glsfirst{SM} of particle physics, a term first used in 1975 \cite{conceptual-developments-text}. It remains our best model for describing fundamental particles and their interactions\footnote{While the \gls{SM} has been extraordinarily successful in providing experimental predictions, it has several known shortcomings. Notably, the \gls{SM} only explains 3 of the 4 fundamental forces, the exception being gravitation. It does not have an explanation of dark energy or a dark matter candidate. Neutrino flavor oscillation is not predicted by the \gls{SM}, and it predicts their mass to be zero, which has been experimentally disproven \cite{neutrino-oscillation}. The matter-antimatter asymmetry is not addressed by the \gls{SM}. Nevertheless, it remains the most accurate theory of describing particle physics.}, successfully predicting the top quark \cite{top-quark}, tau neutrino \cite{tau-neutrino}, and Higgs boson \cite{higgs-discovery-atlas,higgs-discovery-cms}.
     
 
     \section{The Standard Model}
 
-        % todo figure out where to put this        
-        The standard model Lagrangian is given by:
-
-        \begin{equation}
-            \begin{aligned}
-                \mathcal{L} &= - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} \\
-                &=+ i \bar{\psi} \cancel{D} \psi + h.c. \\
-                &=+ \bar{\psi}_i y_{ij} \psi_j \phi + h.c. \\
-                &=+ |D_\mu \phi|^2 - V(\phi)
-            \end{aligned}
-        \end{equation}
-
-        Where the first term describes the strong for the gluon and the strong nuclear force, the second describes the weak nuclear force along with the W and Z bosons... 
+        The \gls{SM} is a Yang-Mills theory that explains the observed particles in the universe: fermions and bosons. Fermions are the particles which take up space and make up matter. In Section \ref{ssec:fermions}, the two categories of fermions, quarks and leptons, will be discussed. By contrast, interactions between particles are due to exchange of a gauge boson, which are discussed throughout Section \ref{ssec:bosons}.
 
 
-
-
-        \subsection{Fermions}
-        Fermions are spin-$\frac{1}{2}$ particles which obey the Pauli Exclusion principle, and thus take up space and make up matter. Within the \gls{SM}, there are two types of fermions, quarks and leptons. Each of these can be broken down into three generations of particles.
+        \subsection{Fermions} \label{ssec:fermions}
+        Fermions are spin-$\frac{1}{2}$ particles which obey the Pauli Exclusion principle, and thus take up space and make up matter. In the \gls{SM}, there are two types of fermions: quarks and leptons. Each of these can be broken down into three generations of particles, shown in Table \ref{tab:fermions}.
 
         \noindent{\textbf{Quarks}}\\
         \indent Quarks are fermions which combine to form hadrons. Quarks have several properties:
         \begin{itemize}
-            \item Flavor - There are 6 flavors of quarks: up (u), down (d), strange (s), charm (c), bottom (b), and top (t) (from lightest to heaviest). Each particle also has a corresponding anti-particle: anti-up ($\bar{u}$), anti-down ($\bar{d}$), etc. These are used to arrange the quarks into generations, shown in Table \ref{tab:fermions}.
-            \item Electric Charge - Quarks either have charge of $\frac{2}{3}$ (up, charm, top) or $-\frac{1}{3}$ (down, strange, bottom), while anti-quarks have the opposite charge. 
+            \item Flavor - There are 6 flavors of quarks: up ($u$), down ($d$), strange ($s$), charm ($c$), bottom ($b$), and top ($t$) (from lightest to heaviest). Each quark also has a corresponding anti-quark: anti-up ($\bar{u}$), anti-down ($\bar{d}$), etc. These antiquarks have the same mass, lifetime, and spin as the corresponding quark, but have the opposite sign for their various charge values.
+            \item Electric Charge - Quarks either have electric charge of $\frac{2}{3}$ ($u$, $c$, $t$) or $-\frac{1}{3}$ ($d$, $s$, $b$) in units of electron charge, while anti-quarks have the opposite charge. As quarks form bound states, integer charge configurations are formed.
             \item Color Charge - Each quark has a degree of freedom known as color charge, which can be ``red,'' ``blue,'' or ``green,'' as well as a corresponding anti-color. Color charge is a product of \gls{QCD}, discussed in section \ref{sssec:QCD}, which has a distinct property that particles with color charge cannot be isolated, and must form bound states. This feature is known as \textit{color confinement}. Bound states require a colorless configuration, which may be achieved either through a color-anticolor combination known as mesons, or a (anti)-RGB triplet known as (anti)-baryons. 
         \end{itemize}
 
         \noindent{\textbf{Leptons}}\\
-        \indent The remaining fermions are known as leptons, which differ from quarks in that they do not strongly interact. Each lepton generation contains one charged particle and a neutral counterpart, known as a neutrino. The charged leptons are the electron, muon, and tau (from lightest to heaviest). Table \ref{tab:fermions} also lists the leptons and neutrinos by generation as well as their masses. Each lepton has an associated antilepton as well: the positron, antimuon, and antitau, as well as their antineutrinos. The properties of the antilepton match their corresponding lepton exactly, except the electric charge and lepton number have opposite sign. Lepton number is a conserved quantity in particle interactions and is +1 for all standard leptons, -1 for all antileptons.
+        \indent The remaining fermions are leptons, which differ from quarks in that they do not strongly interact. Each lepton generation contains one charged particle and a neutral counterpart, known as a neutrino. The charged leptons are the electron, muon, and tau (from lightest to heaviest). Table \ref{tab:fermions} also lists the leptons and neutrinos by generation as well as their masses. Each lepton has an associated antilepton as well: the positron, antimuon, and antitau, as well as their antineutrinos. The properties of the antileptons match their corresponding lepton exactly, except the electric charge and lepton number have opposite sign. Lepton number is a conserved quantity in particle interactions and is +1 for all standard leptons, -1 for all antileptons.
 
         % TODO: Check these values
         \begin{table}[!thp]
             \centering
             \begin{tabular}{c|c|c|c|c|}
             \cline{2-5}
-                                                           & 1st Generation                                                                & 2nd Generation                                                                                   & 3rd Generation                                                                                 & Charge \\ \hline
+                                                           & 1st Generation                                                                & 2nd Generation                                                                                   & 3rd Generation                                                                                 & Charge ($e$) \\ \hline
             \multicolumn{1}{|c|}{\multirow{2}{*}{Quarks}}  & \begin{tabular}[c]{@{}c@{}}Up ($u$)\\ $m = 2.3^{+0.7}_{-0.5}$ MeV\end{tabular}                       & \begin{tabular}[c]{@{}c@{}}Charm ($c$)\\ $m = 1.275 \pm 0.025$ GeV\end{tabular}                                    & \begin{tabular}[c]{@{}c@{}}Top ($t$)\\ $m = 173.2 \pm 0.7$ GeV\end{tabular}                                    & +2/3   \\ \cline{2-5} 
             \multicolumn{1}{|l|}{}                         & \begin{tabular}[c]{@{}c@{}}Down ($d$)\\ $m = 4.8^{+0.5}_{-0.3}$ MeV\end{tabular}                    & \begin{tabular}[c]{@{}c@{}}Strange ($s$)\\ $m =95\pm 5$ MeV\end{tabular}                                        & \begin{tabular}[c]{@{}c@{}}Bottom ($b$)\\ $m = 4.18 \pm 0.03$ GeV\end{tabular}                                  & -1/3   \\ \hline
             \multicolumn{1}{|l|}{\multirow{2}{*}{Leptons}} & \begin{tabular}[c]{@{}c@{}}Electron ($e^-$)\\ $m = 511$ keV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Muon ($\mu^-$)\\ $m = 105.7$ MeV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tau ($\tau^-$)\\ $m = 1.8$ GeV\end{tabular} & -1     \\ \cline{2-5} 
-            \multicolumn{1}{|c|}{}                         & \begin{tabular}[c]{@{}c@{}}Electron Neutrino ($\nu_e$)\\ $m < 2$ eV\end{tabular}     & \begin{tabular}[c]{@{}c@{}}Muon Neutrino ($\nu_{\mu}$)\\ $m < 0.19$ MeV\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}Tau Neutrino ($\nu_{\tau}$)\\ $m < 18.2$ MeV\end{tabular}                        & 0      \\ \hline
+            \multicolumn{1}{|c|}{}                         & \begin{tabular}[c]{@{}c@{}}Electron Neutrino ($\nu_e$)\\ $m < 2$ eV\end{tabular}     & \begin{tabular}[c]{@{}c@{}}Muon Neutrino ($\nu_{\mu}$)\\ $m < 0.17$ MeV\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}Tau Neutrino ($\nu_{\tau}$)\\ $m < 15.5$ MeV\end{tabular}                        & 0      \\ \hline
             \end{tabular}
             \caption{Fermions in the \gls{SM}, with their masses and charges listed.}
             \label{tab:fermions}
@@ -58,16 +44,16 @@
 
 
         %%%%%% Forces %%%%%%%%        
-        \subsection{Interactions}
+        \subsection{Bosons and Particle Interactions} \label{ssec:bosons}
 
-        In nature, there are four fundamental forces describing interactions: the strong nuclear force, the weak nuclear force, the electromagnetic force, and the gravitational force. The \gls{SM} models the former three of these forces\footnote{The gravitational force is not modeled by the \gls{SM}. It has relative strength of $10^{-37}$ at $\unit{1}{fm}$. In theories of quantum gravity, it is mediated by the ``graviton'' ($G$), a massless spin-2 particle.}, describing each via a \gls{QFT} corresponding to the exchange of a gauge boson, a particle carrying integer spin that does not obey the Pauli Exclusion principle. A broad summary of the forces and their associated \glspl{QFT} can be found in Table \ref{tab:forces}, and the following sections will describe the various theories relating to each particle interaction.
+        In nature, there are four fundamental forces describing interactions: the strong nuclear force, the weak nuclear force, the electromagnetic force, and the gravitational force. The \gls{SM} models the former three of these forces\footnote{The gravitational force is not modeled by the \gls{SM}. It has relative strength of $10^{-37}$ at $\unit{1}{fm}$. In theories of quantum gravity, it is mediated by the ``graviton'' ($G$), a massless spin-2 particle.}, describing each via a \gls{QFT} corresponding to the exchange of a gauge boson, a particle with integer spin that does not obey the Pauli Exclusion principle. A broad summary of the forces, their bosons, and their associated \glspl{QFT} can be found in Table \ref{tab:forces}, and the following sections will describe the various theories relating to each  interaction.
 
         \begin{table}[!ht]
             \begin{tabular}{l|l|l|l}
             Force & Field Theory & Mediating Boson & Relative Strength      \\ \hline
             Strong Nuclear   & Quantum Chromodynamics  & Gluon ($g$) & $1$ \\
             Electromagnetism & Quantum Electrodynamics & Photon ($\gamma$) & $10^{-3}$ \\
-            Weak Nuclear     & Quantum Flavordynamics  & $W^{\pm}$, $Z$ & $10^{-8}$
+            Weak Nuclear     & Quantum Flavordynamics\tablefootnote{Modern particle physics seldom uses the term quantum flavordynamics. At high energy scales, the weak force and electromagnetic force are interpreted through electroweak theory, which is discussed in Section \ref{sssec:ew-theory}.}  & $W^{\pm}$, $Z$ & $10^{-8}$
             \end{tabular}
             \caption{List of forces described by the \gls{SM}, as well as their associated field theory and gauge boson mediator. Relative strength is an order of magnitude estimate at a distance of $\unit{1}{fm}$.}
             \label{tab:forces}
@@ -76,25 +62,25 @@
 
         \subsubsection{Quantum Electrodynamics}
 
-        The Dirac equation, Equation \ref{eqn:dirac}, is not gauge invariant. Meaning, performing a local gauge transformation on fermions (denoted by $\psi$)
+        Equation \ref{eqn:dirac}, the Dirac equation, is not gauge invariant. Meaning, performing a local gauge transformation on the aforementioned fermion spinor (denoted by $\psi$)
         %
         \begin{equation} \label{eqn:gauge-transform}
             \psi(x) \rightarrow e^{-i\theta(x)}\psi(x),
         \end{equation}        
         %
-        for real-valued function $\theta(x)$, transforms the Lagrangian as:
+        for real-valued function $\theta(x)$, will transform the Lagrangian as:
         \begin{equation}
             \mathcal{L} \rightarrow \mathcal{L} - (\partial_{\mu}\theta)\bar{\psi}\gamma^{\mu}\psi.
         \end{equation}
         %
-        To impose gauge invariance, a vector field can be introduced, transforming like
+        In order to manually impose gauge invariance, we can introduce a vector field. Such a vector field must transform as
         \begin{equation}
             A_{\mu}(x) \rightarrow A_{\mu}(x) + \partial_{\mu}\theta(x),
         \end{equation}
         %
-        with covariant derivative
+        which has covariant derivative
         \begin{equation}
-            D_{\mu} = \partial_{\mu} + iqA_{\mu}.
+            D_{\mu} = \partial_{\mu} + iqA_{\mu},
         \end{equation}
         %
         This massless vector field corresponds to the electromagnetic field, and the covariant derivative describes the minimal coupling of the photon, its quanta, to fermions. Applying this vector field to the Dirac Lagrangian gives the \gls{QED} Lagrangian,
@@ -107,37 +93,35 @@
         F_{\mu \nu} = \partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}
         \end{equation}
         %
-        By construction, the \gls{QED} Lagrangian is gauge invariant, and symmetric under the transformation described in \ref{eqn:gauge-transform}. This transformation is equivalently thought of as multiplication by a unitary $1 \times 1$ matrix of the $U(1)$ group, meaning \gls{QED} is symmetric under $U(1)$.
+        Now by this construction, the \gls{QED} Lagrangian is gauge invariant, and symmetric under the transformation described in \ref{eqn:gauge-transform}. This transformation is equivalently thought of as multiplication by a unitary $1 \times 1$ matrix of the $U(1)$ group, meaning \gls{QED} is symmetric under $U(1)$.
 
 
         \subsubsection{Quantum Chromodynamics} \label{sssec:QCD}
 
-        \gls{QCD} is the \gls{QFT} corresponding to the strong nuclear interaction, predicting how quarks and gluons interact. While \gls{QED} corresponded to a $U(1)$ local gauge symmetry, \gls{QCD} corresponds to a $SU(3)$ gauge group, where quarks transform in the fundamental {\bf 3} representation. This representation has eight $3 \times 3$ generators, corresponding to eight gluons, the mediator of the strong force. The dimensionality of the generators mean the wave function has three additional degrees of freedom known as color. Taking the convention of denoting these as ``red'' (r), ``green'' (g), and ``blue'' (b), we can denote quarks, $\psi$ as a vector:
+        \glsfirst{QCD} is the \gls{QFT} corresponding to the strong nuclear interaction, predicting how quarks and gluons interact. While \gls{QED} corresponded to a $U(1)$ local gauge symmetry, \gls{QCD} corresponds to a $SU(3)$ gauge group, where quarks transform in the fundamental {\bf 3} representation. This representation has eight $3 \times 3$ generators, corresponding to eight gluons, the mediator of the strong force. The dimensionality of the generators mean the wave function has three additional degrees of freedom known as color. Taking the convention of denoting these as ``red'' ($r$), ``green'' ($g$), and ``blue'' ($b$), we can denote the quark spinor as a vector:
         \begin{equation}
             \psi =\begin{pmatrix} \psi_{r} \\ \psi_{b} \\ \psi_{g}\end{pmatrix},
         \end{equation}
         %
-        making a gauge transformation
+        which makes a gauge transformation
         \begin{equation}
         \psi \rightarrow e^{i\theta}e^{-ig {\boldsymbol \lambda\cdot \phi}}\psi.
         \end{equation}
         %
         %todo - clear this up a bit, look at martins notes
-        Here $\boldsymbol \lambda$ are the eight Gell-Mann matrices, while ${\boldsymbol \phi} = {\boldsymbol a}/g$ for vector of length 8 $\boldsymbol a$ and strong coupling constant g. This corresponds to the $SU(3)_C$ group ($C$ indicates ``color'').
+        Here $\boldsymbol \lambda$ are the eight Gell-Mann matrices, while ${\boldsymbol \phi} = -{\boldsymbol a}/g$ for vector of length 8 $\boldsymbol a$, and strong coupling constant $g$. This corresponds to the $SU(3)_C$ group ($C$ indicates ``color'').
 
         In order to achieve invariance under said transformation, we substitute the derivative in the Dirac equation by the covariant derivative 
         \begin{equation}
-            D_{\mu} = \partial_{\mu} + ig {\boldsymbol \lambda\cdot G_{\mu}}.
+            D_{\mu} = \partial_{\mu} + ig {\boldsymbol \lambda\cdot {\boldsymbol G_{\mu}}}.
         \end{equation}
         %
-        In this, ${G_{mu}}$ are eight fields, corresponding to eight gluons with various color charge, the mediator of the strong force.
-
-        This makes the \gls{QCD} Lagrangian
+        In this, ${\boldsymbol G_{mu}}$ are eight fields, corresponding to eight gluons with various color charge, the mediator of the strong force. This makes the \gls{QCD} Lagrangian
         \begin{equation}
             \mathcal{L}_{QCD} = \bar{\psi}^j (i \gamma^{\mu} D_{\mu}^{jk} - m^{jk})\psi^{k} - \frac{1}{4} F_{\mu \nu}^{a} F^{\mu \nu}_{a},
         \end{equation}
         %
-        for mass $m$, indices j and k taking values 1 to 3, and gluon field tensor $F_{\mu \nu}$, given as
+        for mass $m$, indices $j$ and $k$ taking values 1 to 3, and gluon field tensor $F_{\mu \nu}$, given as
         \begin{equation}
             F^{\mu \nu}_{a} = \partial_{\mu} G_{\nu}^a - \partial_{\nu}G_{\mu}^a - g f^{abc} \lambda^a G_{\mu}^b G_{\nu}^c.
         \end{equation}
@@ -145,118 +129,73 @@
         Here $f_{abc}$ are the structure constants associated with the $SU(3)$ group, and indices $a,b,c$ represent the gluons, running from values 1 to 8. Of special note, this tensor contains triplet and quartic gluon self-coupling, a product of the gluon color charge.
 
 
-        \subsubsection{Electroweak Interaction}
+        \subsubsection{Electroweak Interaction} \label{sssec:ew-theory}
 
         In the \gls{SM}, the weak and electromagnetic interactions are interpreted as manifestations of a single force. This unification occurs at energies above $\unit{100}{\GeV}$ and is known as the electroweak force.
 
-        Electroweak interactions have four mediators, the $W^{\pm}$, $Z$, and $\gamma$, and subsequently four generators prior to spontaneous symmetry breaking. After symmetry breaking, the gauge group must be electromagnetically gauge invariant. The \gls{SM} of electroweak interactions by Glashow, Weinberg, and Salam {\color{red} cite} contains symmetry breaking:
+        Electroweak interactions have four mediators, the $W^{\pm}$, $Z$, and $\gamma$, and subsequently four generators prior to spontaneous symmetry breaking. After symmetry breaking, the gauge group must be electromagnetically gauge invariant. The \gls{SM} of electroweak interactions by Glashow, Weinberg, and Salam \cite{Glashow:1959,Weinberg:1967,Salam1959} contains symmetry breaking:
         \begin{equation}
             SU(2) \times U(1) \rightarrow U(1)_{EM}.
         \end{equation}
-        The $SU(2)$ subgroup is weak isospin, where left-handed fermions are doublets, and right-handed fermions are all singlets. The $U(1)$ subgroup is weak hypercharge with coupling constant $g'$. Weak hypercharge ($Y$) is a conserved quantity. 
+        The $SU(2)$ subgroup is weak isospin, where left-handed fermions are doublets, and right-handed fermions are all singlets. The $U(1)$ subgroup is weak hypercharge ($Y$), a conserved quantity. The symmetry breaking described requires the Higgs field, and is known as Electroweak Symmetry Breaking.
 
-%%%%%% Di-Higgs %%%%%%%%                
+%%%%%% Higgs %%%%%%%%                
 \section{The Higgs Field and Higgs Boson}
 
-To spontaneously break this electroweak gauge symmetry, a complex $SU(2)$ doublet scalar field is introduced
-
+To spontaneously break electroweak gauge symmetry, a complex $SU(2)$ doublet scalar field is introduced
 \begin{equation}
 \phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
     = \frac{1}{\sqrt{2}}\begin{pmatrix}
-        \phi_1 + i\phi_2 \\ \phi_3 + i\phi_4
+        \phi_1 + i\phi_2 \\ \phi_3 + i\phi_4,
     \end{pmatrix}
 \end{equation}
-
-The corresponding gauge-invariant potential is 
-
+%
+with corresponding Lagrangian density and gauge-invariant potential,
 \begin{equation}
-    V(\phi,\phi^\dagger) = m^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2,
+    \mathcal{L} = (\partial_{\mu}\phi)^\dagger (\partial^{\mu}\phi) - V(\phi),
 \end{equation}
-
-with corresponding Lagrangian density
 \begin{equation}
-    \mathcal{L} = (\partial_{\mu}\phi)^\dagger (\partial^{\mu}\phi) - V(\phi).
+    V(\phi,\phi^\dagger) = m^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2.
 \end{equation}
-
-The minima of this potential is known as the vacuum state, and for this minima to be finite, $\lambda$ must be greater than 0. For $\mu^2 >0$, the minima is located at 0, however, for $\mu^2<0$, the potential has minima at:
-
-
-\begin{equation}
-    \phi^\dagger \phi = \frac{v^2}{2},
-\end{equation}
-
-where 
-\begin{equation}
-    v = \sqrt{-m^2 / \lambda}.
-\end{equation}
-
-%% TODO: Working from martin's book, connect these
-
-
-Here, $v$ is known as the \glsfirst{vev}. 
-
-This formulation predicts the W and Z boson masses:
-
-\begin{equation}
-    m^2_W = \frac{g^2 v^2}{4}, \hspace{1cm} m^2_Z = \frac{(g^2 +g'^2)v^2}{4}
-\end{equation}
-
-which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$.
-
-
-In unitarity gauge, the Higgs potential takes the form:
-\begin{equation}
-    V(h) = \lambda v^2 h^2 + \lambda v h^3 + \frac{\lambda}{4}h^4,
-\end{equation}
-
-indicating self-interactions with the Higgs boson. The second term gives rise to the trilinear coupling, while the third indicates the Higgs quartic coupling. The mass can also be derived as $m_h = \sqrt{2\lambda}v$. 
-
-
-%%%%%%%%
-The minimal Higgs model has two complex scalar fields, which are placed in a weak isospin doublet
-
-\begin{equation}
-\phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
-    = \frac{1}{\sqrt{2}}\begin{pmatrix}
-        \phi_1 + i\phi_2 \\ \phi_3 + i\phi_4
-    \end{pmatrix}
-\end{equation}
-
-With corresponding Lagrangian
-
-\begin{equation} \label{higgs-lagrangian}
-    \mathcal{L} = (\partial_{\mu}\phi)^\dagger (\partial^{\mu}\phi) - V(\phi)\\
-\end{equation}
-
-And potential,
-
-\begin{equation} \label{higgs-potential}
-    V(\phi) = \mu^2\phi^\dagger \phi - \lambda(\phi^\dagger \phi)^2
-\end{equation}
-
-The minima of this potential is known as the vacuum state, and for this minima to be finite, $\lambda$ must be greater than 0. For $\mu^2 >0$, the minima is located at 0, however, for $\mu^2<0$, the potential has minima at:
-
-\begin{equation}
-    \phi^\dagger \phi = \frac{1}{2}(\phi_{1}^{2}+\phi_{2}^{2}+\phi_{3}^{2}+\phi_{4}^{2}) = \frac{v^2}{2} = -\frac{\mu^2}{2\lambda}
-\end{equation}
-
-This value is known as the \glsfirst{vev}. When $\mu^2 < 0$, this value is non-zero, and due to symmetry has two degenerate states. By choosing state, the Lagrangian symmetry is broken, known as spontaneous symmetry breaking.
-
+%
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{chapters/chapter1_theory/images/higgs-2d-vev.png}
     \caption{The one-dimensional Higgs potential where $\mu^2 <0$. The minima of this curve, known as the Higgs \gls{vev}, is indicated.}
     \label{fig:higgs-potential}
 \end{figure}
-
-
-\begin{equation} \label{higgs-lagrangian}
-    \begin{aligned}
-        \mathcal{L} &= \frac{1}{2}(\partial_{\mu}\phi)(\partial^{\mu}\phi) - V(\phi)\\
-        &= \frac{1}{2}(\partial_{\mu}\phi)(\partial^{\mu}\phi) - \frac{1}{2}\mu^2\phi^2 - \frac{1}{2}\lambda\phi^4
-    \end{aligned}
+%
+This potential is shown (in 2 dimensions) in Figure \ref{fig:higgs-potential}. The minima of this potential is known as the vacuum state, and for this minima to be finite, $\lambda$ must be greater than 0. For $\mu^2 >0$, the minima is located at 0, however, for $\mu^2<0$, the potential has minima at:
+%
+\begin{equation}
+    \phi^\dagger \phi = \frac{v^2}{2},
+\end{equation}
+%
+where 
+\begin{equation}
+    v = \sqrt{-m^2 / \lambda}.
+\end{equation}
+%
+These minima are degenerate. By convention, we select $v$ to be real, making $\phi_1 = \phi_2 = \phi_3 = 0$, and $\phi_4 = v$.  In making selection, electroweak symmetry is broken. Unitarity gauge is given by expanding about this minima, making this field:
+\begin{equation}
+    \phi(x) = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ H(x)+v \end{pmatrix}
 \end{equation}
 
+%
+In this formulation, $H(x)$ represents the Higgs field, and $v$ is known as the \glsfirst{vev}. A feature of this theory is the prediction the W and Z boson masses:
+%
+\begin{equation}
+    m^2_W = \frac{g^2 v^2}{4}, \hspace{1cm} m^2_Z = \frac{(g^2 +g'^2)v^2}{4}
+\end{equation}
+%
+which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$.
+
+In unitarity gauge, the Higgs potential takes the form:
+\begin{equation}
+    V(h) = \lambda v^2 h^2 + \lambda v h^3 + \frac{\lambda}{4}h^4,
+\end{equation}
+%
+indicating self-interactions with the Higgs boson. The second term gives rise to the trilinear coupling, while the third indicates the Higgs quartic coupling. The mass can also be derived as $m_h = \sqrt{2\lambda}v$. 
 
 
 %%%%%% Di-Higgs %%%%%%%%                
@@ -267,11 +206,11 @@ For the Higgs mechanism described, in order to understand Electroweak Symmetry B
 The analysis presented in this thesis is one such search for di-Higgs production, specifically where one of the produced Higgs bosons decays to a pair of photons, and the other to a $b\bar{b}$ pair.
 
 \subsection{Production in the Standard Model}
-In the standard model, several production modes pair produce Higgs bosons. \gls{ggF} is the most dominant with a cross-section accounting for over $90\%$ of di-Higgs production, described in section \ref{sssec:ggfHH}. The next most dominant is Vector Boson Fusion, which is responsible for just over $5\%$ of di-Higgs production and is described in section \ref{sssec:vbfHH}. The remaining production modes, $VHH$, $ttHH$, and $tjHH$ collectively comprise less than 5\% of di-Higgs production, and have a cross-section too small to make a meaningful contribution to the proposed analysis.
+In the standard model, several production modes pair produce Higgs bosons. \gls{ggF} is the most dominant with a cross-section accounting for over $90\%$ of di-Higgs production, described in section \ref{sssec:ggfHH}. The next most dominant is Vector Boson Fusion, which is responsible for just over $5\%$ of di-Higgs production and is described in section \ref{sssec:vbfHH}. The remaining production modes, $VHH$, $ttHH$, and $tjHH$ collectively comprise less than 5\% of di-Higgs production, and have a cross-section too small to make a meaningful contribution to the presented analysis.
 
 \subsubsection{Gluon-Gluon Fusion} \label{sssec:ggfHH}
 
-The predominant di-Higgs production mode is \gls{ggF}, in which the production is mediated by a quark loop. In the \gls{SM}, this proceeds through two diagrams at tree level, where the quark loop either forms a box or a triangle. The former directly pair produces two Higgs bosons while the latter pair produces via a virtual Higgs boson, making it sensitive to the Higgs self-coupling, $\lambda_{HHH}$. These two diagrams are destructively interfering. QCD corrections to this process are known to \gls{NLO}, and can double the cross-section from the \gls{LO} value. \gls{NNLO} corrections are known in the large top mass limit and represent a $\sim 20\%$ increase from the \gls{NLO} prediction. At $\unit{13}{\TeV}$, the cross-section for \gls{ggF} production is $31.05^{+2.2\%}_{-5.0\%} \pm 3.0\%$\footnote{The first (upper and lower) uncertainties refer to scale uncertainties, the second is PDF + $\alpha_s$ uncertainty.}  \cite{hh-crosssections}
+The predominant di-Higgs production mode is \gls{ggF}, in which the production is mediated by a quark loop. In the \gls{SM}, this proceeds through two diagrams at tree level, where the quark loop either forms a box or a triangle. The former directly pair produces two Higgs bosons while the latter pair produces via a virtual Higgs boson, making it sensitive to the Higgs self-coupling, $\lambda_{HHH}$. These two diagrams are destructively interfering. QCD corrections to this process are known to \gls{NLO}, and can double the cross-section from the \gls{LO} value. Furthermore, \gls{NNLO} corrections are known in the large top mass limit and represent a $\sim 20\%$ increase from the \gls{NLO} prediction. At $\unit{13}{\TeV}$, the cross-section for \gls{ggF} production is $31.05^{+2.2\%}_{-5.0\%} \pm 3.0\%$\footnote{The first (upper and lower) uncertainties refer to scale uncertainties, the second is PDF + $\alpha_s$ uncertainty.}  \cite{hh-crosssections}.
 
 \begin{figure}[!thp]
     \centering
@@ -288,7 +227,7 @@ The predominant di-Higgs production mode is \gls{ggF}, in which the production i
 \end{figure}
 
 \subsubsection{Vector Boson Fusion} \label{sssec:vbfHH}
-The second-most dominant $HH$ production mode is \gls{VBF} ($qq \rightarrow HHqq$), in which two quarks scatter via the exchange of a virtual vector boson, $W$ or $Z$ (generally denoted $V$), and from that boson, a di-Higgs system is produced. This proceeds via three Feynman diagrams at tree level, shown in Figure \ref{fig:vbf_feyn}. At $\unit{13}{\TeV}$, the cross-section for \gls{VBF} production is $1.73^{+0.03\%}_{-0/04\%} \pm 2.1\%$\cite{hh-crosssections}.
+The second-most dominant $HH$ production mode is \gls{VBF} ($qq \rightarrow HHqq$), in which two quarks scatter via the exchange of a virtual vector boson, $W^\pm$ or $Z$ (generally denoted $V$), and from that boson, a di-Higgs system is produced. This proceeds via three Feynman diagrams at tree level, shown in Figure \ref{fig:vbf_feyn}. At $\unit{13}{\TeV}$, the cross-section for \gls{VBF} production is $1.73^{+0.03\%}_{-0/04\%} \pm 2.1\%$\cite{hh-crosssections}.
 
 \begin{figure}[!thp]
     \begin{minipage}[c]{.31\textwidth}
@@ -317,10 +256,10 @@ for Higgs potential,
 \begin{equation}
     V(h) = \frac{1}{2}m_h^2h^2 +c_3 \frac{1}{6}\bigg(\frac{3m_h^2}{v}\bigg)h^3 + c_4 \frac{1}{24}\bigg(\frac{3m_h^2}{v^2}\bigg)h^4+...
 \end{equation}
-The coefficients $c_V$, $c_{2V}$, and $c_3$ indicate three different coupling strengths \cite{vbfhh}. The vertex denoted $c_V$ is the interaction between two vector bosons and a Higgs boson (occasionally denoted $hVV$). This vertex has strong constraints from \gls{SM} mono-Higgs analyses {\color{red} cite}. The vertex denoted $\kappa_{\lambda}$ is again the Higgs trilinear coupling, meaning that the \gls{VBF} production mode offers sensitivity to this vertex as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The vertex denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons (also denoted $hhVV$). \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
+The coefficients $c_V$, $c_{2V}$, and $c_3$ indicate three different coupling strengths \cite{vbfhh}. The coupling denoted $c_V$ is the interaction between two vector bosons and a Higgs boson (vertex denoted $hVV$). This coupling has constraints from mono-Higgs analyses, measured at $1.21^{+0.22}_{-0.21}$ the \gls{SM} value \cite{higgs-measurements}. The coupling denoted $\kappa_{\lambda}$ is again the Higgs trilinear coupling, meaning that the \gls{VBF} production mode offers sensitivity to this vertex as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The coupling denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons ($hhVV$). \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
 
 % TODO: Maybe this goes in analysis?
-Despite the low cross-section of \gls{VBF} production, the unique kinematics make the channel appealing for searches. The diphoton \gls{VBF} channel was one included in the 2012 Higgs discovery. Notably, the \gls{VBF} quarks yield a high $m_{jj}$ system and are largely separated in $\eta$. The kinematics of \gls{VBF} di-Higgs production are similar to that of mono-Higgs. The major difference is that mono-Higgs searches take advantage of the low central jet activity by applying a veto. In $HH \rightarrow \gamma \gamma b\bar{b}$, however, the $H \rightarrow b\bar{b}$ system causes central jet activity, making such a veto impossible.
+Despite the low cross-section of \gls{VBF} production, the unique kinematics make the channel appealing for searches. The diphoton \gls{VBF} channel was one included in the 2012 Higgs discovery \cite{higgs-discovery-atlas}. Notably, the \gls{VBF} quarks yield a high $m_{jj}$ system and are largely separated in $\eta$. The kinematics of \gls{VBF} di-Higgs production are similar to that of mono-Higgs. The major difference is that mono-Higgs searches take advantage of the low central jet activity by applying a veto. In $HH \rightarrow \gamma \gamma b\bar{b}$, however, the $H \rightarrow b\bar{b}$ system causes central jet activity, making such a veto impossible.
 
 
 \subsection{Production Beyond the Standard Model}
@@ -332,10 +271,17 @@ Due to the small cross-section of $HH$ production, the LHC does not have sensiti
 Non-resonant enhancements to the $HH$ cross-section could occur through two major routes: deviations in couplings from \gls{SM} value, or the presence of couplings not predicted by the \gls{SM}.
 
 \noindent{${\boldsymbol \kappa_{\lambda}}$}\\
-\indent Enhancements to the Higgs trilinear coupling
+\indent Deviations from the \gls{SM} prediction of the Higgs trilinear coupling can cause enhancements to the cross section, which may be observable at the current \gls{LHC} dataset. This value is minimized at 2.45 times the \gls{SM} rate, in which the box and triangle diagrams maximally interfere. The cross section for each production mode as a function of the coupling strength can be seen in Figure \ref{fig:klambda-xsec}.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.7\textwidth]{chapters/chapter1_theory/images/klambda-xsec.png}
+    \caption{LO and NLO cross-sections for the various $HH$ production modes as a function of the Higgs trilinear coupling \cite{klambda-xsec}.}
+    \label{fig:klambda-xsec}
+\end{figure}
 
 \noindent{${\boldsymbol c_{2V}}$}\\
-\indent The \gls{VBF} $HH$ production mode offers sensitivity to the $hhVV$ vertex, and any deviations from \gls{SM} expectations for this coupling would lead to an enhancement in the $HH$ cross-section.
+\indent The \gls{VBF} $HH$ production mode offers sensitivity to the $hhVV$ vertex, and any deviations from \gls{SM} expectations for this coupling would lead to a significant enhancement in the $HH$ cross-section. At a factor of 2 times the standard model coupling strength, the cross-section increases by two orders of magnitude, allowing for an enhancement visible in the current \gls{LHC} dataset.
 
 
 \begin{figure}[!ht]
@@ -369,8 +315,9 @@ particularly well studied (Reference \cite{res_vbf} presents an analysis in the 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.6\textwidth]{chapters/chapter1_theory/images/vbf_resonant.png}
+    \includegraphics[width=.55\textwidth]{chapters/chapter1_theory/images/vbf_resonant.png}
     \caption{A Feynman diagram for resonant VBF $HH$ production.}
     \label{fig:vbf-resonant}
 \end{figure}
 
+{\color{red} should I write a section on HH decay modes?}
