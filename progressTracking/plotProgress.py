@@ -68,6 +68,8 @@ ax.xaxis.set_major_formatter(date_fmt)
 # Add key dates
 dates = {}
 dates["Detector chapter \nsent for edits "] = "2019-09-22 15:30:00"
+dates["Theory chapter \nsent for edits "] = "2019-10-20 21:57:00"
+
 for title,dt in dates.items():
     xloc = pd.to_datetime(dt)
     ax.axvline(x=xloc, color='firebrick', linestyle='--',)
