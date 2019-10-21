@@ -33,7 +33,7 @@
             \multicolumn{1}{|l|}{\multirow{2}{*}{Leptons}} & \begin{tabular}[c]{@{}c@{}}Electron ($e^-$)\\ $m = 511$ keV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Muon ($\mu^-$)\\ $m = 105.7$ MeV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tau ($\tau^-$)\\ $m = 1.8$ GeV\end{tabular} & -1     \\ \cline{2-5} 
             \multicolumn{1}{|c|}{}                         & \begin{tabular}[c]{@{}c@{}}Electron Neutrino ($\nu_e$)\\ $m < 2$ eV\end{tabular}     & \begin{tabular}[c]{@{}c@{}}Muon Neutrino ($\nu_{\mu}$)\\ $m < 0.17$ MeV\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}Tau Neutrino ($\nu_{\tau}$)\\ $m < 15.5$ MeV\end{tabular}                        & 0      \\ \hline
             \end{tabular}
-            \caption{Fermions in the \gls{SM}, with their masses and charges listed.}
+            \caption{Fermions in the \gls{SM}, with their masses and charges listed \cite{pdg}.}
             \label{tab:fermions}
         \end{table}
 
@@ -321,4 +321,34 @@ particularly well studied (Reference \cite{res_vbf} presents an analysis in the 
     \label{fig:vbf-resonant}
 \end{figure}
 
-{\color{red} should I write a section on HH decay modes?}
+\subsection{Decay in the Standard Model}
+
+Due to the short lifetime of the Higgs boson, measurement and searches are done by studying its decay particles. The Higgs directly couples to all massive particles, and decays directly to any such massive particles provided conservation laws are followed. Additionally, it can decay to massless particles via virtual loops, but as a result, these branching ratios are relatively small. The \gls{SM} Higgs branching ratios are shown in table \ref{tab:higgs-decays}. 
+
+\begin{table}[!thp]
+    \centering
+    \begin{tabular}{c|c}
+        Channel & Branching Ratio \\
+        \cline{1-2}
+        $H \rightarrow b\bar{b}$ & $57.5 \pm 1.9$\\
+        $H \rightarrow WW^*$ & $21.6 \pm 0.9$\\
+        $H \rightarrow gg$ & $8.56 \pm 0.86$\\
+        $H \rightarrow \tau^+ \tau^-$ & $6.30 \pm 0.36$\\
+        $H \rightarrow c\bar{c}$ & $2.90 \pm 0.35$\\
+        $H \rightarrow ZZ^*$ & $2.67 \pm 0.11$\\
+        $H \rightarrow \gamma\gamma$ & $0.228 \pm 0.011$\\
+        $H \rightarrow Z\gamma$ & $0.155 \pm 0.014$\\
+        $H \rightarrow \mu^+ \mu^-$ & $0.022 \pm 0.001$
+    \end{tabular}
+    \label{tab:higgs-decays}
+    \caption{Branching ratios for the \gls{SM} Higgs boson \cite{pdg}.}
+\end{table}
+
+In di-Higgs searches, properties of both Higgs decays must be considered. Branching ratios for various combinations of $HH$ decays are shown in Figure \ref{fig:hh-brs}. The already small $HH$ cross section motivates searches to target high branching ratio decay modes, thus the three primary channels of study all incorporate the $H\rightarrow b\bar{b}$ decay. The $b\bar{b}b\bar{b}$ decay channel has highest possible branching ratio at $33.9\%$, but has significant challenges presented by triggering and a large QCD background. The $b\bar{b}\tau \tau$ has the third largest branching ratio at $7.3\%$, and benefits from a much smaller \gls{SM} background than the $b\bar{b}b\bar{b}$ channel, primarily $t\bar{t}$ and $Z\rightarrow \tau^+ \tau^-$ + jets. Last the $b\bar{b} \gamma \gamma$ channel, presented in this thesis, has just a $0.3\%$ branching ratio, but takes advantage of the excellent $H\rightarrow \gamma\gamma$ mass resolution, as well as the clean diphoton trigger and photon reconstruction efficiency.
+
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=.75\textwidth]{chapters/chapter1_theory/images/hh-brs.png}
+    \caption{\gls{SM} Higgs boson branching ratios for $HH$ pairs to various final state combinations \cite{hh-whitepaper}.}
+    \label{fig:hh-brs}
+\end{figure}
