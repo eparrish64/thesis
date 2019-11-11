@@ -67,7 +67,7 @@ There are various different boosting methods, notably ``Adaboost'' \cite{adaboos
 
 \subsection{Neural Networks}
 
-An \glsfirst{ANN}\footnote{The name ``Artificial Neural Network'' comes from such models being inspired by neurological structures. At each neuron, signals are received by dendrites, passed along an axon to produce some output, which is passed along through axon terminals. Many of these neurons come together to process sophisticated information. This loosely mirrors the topology of an \gls{ANN}, where basis functions parallel neurons.} is a nonlinear machine learning algorithm that attempts to perform a task via a combination of nonlinear basis functions ($h(x)$) where weights ($w$) are learned in the training procedure. The resulting function is:
+An Artificial \glsfirst{NN}\footnote{Historically, these have been abbreviated ANN for ``Artifical Neural Network,'' however to avoid ambiguity with modern ``Adversarial Neural Networks,'' the abbreviation NN is used.} is a nonlinear machine learning algorithm that attempts to perform a task via a combination of nonlinear basis functions ($h(x)$) where weights ($w$) are learned in the training procedure\footnote{The name ``Neural Network'' comes from such models being inspired by neurological structures. At each neuron, signals are received by dendrites, passed along an axon to produce some output, which is passed along through axon terminals. Many of these neurons come together to process sophisticated information. This loosely mirrors the topology of an \gls{NN}, where basis functions parallel neurons.}. The resulting function is:
 
 \begin{equation}
     y(x) = w_0^2 + \sum_{m=1}^{M} \big [w_m^2 \cdot h \big (w_{0m}^1 + \sum_{k=1}^{D} w_{km}^1 x_k) ]
@@ -80,12 +80,12 @@ Where $D$ is the number of inputs and $M$ is the number of basis functions. Here
     \item The rectified linear unit (ReLU), given by $h(t)=max(0,x)$, in other words, returning 0 below $x=0$ and $y=x$ otherwise.
 \end{itemize}
 
-An illustration of a \gls{ANN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:nn}. 
+An illustration of a \gls{NN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:nn}. 
 
 \begin{figure}[!ht] 
     \centering
     \includegraphics[width=.7\textwidth]{appendices/images/neural_network.png}
-    \caption[A sample \gls{ANN} with $D=4$ and $M=5$]{A sample \gls{ANN} with $D=4$ and $M=5$ \cite{data-analysis}.}
+    \caption[A sample \gls{NN} with $D=4$ and $M=5$]{A sample \gls{NN} with $D=4$ and $M=5$ \cite{data-analysis}.}
     \label{fig:nn}
 \end{figure}
 

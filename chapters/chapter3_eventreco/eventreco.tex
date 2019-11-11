@@ -21,26 +21,33 @@ There are two parton shower generators generally used int the ATLAS simulation s
 \indent After hadronization, the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \textsc{GEANT4} \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
 
 \section{Object Reconstruction} \label{sec:reconstruction}
-\subsection{Electrons}
+
+\subsection{Electromagnetic Signatures: Electrons and Photons} \label{ssec:em-signatures} %https://arxiv.org/pdf/1908.00005.pdf
 
 \noindent\textbf{Interaction}\\
-\indent Electrons are charged leptons. Thus, they curve as they traverse the magnetic field, in ATLAS and produce tracks in the inner detector. They interact with the material in the \gls{LAr} electromagnetic calorimeter and shower. This signature is utilized in the reconstruction algorithms to build electron candidates.
+\indent Photons and electrons interact with the \gls{LAr} calorimeter, leaving an electromagnetic signature in a group of neighboring cells known as \textit{showering}. Their reconstruction is performed in parallel due to the similarity in signature.
+
+There are three sources that \gls{EM} clusters:
+\begin{itemize}
+    \item Electrons: Being a charged lepton, in addition to the showering, electrons interact with the \gls{ID}, leaving a track that can be extrapolated to the \gls{EM} cluster.
+    \item Converted Photons: Photons that pair produce electron-positron pairs in the detector prior to the calorimeter have a \gls{EM} cluster matched to a secondary vertex. At low \abseta, about 20\% of photons convert, where above $\abseta=2.3$, up to 65\% convert \cite{photon-electron-perf}.
+    \item Unconverted Photons: Unconverted photons do not interact with the \gls{ID}, and thus are not matched to an electron track or secondary vertex.
+\end{itemize}
 
 As a result of bremsstrahlung radiation, an electron can lose a substantial portion of its energy as it traverses the detector material. In this process, the electron radiates a photon, which itself can radiate an electron-positron pair. Should these occur in the beampipe or \gls{ID}, there may be multiple track candidates from the same electron.
 %% TODO Clarify this
 
+
 \noindent\textbf{Cluster Reconstruction}\\
-\indent The algorithm used to build electron candidates is known as the ``sliding window'' algorithm \cite{sliding-window}. The algorithm sums energy depositions in a fixed window size, adjusting such that the local \et maximum is contained within the window. The window width used is $3 \times 5$ in $\eta \times \phi$ towers, where a tower is defined by segmenting the calorimeter into $200 \times 256$ elements. Therefore, each tower is of size $\Delta \eta \times \Delta \phi = 0.025 \times 0.025$. When a window has $\et > \unit{2.5}{\GeV}$, it forms a cluster candidate. In cases of ambiguity, where candidates overlap within a $5 \times 9$ tower window, the following logic is applied:
-\begin{itemize}
-    \item If the candidates have \et values within 10\%, choose the candidate with the highest \et central tower.
-    \item If the candidates have \et values with a difference of at least 10\%, choose the candidate with the higher $\sum \et$.
-\end{itemize}
+\indent The algorithm to build electron and photon candidates is a dynamic algorithm, building variable-sized clusters known as superclusters. This is in contrast to previous methods, which use a fixed ``sliding window'' definition \cite{sliding-window}. The algorithm starts from a \textit{seed} cell, which is identified by a signal larger than a high signal threshold relative to underlying electronic noise, $S\sigma_{noise}$. The seed and its neighbors are added to the cell, known as a \textit{proto-cluster}. Then, all neighbor\footnote{In the same sampling layer, neighboring means cells are adjacent. In adjacent layers, neighboring cells must have overlap in the $(\eta,\phi)$ plane.} cells are scanned for a signal larger than a moderate threshold, $N\sigma_{noise}$. The subsequent neighbors of cells meeting this criteria are added to the cluster, and themselves evaluated if they pass the moderate signal threshold, provided that they pass a cell filter defined by $P\sigma_{noise}$. In the case where two clusters have an overlapping cell, the clusters are merged. ATLAS uses default values of $S=4,N=2,P=0$ in this algorithm. The choice of $P=0$ means that no filter is applied, and candidates passing the $2\sigma_{noise}$ have all neighboring cells added to the cluster. This method of clustering is known as  ``topological clustering'' \cite{topo-cluster}. 
 
 
-The electron reconstruction efficiency is shown in figure \ref{fig:electron-eff} as a function of truth (generator-level) \et, where this stage of candidate formation is shown in red. Due to $\unit{2.5}{\GeV}$ threshold of the clustering algorithm, the efficiency falls off below $\et = \unit{4.5}{\GeV}$.
 
-\noindent\textbf{Track Reconstruction}\\
-\indent
+
+
+The electron reconstruction efficiency is shown in Figure \ref{fig:electron-eff} as a function of truth (generator-level) \et, where this stage of candidate formation is shown in red. Due to $\unit{2.5}{\GeV}$ threshold of the clustering algorithm, the efficiency falls off below $\et = \unit{4.5}{\GeV}$.
+
+
 
 \begin{figure}[!thp]
     \centering
@@ -50,15 +57,33 @@ The electron reconstruction efficiency is shown in figure \ref{fig:electron-eff}
     \label{fig:electron-eff}
 \end{figure}
 
+\noindent\textbf{Track Reconstruction}\\ %https://arxiv.org/pdf/1902.04655.pdf
+\indent Tracks are constructed out of hits within the \gls{ID}, in which three dimensional space-points are constructed out of clustered hits. Three sets of space-points are formed into track seeds, which then undergo stages of pattern recognition, ambiguity resolution, and \gls{TRT} extension. Track candidates with $\pt > \unit{400}{\MeV}$ are fit with the ATLAS Global $\chi^2$ fitter \cite{chi-2-fitter}. This uses the pion hypothesis for energy loss, however to accommodate for the bremsstrahlung losses, a second fit is performed using the electron hypothesis.
 
-\subsection{Photons} 
+For tracks with at least four silicon hits that match to an \gls{EM} cluster, a secondary fit is performed using a Gaussian-sum filter \cite{gaussian-sum-filter}. This filter is is a generalization of the Kalman filter \cite{kalman-filter}, taking into account non-linearities resulting from bremsstrahlung radiation. The track perigee is then used to extrapolate to the \gls{EM} cluster in the second layer of the calorimeter, and must satisfy the following matching criteria to the cluster barycenter:
+\begin{itemize}
+    \item $|\eta_{cluster} - \eta_{track}| < 0.05$
+    \item One of two azimuthal requirements:
+    \begin{description}
+        \item $-0.20 < \Delta \phi < 0.05$ for $\Delta \phi = -q \times (\phi_{cluster}-\phi_{track})$
+        \item $-0.10 < \Delta \phi_{res} < 0.05$ for $\Delta \phi_{res}$ with the same definition as $\Delta \phi$,but the track momentum rescaled to the energy of the cluster
+    \end{description}
+\end{itemize}
 
-Photon reconstruction is very similar to that of electrons. Photons, however, do not interact with the inner tracker material, 
+%Figure \ref{fig:electron-eff} also shows the track reconstruction efficiency (blue), which is greater than 80\% efficient as low as $\et = \unit{1}{GeV}$, and more than 98\% efficient above $\et = \unit{10}{\GeV}$.
+
+
+
 
 \subsection{Jets}
-Strongly interacting particles 
+As discussed in Section \ref{ssec:fermions}, strongly interacting particles cannot exist independently due to color confinement. Due to this, partons created in $pp$ collisions shower, a process where quarks radiating gluons and gluons split, ultimately creating a proliferation of subsequent partons. Ultimately, once they've reached a sufficiently low energy, about $\unit{1}{\GeV}$, they hadronize in order to create a colorless state, such as mesons or baryons that deposits energy into the calorimeters. This spray of interactions, both the showering and hadronization, all proceed in the general same direction and location, known as a ``jet.''
 
-The primary jet identification algorithm in ATLAS is the anti-$k_T$ algorithm REFERENCE and explain. This parameter is set with distance parameter $R=0.4$.
+In principle, jets can be built from any set of 4-vector objects. For this work, they are constructed via topological clusters, described in detail in \ref{ssec:em-signatures}. From the topological clusters, an algorithm known as the Anti-$k_t$ algorithm \cite{anti-kt} builds the jets using a fixed radius, $R=0.4$\footnote{In analyses that probe high mass regimes, two jets may be overlapping and merge to produce one single large radius jet. This is known as a ``boosted'' topology, where the radius parameter is typically $R=1.0$. The presented analysis is not sensitive at high mass, thus such topologies are not considered.}.
+
 
 \subsubsection{Jet Flavor Tagging}
+
+Since all fragmenting strongly interacting particles appear as jets in the detector, an important process is \textit{flavor tagging}, a process which aims to classify the type of particle that produced a given jet. Paramount to the presented analysis is the process of $b$-tagging\footnote{In addition to $b$-tagging, ATLAS has produced discriminators for charm jets ($c$-tagging), however the presented analysis does not target $c$ production.}, algorithms to classify jets which come from $b$-quarks. There are several algorithms to perform this classification, notably a \gls{BDT} named MV2 \cite{mv2-dl1} and a feed-forward deep \gls{NN}\footnote{See Appendix \ref{app:MVA} for an explanation of these multivariate techniques.} \cite{mv2-dl1}. From this score, $b$-tagging working points are established and calibrated based on their identification efficiency. 
+
+
 \subsection{Muons}
