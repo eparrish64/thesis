@@ -81,9 +81,18 @@ As discussed in Section \ref{ssec:fermions}, strongly interacting particles cann
 In principle, jets can be built from any set of 4-vector objects. For this work, they are constructed via topological clusters, described in detail in \ref{ssec:em-signatures}. From the topological clusters, an algorithm known as the Anti-$k_t$ algorithm \cite{anti-kt} builds the jets using a fixed radius, $R=0.4$\footnote{In analyses that probe high mass regimes, two jets may be overlapping and merge to produce one single large radius jet. This is known as a ``boosted'' topology, where the radius parameter is typically $R=1.0$. The presented analysis is not sensitive at high mass, thus such topologies are not considered.}.
 
 
-\subsubsection{Jet Flavor Tagging}
-
 Since all fragmenting strongly interacting particles appear as jets in the detector, an important process is \textit{flavor tagging}, a process which aims to classify the type of particle that produced a given jet. Paramount to the presented analysis is the process of $b$-tagging\footnote{In addition to $b$-tagging, ATLAS has produced discriminators for charm jets ($c$-tagging), however the presented analysis does not target $c$ production.}, algorithms to classify jets which come from $b$-quarks. There are several algorithms to perform this classification, notably a \gls{BDT} named MV2 \cite{mv2-dl1} and a feed-forward deep \gls{NN}\footnote{See Appendix \ref{app:MVA} for an explanation of these multivariate techniques.} \cite{mv2-dl1}. From this score, $b$-tagging working points are established and calibrated based on their identification efficiency. 
 
 
 \subsection{Muons}
+%http://cds.cern.ch/record/2139897/files/arXiv:1603.05598.pdf
+
+Muons are reconstructed using a combination of information from the \gls{ID} and the \gls{MS}. In the \gls{ID} tracks for muons is identical to other charged particles, outlined in Section \ref{ssec:em-signatures}. In the \gls{MS}, in each detector region (i.e. \glspl{MDT}, \glspl{CSC}, etc.), track segments are built from aligned hits in the bending plane of the detector, found via a Hough transform \cite{hough-transf}. Track candidates are formed by fitting together hits from different track segments via a combinatorial search outlined in Reference \cite{muon-reco}. Then an overlap removal algorithm finds the optimum track assignment. Ultimately hits are fitted with a global $\chi^2$ fit. Afterwards a hit recovery and subsequent track refit are performed if necessary.
+
+Ultimately four muon types are defined \cite{muon-reco}:
+\begin{itemize}
+    \item Combined (CB) muon: Tracks reconstructed in the \gls{ID} are formed into a combined track using a global refit incorporating hits from both subdetectors.
+    \item Segment-tagged (ST) muon: An \gls{ID} track is extrapolated to a local track segment in the \gls{MDT} or \gls{CSC}, accounting for muons that only cross one layer of \gls{MS} chambers.
+    \item Calorimeter-tagged (CT) muon: An \gls{ID} track matched to a energy deposit in the calorimeter compatible with a minimum-ionizing particle. This muon type compensates for portions of the \gls{MS} that are only partially instrumented.
+    \item Extrapolated (ME) muons: These use only track information from the \gls{MS}, where parameters must be loosely in agreement with the location of the \gls{IP}. ME muons are useful for acceptance in $2.5 < \abseta < 2.7$, which is uncovered by the \gls{ID}.
+\end{itemize}
