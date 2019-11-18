@@ -1,4 +1,38 @@
 \chapter{Photon Identification Optimization}
+
+Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interaction in the calorimeter. These include variables describing the leakage in the hadronic calorimeter ($R_{had}$, $R_{had_1}$), widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), and the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$). Two sets of cuts are defined, corresponding to two working points, nominally the \textit{tight} and \textit{loose} menus.
+
+A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}.
+
+% todo: maybe describe these a bit better https://arxiv.org/pdf/1606.01813.pdf 
+
+In order to account for detector segmentation and differences in upstream material, cuts on these variables are derived in bins of \abseta. The intervals are 0.0, 0.6, 0.8, 1.15, 1.37, 1.52, 1.81, 2.01, 2.37, with a bin defined between each step (e.g. $[0.0,0.6)$, $[0.6,0.8)$, etc.) except over $[1.37,1.52)$ where the transition crack between the \gls{EMB} and \gls{EMEC} lies. 
+
+% todo: make sure inclusivity here is correct
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.98\textwidth]{chapters/chapter4_photonID/images/ss-vars.png}
+    \caption[Schematic of the shower shape variables used in the present cut-based photon identification menu.]
+    {Schematic of the shower shape variables used in the present cut-based photon identification menu \cite{ss-var-schematic}.}
+    \label{fig:ss-vars-schematic}
+\end{figure}
+
+\begin{table}[!thp]
+    \centering
+    \includegraphics[width=.90\textwidth]{chapters/chapter4_photonID/images/ss-table.png}
+    \caption[List of discriminating variables used in the present photon identification menu.]
+    {List of discriminating variables used in the present photon identification menu \cite{r1-photonID}.}
+    \label{tab:ss-vars-table}
+\end{table}
+
+\section{Samples}
+
+In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. The signal sample is a $\gamma+$jet sample
+
+Additionally, truth information is used to force 
+
+
 \section{Topological Clusters}
 
 Photon reconstruction is performed through a method known as ``topological clustering,'' which is outlined in Section \ref{ssec:em-signatures}. In the calorimeter, energy depositions are clustered via this method, then merged into superclusters, which are ultimately the detector signature defined as the photon. The reconstructed observables of these topological clusters, or \textit{moments}, can be used to characterize them. This section will discuss the use of these topological cluster moments in photon identification to better reject background from non-prompt photons.
@@ -30,9 +64,51 @@ A visualization of the geometric moments, both location and shape can be found i
 \end{figure}
 
 
+\noindent\textbf{Data-MC Comparison}\\
+\indent In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Furthermore, photons in \gls{MC} must correspond to a truth photon. 
+
+This section includes the comparisons for unconverted photons which are considered for adding to the photon ID menu. Converted comparisons will be included into Appendix 
+
+% TODO: add appendix
+
+%todo: add plots
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.80\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondLambda_Unconverted_lowerEta.png}
+    \includegraphics[width=.80\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondLambda_Unconverted_upperEta.png}
+    \caption{Data-MC comparison for the semi-major axis in depth ($\sqrt{\lambda^2}$).}
+\end{figure}
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.80\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondR_Unconverted_lowerEta.png}
+    \includegraphics[width=.80\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondR_Unconverted_upperEta.png}
+    \caption{Data-MC comparison for the semi-major axis in width ($\sqrt{r^2}$).}
+\end{figure}
+% TODO: split these figs?
+
+\noindent\textbf{Correlations}\\
+\indent Checking the correlations of variables is important for several reasons. First, highly correlated variables do not bring new information, and thus are not useful for adding additional cuts on. Also, it is paramount that any variables that are incorporated in the menu are not correlated to photon isolation.
+
+The correlation between these variables and the shower shape variables and isolation working points is shown in Figure \ref{fig:photonid-corrs}.
+%todo: add plots
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.77\textwidth]{chapters/chapter4_photonID/images/sig_none_corr.png}
+    \includegraphics[width=.77\textwidth]{chapters/chapter4_photonID/images/bkg_none_corr.png}
+    \caption{Correlation values between the shower shape variables, topological cluster variables, and isolation working points.}
+    \label{fig:photonid-corrs}
+\end{figure}
+% TODO: split these figs?
+
+
 \section{Multivariate Analysis Techniques}
 
 The current photon identification working points are defined by a rectangular cuts method. Cut optimization is performed through a 9-dimensional scan over the shower shape variables. In order to better reject background, a multivariate approach to defining these working points has been investigated. These methods are outlined in detail in Appendix \ref{app:MVA}, and the following sections will discuss the improvements brought to photon identification through implementing them.
 
 \subsection{Boosted Decision Tree}
+
+A \gls{BDT} was employed as an alternative classification algorithm. An independent \gls{BDT} was trained in each bin in $\eta$ and \pt. As a baseline, the \gls{BDT}
+
 \subsection{Neural Network}

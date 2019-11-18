@@ -19,7 +19,7 @@
 \renewbibmacro{in:}{}
 \bibliography{biblio}
 
-\usepackage{appendix} % Get appendix on own page
+\usepackage[titletoc]{appendix} % Get appendix on own page
 \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage[utf8]{inputenc}
@@ -102,7 +102,7 @@
 
 \appendix
 \include{appendices/app1_mva}			% file with Appendix A contents
-%\include{app2}			% file with Appendix B contents
+\include{appendices/app2_datamc}			% file with Appendix A contents
 
 \printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 \include{refs}		% file with references
