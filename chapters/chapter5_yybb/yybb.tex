@@ -75,6 +75,11 @@ Relevant distributions for validation of these samples can be seen in Figure \re
 
 \section{Object Definition}
 \section{Event Selection}
+\noindent\textbf{Preselection}\\
+\indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of which must have $\et > \unit{35}{GeV}$ and the other must have $\et > \unit{25}{GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
+
+A further requirement of two jets within the b-tagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
+
 \section{Modeling}
 \subsection{Signal Modeling}
 \subsection{Background Modeling}
@@ -86,4 +91,53 @@ Relevant distributions for validation of these samples can be seen in Figure \re
 \section{Searches for Vector Boson Fusion HH Production}
 \subsection{Simulated Samples}
 \subsection{Event Selection}
+Events which have already passed the ggF BDT based selection and have at least 4 jets are considered for the VBF candidate. The 4 jet requirement is imposed in order to reconstruct VBF-based variables. The VBF jets are then selected as the highest $m_{jj}$ pairing, excluding $H\rightarrow b\bar{b}$ candidate jets.
+
+These events are then evaluated by a multiclass BDT, which has independent classes for VBF HH, ggF HH, $\gamma \gamma$-continuum, and $ttH$. Ultimately, an event selected for the VBF category if it passes the BDT score threshold for VBF HH, and fails the score threshold for the other three classes. The thresholds are determined by a 4-dimensional scan over cuts on the BDT score, with the Asimov significance as the figure of merit.
+
+A flowchart of this logic is shown in Figure \ref{fig:vbf-logic}.
+
+\begin{figure}[htbp]
+    \centering
+	\includegraphics[width=0.9\textwidth]{chapters/chapter5_yybb/images/vbf_logic.png}
+    \caption{Logic flow for an event to be selected into the VBF-enriched signal region. The starting set of candidates (denoted ``event'') requires passing preselection and at least one of the ggF-based signal categories. If an event is assigned to the ggF categories, it is separated into 4 categories.}
+    \label{fig:vbf-logic}
+\end{figure}
+
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+	\hline
+	Class & Target & Selection Logic  \\
+	\hline
+	0 & VBF HH & $BDTscore_{0} > XXX $ \\
+	1 & ggF HH & $BDTscore_{1} < XXX $ \\
+	2 & $\gamma\gamma$-Continuum &  $BDTscore_{2} < XXX $ \\
+	3 & $ttH$ &  $BDTscore_{3} < XXX $ \\
+	\hline
+	\end{tabular}
+\end{center}
+
+
+The full list of variables considered for this BDT are as follows.
+% TODO: Skim this list after pruning
+
+\textbf{VBF-targeted:}
+
+$\Delta \eta_{jj}$, $m_{jj}$, $n_{jet}$, $p_{T, \gamma\gamma}/m_{\gamma\gamma}$, $p_{T,jj\bb}$, $p_{T,jjbb}/p_{T,\bb}$\footnote{In these variables $jj$ refers to the VBF-candidate jets, while $\bb$ refers to the $H\rightarrow \bb$ jets}
+
+\textbf{$\gamma \gamma$-suppressing:}
+
+\myybb, $\Delta R_{\gamma\gamma}$, $\Delta R_{\bb}$, $\Delta R_{\gamma \gamma,\bb}$, and the best b-tagging WP for the $H\rightarrow \bb$ jets
+
+\textbf{$ttH$-suppressing:}
+
+$H_{T}$, $m_{jj,b1}$, $m_{jj,b2}$ $m_{jj,W1}$, $m_{jj,W2}$. Event shape variables \cite{STDM-2011-33} - aplanority, aplanarity, sphericity, spherocity, sphericityT, planarity, circularity, planarFlow
+
+
+Distributions for each these variables after applying a 4-jet requirement can be found in Appendix \ref{app:vbf-variables}.
+
+Adding a VBF-enriched category provides a XXX percent improvement over not defining such a category.
+
+
 \subsection{Analysis Improvement}
