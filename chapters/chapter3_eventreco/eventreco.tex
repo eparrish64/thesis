@@ -6,14 +6,31 @@ To properly understand and interpret results, comparisons to theoretical predict
 
 At each step, a \gls{MC} integration is performed. A \gls{MC} simulation attempts to model a complex process by taking a function's underlying probability distribution and sampling it randomly {\color{red}}. Furthermore, when a process can be factorized, meaning it evolves serially, with each step dependent on only the prior, a method called \gls{MCMC}.
 
-\noindent\textbf{Event Generation}\\
-\indent The first step of the ATLAS simulation is generating the hard-scatter process. At the \gls{LHC}, in $pp$ collisions, the object ultimately collided are partons, the constituent strongly interacting particles (quarks and gluons) that comprise the protons. When simulating collisions, parton distribution functions are used, which describe the probability of finding a parton carrying a given fraction of the proton momentum. The partonic cross-section is 
+The evolution is described in the following sections, proceeding in steps of event generation, parton showering, hadronization, and finally detector simulation.
 
+\noindent\textbf{Event Generation}\\
+\indent The first step of the ATLAS simulation is generating the hard-scatter process. At the \gls{LHC}, in $pp$ collisions, the object ultimately collided are partons, the constituent strongly interacting particles (quarks and gluons) that comprise the protons. When simulating collisions, parton distribution functions are used, which describe the probability of finding a parton carrying a given fraction of the proton momentum.
+
+
+Event generators produce \textit{matrix elements}, which take into account the partonic cross-section to a specified order approximation. The matrix element is returned in the \textit{Les Houches Accord} format \cite{les-houches}, which was designed to create a uniform event generator output. This format can then be interfaced to tools for parton shower and hadronization.
+
+The ATLAS software contains many event generators. For the samples used in the presented analysis, the following generators are used:
+
+\begin{description}
+    \item \HERWIGpp: A general-purpose event generator \cite{herwigpp}
+    \item \MADGRAPH: A matrix element generator, generating tree-level matrix elements for Lagrangian-based models \cite{mg5}
+    \item \PYTHIA: A standard event generator \cite{pythia8.2}
+    \item \POWHEG: A \gls{NLO} event generator that is built to overcome the problem of negatively weighted events \cite{powheg} % Used for vbf resonant samples, check if used otherwise
+    \item \SHERPA: A general-purpose simulation tool, containing all necessary components for a factorized description of scattering events \cite{sherpa2.2}
+\end{description}
 
 \noindent\textbf{Parton Showering}\\
 \indent Parton showering 
 
-After interacting, the parton showering must then be simulated
+After interacting, the parton showering must then be simulated. Parton showering matches \gls{QCD} radiation to the matrix element 
+
+% pick one of these
+Several of the event generators in the ATLAS software have parton shower built in, notably among these \PYTHIA, \HERWIG, and \SHERPA.
 
 There are two parton shower generators generally used in the ATLAS simulation software, \PYTHIA and \HERWIG. \PYTHIA orders its showers by $p_{T}$. \HERWIG utilizes angular ordering, to account for coherence effects. 
 
@@ -23,7 +40,7 @@ There are two parton shower generators generally used in the ATLAS simulation so
 \noindent\textbf{Detector Simulation}\\
 \indent Through hadronization, the simulation chain is independent of ATLAS, describing solely how the particles interact\footnote{In fact, through hadronization, all simulation is entirely independent of the ATLAS software stack.}. After hadronization, the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
 
-The ATLAS simulation framework is known as Athena, and is built on the Gaudi Architecture \cite{gaudi}.
+The ATLAS simulation framework is known as \texttt{ATHENA}, and is built on the Gaudi Architecture \cite{gaudi}.
 
 \section{Object Reconstruction} \label{sec:reconstruction}
 
