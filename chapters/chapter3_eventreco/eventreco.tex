@@ -24,23 +24,34 @@ The ATLAS software contains many event generators. For the samples used in the p
     \item \SHERPA: A general-purpose simulation tool, containing all necessary components for a factorized description of scattering events \cite{sherpa2.2}
 \end{description}
 
-\noindent\textbf{Parton Showering}\\
-\indent Parton showering 
+\noindent\textbf{Parton Showering}\\ % https://arxiv.org/pdf/1411.4085.pdf
+\indent After interacting, the parton showering must then be simulated. As a hard scatter process accelerates, it emits \gls{QCD} bremsstrahlung radiation in the form of gluons. Emitted gluons carry color charge and also can continue to radiate. This process is known as parton showering, and generators approximate these higher-order \gls{QCD} corrections through a chain of one-to-two parton branching. This is performed iteratively until reaching the non-perturbative regime, around $\unit{1}{\GeV}$.
 
-After interacting, the parton showering must then be simulated. Parton showering matches \gls{QCD} radiation to the matrix element 
+This radiation then must be matched to the matrix element, which is done through either matching or merging. Matching uses the difference of the parton shower at fixed-order and higher-order calculation. Merging, by contrast, performs a tree-level on each parton, using resolution cuts to regulate divergences of the hard matrix element, then removes double-counting through shower branching vetoes.
 
-% pick one of these
-Several of the event generators in the ATLAS software have parton shower built in, notably among these \PYTHIA, \HERWIG, and \SHERPA.
+Three event generators in the ATLAS software have parton shower built in: \PYTHIA, \HERWIG, and \SHERPA. Those which do not interface with one of those three for parton showering and hadronization. \PYTHIA and \SHERPA orders showers by $p_{T}$, while \HERWIG utilizes angular ordering, to account for coherence effects. 
 
-There are two parton shower generators generally used in the ATLAS simulation software, \PYTHIA and \HERWIG. \PYTHIA orders its showers by $p_{T}$. \HERWIG utilizes angular ordering, to account for coherence effects. 
+In addition to the hard scatter process, these generators simulate the underlying event. This process accounts for effects due to rescattering or multiple parton interactions within the colliding protons.
 
 \noindent\textbf{Hadronization}\\
-\indent Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization. Event generators implement models that are tuned on data. Commonly used are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG).
+\indent Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization\footnote{Also known as jet fragmentation}. Hadronization is a non-perturbative process, that relies on phenomenological models alone, and those are then tuned on data. Commonly used models are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG, \SHERPA).
+
+Through hadronization, simulation is agnostic of detector, describing just the particle interaction. A schematic of the evolution of a simulated event from event generation through hadronization is shown in Figure \ref{fig:parton-shower-sketch}.
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.70\textwidth]{chapters/chapter3_eventreco/images/parton-shower.png}
+
+    \caption[Schematic of the procession of a simulated hadron-hadron collision.]{Schematic of the procession of a simulated hadron-hadron collision through hadronization. The red circle represents the matrix element, simulated by an event generator. The emitted red lines represent the Bremsstrahlung radiation, which is simulated by a parton shower. The purple oval represents a secondary vertex. Hadronization is represented by the light green circles, in which hadrons are produced (dark green) as well as photon radiation (yellow) \cite{parton-shower-sketch}.}
+    \label{fig:parton-shower-sketch}
+\end{figure}
+
+Through hadronization, the simulation chain is independent of the ATLAS detector, describing solely how the particles interact.
 
 \noindent\textbf{Detector Simulation}\\
-\indent Through hadronization, the simulation chain is independent of ATLAS, describing solely how the particles interact\footnote{In fact, through hadronization, all simulation is entirely independent of the ATLAS software stack.}. After hadronization, the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
+\indent After hadronization, the model is a full detector-independent description of a process; next the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
 
-The ATLAS simulation framework is known as \texttt{ATHENA}, and is built on the Gaudi Architecture \cite{gaudi}.
+The ATLAS simulation framework is known as \ATHENA, and is built on the Gaudi Architecture \cite{gaudi}.
 
 \section{Object Reconstruction} \label{sec:reconstruction}
 
@@ -64,9 +75,6 @@ As a result of bremsstrahlung radiation, an electron can lose a substantial port
 
 \noindent\textbf{Cluster Reconstruction}\\
 \indent The algorithm to build electron and photon candidates is a dynamic algorithm, building variable-sized clusters known as superclusters. This is in contrast to previous methods, which use a fixed ``sliding window'' definition \cite{sliding-window}. The algorithm starts from a \textit{seed} cell, which is identified by a signal larger than a high signal threshold relative to underlying electronic noise, $S\sigma_{noise}$. The seed and its neighbors are added to the cell, known as a \textit{proto-cluster}. Then, all neighbor\footnote{In the same sampling layer, neighboring means cells are adjacent. In adjacent layers, neighboring cells must have overlap in the $(\eta,\phi)$ plane.} cells are scanned for a signal larger than a moderate threshold, $N\sigma_{noise}$. The subsequent neighbors of cells meeting this criteria are added to the cluster, and themselves evaluated if they pass the moderate signal threshold, provided that they pass a cell filter defined by $P\sigma_{noise}$. In the case where two clusters have an overlapping cell, the clusters are merged. ATLAS uses default values of $S=4,N=2,P=0$ in this algorithm. The choice of $P=0$ means that no filter is applied, and candidates passing the $2\sigma_{noise}$ have all neighboring cells added to the cluster. This method of clustering is known as  ``topological clustering'' \cite{topo-cluster}. 
-
-
-
 
 
 The electron reconstruction efficiency is shown in Figure \ref{fig:electron-eff} as a function of truth (generator-level) \et, where this stage of candidate formation is shown in red. Due to $\unit{2.5}{\GeV}$ threshold of the clustering algorithm, the efficiency falls off below $\et = \unit{4.5}{\GeV}$.
