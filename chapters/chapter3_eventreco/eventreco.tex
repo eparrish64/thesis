@@ -2,14 +2,14 @@
 
 \section{Simulation} \label{sec:simulation}
 
-To properly understand and interpret results, comparisons to theoretical prediction must be made. In the context of particle colliders, this means an understanding of both the underlying process as well as predictions of detector effects. To do this, a simulation framework has been developed. The framework is a serial process starting with event generation, those events then undergo parton showering, hadronization, detector simulation, and reconstruction.
+To properly understand and interpret results, comparisons to theoretical prediction must be made. In the context of particle colliders, this means an understanding of both the underlying process as well as predictions of detector effects. To do this, a simulation framework has been developed by ATLAS. 
 
-At each step, a \gls{MC} integration is performed. A \gls{MC} simulation attempts to model a complex process by taking a function's underlying probability distribution and sampling it randomly {\color{red}}. Furthermore, when a process can be factorized, meaning it evolves serially, with each step dependent on only the prior, a method called \gls{MCMC}.
+This simulation framework relies on several steps of \gls{MC} integration. A \gls{MC} simulation attempts to model a process by taking a function's underlying probability distribution and sampling it randomly. Furthermore, these steps of \gls{MC} integration evolve serially, and each step is Markovian: the process is completely dependent \textit{only} on the prior step, so sampling is performed on its posterior distribution. Producing \gls{MC} from a set of subsequent Markovian processes is known as \gls{MCMC}, which is used to simulate complex processes, such as particle collisions.
 
-The evolution is described in the following sections, proceeding in steps of event generation, parton showering, hadronization, and finally detector simulation.
+The framework is designed to produce \gls{MCMC}, evolving in steps of event generation (Section \ref{ssec:eventgen}), those events then undergo parton showering (Section \ref{ssec:partonshower}), hadronization (Section \ref{ssec:hadronization}), detector simulation (Section \ref{ssec:simulation}), and finally reconstruction of physics objects (Section \ref{sec:reconstruction}).
 
-\noindent\textbf{Event Generation}\\
-\indent The first step of the ATLAS simulation is generating the hard-scatter process. At the \gls{LHC}, in $pp$ collisions, the object ultimately collided are partons, the constituent strongly interacting particles (quarks and gluons) that comprise the protons. When simulating collisions, parton distribution functions are used, which describe the probability of finding a parton carrying a given fraction of the proton momentum.
+\subsection{Event Generation} \label{ssec:eventgen}
+The first step of the ATLAS simulation is generating the hard-scatter process. At in $pp$ collisions, the object ultimately collided are partons, the constituent strongly interacting particles (quarks and gluons) that comprise the protons. When simulating collisions, parton distribution functions are used, which describe the probability of finding a parton carrying a given fraction of the proton momentum.
 
 
 Event generators produce \textit{matrix elements}, which take into account the partonic cross-section to a specified order approximation. The matrix element is returned in the \textit{Les Houches Accord} format \cite{les-houches}, which was designed to create a uniform event generator output. This format can then be interfaced to tools for parton shower and hadronization.
@@ -24,8 +24,8 @@ The ATLAS software contains many event generators. For the samples used in the p
     \item \SHERPA: A general-purpose simulation tool, containing all necessary components for a factorized description of scattering events \cite{sherpa2.2}
 \end{description}
 
-\noindent\textbf{Parton Showering}\\ % https://arxiv.org/pdf/1411.4085.pdf
-\indent After interacting, the parton showering must then be simulated. As a hard scatter process accelerates, it emits \gls{QCD} bremsstrahlung radiation in the form of gluons. Emitted gluons carry color charge and also can continue to radiate. This process is known as parton showering, and generators approximate these higher-order \gls{QCD} corrections through a chain of one-to-two parton branching. This is performed iteratively until reaching the non-perturbative regime, around $\unit{1}{\GeV}$.
+\subsection{Parton Showering} \label{ssec:partonshower} % https://arxiv.org/pdf/1411.4085.pdf
+After interacting, the parton showering must then be simulated. As a hard scatter process accelerates, it emits \gls{QCD} bremsstrahlung radiation in the form of gluons. Emitted gluons carry color charge, which also can further radiate. This process is known as parton showering, and generators approximate these higher-order \gls{QCD} corrections through a chain of one-to-two parton branching. This is performed iteratively until reaching the non-perturbative regime, around $\unit{1}{\GeV}$.
 
 This radiation then must be matched to the matrix element, which is done through either matching or merging. Matching uses the difference of the parton shower at fixed-order and higher-order calculation. Merging, by contrast, performs a tree-level on each parton, using resolution cuts to regulate divergences of the hard matrix element, then removes double-counting through shower branching vetoes.
 
@@ -33,8 +33,8 @@ Three event generators in the ATLAS software have parton shower built in: \PYTHI
 
 In addition to the hard scatter process, these generators simulate the underlying event. This process accounts for effects due to rescattering or multiple parton interactions within the colliding protons.
 
-\noindent\textbf{Hadronization}\\
-\indent Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization\footnote{Also known as jet fragmentation}. Hadronization is a non-perturbative process, that relies on phenomenological models alone, and those are then tuned on data. Commonly used models are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG, \SHERPA).
+\subsection{Hadronization} \label{ssec:hadronization}
+Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization\footnote{Also known as jet fragmentation}. Hadronization is a non-perturbative process, that relies on phenomenological models alone, and those are then tuned on data. Commonly used models are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG, \SHERPA).
 
 Through hadronization, simulation is agnostic of detector, describing just the particle interaction. A schematic of the evolution of a simulated event from event generation through hadronization is shown in Figure \ref{fig:parton-shower-sketch}.
 
@@ -46,10 +46,9 @@ Through hadronization, simulation is agnostic of detector, describing just the p
     \label{fig:parton-shower-sketch}
 \end{figure}
 
-Through hadronization, the simulation chain is independent of the ATLAS detector, describing solely how the particles interact.
 
-\noindent\textbf{Detector Simulation}\\
-\indent After hadronization, the model is a full detector-independent description of a process; next the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, which will be outlined in Section \ref{sec:reconstruction}.
+\subsection{Detector Simulation}  \label{ssec:simulation}
+After hadronization, the model is a full detector-independent description of a process; next the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, outlined in Section \ref{sec:reconstruction}.
 
 The ATLAS simulation framework is known as \ATHENA, and is built on the Gaudi Architecture \cite{gaudi}.
 
