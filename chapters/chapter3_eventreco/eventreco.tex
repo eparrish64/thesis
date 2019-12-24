@@ -50,11 +50,13 @@ Through hadronization, simulation is agnostic of detector, describing just the p
 \subsection{Detector Simulation}  \label{ssec:simulation}
 After hadronization, the model is a full detector-independent description of a process; next the simulation must model how the particle will interact with the ATLAS detector. In order to do this, a component-level model of the ATLAS detector is implemented in \GEANTFOUR \cite{geant4}, and particles are propagated through this model. Along the trajectory of the particle, the energy deposition in each component is calculated stochastically, and this is output as a collection of hits, and the electrical response along hits in each detector component is simulated. The output format matches that from actual data collection, so physics objects may be reconstructed via the same methods as real data, outlined in Section \ref{sec:reconstruction}.
 
+While this method is the most accurate, as a result of complicated detector architecture, it is CPU-intensive. Methods of faster simulation have been developed to mitigate this problem. The \gls{AFII} simulation reduces simulation time by an order of magnitude through using FastCaloSim for calorimeter simulation \cite{fastcalosim}. FastCaloSim uses parameterizations of electromagnetic showers to directly deposit energy rather than explicit simulation.
+
 The ATLAS simulation framework is known as \ATHENA, and is built on the Gaudi Architecture \cite{gaudi}.
 
 \section{Object Reconstruction} \label{sec:reconstruction}
 
-After the full simulation chain, the output is a set of hits in the ATLAS detector. Reconstruction is the method by which these hits are defined into final physics objects useful for analysis. This is performed independently for each type of signature. The following sections discuss the reconstruction of objects used in the presented analysis. For the Higgs decays, the final state physics objects are a pair of photons (discussed in \ref{ssec:em-signatures}) and a pair of jets (discussed in \ref{ssec:jet-reco}). To account for energy losses in jets, corrections using muons (discussed in \ref{ssec:muon-reco}) are applied. In addition to the objects used in this analysis, ATLAS reconstructs tau leptons and \gls{MET} (corresponding to neutrino signatures in \gls{SM} analyses, as well as a number of \gls{BSM} signatures), not discussed here.
+Both the full simulation chain and actual data collection result in a set of hits within the ATLAS detector. Reconstruction is the method by which these hits are defined into final physics objects useful for analysis. This is performed independently for each type of signature. The following sections discuss the reconstruction of objects used in the presented analysis. For the Higgs decays, the final state physics objects are a pair of photons (discussed in \ref{ssec:em-signatures}) and a pair of jets (discussed in \ref{ssec:jet-reco}). To account for energy losses in jets, corrections using muons (discussed in \ref{ssec:muon-reco}) are applied. In addition to the objects used in this analysis, ATLAS reconstructs tau leptons and \gls{MET} (corresponding to neutrino signatures in \gls{SM} analyses, as well as a number of \gls{BSM} signatures), not discussed here.
 
 \subsection{Electromagnetic Signatures: Electrons and Photons} \label{ssec:em-signatures} %https://arxiv.org/pdf/1908.00005.pdf
 
@@ -63,7 +65,7 @@ After the full simulation chain, the output is a set of hits in the ATLAS detect
 
 There are three sources that \gls{EM} clusters:
 \begin{itemize}
-    \item Electrons: Being a charged lepton, in addition to the showering, electrons interact with the \gls{ID}, leaving a track that can be extrapolated to the \gls{EM} cluster.
+    \item Electrons: Being a charged lepton, in addition to the \gls{EM} showering, electrons interact with the \gls{ID}, leaving a track that can be extrapolated to the \gls{EM} cluster.
     \item Converted Photons: Photons that pair produce electron-positron pairs in the detector prior to the calorimeter have a \gls{EM} cluster matched to a secondary vertex. At low \abseta, about 20\% of photons convert, where above $\abseta=2.3$, up to 65\% convert \cite{photon-electron-perf}.
     \item Unconverted Photons: Unconverted photons do not interact with the \gls{ID}, and thus are not matched to an electron track or secondary vertex.
 \end{itemize}
@@ -92,7 +94,7 @@ The electron reconstruction efficiency is shown in Figure \ref{fig:electron-eff}
 \indent Tracks are constructed out of hits within the \gls{ID}, in which three dimensional space-points are constructed out of clustered hits. Three sets of space-points are formed into track seeds, which then undergo stages of pattern recognition, ambiguity resolution, and \gls{TRT} extension. Track candidates with $\pt > \unit{400}{\MeV}$ are fit with the ATLAS Global $\chi^2$ fitter \cite{chi-2-fitter}. This uses the pion hypothesis for energy loss, however to accommodate for the bremsstrahlung losses, a second fit is performed using the electron hypothesis.
 
 For tracks with at least four silicon hits that match to an \gls{EM} cluster, a secondary fit is performed using a Gaussian-sum filter \cite{gaussian-sum-filter}. This filter is is a generalization of the Kalman filter \cite{kalman-filter}, taking into account non-linearities resulting from bremsstrahlung radiation. The track perigee is then used to extrapolate to the \gls{EM} cluster in the second layer of the calorimeter, and must satisfy the following matching criteria to the cluster barycenter:
-\begin{itemize}
+\begin{itemize} % todo: verify against: https://arxiv.org/pdf/1908.00005.pdf
     \item $|\eta_{cluster} - \eta_{track}| < 0.05$
     \item One of two azimuthal requirements:
     \begin{description}
@@ -104,6 +106,9 @@ For tracks with at least four silicon hits that match to an \gls{EM} cluster, a 
 %Figure \ref{fig:electron-eff} also shows the track reconstruction efficiency (blue), which is greater than 80\% efficient as low as $\et = \unit{1}{GeV}$, and more than 98\% efficient above $\et = \unit{10}{\GeV}$.
 
 
+\noindent\textbf{Supercluster Reconstruction}\\ 
+
+The inital
 
 
 \subsection{Jets} \label{ssec:jet-reco}
