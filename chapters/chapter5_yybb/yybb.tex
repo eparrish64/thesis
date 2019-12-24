@@ -10,9 +10,111 @@ Previous results were presented with an integrated luminosity of 36.1 fb$^{-1}$ 
 
 The analysis presented uses $pp$ collision data recorded by the ATLAS experiment at the LHC during ``Run 2,'' which ran from 2015 through 2018. After detector and data quality requirements, the total collected data corresponds to 139 \ifb. The loose diphoton trigger is used for this search, \texttt{HLT\_g35\_loose\_g25\_loose}, which triggers on diphoton events where the leading (subleading) photon \pt is greater than 35\% (25\%) the diphoton invariant mass.
 
-\subsection{Signal Samples}
+\subsection{Simulated Samples}
 
 This analysis searches for both non-resonant and resonant di-Higgs production, considering signal contributions from the ggF and VBF production modes.
+
+
+\section{Object Definition}
+\subsection{Photons}
+
+Selected photons for this analysis are converted or unconverted photons which pass tight ID cuts (outlined in Section \ref{ssec:em-signatures}). Photons must have $\pt > \unit{25}{\GeV}$ and $\abseta < 2.37$. Additionally, the crack region of $1.37 < \abseta < 1.52$ is rejected.
+
+Photons must pass an ambiguity tool is used to differentiate overlapping photons and electrons \cite{r1-photonID}.
+%TODO : continue this (p28)
+
+The leading photon \pt distribution is shown in Figure \ref{fig:photon_l_pt}, the subleading is shown in Figure \ref{fig:photon_s_pt}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_l_0t_nominal_leadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_h_0t_nominal_leadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_1t_nominal_leadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_1t_nominal_leadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_2t_nominal_leadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_2t_nominal_leadingPhoton_pt.pdf}
+  \caption[Leading photon \pt.]{Leading photon \pt by b-tagging category. The low (left) and high (right) mass selections are shown. Both data and MC are normalized such that the integral is 1.
+  \label{fig:photon_l_pt}}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_l_0t_nominal_subleadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_h_0t_nominal_subleadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_1t_nominal_subleadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_1t_nominal_subleadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_2t_nominal_subleadingPhoton_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_2t_nominal_subleadingPhoton_pt.pdf}
+  \caption[Subleading photon \pt.]{Subleading photon \pt by b-tagging category. The low (left) and high (right) mass selections are shown. Both data and MC are normalized such that the integral is 1.
+  \label{fig:photon_s_pt}}
+\end{figure}
+
+
+\subsection{Jets}
+
+Jets are defined using the \antikt algorithm with $R=0.4$, using jets with energy corrected for pile-up effects and direction readjusted to the primary vertex (EM-JES jets). Jets considered must have $\pt > \unit{25}{\GeV}$ and be within the tagging region, $\abseta < 2.5$. The following additional requirements are applied\footnote{This selection is similar to that of the default jet selection for ATLAS $H\rightarrow \yy$ analyses. The $\abseta < 2.5$ is an additional requirement imposed atop that selection for b-tagging.}:
+
+\begin{itemize}
+  \item Jets with $\pt < \unit{50}{\GeV}$ and $\abseta < 2.4$ must pass the ``default'' \gls{JVT} requirement, with $|\text{JVT}| \geq 0.59$ \cite{JVT}.
+  \item Events that contain a jet passing the ``LooseBad'' cut are vetoed. 
+  \item Jets with $\Dr < 0.4$ from a tight, isolated photon are vetoed.
+  \item Jets with $\Dr < 0.2$ from a selected electron are vetoed.
+\end{itemize}
+
+
+
+Following this selection, candidate jets are selected in the following way:
+\begin{itemize}
+  \item In the 0-tag control region, the two leading jets are the candidate jets.
+  \item In the 1-tag region, one of the jets is the b-tagged jet, the other is selected via a \gls{BDT}
+  \item In the 2-tag region, the two b-tagged jets are the candidate jets.
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_l_0t_nominal_leadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_h_0t_nominal_leadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_1t_nominal_leadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_1t_nominal_leadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_2t_nominal_leadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_2t_nominal_leadingJet_pt.pdf}
+  \caption[Leading jet \pt.]{Leading jet \pt by b-tagging category. The low (left) and high (right) mass selections are shown. Both data and MC are normalized such that the integral is 1.
+  \label{fig:jet_l_pt}}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_l_0t_nominal_subleadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_CR_h_0t_nominal_subleadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_1t_nominal_subleadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_1t_nominal_subleadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_l_2t_nominal_subleadingJet_pt.pdf}
+  \includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/data_MC_comparison/h_SR_h_2t_nominal_subleadingJet_pt.pdf}
+  \caption[Subleading jet \pt.]{Leading jet \pt by b-tagging category. The low (left) and high (right) mass selections are shown. Both data and MC are normalized such that the integral is 1.
+  \label{fig:jet_s_pt}}
+\end{figure}
+
+
+
+\section{Event Selection}
+\noindent\textbf{Preselection}\\
+\indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of which must have $\et > \unit{35}{GeV}$ and the other must have $\et > \unit{25}{GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
+
+A further requirement of two jets within the b-tagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
+
+\section{Modeling}
+\subsection{Signal Modeling}
+\subsection{Background Modeling}
+\section{Systematic Uncertainties}
+\section{Results}
+\subsection{Limits on Non-Resonant Production}
+\subsection{Limits on Resonant Production}
+\subsection{Limits on the Trilinear Higgs Coupling}
+\section{Searches for Vector Boson Fusion HH Production}
+
+To improve this analysis, a signal model for the Vector Boson Fusion production mode has been designed and will be implemented into this analysis using the full ``Run 2'' dataset. This signal model is integrated into the analysis through a separate analysis category that is enriched in VBF events, defined via cuts on multiclass \gls{BDT} scores.
+
+\subsection{Simulated Samples}
 
 \subsubsection{Non-resonant VBF HH Samples}
 
@@ -73,24 +175,7 @@ Relevant distributions for validation of these samples can be seen in Figure \re
     \label{fig:vbf-mc-validation}
 \end{figure}
 
-\section{Object Definition}
-\section{Event Selection}
-\noindent\textbf{Preselection}\\
-\indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of which must have $\et > \unit{35}{GeV}$ and the other must have $\et > \unit{25}{GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
-
-A further requirement of two jets within the b-tagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
-
-\section{Modeling}
-\subsection{Signal Modeling}
-\subsection{Background Modeling}
-\section{Systematic Uncertainties}
-\section{Results}
-\subsection{Limits on Non-Resonant Production}
-\subsection{Limits on Resonant Production}
-\subsection{Limits on the Trilinear Higgs Coupling}
-\section{Searches for Vector Boson Fusion HH Production}
-\subsection{Simulated Samples}
-\subsection{Event Selection}
+\subsection{Event Selection} \label{ssec:vbf-event-selection}
 Events which have already passed the ggF BDT based selection and have at least 4 jets are considered for the VBF candidate. The 4 jet requirement is imposed in order to reconstruct VBF-based variables. The VBF jets are then selected as the highest $m_{jj}$ pairing, excluding $H\rightarrow b\bar{b}$ candidate jets.
 
 These events are then evaluated by a multiclass BDT, which has independent classes for VBF HH, ggF HH, $\gamma \gamma$-continuum, and $ttH$. Ultimately, an event selected for the VBF category if it passes the BDT score threshold for VBF HH, and fails the score threshold for the other three classes. The thresholds are determined by a 4-dimensional scan over cuts on the BDT score, with the Asimov significance as the figure of merit.
@@ -119,20 +204,23 @@ A flowchart of this logic is shown in Figure \ref{fig:vbf-logic}.
 \end{center}
 
 
-The full list of variables considered for this BDT are as follows.
-% TODO: Skim this list after pruning
+A set of 26 variables were considered for this BDT, listed in Appendix \ref{app:vbf-variables}. Broadly, they describe the kinematics of various physics objects in the event, as well as event shape \cite{STDM-2011-33} variables and variables to reconstruct the W-mass, which are useful for suppression of the ttH background.
+
+For dimensionality reduction, a pruning procedure was performed.
+\begin{enumerate}
+  \item To remove redundant variables, those with a pearson correlation value above 0.85 were removed. This brought the list from 26 to 19, pruning several event shape variables.
+  \item After pruning those variables and retraining, low-impact variables were removed. The pearson correlation for each variable to the 4 class BDT probability distributions were calculated. Those 4 correlation values were summed, and variables with a sum less than 1.0 were pruned. This brought the set from 19 to 11 input variables.
+  \item At 11 input variables, the number of possible combinations of variables has vastly simplified, so every possible variable subset was considered, with a depth optimization procedure performed with each retraining. The minimal subset of variables which did not impact the final significance was selected as the final inputs.
+\end{enumerate}
+
+After this pruning procedure, the X final inputs were:
 
 \textbf{VBF-targeted:}
 
-$\Delta \eta_{jj}$, $m_{jj}$, $n_{jet}$, $p_{T, \gamma\gamma}/m_{\gamma\gamma}$, $p_{T,jj\bb}$, $p_{T,jjbb}/p_{T,\bb}$\footnote{In these variables $jj$ refers to the VBF-candidate jets, while $\bb$ refers to the $H\rightarrow \bb$ jets}
-
 \textbf{$\gamma \gamma$-suppressing:}
-
-\myybb, $\Delta R_{\gamma\gamma}$, $\Delta R_{\bb}$, $\Delta R_{\gamma \gamma,\bb}$, and the best b-tagging WP for the $H\rightarrow \bb$ jets
 
 \textbf{$ttH$-suppressing:}
 
-$H_{T}$, $m_{jj,b1}$, $m_{jj,b2}$ $m_{jj,W1}$, $m_{jj,W2}$. Event shape variables \cite{STDM-2011-33} - aplanority, aplanarity, sphericity, spherocity, sphericityT, planarity, circularity, planarFlow
 
 
 Distributions for each these variables after applying a 4-jet requirement can be found in Appendix \ref{app:vbf-variables}.
@@ -141,3 +229,4 @@ Adding a VBF-enriched category provides a XXX percent improvement over not defin
 
 
 \subsection{Analysis Improvement}
+
