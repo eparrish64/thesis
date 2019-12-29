@@ -110,11 +110,11 @@ A further requirement of two jets within the b-tagging region ($\abseta <2.5$) i
 
 \subsection{Limits on Non-Resonant Production}
 
-The tight selection is used in the non-resonant analysis to set a 95\% \gls{CL} upper limit on non-resonant \gls{ggF} Higgs boson pair production. The observed and expected limits are shown Table \ref{tab:nonresonant_results_SM} in both absolute value and as a multiple of the \gls{SM} production cross-section. The observed $\pm 1\sigma$ values are shown as well. This upper limit is shown in Figure \ref{limits-nonresonant}.
+The tight selection is used in the non-resonant analysis to set a 95\% \gls{CL} upper limit on non-resonant \gls{ggF} Higgs boson pair production. The observed and expected limits are shown Table \ref{tab:nonresonant_results_SM} in both absolute value and as a multiple of the \gls{SM} production cross-section. The observed $\pm 1\sigma$ values are shown as well. This upper limit is shown in Figure \ref{fig:limits-nonresonant}.
 
 \begin{table}[htbp]
   \centering 
-  \caption{Non-resonant limits in terms of the Standard Model hh cross section}
+  \caption{Non-resonant limits in terms of the Standard Model HH cross section}
   \label{tab:nonresonant_results_SM} 
 
   \begin{tabular}{ccccc}
@@ -128,9 +128,23 @@ The tight selection is used in the non-resonant analysis to set a 95\% \gls{CL} 
 \end{table}
 
 \begin{figure}[htbp]
+	\subfloat[]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/results/m_yy_lowMass_1tag_bkg_fit_to_data_withRatio}}
+	\quad
+	\subfloat[]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/results/m_yy_lowMass_2tag_bkg_fit_to_data_withRatio}}
+	\\
+	\subfloat[]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/results/m_yy_highMass_1tag_bkg_fit_to_data_withRatio}}
+	\quad
+	\subfloat[]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/results/m_yy_highMass_2tag_bkg_fit_to_data_withRatio}}
+	\caption{Data and background-only fits for each of the analysis categories in the non-resonant analysis. The background fit is composed of the smoothly-falling continuum \yy background as well as the single Higgs boson production background, peaking around $\unit{125}{\GeV}$.}
+  \label{fig:results-myy}
+\end{figure}
+
+
+\begin{figure}[htbp]
   \centering
 \includegraphics[width=0.9\textwidth]{chapters/chapter5_yybb/images/limits/nonresonant.pdf}
-  \caption{limits}
+  \caption[The expected and observed limits on the non-resonant HH production cross section]
+  {The expected and observed 95\% \gls{CL} limits on the non-resonant HH production cross section, $\sigma_{gg\rightarrow HH}$. These limits are set using the tight analysis selection. The 95\% confidence level is indicated by the red horizontal line.}
   \label{fig:limits-nonresonant}
 \end{figure}
 
@@ -141,19 +155,21 @@ The 95\% \gls{CL} limits on resonant di-Higgs production are shown in Figure \re
 \begin{figure}[htbp]
   \centering
 \includegraphics[width=0.9\textwidth]{chapters/chapter5_yybb/images/limits/resonant.pdf}
-  \caption{limits}
-  \label{fig:limits-resonant}
+\caption[The expected and observed limits on the resonant \HH production cross section as a function of $m_{X}$.]
+{The expected and observed 95\% \gls{CL} limits on the resonant \HH production cross-section, $\sigma_{X} \times \mathcal{B}(X\rightarrow HH)$, as a function of $m_{X}$. The loose selection is used in the low mass regime, $m_{X} \leq \unit{500}{\GeV}$, while the tight selection is used in the high mass regime, $m_{X} \geq \unit{500}{\GeV}$. The transition point between these selections is indicated by the dashed line.} 
+\label{fig:limits-resonant}
 \end{figure}
 
 \subsection{Limits on the Trilinear Higgs Coupling}
 
-Limits are set on \klambda using the asymptotic formula. The exclusion as a function of \klambda is shown in figure , corresponding to -8.2 < \klambda < 13.3.
+Limits are set on \klambda using the asymptotic formula. The exclusion as a function of \klambda is shown in figure , corresponding to $-8.2 < \klambda < 13.3$.
 
 \begin{figure}[htbp]
   \centering
 \includegraphics[width=0.9\textwidth]{chapters/chapter5_yybb/images/limits/lambda.pdf}
-  \caption{limits}
-  \label{fig:limits-klambda}
+\caption[The expected and observed limits on the non-resonant \HH production cross section as a function of \klambda]
+{The expected and observed 95\% \gls{CL} limits on the non-resonant \HH production cross section as a function of \klambda. The red line indicated the predicted $HH$ cross-section for varied \klambda, assuming all other couplings are equivalent to \gls{SM} prediction, the band includes theoretical uncertainty.} 
+\label{fig:limits-klambda}
 \end{figure}
 
 \section{Searches for Vector Boson Fusion HH Production}
