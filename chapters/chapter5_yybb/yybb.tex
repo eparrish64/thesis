@@ -103,8 +103,49 @@ Following this selection, candidate jets are selected in the following way:
 A further requirement of two jets within the b-tagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
 
 \section{Modeling}
-\subsection{Signal Modeling}
-\subsection{Background Modeling}
+
+\subsection{Non-resonant Analysis}
+\subsubsection{Signal Modeling}
+
+A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with power-law tails, is used to describe the shape of the \hhyybb signal. Model parameters are taken from the simulated signal sample.
+
+\subsubsection{Background Modeling} \label{sssec:nonres-bkg-model}
+
+The background for the non-resonant analysis is composed of a model for the smoothly-falling \yy continuum, and a model for single Higgs boson production. 
+
+
+The fit function is selected through a \textit{spurious signal} test, which evaluates . This test performs signal-plus-background fits to just the simulated background, evaluating the extracted signal in the $\unit{121}{\GeV} < \myy < \unit{129}{\GeV}$ window, which is taken as the bias. This procedure is repeated for each considered function, and the function with the fewest spurious signal events is selected as the background function. If functions have the same bias, then by an Occam's Razor argument, the function with fewer free parameters is selected.
+
+The considered functions for this test are as follows:
+\begin{itemize}
+  \item Exponential, consider orders $N=1,2,3$. Generalized form: $Exp^N (\myy ; \theta^{bkg}) = exp(\sum\limits_{j=0}^{N} \theta_j^{bkg} \dot m_{\gamma\gamma}^j)$
+  \item Bernstein, consider orders $N=3,4,5$. Generalized form: $Bernstein^N (\myy ; \theta^{bkg}) = \sum\limits_{j=0}^{N} \theta_j^{bkg} b_{j,N}$, for $b_{j,N} = C_n^i x^j (1-x)^{N-j}$, where $x= (\myy-100)/60$
+  \item Dijet of form: $dijet(\myy ; \theta^{bkg}) = \theta_1^{bkg} (1-\myy)^{\theta_2^{bkg}} m_{\gamma\gamma}^{\theta_3^{bkg}}$
+\end{itemize}
+
+Through this test, the first-order exponential function is found to have the lowest bias, and is selected as the \yy continuum background model.
+
+The single Higgs boson background is modeled through a double-sided Crystal Ball function, where parameters are taken from simulation.
+
+\subsection{Resonant Analysis}
+\subsubsection{Signal Modeling}
+
+For the resonant analysis, the signal is modeled by a function using a gaussian core, with exponential tails, known as \texttt{ExpGaussExp}\footnote{Also, ``double-shouldered GaussExp''} \cite{exp-gauss-exp}. This function is fit in a window around the mass hypothesis. %TODO: More here
+
+
+\subsubsection{Background Modeling}
+
+A spurious signal test (described in Section \ref{sssec:nonres-bkg-model}) is performed
+
+For the loose selection in the low mass region, a Novosibirsk function \cite{novosibirsk} is selected, which has the generalized form:
+
+\begin{equation}
+  \begin{split}
+  P(x) &= exp(-0.5^{ln(q_y)^2 / \Lambda^2 + \Lambda^2})\\
+  \text{with,} \quad \quad q_{y} &= 1 + \Lambda(x-x_0)/\sigma \times \frac{\sinh(\Lambda \sqrt{\ln(4)})}{\Lambda \sqrt{\ln(4)}}
+  \end{split}
+\end{equation}
+
 \section{Systematic Uncertainties}
 \section{Results}
 
