@@ -1,4 +1,5 @@
-\chapter{Search for di-Higgs Production in the \texorpdfstring{$\gamma\gamma b\bar{b}$}{yybb} Channel}
+\chapter{Search for di-Higgs Production in the Channel} % todo: yybb not capitalized?
+
 \section{Analysis Overview}
 
 Previous results were presented with an integrated luminosity of 36.1 fb$^{-1}$ representing ATLAS dataset in 2015 and 2016 \cite{HIGG-2016-15}, and were consistent with Standard Model expectations. The non-resonant analysis set an observed (expected) 95\% CL upper limit on the $HH$ cross-section of 0.73 (0.93) pb, corresponding to 22 (28) times the SM prediction. This Higgs trilinear coupling is constrained between $-8.2 < \kappa_\lambda < 13.2$ at 95\% CL ($-8.3 < \kappa_\lambda < 13.2$ expected). The resonant analysis presented within the context of a narrow width scalar coupling to the di-Higgs system as a function of $m_X$. The observed (expected) limits are between 1.1 pb (0.9 pb) and 0.12 pb (0.15 pb) over the range of $\unit{260}{\GeV} < m_X < \unit{1000}{\GeV}$.
@@ -8,12 +9,55 @@ Previous results were presented with an integrated luminosity of 36.1 fb$^{-1}$ 
 
 \subsection{Data}
 
-The analysis presented uses $pp$ collision data recorded by the ATLAS experiment at the LHC during ``Run 2,'' which ran from 2015 through 2018. After detector and data quality requirements, the total collected data corresponds to 139 \ifb. The loose diphoton trigger is used for this search, \texttt{HLT\_g35\_loose\_g25\_loose}, which triggers on diphoton events where the leading (subleading) photon \pt is greater than 35\% (25\%) the diphoton invariant mass.
+The analysis presented uses $pp$ collision data recorded by the ATLAS experiment at the LHC in 2015 and 2016, the first half of ``Run 2.'' After detector and data quality requirements, the total collected data corresponds to 36.1 \ifb. The loose diphoton trigger is used for this search, \texttt{HLT\_g35\_loose\_g25\_loose}, which triggers on diphoton events where the leading (subleading) photon \pt is greater than 35\% (25\%) the diphoton invariant mass.
 
 \subsection{Simulated Samples}
 
-This analysis searches for both non-resonant and resonant di-Higgs production, considering signal contributions from the ggF and VBF production modes.
+Simulation is generated as outlined in Chapter \ref{ch:eventreco} in order to compare prediction to data. Independent samples are made for the considered signal hypotheses, as well as for the predominant backgrounds.
 
+\subsubsection{Signal Samples}
+
+This analysis considers two signals sources: \gls{SM} non-resonant di-Higgs production and resonant di-Higgs production through a scalar resonance.
+
+\noindent\textbf{Non-resonant \gls{SM} Signal Samples}\\
+\indent The non-resonant di-Higgs signal sample corresponding to \gls{SM} \gls{ggF} \hh production is generated at \gls{NLO} in \gls{QCD} through an \gls{EFT}.
+
+\noindent\textbf{Non-resonant Varied \klambda Signal Samples}\\
+\indent Samples for non-resonant di-Higgs production with varied \klambda were generated at values $\klambda = 0, \pm 1, \pm 2, \pm 4, \pm 6, \pm 10$. These samples were generated at \gls{LO}, then reweighted to \gls{NNLO} through a $K$-factor, taking the ratio of the cross-sections of the FT\textsubscript{approx} \gls{SM} non-resonant signal sample (at \gls{NNLO}) and the $\klambda =1$ sample (at \gls{LO}).
+
+For generic \klambda, an interpolation function can be used to predict the amplitude, and thus the signal yield. The amplitude can be written as
+
+\begin{equation}
+  A(k_t,\klambda) = k_t^2 B + k_t \klambda T
+\end{equation}
+
+Where $B$ is the contribution from the box diagram (with two $th$ vertices, thus squared), $T$ is the contribution from the trilinear diagram (containing one $th$ and one $hhh$ vertex). If we square this amplitude and vary \klambda (consider values 0, 1, and 10),
+
+\begin{align}
+  &|A(k_t,\klambda)|^2 = k_t^4 |B|^2 + k_t^2\klambda^2 |T|^2 + k_t^3\klambda(B^*T + BT^*)\\
+  &|A(1,0)|^2 = |B|^2\\
+  &|A(1,1)|^2 = |B|^2 + |T|^2 + (B^*T + BT^*)\\
+  &|A(1,10)|^2 = |B|^2 + 100|T|^2 + 10(B^*T + BT^*)
+\end{align}
+
+We can then combine these equations to express the squared amplitude in terms of the amplitudes of the varied reference samples
+\begin{equation}
+  |A(k_t,\klambda)|^2 = k_t^2 \left[ 
+    \frac{90 k_t^2 + 9\klambda^2 - 99k_t\klambda}{90}|A(1,0)|^2 +
+    \frac{100 k_t\klambda - 10\klambda^2}{90}|A(1,1)|^2 +
+    \frac{\klambda^2 - k_t\klambda}{90}|A(1,1)|^2 \right]
+\end{equation}
+% todo : add to appendix validation plots?
+
+\subsubsection{Background Samples}
+
+The dominant background in this analysis are the non-resonant \myy continuum events. Additionally, mono-Higgs boson production is a subdominant background to this analysis. 
+
+\noindent\textbf{\yy-Continuum}\\
+\indent
+
+\noindent\textbf{mono-Higgs Production}\\
+\indent The following mono-Higgs production channels are considered: gluon-gluon fusion ($ggH$), vector-boson fusion ($VBF\ H$) Z-associated production ($ZH$), W-associated production ($WH$), single and top quark pair associated production ($tH$ and \tth, respectively), and bottom quark pair associated production ($b\bar{b}H$).
 
 \section{Object Definition}
 \subsection{Photons}
@@ -100,9 +144,17 @@ Following this selection, candidate jets are selected in the following way:
 \noindent\textbf{Preselection}\\
 \indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of which must have $\et > \unit{35}{GeV}$ and the other must have $\et > \unit{25}{GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
 
-A further requirement of two jets within the b-tagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
+A further requirement of two jets within the \btagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
+
+\noindent\textbf{Signal Selection}\\
+\indent In addition to the preselection requirements, events are selected into 1 and 2-tag signal regions based on \btagging criteria. The 2-tag signal region requires exactly two jets passing the 70\% efficient \btagging \gls{WP}. If an event fails this requirement, but has one \bjet passing the 60\% efficient \btagging \gls{WP}, it is added to the 1-tag signal region.
+
+Events with 3 jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis.
+
 
 \section{Modeling}
+
+
 
 \subsection{Non-resonant Analysis}
 \subsubsection{Signal Modeling}
@@ -145,6 +197,8 @@ For the loose selection in the low mass region, a Novosibirsk function \cite{nov
   \text{with,} \quad \quad q_{y} &= 1 + \Lambda(x-x_0)/\sigma \times \frac{\sinh(\Lambda \sqrt{\ln(4)})}{\Lambda \sqrt{\ln(4)}}
   \end{split}
 \end{equation}
+
+The Novosibirsk function features a peak at low value, followed by a smoothly falling tail. For the tight selection, used in the high mass region, an exponential function is selected.
 
 \section{Systematic Uncertainties}
 \section{Results}
