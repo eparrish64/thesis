@@ -54,10 +54,45 @@ We can then combine these equations to express the squared amplitude in terms of
 The dominant background in this analysis are the non-resonant \myy continuum events. Additionally, mono-Higgs boson production is a subdominant background to this analysis. 
 
 \noindent\textbf{\yy-Continuum}\\
-\indent
+\indent The \yy-continuum sample is generated using \SHERPA, generating processes including two photons and jets (\yy+jets). This \gls{MC} sample is used predominantly for shape information, since normalization is taken through a data-driven approach. 
 
 \noindent\textbf{mono-Higgs Production}\\
-\indent The following mono-Higgs production channels are considered: gluon-gluon fusion ($ggH$), vector-boson fusion ($VBF\ H$) Z-associated production ($ZH$), W-associated production ($WH$), single and top quark pair associated production ($tH$ and \tth, respectively), and bottom quark pair associated production ($b\bar{b}H$).
+\indent The following mono-Higgs production channels are considered: gluon-gluon fusion ($ggH$), vector-boson fusion ($VBF\ H$) Z-associated production ($ZH$), W-associated production ($WH$), single and top quark pair associated production ($tH$ and \tth, respectively), and bottom quark pair associated production ($b\bar{b}H$). Rates for these samples are taken from the 2016 Yellow Report \cite{yellow-report}. The generators for these samples vary, and are listed in Table \ref{tab:single-higgs-samples}, along with the cross-section times \gls{BR} for each sample.
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption[Mono-Higgs boson backgrounds considered, including generator and PDF used to produce each sample]{Mono-Higgs boson backgrounds considered, including generator and PDF used to produce each sample. Cross-section for each sample is shown, multiplied by the $H\rightarrow \gamma\gamma$ \gls{BR} of 0.00227. Cross-sections assume $\sqrt{s}=\unit{13}{\TeV}$ and $m_{H}=\unit{125}{\GeV}$.}
+    \label{tab:single-higgs-samples}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      Process & Generator+PDF & $\sigma \times \mathcal{B}\ (H\rightarrow\gamma\gamma)$ \\
+      \hline
+      $ggH$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.1101404\\
+      \hline
+      $VBF\ H$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.00857833\\
+      \hline
+      $W^-H$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.00120605\\
+      \hline
+      $W^+H$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.00190226\\
+      \hline
+      $ZH$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.001724519\\
+      \hline
+      $ggZH$ & \makecell{\POWHEG+ \peight \\ PDF4LHC15}& 0.000278529\\
+      \hline
+      \tth & \makecell{\peight \\ A14 NNPDF23LO}& 0.001149755\\
+      \hline
+      $b\bar{b}H$ (positive) & \makecell{\AMCatNLO+ \peight \\ A14 NNPDF23LO}& 0.00110390\\
+      \hline
+      $b\bar{b}H$ (negative) & \makecell{\AMCatNLO+ \peight \\ A14 NNPDF23LO}& -8.95378e-05\\
+      \hline
+      $tH$ ($t$-channel) & \makecell{\MADGRAPH+ \peight \\ A14 CT10ME}& 0.00016857\\
+      \hline
+      $tH$ ($W$-associated) & \makecell{\AMCatNLO+ \peight \\ UEEE5 CTEQ6L1 CT10ME}& 3.44359e-05\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
 
 \section{Object Definition}
 \subsection{Photons}
@@ -152,6 +187,22 @@ A further requirement of two jets within the \btagging region ($\abseta <2.5$) i
 Events with 3 jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis.
 
 
+For the resonant analysis, a scale factor is applied before reconstructing \myybb, rescaling the \bb system by a factor of $m_{H}/\mbb$ (with $m_H \equiv \unit{125.09}{\GeV}$) as a means to reduce the poor dijet resolution. This scaling improves the \myybb resolution as shown in Figure \ref{fig:resolution-myybb}.
+
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[Low Mass, 1-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_low_1.pdf}}
+  \subfloat[High Mass, 1-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_high_1.pdf}}\\
+  \subfloat[Low Mass, 2-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_low_2.pdf}}
+  \subfloat[High Mass, 2-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_high_2.pdf}}
+  \caption[Reconstructed \myybb for the signal \gls{MC} samples, with and without the dijet mass constraint]
+  {Reconstructed \myybb for the signal \gls{MC} samples. The solid lines show the distribution before applying the dijet mass constraint, the dashed lines have the dijet mass constraint imposed. Low and High, 1 and 2-tag selections are shown.}
+  \label{fig:resolution-myybb}
+\end{figure}
+
+
+
 \section{Modeling}
 
 
@@ -163,10 +214,10 @@ A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with 
 
 \subsubsection{Background Modeling} \label{sssec:nonres-bkg-model}
 
-The background for the non-resonant analysis is composed of a model for the smoothly-falling \yy continuum, and a model for single Higgs boson production. 
+The background for the non-resonant analysis is composed of a model for the smoothly-falling \yy-continuum, and a model for single Higgs boson production. 
 
 
-The fit function is selected through a \textit{spurious signal} test, which evaluates . This test performs signal-plus-background fits to just the simulated background, evaluating the extracted signal in the $\unit{121}{\GeV} < \myy < \unit{129}{\GeV}$ window, which is taken as the bias. This procedure is repeated for each considered function, and the function with the fewest spurious signal events is selected as the background function. If functions have the same bias, then by an Occam's Razor argument, the function with fewer free parameters is selected.
+For the \yy-continuum background, a functional form is fit to data. The fit function is selected through a \textit{spurious signal} test \cite{spurious-signal-diphoton}, which evaluates potential bias from this procedure. This test performs signal-plus-background fits to just the simulated background, evaluating the extracted signal in the $\unit{121}{\GeV} < \myy < \unit{129}{\GeV}$ window, which is taken as the bias. This procedure is repeated for each considered function, and the function with the fewest spurious signal events is selected as the background function. If functions have the same bias, then by an Occam's Razor argument, the function with fewer free parameters is selected.
 
 The considered functions for this test are as follows:
 \begin{itemize}
@@ -175,7 +226,7 @@ The considered functions for this test are as follows:
   \item Dijet of form: $dijet(\myy ; \theta^{bkg}) = \theta_1^{bkg} (1-\myy)^{\theta_2^{bkg}} m_{\gamma\gamma}^{\theta_3^{bkg}}$
 \end{itemize}
 
-Through this test, the first-order exponential function is found to have the lowest bias, and is selected as the \yy continuum background model.
+Through this test, the first-order exponential function is found to have the lowest bias, and is selected as the \yy-continuum background model.
 
 The single Higgs boson background is modeled through a double-sided Crystal Ball function, where parameters are taken from simulation.
 
@@ -185,7 +236,7 @@ The single Higgs boson background is modeled through a double-sided Crystal Ball
 For the resonant analysis, the signal is modeled by a function using a gaussian core, with exponential tails, known as \texttt{ExpGaussExp}\footnote{Also, ``double-shouldered GaussExp''} \cite{exp-gauss-exp}. This function is fit in a window around the mass hypothesis. %TODO: More here
 
 
-\subsubsection{Background Modeling}
+\subsubsection{Background Modeling} \label{sssec:res-bkg-model}
 
 A spurious signal test (described in Section \ref{sssec:nonres-bkg-model}) is performed
 
@@ -201,6 +252,88 @@ For the loose selection in the low mass region, a Novosibirsk function \cite{nov
 The Novosibirsk function features a peak at low value, followed by a smoothly falling tail. For the tight selection, used in the high mass region, an exponential function is selected.
 
 \section{Systematic Uncertainties}
+
+As a result of the small \hh cross-section, the sensitivity of this analysis is dominated by statistical uncertainties. The following sections will discuss systematic uncertainties, both theoretical (Section \ref{ssec:theory-unc}) and experimental (Section \ref{ssec:theory-unc}).
+
+\subsection{Theoretical Uncertainties} \label{ssec:theory-unc}
+
+\subsection{Experimental Uncertainties} \label{ssec:exp-unc}
+
+\noindent\textbf{Luminosity:} Beam-separation scans in 2015 and 2016 are used to derive the systematic uncertainty in the integrated luminosity of 2.1\%. This methodology is outlined in Reference \cite{lumi-unc}.
+
+\noindent\textbf{Trigger:} Bootstrap methods presented in Reference \cite{trigger-unc} are used to determine the efficiency of the diphoton trigger. This trigger is 99.4\% efficient with a systematic of 0.4\%.
+
+\noindent\textbf{Simulation:} Calibration uncertainties apply to photons and jets used in the analysis, for all samples except the \yy-continuum, which is estimated from data. The uncertainties are propagated through the analysis chain, and relevant observables are constructed. Then changes in peak location and width ($m_{\text{peak}}$ and $\sigma_{\text{peak}}$, respectively), as well as signal yield in \myy (non-resonant) or \myybb (resonant) are extracted. In the resonant analysis, uncertainties are evaluated at each mass hypothesis are evaluated, and the maximum value is taken.
+
+\noindent\textbf{Yield:} Photon identification and isolation affect the diphoton selection efficiency. Peak uncertainties are primarily due to photon energy scale, and are about 0.2-0.6\% for both mono and di-Higgs samples. Width uncertainties are primarily due to photon energy resolution, and are 5-14\%. Uncertainties in \gls{JES} and \gls{JER} affect the \mbb acceptance. Uncertainties in flavor tagging can miscategorization of events in the tagging categories. A summary of the most dominant systematic uncertainties can be found in Table \ref{tab:systematic_uncertainties}
+
+\noindent\textbf{Signal Model:} The spurious signal, described in Section \ref{sssec:nonres-bkg-model}, is used as an uncertainty on the number of signal events. The values for each analysis category can be found in Table \label{tab:unc-sig-events}.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Uncertainty on total number of signal events in each analysis category]{Uncertainty on total number of signal events in each analysis category, as derived from the spurious signal test}
+  \label{tab:unc-sig-events}
+  \begin{tabular}{c|c|c}
+    Analysis & Category & Uncertainty on Number of Events \\
+    \hline 
+    Non-resonant &\makecell{1-tag\\2-tag} & \makecell{0.25\\0.63}\\
+    \hline
+    Resonant & \makecell{Loose\\Tight} & \makecell{0.21\\0.89}\\
+  \end{tabular}
+\end{table}
+
+\noindent\textbf{Cross Section:} In the resonant analysis, an $m_X$ correction is applied to the signal cross-section. This along with its associated uncertainty is applied at low mass to adjust for degeneracy biases. %% TODO: make sure this is clear elsewhere, reference?
+
+
+%%%%%% SYSTEMATICS TABLE
+\begin{table}[!htb]
+  \begin{center}
+    %TODO - reword this
+  \caption[Summary of dominant systematic uncertainties affecting expected yields in the resonant and non-resonant analyses]{Summary of dominant systematic uncertainties affecting expected yields in the resonant and non-resonant analyses.
+      For the non-resonant analysis, uncertainties in the Higgs boson pair signal and SM single-Higgs-boson backgrounds are presented.
+      For the resonant analysis, uncertainties on the Higgs boson pair signal for the loose and tight selections are presented.
+      Sources marked `-' and other sources not listed in the table are negligible by comparison.
+      No systematic uncertainties related to the continuum background are considered, since this is derived through a fit to the observed data.}
+  \label{tab:systematic_uncertainties}
+
+      \resizebox{\textwidth}{!}
+      {\normalsize
+          \begin{tabular}{l l r@{} @{}D{.}{.}{1.1} r@{} @{}r@{} @{}D{.}{.}{1.1}@{} @{}l r@{} @{}D{.}{.}{1.1} r@{} @{}r@{} @{}D{.}{.}{2.1}@{} @{}l r@{} @{}D{.}{.}{1.1} r@{} @{}r@{} @{}D{.}{.}{1.1}@{} @{}l r@{} D{.}{.}{1.1} r@{} @{}r@{} @{}D{.}{.}{1.1}@{} @{}l}
+                  \toprule
+              \multicolumn{2}{c}{\multirow{2}{*}{Source of systematic uncertainty}}                                 & \multicolumn{24}{c}{\% effect relative to nominal in the 2-tag (1-tag) category}                                                                   \\
+                                                       &                                                            & \multicolumn{12}{c}{Non-resonant analysis}                             & \multicolumn{12}{c}{Resonant analysis: BSM \hh}                           \\
+              \midrule
+                                                       &                                                            & \multicolumn{6}{c}{SM \hh signal} & \multicolumn{6}{c}{Single-$H$ bkg} & \multicolumn{6}{c}{Loose selection} & \multicolumn{6}{c}{Tight selection} \\
+              \midrule
+              \multicolumn{2}{l}{Luminosity}                                                                        & $\pm$ & 2.1 & ( & $\pm$ & 2.1 & ) & $\pm$ & 2.1 & ( & $\pm$ & 2.1  & ) & $\pm$ & 2.1 & ( & $\pm$ & 2.1 & )   & $\pm$ & 2.1 & ( & $\pm$ & 2.1 & )   \\
+              \multicolumn{2}{l}{Trigger}                                                                           & $\pm$ & 0.4 & ( & $\pm$ & 0.4 & ) & $\pm$ & 0.4 & ( & $\pm$ & 0.4  & ) & $\pm$ & 0.4 & ( & $\pm$ & 0.4 & )   & $\pm$ & 0.4 & ( & $\pm$ & 0.4 & )   \\
+              \multicolumn{2}{l}{Pile-up modelling}                                                                 & $\pm$ & 3.2 & ( & $\pm$ & 1.3 & ) & $\pm$ & 2.0 & ( & $\pm$ & 0.8  & ) & $\pm$ & 4.0 & ( & $\pm$ & 4.2 & )   & $\pm$ & 4.0 & ( & $\pm$ & 3.8 & )   \\
+              \midrule
+              \multirow{4}{*}{Photon}                  & identification                                             & $\pm$ & 2.5 & ( & $\pm$ & 2.4 & ) & $\pm$ & 1.7 & ( & $\pm$ & 1.8  & ) & $\pm$ & 2.6 & ( & $\pm$ & 2.6 & )   & $\pm$ & 2.5 & ( & $\pm$ & 2.5 & )   \\
+                                                       & isolation                                                  & $\pm$ & 0.8 & ( & $\pm$ & 0.8 & ) & $\pm$ & 0.8 & ( & $\pm$ & 0.8  & ) & $\pm$ & 0.8 & ( & $\pm$ & 0.8 & )   & $\pm$ & 0.9 & ( & $\pm$ & 0.9 & )   \\
+                                                       & energy resolution                                          & \multicolumn{6}{c}{-}             & \multicolumn{6}{c}{-}              & $\pm$ & 1.0 & ( & $\pm$ & 1.3 & )   & $\pm$ & 1.8 & ( & $\pm$ & 1.2 & )   \\
+                                                       & energy scale                                               & \multicolumn{6}{c}{-}             & \multicolumn{6}{c}{-}              & $\pm$ & 0.9 & ( & $\pm$ & 3.0 & )   & $\pm$ & 0.9 & ( & $\pm$ & 2.4 & )   \\
+              \midrule
+              \multirow{2}{*}{Jet}                     & energy resolution                                          & $\pm$ & 1.5 & ( & $\pm$ & 2.2 & ) & $\pm$ & 2.9 & ( & $\pm$ & 6.4  & ) & $\pm$ & 7.5 & ( & $\pm$ & 8.5 & )   & $\pm$ & 6.4 & ( & $\pm$ & 6.4 & )   \\
+                                                       & energy scale                                               & $\pm$ & 2.9 & ( & $\pm$ & 2.7 & ) & $\pm$ & 7.8 & ( & $\pm$ & 5.6  & ) & $\pm$ & 3.0 & ( & $\pm$ & 3.3 & )   & $\pm$ & 2.3 & ( & $\pm$ & 3.4 & )   \\
+              \midrule
+              \multirow{3}{*}{Flavor tagging}         & $b$-jets                                                   & $\pm$ & 2.4 & ( & $\pm$ & 2.5 & ) & $\pm$ & 2.3 & ( & $\pm$ & 1.4  & ) & $\pm$ & 3.4 & ( & $\pm$ & 2.6 & )   & $\pm$ & 2.5 & ( & $\pm$ & 2.6 & )   \\
+                                                       & $c$-jets                                                   & $\pm$ & 0.1 & ( & $\pm$ & 1.0 & ) & $\pm$ & 1.8 & ( & $\pm$ & 11.6 & ) & \multicolumn{6}{c}{-}               & \multicolumn{6}{c}{-}               \\
+                                                       & light-jets                                                 & $<$   & 0.1 & ( & $\pm$ & 5.0 & ) & $\pm$ & 1.6 & ( & $\pm$ & 2.2  & ) & \multicolumn{6}{c}{-}               & \multicolumn{6}{c}{-}               \\
+              \midrule
+              \multirow{4}{*}{Theory}                  & PDF{+}$\alpha_{S}$                                            & $\pm$ & 2.3 & ( & $\pm$ & 2.3 & ) & $\pm$ & 3.1 & ( & $\pm$ & 3.3  & ) & \multicolumn{6}{c}{n/a}             & \multicolumn{6}{c}{n/a}             \\
+                                                       & \multirow{2}{*}{Scale}                                     & $+$   & 4.3 & ( & $+$   & 4.3 & ) & $+$   & 4.9 & ( & $+$   & 5.3  & ) & \multicolumn{6}{c}{n/a}             & \multicolumn{6}{c}{n/a}             \\
+                                                       &                                                            & $-$   & 6.0 & ( & $-$   & 6.0 & ) & $+$   & 7.0 & ( & $+$   & 8.0  & ) & \multicolumn{6}{c}{n/a}             & \multicolumn{6}{c}{n/a}             \\
+                                                       & EFT                                                        & $\pm$ & 5.0 & ( & $\pm$ & 5.0 & ) & \multicolumn{6}{c}{n/a}            & \multicolumn{6}{c}{n/a}             & \multicolumn{6}{c}{n/a}             \\
+              \bottomrule
+          \end{tabular}
+      }
+  \end{center}
+\end{table}
+%%%%%% SYSTEMATICS TABLE
+
+
+
 \section{Results}
 
 \subsection{Limits on Non-Resonant Production}
@@ -281,6 +414,7 @@ Samples have been produced for the various coupling values shown in Table \ref{t
 
 \begin{table}[htbp]
     \centering
+    \caption{Grid of coupling values used in production of VBF $HH$ samples.}
     \begin{tabular}{c|c|c}
         $\kappa_\lambda$ & $c_{2V}$ & $c_{v}$ \\
         \hline
@@ -299,7 +433,6 @@ Samples have been produced for the various coupling values shown in Table \ref{t
         10 & 1 & 1 \\
         1 & 1 & 1.5
     \end{tabular}
-    \caption{Grid of coupling values used in production of VBF $HH$ samples.}
     \label{tab:vbf-coupling-samples}
 \end{table}
 
