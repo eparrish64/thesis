@@ -56,7 +56,7 @@ The dominant background in this analysis are the non-resonant \myy continuum eve
 \noindent\textbf{\yy-Continuum}\\
 \indent The \yy-continuum sample is generated using \SHERPA, generating processes including two photons and jets (\yy+jets). This \gls{MC} sample is used predominantly for shape information, since normalization is taken through a data-driven approach. 
 
-\noindent\textbf{mono-Higgs Production}\\
+\noindent\textbf{Mono-Higgs Production}\\
 \indent The following mono-Higgs production channels are considered: gluon-gluon fusion ($ggH$), vector-boson fusion ($VBF\ H$) Z-associated production ($ZH$), W-associated production ($WH$), single and top quark pair associated production ($tH$ and \tth, respectively), and bottom quark pair associated production ($b\bar{b}H$). Rates for these samples are taken from the 2016 Yellow Report \cite{yellow-report}. The generators for these samples vary, and are listed in Table \ref{tab:single-higgs-samples}, along with the cross-section times \gls{BR} for each sample.
 
 \begin{table}[htbp]
@@ -253,9 +253,24 @@ The Novosibirsk function features a peak at low value, followed by a smoothly fa
 
 \section{Systematic Uncertainties}
 
-As a result of the small \hh cross-section, the sensitivity of this analysis is dominated by statistical uncertainties. The following sections will discuss systematic uncertainties, both theoretical (Section \ref{ssec:theory-unc}) and experimental (Section \ref{ssec:theory-unc}).
+As a result of the small \hh cross-section, the sensitivity of this analysis is dominated by statistical uncertainties\footnote{The statistical uncertainties are taken as Poisson uncertainties ($1/\sqrt{N}$).}. The following sections will discuss systematic uncertainties, both theoretical (Section \ref{ssec:theory-unc}) and experimental (Section \ref{ssec:theory-unc}).
 
 \subsection{Theoretical Uncertainties} \label{ssec:theory-unc}
+
+This section describes theoretical uncertainties on the mono-Higgs and di-Higgs samples. In each of these, alternate models of parton showering and hadronization were considered and differences were found to be negligible.
+
+\noindent\textbf{Mono-Higgs:} Theory uncertainties for the mono-Higgs boson production cross-section are estimated through varying renormalization and factorization scales. These scale uncertainties reach $^{+20\%}_{-24\%}$. Uncertainties due to the \gls{PDF} and running of the \gls{QCD} coupling constant ($\alpha_{S}$) are also considered, reaching $\pm3.6\%$. Production associated with heavy-flavor jets is considered as follows:
+
+\begin{itemize}
+  \item $ggH$ and $ZH$: A 100\% uncertainty is assigned, motivated by previous studies of heavy-flavor production with top quark pairs \cite{heavy-flavor-top} and W boson production in association with b-jets \cite{heavy-flavor-W}.
+  \item $ZH$ and \tth: No heavy-flavor uncertainty assigned. The dominant contribution is accounted for in the \gls{LO} process.
+\end{itemize}
+
+A $H\rightarrow \yy$ \gls{BR} uncertainty of $^{+2.9\%}_{-2.8\%}$ and a $H\rightarrow \bb$ \gls{BR} uncertainty of $\pm1.7\%$ \cite{hh-crosssections} are taken into account as well.
+
+\noindent\textbf{\gls{SM} Di-Higgs:} The \gls{SM} \hh signal samples are impacted by the same theory uncertainties as the mono-Higgs, as described above. For the \gls{NNLO} cross-section, the scale effects are 4-8\%, and the $\text{PDF}+\alpha_{S}$ uncertainty is 2-3\%. An additional 5\% uncertainty is added from the infinite top-quark mass approximation \cite{nnlo-topquark}.
+
+\noindent\textbf{Resonant Di-Higgs:} For the resonant analysis, scale and \gls{PDF} uncertainties are neglected. The \gls{SM} non-resonant \hh production is a background with uncertainty $^{+7\%}_{-8\%}$, and interference between the resonant \hh signal and nonresonant \hh production is neglected.
 
 \subsection{Experimental Uncertainties} \label{ssec:exp-unc}
 
@@ -265,7 +280,7 @@ As a result of the small \hh cross-section, the sensitivity of this analysis is 
 
 \noindent\textbf{Simulation:} Calibration uncertainties apply to photons and jets used in the analysis, for all samples except the \yy-continuum, which is estimated from data. The uncertainties are propagated through the analysis chain, and relevant observables are constructed. Then changes in peak location and width ($m_{\text{peak}}$ and $\sigma_{\text{peak}}$, respectively), as well as signal yield in \myy (non-resonant) or \myybb (resonant) are extracted. In the resonant analysis, uncertainties are evaluated at each mass hypothesis are evaluated, and the maximum value is taken.
 
-\noindent\textbf{Yield:} Photon identification and isolation affect the diphoton selection efficiency. Peak uncertainties are primarily due to photon energy scale, and are about 0.2-0.6\% for both mono and di-Higgs samples. Width uncertainties are primarily due to photon energy resolution, and are 5-14\%. Uncertainties in \gls{JES} and \gls{JER} affect the \mbb acceptance. Uncertainties in flavor tagging can miscategorization of events in the tagging categories. A summary of the most dominant systematic uncertainties can be found in Table \ref{tab:systematic_uncertainties}
+\noindent\textbf{Yield:} Photon identification and isolation affect the diphoton selection efficiency. Peak uncertainties are primarily due to photon energy scale, and are about 0.2-0.6\% for both mono and di-Higgs samples. Width uncertainties are primarily due to photon energy resolution, and are 5-14\%. Uncertainties in \gls{JES} and \gls{JER} affect the \mbb acceptance \cite{jes-uncertainty}.  Uncertainties in flavor tagging can miscategorization of events in the tagging categories. A summary of the most dominant systematic uncertainties can be found in Table \ref{tab:systematic_uncertainties}
 
 \noindent\textbf{Signal Model:} The spurious signal, described in Section \ref{sssec:nonres-bkg-model}, is used as an uncertainty on the number of signal events. The values for each analysis category can be found in Table \label{tab:unc-sig-events}.
 
