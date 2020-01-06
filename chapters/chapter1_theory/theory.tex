@@ -22,9 +22,9 @@
         \noindent{\textbf{Leptons}}\\
         \indent The remaining fermions are leptons, which differ from quarks in that they do not strongly interact. Each lepton generation contains one charged particle and a neutral counterpart, known as a neutrino. The charged leptons are the electron, muon, and tau (from lightest to heaviest). Table \ref{tab:fermions} also lists the leptons and neutrinos by generation as well as their masses. Each lepton has an associated antilepton as well: the positron, antimuon, and antitau, as well as their antineutrinos. The properties of the antileptons match their corresponding lepton exactly, except the electric charge and lepton number have opposite sign. Lepton number is a conserved quantity in particle interactions and is +1 for all standard leptons, -1 for all antileptons.
 
-        % TODO: Check these values
         \begin{table}[!thp]
             \centering
+            \caption[Fermions in the \gls{SM}, with their masses and charges listed]{Fermions in the \gls{SM}, with their masses and charges listed \cite{pdg}.}
             \begin{tabular}{c|c|c|c|c|}
             \cline{2-5}
                                                            & 1st Generation                                                                & 2nd Generation                                                                                   & 3rd Generation                                                                                 & Charge ($e$) \\ \hline
@@ -33,7 +33,6 @@
             \multicolumn{1}{|l|}{\multirow{2}{*}{Leptons}} & \begin{tabular}[c]{@{}c@{}}Electron ($e^-$)\\ $m = 511$ keV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Muon ($\mu^-$)\\ $m = 105.7$ MeV\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tau ($\tau^-$)\\ $m = 1.8$ GeV\end{tabular} & -1     \\ \cline{2-5} 
             \multicolumn{1}{|c|}{}                         & \begin{tabular}[c]{@{}c@{}}Electron Neutrino ($\nu_e$)\\ $m < 2$ eV\end{tabular}     & \begin{tabular}[c]{@{}c@{}}Muon Neutrino ($\nu_{\mu}$)\\ $m < 0.17$ MeV\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}Tau Neutrino ($\nu_{\tau}$)\\ $m < 15.5$ MeV\end{tabular}                        & 0      \\ \hline
             \end{tabular}
-            \caption{Fermions in the \gls{SM}, with their masses and charges listed \cite{pdg}.}
             \label{tab:fermions}
         \end{table}
 
@@ -49,13 +48,14 @@
         In nature, there are four fundamental forces describing interactions: the strong nuclear force, the weak nuclear force, the electromagnetic force, and the gravitational force. The \gls{SM} models the former three of these forces\footnote{The gravitational force is not modeled by the \gls{SM}. It has relative strength of $10^{-37}$ at $\unit{1}{fm}$. In theories of quantum gravity, it is mediated by the ``graviton'' ($G$), a massless spin-2 particle.}, describing each via a \gls{QFT} corresponding to the exchange of a gauge boson, a particle with integer spin that does not obey the Pauli Exclusion principle. A broad summary of the forces, their bosons, and their associated \glspl{QFT} can be found in Table \ref{tab:forces}, and the following sections will describe the various theories relating to each  interaction.
 
         \begin{table}[!ht]
+            \caption[List of forces described by the \gls{SM}, as well as their associated field theory and gauge boson mediator.]{List of forces described by the \gls{SM}, as well as their associated field theory and gauge boson mediator. Relative strength is an order of magnitude estimate at a distance of $\unit{1}{fm}$.}            
             \begin{tabular}{l|l|l|l}
             Force & Field Theory & Mediating Boson & Relative Strength      \\ \hline
             Strong Nuclear   & Quantum Chromodynamics  & Gluon ($g$) & $1$ \\
             Electromagnetism & Quantum Electrodynamics & Photon ($\gamma$) & $10^{-3}$ \\
             Weak Nuclear     & Quantum Flavordynamics\tablefootnote{Modern particle physics seldom uses the term quantum flavordynamics. At high energy scales, the weak force and electromagnetic force are interpreted through electroweak theory, which is discussed in Section \ref{sssec:ew-theory}.}  & $W^{\pm}$, $Z$ & $10^{-8}$
             \end{tabular}
-            \caption{List of forces described by the \gls{SM}, as well as their associated field theory and gauge boson mediator. Relative strength is an order of magnitude estimate at a distance of $\unit{1}{fm}$.}
+
             \label{tab:forces}
         \end{table}
 
@@ -326,6 +326,7 @@ Due to the short lifetime of the Higgs boson, measurement and searches are done 
 
 \begin{table}[!thp]
     \centering
+    \caption[Branching ratios for the \gls{SM} Higgs boson]{Branching ratios for the \gls{SM} Higgs boson \cite{pdg}.}
     \begin{tabular}{c|c}
         Channel & Branching Ratio \\
         \cline{1-2}
@@ -339,7 +340,6 @@ Due to the short lifetime of the Higgs boson, measurement and searches are done 
         $H \rightarrow Z\gamma$ & $0.155 \pm 0.014$\\
         $H \rightarrow \mu^+ \mu^-$ & $0.022 \pm 0.001$
     \end{tabular}
-    \caption{Branching ratios for the \gls{SM} Higgs boson \cite{pdg}.}
     \label{tab:higgs-decays}
 \end{table}
 
