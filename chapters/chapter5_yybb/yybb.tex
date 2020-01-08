@@ -49,6 +49,10 @@ We can then combine these equations to express the squared amplitude in terms of
 \end{equation}
 % todo : add to appendix validation plots?
 
+\noindent\textbf{Resonant Signal Samples}\\
+\indent The resonant samples were generated using a model of a heavy scalar decaying to two Higgs bosons, with the narrow-width approximation ($\unit{10}{\MeV}$ is used). A $gg$-initiated state is generated at NLO using \AMCatNLO, and the scalar is forced to decay to two \gls{SM} Higgs bosons with $m_H = \unit{125}{\GeV}$. Showering is performed in \HERWIGpp using the CT10 NLO \gls{PDF} set and UEEE5 tuned parameters. To ensure the final state is \yybb, the \path{XtoVVDecayFilter} is used. Samples are generated at the following scalar mass hypotheses (in GeV): 260, 275, 325, 350, 400, 450, 500, 750, 1000.
+
+
 \subsubsection{Background Samples}
 
 The dominant background in this analysis are the non-resonant \myy continuum events. Additionally, mono-Higgs boson production is a subdominant background to this analysis. 
@@ -99,8 +103,11 @@ The dominant background in this analysis are the non-resonant \myy continuum eve
 
 Selected photons for this analysis are converted or unconverted photons which pass tight ID cuts (outlined in Section \ref{ssec:em-signatures}). Photons must have $\pt > \unit{25}{\GeV}$ and $\abseta < 2.37$. Additionally, the crack region of $1.37 < \abseta < 1.52$ is rejected.
 
-Photons must pass an ambiguity tool is used to differentiate overlapping photons and electrons \cite{r1-photonID}.
-%TODO : continue this (p28)
+Isolation criteria are set on $E_{\text{T}}^{text{iso}}$ and $p{\text{T}}^{text{iso}}$. $E_{\text{T}}^{text{iso}}$ is the calorimeter-based isolation, the sum of energy of all topological clusters in $\Dr = 0.2$ of a photon candidate. $p{\text{T}}^{text{iso}}$ is the track-based isolation, the sum of the transverse momenta of all tracks with $\pt > \unit{1}{\GeV}$ within $\Dr = 0.2$ of the candidate. Photon candidates must have $E_{\text{T}}^{text{iso}}$ less than 6.5\% of their transverse energy, and $p{\text{T}}^{text{iso}}$ less than 5\% of their transverse energy\footnote{Known as the FixedCutLoose working point.}. This requirement is 98\% efficient. 
+
+
+Photons must pass an ambiguity tool that reduces the large $e\rightarrow\gamma$ fake rates from converted photons. This differentiates overlapping selections by making additional requirements on silicon hits and conversion rates \cite{r1-photonID}.
+
 
 The leading photon \pt distribution is shown in Figure \ref{fig:photon_l_pt}, the subleading is shown in Figure \ref{fig:photon_s_pt}.
 
@@ -128,10 +135,20 @@ The leading photon \pt distribution is shown in Figure \ref{fig:photon_l_pt}, th
   \label{fig:photon_s_pt}}
 \end{figure}
 
+To select the \gls{PV}, a \gls{NN} is used. This \gls{NN} uses the following inputs:
+\begin{itemize}
+  \item $(z_{\text{common}} - z_{\text{vertex}})/(\sigma_z)$. $z_{\text{vertex}}$ is the position of the primary vertex. $z_{\text{common}}$ is defined by the weighted mean of extrapolated photon trajectories. For converted photons, this is replaced by the direction derived by connecting the conversion location to the cluster barycenter in the first sampling layer in the \gls{EM} calorimeter. $\sigma_z$ is the associated error.
+  \item $\log(\sum \pt)$ of tracks
+  \item $\log(\sum \pt^2)$ of tracks
+  \item $\Delta \phi(\gamma\gamma,\text{PV})$. $\phi$ of the \gls{PV} is defined as the $\phi$ vector sum of tracks associated to the vertex
+  
+\end{itemize}
+After selecting this \gls{PV}, tracking and calorimeter variables are recomputed with respect to the new chosen \gls{PV}. This method is greater than 85\% efficient at selecting the correct \gls{PV}.
+
 
 \subsection{Jets}
 
-Jets are defined using the \antikt algorithm with $R=0.4$, using jets with energy corrected for pile-up effects and direction readjusted to the primary vertex (EM-JES jets). Jets considered must have $\pt > \unit{25}{\GeV}$ and be within the tagging region, $\abseta < 2.5$. The following additional requirements are applied\footnote{This selection is similar to that of the default jet selection for ATLAS $H\rightarrow \yy$ analyses. The $\abseta < 2.5$ is an additional requirement imposed atop that selection for b-tagging.}:
+Jets are reconstructed with the \path{FastJet} \cite{fastjet} package. They are defined using the \antikt algorithm with $R=0.4$, using jets with energy corrected for pile-up effects and direction readjusted to the primary vertex (EM-JES jets). Jets considered must have $\pt > \unit{25}{\GeV}$ and be within the tagging region, $\abseta < 2.5$. The following additional requirements are applied\footnote{This selection is similar to that of the default jet selection for ATLAS $H\rightarrow \yy$ analyses. The $\abseta < 2.5$ is an additional requirement imposed atop that selection for b-tagging.}:
 
 \begin{itemize}
   \item Jets with $\pt < \unit{50}{\GeV}$ and $\abseta < 2.4$ must pass the ``default'' \gls{JVT} requirement, with $|\text{JVT}| \geq 0.59$ \cite{JVT}.
@@ -172,6 +189,13 @@ Following this selection, candidate jets are selected in the following way:
   \caption[Subleading jet \pt.]{Leading jet \pt by b-tagging category. The low (left) and high (right) mass selections are shown. Both data and MC are normalized such that the integral is 1.
   \label{fig:jet_s_pt}}
 \end{figure}
+
+
+\subsection{Electrons}
+
+Electrons are used to reject jets originating from leptons. Electrons are required to have $\pt > \unit{10}{\GeV}$, and $\abseta < 2.47$ and outside of the crack-region ($1.37 < \abseta < 1.52$). They must pass medium identification and loose isolation requirements, which are set on both calorimeter and tracking variables and are 99\% efficient.
+
+\subsection{Muons}
 
 
 
@@ -253,7 +277,7 @@ The Novosibirsk function features a peak at low value, followed by a smoothly fa
 
 \section{Systematic Uncertainties}
 
-As a result of the small \hh cross-section, the sensitivity of this analysis is dominated by statistical uncertainties\footnote{The statistical uncertainties are taken as Poisson uncertainties ($1/\sqrt{N}$).}. The following sections will discuss systematic uncertainties, both theoretical (Section \ref{ssec:theory-unc}) and experimental (Section \ref{ssec:theory-unc}).
+As a result of the small \hh cross-section, the sensitivity of this analysis is dominated by statistical uncertainties\footnote{The statistical uncertainties are taken as Poisson uncertainties ($1/\sqrt{N}$).}. The following sections will discuss systematic uncertainties, both theoretical (Section \ref{ssec:theory-unc}) and experimental (Section \ref{ssec:exp-unc}).
 
 \subsection{Theoretical Uncertainties} \label{ssec:theory-unc}
 
