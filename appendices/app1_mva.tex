@@ -1,7 +1,7 @@
 
 \chapter{Multivariate Analysis and Machine Learning} \label{app:MVA}
 
-In the broad class of problems known as classification, distinct features of events can be taken advantage of to label the event as a product of a signal process or background process. Over the last several decades, methods to approach this problem have grown increasingly sophisticated, using a multi-dimensional observable space rather than univariate techniques. These algorithms broadly are known as \glsfirst{MVA} algorithms.
+In the broad classes of problems known as classification and regression, distinct features of events can be taken advantage of to label the event as a product of a signal process or background process. Over the last several decades, methods to approach this problem have grown increasingly sophisticated, using a multi-dimensional observable space rather than univariate techniques. These algorithms broadly are known as \glsfirst{MVA} algorithms.
 
 %TODO: fill in the difference between ML and MVA
 
@@ -58,29 +58,27 @@ The fundamental idea of a decision tree is a familiar one. Input data is split b
     \label{fig:bdt}
 \end{figure}
 
-Single decision trees do not typically do a good job at classification tasks, so the principle of ``boosting'' is used in order to improve the classification accuracy. Boosting is a type of ensemble method, which are a class of methods that combine the output of many weak learners (classifier with small correlation to truth) to form one strong learner (classifier well-correlated to truth). In boosting, single decision trees are trained, then misclassifications within that tree are identified and up-weighted in the next iteration. All of the trees are ultimately combined to create the final strong learner, called a \glsfirst{BDT}. 
+Single decision trees do not typically do a good job at classification tasks, so the principle of ``boosting'' is used in order to improve the classification accuracy. Boosting is a type of ensemble method, which are a class of methods that combine the output of many weak learners (classifier with small correlation to truth) to form one strong learner (classifier well-correlated to truth). In boosting, single decision trees are trained, then misclassifications within that tree are identified and up-weighted in the next iteration. All of the trees are ultimately combined to create the final strong learner, called a \glsfirst{BDT}. Via this construction, cutting on a \gls{BDT} score gives a more flexible solution space than that of a rectangular cuts method or a single decision tree. There are various different boosting methods, notably ``Adaboost'' \cite{adaboost} and ``Gradient Boosting'' \cite{gradBoost}, which differ by the definition of their loss function.
 
-Via this construction, cutting on a \gls{BDT} score gives a more flexible solution space than that of a rectangular cuts method.
-
-There are various different boosting methods, notably ``Adaboost'' \cite{adaboost} and ``Gradient Boosting'' \cite{gradBoost}, which generally differ by the definition of their loss function.
+The \glspl{BDT} in this thesis are implemented through several different frameworks. \texttt{ROOT} \cite{ROOT} has a native toolkit called \texttt{TMVA} \cite{TMVA} that includes a \gls{BDT} implementation with flexible options for boosting types and hyperparameters. \texttt{XGBoost} \cite{XGBoost} is an open-source library that performs gradient boosting, and is highly optimized for fast training and good performance.
 
 
 \subsection{Neural Networks}
 
-An Artificial \glsfirst{NN}\footnote{Historically, these have been abbreviated ANN for ``Artifical Neural Network,'' however to avoid ambiguity with modern ``Adversarial Neural Networks,'' the abbreviation NN is used.} is a nonlinear machine learning algorithm that attempts to perform a task via a combination of nonlinear basis functions ($h(x)$) where weights ($w$) are learned in the training procedure\footnote{The name ``Neural Network'' comes from such models being inspired by neurological structures. At each neuron, signals are received by dendrites, passed along an axon to produce some output, which is passed along through axon terminals. Many of these neurons come together to process sophisticated information. This loosely mirrors the topology of an \gls{NN}, where basis functions parallel neurons.}. The resulting function is:
+An Artificial \glsfirst{NN}\footnote{Historically, these have been abbreviated ANN for ``Artifical Neural Network,'' however to avoid ambiguity with modern ``Adversarial Neural Networks,'' the abbreviation NN is used.} is a nonlinear machine learning algorithm that attempts to perform a task via a combination of adaptive nonlinear basis functions ($h(x)$) where parameter values and weights ($w$) are learned in the training procedure\footnote{The name ``Neural Network'' comes from such models being inspired by neurological structures. At each neuron, signals are received by dendrites, passed along an axon to produce some output, which is passed along through axon terminals. Many of these neurons come together to process sophisticated information. This loosely mirrors the topology of an \gls{NN}, where basis functions parallel neurons.}. The resulting function is:
 
 \begin{equation}
     y(x) = w_0^2 + \sum_{m=1}^{M} \big [w_m^2 \cdot h \big (w_{0m}^1 + \sum_{k=1}^{D} w_{km}^1 x_k) ]
 \end{equation}
 
-Where $D$ is the number of inputs and $M$ is the number of basis functions. Here $h$ is known as an \textit{activation function}, and given a summation over enough of these activation functions, any possible function can be approximated \cite{nn-basis}. Common choices are:
+Where $D$ is the number of inputs and $M$ is the number of basis functions. An illustration of a \gls{NN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:nn}. Here $h$ is known as an \textit{activation function}, and given a summation over enough of these activation functions, any possible function can be approximated \cite{nn-basis}. The choice of activation function is motivated by both the task as well as the type of data. A few common activation function choices are:
 \begin{itemize}
-    \item The sigmoid function, given by $h(t) = 1/(1+e^{-t})$.
-    \item The hyperbolic tangent function, given by $h(t) = (e^t - e^{-t}/(e^t + e^{-t}))$.
-    \item The rectified linear unit (ReLU), given by $h(t)=max(0,x)$, in other words, returning 0 below $x=0$ and $y=x$ otherwise.
+    \item The sigmoid function, given by $h(t) = 1/(1+e^{-t})$. The range of this function is $[0,1]$, so it is typically used to map predicted values to probabilities, thus used on output layers.
+    \item The hyperbolic tangent function, given by $h(t) = (e^t - e^{-t}/(e^t + e^{-t}))$. This function is also used to map to outputs, but unlike the sigmoid is centered at zero, and has a monotonically increasing derivative.
+    \item The rectified linear unit (ReLU), given by $h(t)=max(0,x)$, in other words, returning 0 below $x=0$ and $y=x$ otherwise. This converges quickly and is typically used in layers other than the output.
+    \item The softmax function, given by $h(t) = e^{t_i} / \sum\limits_{j} e^{t_j}$, for class $i$ in a multiclassification problem with $j$ outputs.
+    \item The linear function, given by $h(t) = t$, commonly used on outputs for regression problems.
 \end{itemize}
-
-An illustration of a \gls{NN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:nn}. 
 
 \begin{figure}[!ht] 
     \centering
@@ -89,3 +87,8 @@ An illustration of a \gls{NN} with $D=4$ and $M=5$ is shown in Figure \ref{fig:n
     \label{fig:nn}
 \end{figure}
 
+Many \gls{NN} topologies have been developed to accomplish various tasks\footnote{E.g. Convolutional \glspl{NN} used for spatially dependent data, Recurrent \glspl{NN} for temporally dependent data, Generative Adversarial Networks for models to generative modeling, amongst others}, but the domain of problems in this thesis are classification problems, so the topology used is a \textit{feed-forward} network, also commonly known as a \textit{multilayer perceptron}. Feed forward means that data proceeds from strictly from input to output (left to right in Figure \ref{fig:nn}), with no closed internal cycles.
+
+In the training of feed-forward \glspl{NN}, weights are adjusted to minimize the loss function through a backpropagation \cite{backprop}. Since the error at any layer is dependent on the subsequent layer, errors flow backward in the network. Thus, backpropagation works backward through the network, from the output layer of the network to the input layer, computing the gradient of the loss function with respect to each weight. Networks are then trained via iterative steps of calculating an output (forward phase) and evaluating the error terms (backward phase). Specifically in each \textit{epoch} of the network's training, it calculates an output on a \textit{batch} of data, and then updates weights and biases through backpropagation (where number of epochs and batch size are hyperparameters of the network).
+
+The \glspl{NN} in this thesis are constructed using the \texttt{Keras} \gls{API}, an open-source library that provides a modular interface to construct \glspl{NN}, through high-level bindings to a backend software. In the cases of the \glspl{NN} used in this thesis, the \texttt{Tensorflow} \cite{Tensorflow} backend was used.
