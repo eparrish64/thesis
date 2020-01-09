@@ -197,24 +197,76 @@ Electrons are used to reject jets originating from leptons. Electrons are requir
 
 \subsection{Muons}
 
+In jet reconstruction, a muon-in-jet correction is used to improve resolution for $b$-jets. This accounts for leptonic decays involving muons which do not entirely deposit their energy in the \gls{EM} calorimeter. Muons must pass medium requirements, have $\pt > \unit{4}{\GeV}$, $\abseta < 2.7$, $|d_{0}|$ significance less than 3, $|z_{0}|$ less than 0.5 mm\footnote{Both $|d_{0}|$ and $|z_{0}|$ requirements are with respect to the primary vertex.}.
+
+For correcting the $b$-jets, the 4-momenta of all muons within the jet's \Dr cone are added to the $b$-jet. Adding this correction shifts the $m_{bb}$ distribution closer to the Higgs mass and provides a $5-6\%$ improvement in signal acceptance for each resonant mass point. Figure \ref{fig:n_muons} shows the number of muons added to each jet, typically 0 or 1 muon.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=0.32\textwidth]{chapters/chapter5_yybb/images/muon-in-jet/all_mu_n_allMu_low_1.pdf}
+  \includegraphics[height=0.32\textwidth]{chapters/chapter5_yybb/images/muon-in-jet/all_mu_n_allMu_low_2.pdf} \\
+  \includegraphics[height=0.32\textwidth]{chapters/chapter5_yybb/images/muon-in-jet/all_mu_n_allMu_high_1.pdf}
+  \includegraphics[height=0.32\textwidth]{chapters/chapter5_yybb/images/muon-in-jet/all_mu_n_allMu_high_2.pdf} \\
+  \caption[Number of muons added to each jet, shown for each $b$-tagging category with the low and high mass  selections applied]{Number of muons added to each jet, shown for each $b$-tagging category with the low and high mass  selections applied.}
+  \label{fig:n_muons}
+\end{figure}
 
 
 \section{Event Selection}
 \noindent\textbf{Preselection}\\
 \indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of which must have $\et > \unit{35}{GeV}$ and the other must have $\et > \unit{25}{GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
 
-A further requirement of two jets within the \btagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay.
-
 \noindent\textbf{Signal Selection}\\
-\indent In addition to the preselection requirements, events are selected into 1 and 2-tag signal regions based on \btagging criteria. The 2-tag signal region requires exactly two jets passing the 70\% efficient \btagging \gls{WP}. If an event fails this requirement, but has one \bjet passing the 60\% efficient \btagging \gls{WP}, it is added to the 1-tag signal region.
-
-Events with 3 jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis.
+\indent In addition to the preselection requirements, a further requirement of two jets within the \btagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay. Events are separated into 0, 1, and 2-tag regions based on \btagging criteria. Events with 3 jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis. The 2-tag signal region requires exactly two jets passing the 70\% efficient \btagging \gls{WP}. If an event fails this requirement, but has one \bjet passing the 60\% efficient \btagging \gls{WP}, it is added to the 1-tag signal region. If it fails both of these criteria The 1 and 2-tag regions are used as signal regions, the 0-tag is used as a control region. This logic flow is shown in Figure \ref{fig:btag-logic}.
 
 
-For the resonant analysis, a scale factor is applied before reconstructing \myybb, rescaling the \bb system by a factor of $m_{H}/\mbb$ (with $m_H \equiv \unit{125.09}{\GeV}$) as a means to reduce the poor dijet resolution. This scaling improves the \myybb resolution as shown in Figure \ref{fig:resolution-myybb}.
-
-
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=orange!30]
+\tikzstyle{io} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=blue!30]
+\tikzstyle{rej} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 \begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[node distance=3cm]
+    \node (start) [startstop] {Start};
+  
+    \node (dec1) [decision, below of=start] {$n_{b,70\%} >2$};
+    \node (out1) [rej, right of=dec1, xshift=2cm] {Veto};
+  
+    \node (dec2) [decision, below of=dec1, yshift=-1cm] {$n_{b,70\%} = 2$};
+    \node (out2) [io, right of=dec2, xshift=2cm] {2-tag Category};
+  
+    \node (dec3) [decision, below of=dec2, yshift=-1cm] {$n_{b,60\%} = 1$};
+    \node (out3) [io, right of=dec3, xshift=2cm] {1-tag Category};
+    \node (out4) [io, below of=dec3] {0-tag Category};
+
+    \draw [arrow] (start) -- (dec1);
+    
+    \draw [arrow] (dec1) -- node[anchor=north] {True} (out1);
+    \draw [arrow] (dec1) -- node[anchor=west] {False} (dec2);
+
+    \draw [arrow] (dec2) -- node[anchor=north] {True} (out2);
+    \draw [arrow] (dec2) -- node[anchor=west] {False} (dec3);    
+    
+    \draw [arrow] (dec3) -- node[anchor=north] {True} (out3);
+    \draw [arrow] (dec3) -- node[anchor=west] {False} (out4);  
+  
+  \end{tikzpicture}
+  \caption[Logic flowchart for analysis b-tagging category definitions]{Logic flowchart for analysis b-tagging category definitions. The 1 and 2-tag categories are signal regions, the 0-tag category is a control region. Events with more than 2 b-tagged jets are rejected to maintain event orthogonality with the $HH\rightarrow \bb\bb$ analysis.}
+  \label{fig:btag-logic}
+\end{figure}
+
+After selection, overlapping low and high mass selections are created. In the resonant search, the low mass selection is for signal hypotheses of $\unit{500}{\GeV}$ and below; the high mass selection is used for $\unit{500}{\GeV}$ and above. In the non-resonant search, the high mass hypothesis is used. These selections are defined by:
+
+\begin{itemize}
+  \item \textbf{Low Mass:} Leading jet $\pt > \unit{40}{\GeV}$, subleading jet $\pt > \unit{25}{\GeV}$, and $80 < m_{bb}/\GeV < 140$
+  \item \textbf{High Mass:} Leading jet $\pt > \unit{100}{\GeV}$, subleading jet $\pt > \unit{30}{\GeV}$, and $90 < m_{bb}/\GeV < 140$
+\end{itemize}
+
+Due to the poor mass resolution of the \bb system, a scale factor is applied, assuming it is consistent with the signal hypothesis, a \gls{SM} Higgs boson. The 4-vector of the system is rescaled by a factor of $m_{H}/\mbb$ (with $m_H \equiv \unit{125.09}{\GeV}$). This scaling improves the \myybb resolution as shown in Figure \ref{fig:resolution-myybb}.
+
+
+\begin{figure}[!ht]
   \centering
   \subfloat[Low Mass, 1-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_low_1.pdf}}
   \subfloat[High Mass, 1-tag selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/selection/m_yybb_high_1.pdf}}\\
@@ -225,16 +277,38 @@ For the resonant analysis, a scale factor is applied before reconstructing \myyb
   \label{fig:resolution-myybb}
 \end{figure}
 
-
+Last, in \textit{only} the resonant analysis, a tight diphoton mass cut is applied, isolating a window around the Higgs boson mass that contains 95\% of signal events. This corresponds to $m_H \pm \unit{4.7}{\GeV}$ for the low mass selection and $m_H \pm \unit{4.3}{\GeV}$ for the high mass selection.
 
 \section{Modeling}
 
-
+In both the resonant and non-resonant analyses, a full signal+background fit is performed. For the non-resonant analysis, the \myy spectrum is fit, while for the resonant analysis the \myybb is fit. This section describes the parameterization to describe the signal and background of each analysis.
 
 \subsection{Non-resonant Analysis}
 \subsubsection{Signal Modeling}
 
 A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with power-law tails, is used to describe the shape of the \hhyybb signal. Model parameters are taken from the simulated signal sample.
+
+%% TOdo rewrite these captions
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_nlo}.eps}
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_nlo}.eps}
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_lo}.eps}
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_lo}.eps}
+  \caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (up) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the high mass selection.
+  \label{fig:SMhh_DoubleCB}}
+\end{figure}
+
+\begin{figure}[b!]
+	\centering
+	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_low_nlo}.eps}
+	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_low_nlo}.eps}
+	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_low_lo}.eps}
+	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_low_lo}.eps}
+	\caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (up) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the low mass selection.
+	\label{fig:SMhh_DoubleCB_low}}
+\end{figure}
+
 
 \subsubsection{Background Modeling} \label{sssec:nonres-bkg-model}
 
