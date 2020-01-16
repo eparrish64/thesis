@@ -1,3 +1,8 @@
+%%%% TODO LIST:
+% 2x2d sidebands
+
+
+
 \chapter{Search for di-Higgs Production in the Channel} % todo: yybb not capitalized?
 
 \section{Analysis Overview}
@@ -283,29 +288,35 @@ Last, in \textit{only} the resonant analysis, a tight diphoton mass cut is appli
 
 In both the resonant and non-resonant analyses, a full signal+background fit is performed. For the non-resonant analysis, the \myy spectrum is fit, while for the resonant analysis the \myybb is fit. This section describes the parameterization to describe the signal and background of each analysis.
 
-\subsection{Non-resonant Analysis}
+\subsection{Background Composition}
+
+The \yy-continuum background contains contributions from both diphoton events, as well as those where jets fake photons, denoted $j\gamma$, $\gamma j$,  or $jj$, where the leading, subleading, or both photons have been misidentified jets, respectively. To establish the contributions of each of these sources, a 2x2D sideband method \cite{2x2d-sideband} is used
+
+
+
+\subsection{Modeling in the Non-resonant Analysis}
 \subsubsection{Signal Modeling}
 
-A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with power-law tails, is used to describe the shape of the \hhyybb signal. Model parameters are taken from the simulated signal sample.
+A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with power-law tails, is used to describe the shape of the \hhyybb signal. Model parameters are taken from the simulated signal sample. Figure \ref{fig:SMhh_DoubleCB} shows the parameterization using the high mass selection, and Figure \ref{fig:SMhh_DoubleCB_low} shows the parameterization with the low mass selection.
 
 %% TOdo rewrite these captions
-\begin{figure}[b!]
+\begin{figure}[p!]
   \centering
   \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_nlo}.eps}
   \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_nlo}.eps}
   \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_lo}.eps}
   \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_lo}.eps}
-  \caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (up) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the high mass selection.
+  \caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (top) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the high mass selection.
   \label{fig:SMhh_DoubleCB}}
 \end{figure}
 
-\begin{figure}[b!]
+\begin{figure}[p!]
 	\centering
 	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_low_nlo}.eps}
 	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_low_nlo}.eps}
 	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c1_afterfix_low_lo}.eps}
 	\includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.00_c2_afterfix_low_lo}.eps}
-	\caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (up) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the low mass selection.
+	\caption[SM di-Higgs diphoton parameterization with a double-sided Crystal Ball function]{Parameterization of the $\myy$ distribution from the SM di-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories, with (top) and without the signal MC reweighting to full NLO (bottom). Events were required to pass the low mass selection.
 	\label{fig:SMhh_DoubleCB_low}}
 \end{figure}
 
@@ -324,30 +335,140 @@ The considered functions for this test are as follows:
   \item Dijet of form: $dijet(\myy ; \theta^{bkg}) = \theta_1^{bkg} (1-\myy)^{\theta_2^{bkg}} m_{\gamma\gamma}^{\theta_3^{bkg}}$
 \end{itemize}
 
-Through this test, the first-order exponential function is found to have the lowest bias, and is selected as the \yy-continuum background model.
+Through this test, the first-order exponential function is found to have the lowest bias, and is selected as the \yy-continuum background model. This fit is shown for both selections in the 1 and 2-tag categories in Figure \ref{fig:bkg-fit-myy}.
 
-The single Higgs boson background is modeled through a double-sided Crystal Ball function, where parameters are taken from simulation.
+\begin{figure}[b!]
+  \centering
+  \subfloat[Low mass, 1 b-tag]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/fit_exp_1taglow}}
+  \subfloat[High mass, 1 b-tag]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/fit_exp_1taghigh}}\\
+  \subfloat[Low mass, 2 b-tag]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/fit_exp_2taglow}}
+  \subfloat[High mass, 2 b-tag]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/fit_exp_2taghigh}}
+  \caption[Background-only fit to the $\myy$ distribution using the first-order exponential function]{Background-only fit to the $\myy$ distribution in the low and high-mass categories, 1 and 2 b-tag categories using the first-order exponential function.}
+  \label{fig:bkg-fit-myy}
+\end{figure}
 
-\subsection{Resonant Analysis}
+
+The single Higgs boson background is modeled through a double-sided Crystal Ball function, where parameters are taken from simulation. These fits are shown in Figure \ref{fig:SMh_DoubleCB}.
+
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.SM_DSCB_c1}.eps}
+  \includegraphics[width=0.48\textwidth]{{chapters/chapter5_yybb/images/parameterization/plot_singleRes_m125.SM_DSCB_c2}.eps}
+  \caption[SM single Higgs \myy parameterization with a double-sided Crystal Ball function]{Parameterization of the \myy distribution from the SM single-Higgs simulated samples at a mass of 125 GeV in the 1-tag (left) and 2-tag (right) categories. Events were required to pass the high mass selection.
+  \label{fig:SMh_DoubleCB}}
+  \end{figure}
+  
+
+\subsection{Modeling in the Resonant Analysis}
 \subsubsection{Signal Modeling}
 
-For the resonant analysis, the signal is modeled by a function using a gaussian core, with exponential tails, known as \texttt{ExpGaussExp}\footnote{Also, ``double-shouldered GaussExp''} \cite{exp-gauss-exp}. This function is fit in a window around the mass hypothesis. %TODO: More here
+For the resonant analysis, several functional forms were considered, including \texttt{ExpGaussExp}\footnote{Also called a ``double-shouldered GaussExp.''}, Crystal Ball + Gaussian, Crystal Ball + Voigt, and a Double Sided Crystal Ball. The model with the fewest parameters that converged was selected. This model was the \texttt{ExpGaussExp}, a function using a gaussian core with exponential tails. The mass hypotheses were fit simultaneously, as this yielded more stable fits. Sample fits for two mass hypotheses, one high mass (750 GeV) and one low mass (325 GeV), are shown in Figure \ref{fig:resonant_myybb_EGE}.
+
+\begin{figure}[htbp!]
+  \centering
+  
+  \subfloat[325 GeV, 1 b-tag, low mass selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/signal_model_EGE_lowMass_1tag_mX_325.pdf}}
+  \subfloat[325 GeV, 2 b-tag, low mass selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/signal_model_EGE_lowMass_2tag_mX_325.pdf}}\\
+  \subfloat[750 GeV, 1 b-tag, high mass selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/signal_model_EGE_highMass_1tag_mX_750.pdf}}
+  \subfloat[750 GeV, 2 b-tag, high mass selection]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/signal_model_EGE_highMass_2tag_mX_750.pdf}}
+  
+
+  \caption[\myybb\ parameterization for resonant samples using an \texttt{ExpGaussExp} function]{Parameterization with an \texttt{ExpGaussExp} of the $\myybb$ distribution from one low mass (325 GeV) and one high mass (750 GeV) resonant di-Higgs sample. The mass hypotheses, selection used, and b-tag category are indicated.
+  \label{fig:resonant_myybb_EGE}}
+\end{figure}
+
+  
 
 
 \subsubsection{Background Modeling} \label{sssec:res-bkg-model}
 
-A spurious signal test (described in Section \ref{sssec:nonres-bkg-model}) is performed
+Similar to the non-resonant analysis, spurious signal test (described in Section \ref{sssec:nonres-bkg-model}) is performed to select the background fit function. The fit function is performed in both the 1 and 2-tag categories, where the same generalized fit function is required to be used to correlate uncertainties, however the parameter values can differ between categories. Different fit functions are selected for the low and high mass categories, where the low mass fit must contain a characteristic peak, and the high mass fit must be monotonically decreasing.
 
-For the loose selection in the low mass region, a Novosibirsk function \cite{novosibirsk} is selected, which has the generalized form:
+For the loose selection in the low mass region, the following functions were considered:
 
-\begin{equation}
-  \begin{split}
-  P(x) &= exp(-0.5^{ln(q_y)^2 / \Lambda^2 + \Lambda^2})\\
-  \text{with,} \quad \quad q_{y} &= 1 + \Lambda(x-x_0)/\sigma \times \frac{\sinh(\Lambda \sqrt{\ln(4)})}{\Lambda \sqrt{\ln(4)}}
-  \end{split}
-\end{equation}
+\begin{itemize}
+  \item Novosibirsk: $P(x) = exp(-0.5^{ln(q_y)^2 / \Lambda^2 + \Lambda^2})$ with $q_{y} = 1 + \Lambda(x-x_0)/\sigma \times \frac{\sinh(\Lambda \sqrt{\ln(4)})}{\Lambda \sqrt{\ln(4)}}$.
+  \item Modified Gamma: a Gamma distribution where the shape and scale parameters are replaced by linear functions of the mass hypothesis. This adds 2 additional degrees of freedom (5 total).
+  \item Modified Landau: a Landau distribution where the shape parameter is replaced by a linear function of the mass hypothesis. This adds 1 additional degree of freedom (3 total).
+\end{itemize}
 
-The Novosibirsk function features a peak at low value, followed by a smoothly falling tail. For the tight selection, used in the high mass region, an exponential function is selected.
+
+For the tight selection in the high mass region, the following functions were considered:
+\begin{itemize}
+  \item Exponential ($x$): $Exp[x](\myybb;p_0) = exp(p_0 \cdot \myybb)$
+  \item Exponential ($x^2$): $Exp[x^2](\myybb;p_0) = exp(p_0 \cdot \myybb^{2})$
+  \item Inverse polynomial ($x^{-2}$): $Inv\ Poly [x^{-2}](\myybb;p_0) = 1 +p_0/(\myybb^{2})$
+  \item Inverse polynomial ($x^{-3}$): $Inv\ Poly [x^{-3}](\myybb;p_0) = 1 +p_0/(\myybb^{3})$
+  \item Power Law: $Power\ Law(\myybb;p_0) = \myybb^{p_0}$
+\end{itemize}
+
+The number of spurious signal events were obtained by performing S+B fits in the \myybb spectrum separately in the 1 and 2-tag categories. For the low mass region, the fits were performed from 245 GeV to 485 GeV, for the high mass region the fits were performed from 335 GeV to 1140 GeV, which correspond to 95\% signal coverage of the resonant masses considered. The results of the 1-tag spurious signal test are shown in Table \ref{tab:spurious-signal-1}, and the 2-tag results are shown in Table \ref{tab:spurious-signal-2}, where  $N_{spur}$ is the spurious signal amplitude and $Z_{spur}$ is its ratio the fitted number of signal events. $Z_{spur}$ is computed using the background estimate described in TODO. The Novosibirsk function is selected for the low mass region and the exponential ($x$) function is selected for the high mass region. Background-only fits to using these functions are shown for the 1 and 2 b-tag categories in Figure \ref{fig:bkg-fit-myyjj}.
+%TODO: background estimate
+\begin{table}
+  \centering
+  \caption[Spurious signal test results for the 1 b-tag category]{Spurious signal test results for the 1 b-tag category. $N_{spur}$ is the spurious signal amplitude, $Z_{spur}$ is its ratio the fitted number of signal events. $\chi^2$/ndof values is obtained from a background-only fit. Parameters gives the number of floating parameters in the given function.}
+  \label{tab:spurious-signal-1}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{Low Mass}\\
+    \hline
+    Model     &   Maximum $Z_{spur}$ [\%]      &      Maximum $N_{spur}$      &   Parameters     &    $\chi^2$/ndof \\
+    \hline
+    Novosibirsk        & 33.64    &   2.06  & 3  & 36.7/22 \\
+    Modified Gamma     & 53.67    &   3.42  & 5  & 45.2/20 \\
+    Modified Landau    & 96.93    &   7.54  & 3  & 128.3/22 \\
+    \hline
+    \multicolumn{5}{|c|}{High Mass}\\
+    \hline
+    Model     &   Maximum $Z_{spur}$ [\%]      &      Maximum $N_{spur}$      &   Parameters     &    $\chi^2$/ndof \\
+    \hline
+    Exp ($x$)             &  63.66    &  0.89  & 1  & 32.5/26 \\
+    Exp ($x^2$)           &  73.64    &  0.97  & 1  & 53/9/26 \\
+    Inv. Poly ($x^-2$)    &  355.52   &  1.51  & 1  & 354.7/26 \\
+    Inv. Poly ($x^-3$)    &  146.35   &  1.03  & 1  & 68.8/26 \\
+    Power Law             &  78.00    &  0.96  & 1  & 45.0/26 \\
+    \hline    
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption[Spurious signal test results for the 2 b-tag category]{Spurious signal test results for the 2 b-tag category. $N_{spur}$ is the spurious signal amplitude, $Z_{spur}$ is its ratio the fitted number of signal events. $\chi^2$/ndof values is obtained from a background-only fit. Parameters gives the number of floating parameters in the given function.}
+  \label{tab:spurious-signal-2}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{Low Mass}\\
+    \hline
+    Model     &   Maximum $Z_{spur}$ [\%]      &      Maximum $N_{spur}$      &   Parameters     &    $\chi^2$/ndof \\
+    \hline
+    Novosibirsk        & 56.97    &  0.58   & 3  & 33.9/22 \\
+    Modified Gamma     & 82.05    &  0.77   & 5  & 36.3/20 \\
+    Modified Landau    & 65.62    &  1.09   & 3  & 45.8/22 \\
+    \hline
+    \multicolumn{5}{|c|}{High Mass}\\
+    \hline
+    Model     &   Maximum $Z_{spur}$ [\%]      &      Maximum $N_{spur}$      &   Parameters     &    $\chi^2$/ndof \\
+    \hline
+    Exp ($x$)             &  98.94   & 0.21   & 1  & 36.4/26 \\
+    Exp ($x^2$)           &  123.18   & 0.27   & 1  & 59.0/26 \\
+    Inv. Poly ($x^-2$)    &  88.33   & 0.25   & 1  & 42.9/26 \\
+    Inv. Poly ($x^-3$)    &  116.84   & 0.13   & 1  & 22.2/26 \\
+    Power Law             &  72.46   & 0.17   & 1  & 25.9/26 \\
+    \hline    
+  \end{tabular}
+\end{table}
+
+
+\begin{figure}[htbp!]
+  \centering
+  \subfloat[1 b-tag, low mass]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/m_yyjj_lowMass_1tag_bkgOnly}}
+  \subfloat[1 b-tag, high mass]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/m_yyjj_highMass_1tag_bkgOnly}}\\
+  \subfloat[2 b-tag, low mass]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/m_yyjj_lowMass_2tag_bkgOnly}}
+  \subfloat[2 b-tag, high mass]{\includegraphics[width=0.48\textwidth]{chapters/chapter5_yybb/images/parameterization/m_yyjj_highMass_2tag_bkgOnly}}
+  \caption[Background-only fit to the \myybb distribution]{Background-only fit to the \myybb distribution. The b-tag category and selection used is indicated.}
+  \label{fig:bkg-fit-myyjj}
+\end{figure}
+
 
 \section{Systematic Uncertainties}
 
