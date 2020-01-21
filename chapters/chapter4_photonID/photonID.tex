@@ -26,7 +26,7 @@ In order to account for detector segmentation and differences in upstream materi
     \label{tab:ss-vars-table}
 \end{table}
 
-\section{Samples}
+\section{Samples} \label{sec:photon-id-samples}
 
 In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. The signal sample is a $\gamma+$jet sample
 
@@ -64,8 +64,9 @@ A visualization of the geometric moments, both location and shape can be found i
 \end{figure}
 
 
-\noindent\textbf{Data-MC Comparison}\\
-\indent In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Furthermore, photons in \gls{MC} must correspond to a truth photon. 
+\subsection{Data-MC Comparison}
+In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Furthermore, photons in \gls{MC} must correspond to a truth photon. 
+
 
 This section includes the comparisons for unconverted photons which are considered for adding to the photon ID menu. Converted comparisons will be included into Appendix 
 
@@ -88,9 +89,7 @@ This section includes the comparisons for unconverted photons which are consider
 % TODO: split these figs?
 
 \noindent\textbf{Correlations}\\
-\indent Checking the correlations of variables is important for several reasons. First, highly correlated variables do not bring new information, and thus are not useful for adding additional cuts on. Also, it is paramount that any variables that are incorporated in the menu are not correlated to photon isolation.
-
-The correlation between these variables and the shower shape variables and isolation working points is shown in Figure \ref{fig:photonid-corrs}.
+\indent Checking the correlations of variables is important for several reasons. First, highly correlated variables do not bring new information, and thus are not useful for adding additional cuts on. Also, it is paramount that any variables that are incorporated in the menu are not correlated to photon isolation. The correlation between these variables and the shower shape variables and isolation working points is shown in Figure \ref{fig:photonid-corrs}. 
 %todo: add plots
 
 \begin{figure}[!thp]
@@ -102,6 +101,29 @@ The correlation between these variables and the shower shape variables and isola
 \end{figure}
 % TODO: split these figs?
 
+\subsection{Incorporating into Menu}
+
+The topological cluster variables were added to the existing shower shape variable-based menu. The cut-based approach is reoptimized including the new variables, and new cuts are derived in each $\eta$-\pt bin. To compare improvement across bins, a figure of merit is defined, the improvement in background rejection for the same signal efficiency as the current photon identification menu. In formulaic terms:
+
+\begin{align}
+    Z &= \frac{(1-\epsilon_{bkg,i}) - (1-\epsilon_{bkg,0})}{(1-\epsilon_{bkg,0})} = \frac{\epsilon_{bkg,0} - \epsilon_{bkg,i}}{1-\epsilon_{bkg,0}}
+    \label{eqn:improvement-metric}
+\end{align}
+
+For figure of merit $Z$, and background efficiency $\epsilon_{bkg}$ (thus, background rejection is $(1-\epsilon_{bkg}$), where index $i$ indicates the reoptimized menu, and index $0$ indicates the original menu. This value is calculated bin-wise in $\eta$-\pt and shown in Figure ADD FIG. In principle, adding additional variables to a cut-based method should only improve optimization if the search over possible cut values is exhaustive. However, in several bins, worse performance is found by incorporating new variables. This can be the result of two causes:
+\begin{itemize}
+    \item In a high dimensional space, such a grid search becomes computationally prohibitive, so a Genetic Algorithm\footnote{The Genetic Algorithm used is a standard method implemented in \texttt{TMVA}, and the details of implementation can be found in Reference \cite{TMVA}.} \cite{genetic-algo} is used to find an approximate solution, and thus increasing dimensionality has the possibility to find local minima, and thus suboptimal solutions.
+    \item Statistical fluctuations. As standard, models are trained on an orthogonal subset of events than they are evaluated on, and statistical fluctuations in these samples can influence reported gain, particularly in low stats bins. Figure \ref{fig:photonid-events} shows the number of signal and background events in each $\eta$-\pt bin.
+\end{itemize}
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/sig_events.pdf}
+    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/bkg_events.pdf}
+    \caption[Number of training events for in each $\eta$-\pt bin for the signal $\gamma$+jets sample, and the background jet fakes sample]{Number of training events for in each $\eta$-\pt bin for the signal $\gamma$+jets sample (top), and the background jet fakes sample (bottom). The preselection described in Section \ref{sec:photon-id-samples} is used.}
+    \label{fig:photonid-events}
+\end{figure}
+
 
 \section{Multivariate Analysis Techniques}
 
@@ -109,6 +131,12 @@ The current photon identification working points are defined by a rectangular cu
 
 \subsection{Boosted Decision Tree}
 
-A \gls{BDT} was employed as an alternative classification algorithm. An independent \gls{BDT} was trained in each bin in $\eta$ and \pt. As a baseline, the \gls{BDT}
+A gradient boosted \gls{BDT} was employed as an alternative classification algorithm. A major problem in training these \glspl{BDT} was the lack of background training statistics when segmenting into $\eta$-\pt bins. To navigate this problem, rather than training an independent model for each $\eta$-\pt bin, \pt inclusive models were trained. As shown in Figure \ref{fig:photonid-corrs}, the input variables have low correlation to \pt, and thus this does not bias the model.
+
+
+
+
+As a baseline, the \gls{BDT} is compared to the cut-based photon identification menu, using the same figure of merit defined in Equation \ref{eqn:improvement-metric}, where the efficiency denoted $i$ represents the \gls{BDT} model, and the efficiency denoted $0$ represents the current cut-based model.
+
 
 \subsection{Neural Network}
