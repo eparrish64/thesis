@@ -30,8 +30,6 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 
-
-
 \usepackage{subfig}
 \usepackage{multirow} % Table formatting
 \usepackage{tablefootnote}
@@ -63,7 +61,7 @@
 %\def\files{ch1,ch2,refs,app1,app2}
 
 %%% use this to work with only one chapter
-%\def\files{chapters/chapter2_experiment/experiment}
+%\def\files{chapters/chapter5_yybb/yybb, glossary, variable_defs}
 %\includeonly{\files}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,11 +87,11 @@
 \end{abstract}
 
 \begin{acknowledgments}
-
+  \input{aux/acknowledgments}
 \end{acknowledgments}
 
 \begin{dedication}
-
+  \input{aux/dedication}
 \end{dedication}
 
 % comment this to suppress prologue
@@ -111,10 +109,11 @@
 %%  Appendices
 
 \appendix
-\include{appendices/app1_mva}			% file with Appendix A contents
-\include{appendices/app2_datamc}
-\include{appendices/app3_vbfvariables}
-\include{appendices/app4_2x2d}
+\input{appendices/app1_mva}			% file with Appendix A contents
+\input{appendices/app2_datamc}
+\input{appendices/app3_vbfvariables}
+\input{appendices/app4_2x2d}
+\input{appendices/app5_cutflows}
 
 \printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 \include{refs}		% file with references
