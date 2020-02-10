@@ -28,14 +28,28 @@ In order to account for detector segmentation and differences in upstream materi
 
 \section{Samples} \label{sec:photon-id-samples}
 
-In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. The signal sample is a $\gamma+$jet sample
+In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. 
 
-Additionally, truth information is used to force 
+For these studies, a sample of leading-order $\gamma+$jet events from $qg \rightarrow q \gamma$ and $q\bar{q} \rightarrow g \gamma$ hard scattering, as well as and quark fragmentation in QCD dijet events is used. Additionally, \gls{MC} truth information is used to require a prompt photon in the event. For background, a sample of all tree-level $2\rightarrow2$ QCD processes, except $\gamma+$jet events from quark fragmentation is used. \gls{MC} truth information is used to veto prompt photons in this sample as well. Both samples are generated using \PYTHIA. For both samples, simulation matched the detector conditions in the 2015 and 2016 data taking period. 
+
 
 
 \section{Topological Clusters}
 
 Photon reconstruction is performed through a method known as ``topological clustering,'' which is outlined in Section \ref{ssec:em-signatures}. In the calorimeter, energy depositions are clustered via this method, then merged into superclusters, which are ultimately the detector signature defined as the photon. The reconstructed observables of these topological clusters, or \textit{moments}, can be used to characterize them. This section will discuss the use of these topological cluster moments in photon identification to better reject background from non-prompt photons.
+
+\noindent\textbf{Number of Topo-Clusters}\\
+\indent As described in Section \ref{ssec:em-signatures}, photons are  superclusters, which can be made up of one or more topo-clusters as a result of cluster splitting or bremsstrahlung radiation. In over 90\% of photon events, there is only 1 topo-cluster associated to the photon supercluster. As a result, the quantities studied as inputs are all of the leading topo-cluster. Additionally, the number of topo-clusters is on average fewer for prompt photons than fakes, so this value is used as an input into the photon identification menu.
+
+% TODO: Remake plot without name
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.90\textwidth]{chapters/chapter4_photonID/images/hists/y_nTopoClusters.png}
+    \caption[Number of topo-clusters in photon superclusters]
+    {Number of topo-clusters in photon superclusters in truth-matched $\gamma+$jet events and truth-vetoed jet fake events} 
+    \label{fig:topo-geom}
+\end{figure}
+
 
 \noindent\textbf{Shape Information}\\
 \indent The size of the topological cell is parametrized by moments in $r_i$ and $\lambda_i$, which are defined as:
@@ -47,10 +61,34 @@ Photon reconstruction is performed through a method known as ``topological clust
     \lambda_i = (\vec{x_i} - \vec{c}) \cdot \vec{s} \text{\hspace{2em}(longitudinal distance to shower center of gravity)} 
 \end{equation}
 
-Where $\vec{s}$ is the shower axis and $\vec{c}$ is the center of gravity. Through this parametrization, the topo-cluster can be analyzed as a spheroid, with the second moments in $r$ and $\lambda$ as the extensions. $\sqrt{\langle \lambda^2 \rangle}$ is the semi-major axis in depth (along the shower axis), $\sqrt{\langle r^2 \rangle}$ is the semi-major axis in width.
+Where $\vec{s}$ is the shower axis and $\vec{c}$ is the center of gravity. Through this parametrization, the topo-cluster can be analyzed as a spheroid, with the second moments in $r$ and $\lambda$ as the extensions. $\sqrt{\langle \lambda^2 \rangle}$ is the semi-major axis in depth (along the shower axis), $\sqrt{\langle r^2 \rangle}$ is the semi-major axis in width. The distribution of these two parameters are shown for the leading topo cluster in Figures \ref{fig:topo-secondLambda} and \ref{fig:topo-secondR}, after applying the current loose and tight photon identification criteria.
+
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.9\textwidth]{chapters/chapter4_photonID/images/hists/y_topoCluster0_secondLambda.png}
+    \caption[The distribution of the semi-major axis in depth for the leading topo-cluster]{The distribution of the semi-major axis in depth for the leading topo-cluster in truth-matched $\gamma+$jet events and truth-vetoed jet fake events.}
+    \label{fig:topo-secondLambda}
+
+\end{figure}
+
+\begin{figure}[!thp]
+    \centering 
+    \includegraphics[width=.9\textwidth]{chapters/chapter4_photonID/images/hists/y_topoCluster0_secondR.png}
+    \caption[The distribution of the semi-major axis in width for the leading topo-cluster]{The distribution of the semi-major axis in width for the leading topo-cluster in truth-matched $\gamma+$jet events and truth-vetoed jet fake events.}
+    \label{fig:topo-secondR}
+\end{figure}
+
+
 
 \noindent\textbf{Location Information}\\
-\indent The location of the topo-cluster is calculated from the first moments of the three cartesian coordinates, describing the position of $\vec{c}$. Due to azimuthal symmetry in the detector, the key component to locational parametrization of topo-clusters is the depth in the calorimeter. Thus, this location can be described via $\lambda_{clus}$, the distance of the center of gravity from the front face of the calorimeter.
+\indent The location of the topo-cluster is calculated from the first moments of the three cartesian coordinates, describing the position of $\vec{c}$. Due to azimuthal symmetry in the detector, the key component to locational parametrization of topo-clusters is the depth in the calorimeter. Thus, this location can be described via $\lambda_{clus}$, the distance of the center of gravity from the front face of the calorimeter. This distribution is shown in Figure \ref{fig:topo-centerLambda}.
+
+\begin{figure}[!thp]
+    \centering 
+    \includegraphics[width=.9\textwidth]{chapters/chapter4_photonID/images/hists/y_topoCluster0_centerLambda.png}
+    \caption[The distribution of the centroid depth ($<\lambda_{0}>$) of the leading topo-cluster]{The distribution of the centroid depth ($<\lambda_{0}>$) of the leading topo-cluster in truth-matched $\gamma+$jet events and truth-vetoed jet fake events.}
+    \label{fig:topo-centerLambda}
+\end{figure}
 
 A visualization of the geometric moments, both location and shape can be found in Figure \ref{fig:topo-geom}, with relevant spacial parameters (i.e. $\vec{c}$, $\vec{s}$, etc) shown and defined.
 
@@ -61,6 +99,67 @@ A visualization of the geometric moments, both location and shape can be found i
     \caption[The geometric moments and relevant parameters for topo-clusters.]
     {The geometric moments and relevant parameters for topo-clusters \cite{topo-clustering-r1}.}
     \label{fig:topo-geom}
+\end{figure}
+
+
+\noindent\textbf{Additional Moments}\\
+\indent Beyond the shape and location information, there are several other moments that can be used. Two are considered as inputs into the photon identification menu, cluster isolation and \gls{EM} probability.
+
+The signal thresholds built into the topological clustering algorithm are constructed to suppress noise, but lead to signal losses at the perimeter of clusters. The isolation moment, $f_{\text{iso}}$, measures the degree of isolation of a cluster. It is constructed as a weighted fraction of the sampling layer energy ($E_{s}^{\text{EM}}$) of non-clustered neighbor cells on the perimeter of the topo-cluster in the sampling layer. It is given by
+
+\begin{equation}
+    f_{\text{iso}} = \frac
+    {
+    \sum_{S \in \{ \text{samplings with} E_{s}^{\text{EM}} > 0 \} }  
+    E_{s}^{\text{EM}} N_{\text{cell},s}^{\text{noclus}} / N_{\text{cell},s}^{\text{neighbor}}
+    } 
+    {
+        \sum_{S \in \{ \text{samplings with} E_{s}^{\text{EM}} > 0 \} }
+    }.
+\end{equation}
+
+Here, $N_{\text{cell},s}^{\text{noclus}} / N_{\text{cell},s}^{\text{neighbor}}$ is the ratio of unclustered perimeter cells to the total number of perimeter cells for a given cluster. This is summed across all sampling layers with positive energy, $s$. For the signal and background samples, the isolation is shown using the existing loose and tight identification criteria in Figure \ref{fig:topo-isolation}.
+
+\begin{figure}[!thp]
+    \centering 
+    \includegraphics[width=.9\textwidth]{chapters/chapter4_photonID/images/hists/y_topoCluster0_isolation.png}
+    \caption[The distribution of the isolation moment of the leading topo-cluster]{The distribution of the isolation moment of the leading topo-cluster in truth-matched $\gamma+$jet events and truth-vetoed jet fake events}
+    \label{fig:topo-isolation}
+\end{figure}
+
+Energy losses in topo-clusters are corrected through a method known as \glsfirst{LCW} calibration. Since energy losses differ between hadronic and electromagnetic deposits, the \gls{LCW} calibration includes a step where the probability that a topo-cluster originates from an electromagnetic shower is evaluated.
+
+The likelihood is defined through measuring the efficiency for detecting an EM-like cluster in bins of four other topo-cluster observables, defined by
+
+\begin{equation}
+    \mathfrak{O}_{\text{clus}}^{\text{class}} = \{
+        E_{\text{clus}}^{\text{EM}},
+        \eta_{\text{clus}},
+        \log_{10}(\rho_{\text{clus}} / \rho_{\text{0}}) - \log_{10}(E_{\text{clus}}^{\text{EM}} / E_{\text{0}}),
+        \log_{10}(\lambda_{\text{clus}} / \lambda_{\text{0}}
+    \}
+\end{equation}
+
+where $\rho_0 = 1$ MeV mm$^-3$, $E_0 = \unit{1}{\MeV}$, $\lambda_{0} = \unit{1}{\mm}$. These bins (denoted $ijkl$) can then be used to define the likelihood, $ \mathcal{P}_{\text{clus}}^{\text{EM}}$, in each bin as
+
+
+\begin{equation}
+    \mathcal{P}_{\text{clus}}^{\text{EM}} ( E_{\text{clus}}^{\text{EM}}, \eta_{\text{clus}}, \rho_{\text{clus}} / E_{\text{clus}}^{\text{EM}}, \lambda_{\text{clus}}) \mapsto \mathcal{P}_{\text{clus}, ijkl}^{\text{EM}}  = \frac{\epsilon^{\pi^0}_{ijkl}}{ \epsilon^{\pi^0}_{ijkl} + 2\epsilon^{\pi^\pm}_{ijkl}}
+\end{equation}
+
+
+Where $\epsilon^{\pi^0(\pi^\pm)}_{ijkl}$ is the efficiency, defined as
+\begin{equation}
+    \epsilon^{\pi^0(\pi^\pm)}_{ijkl} = \frac{ N^{\pi^0(\pi^\pm)}_{ijkl} }{N^{\pi^0(\pi^\pm)}_{ij}}
+\end{equation}
+
+For $N^{\pi^0(\pi^\pm)}_{ijkl}$ topo-clusters in a given bin $ijkl$ and $N^{\pi^0(\pi^\pm)}_{ij}$ topo-clusters in bin $ij$ of the $(E_{\text{clus}}^{\text{EM}}, \eta_{\text{clus}})$ phase space. This likelihood, $\mathcal{P}_{\text{clus}}^{\text{EM}}$, by definition is bounded from 0 to 1, and considered as an input into the photon ID menu. This distribution is shown in Figure \ref{fig:topo-emProb}, with both the current loose and tight photon identification criteria applied.
+
+\begin{figure}[!thp]
+    \centering 
+    \includegraphics[width=.9\textwidth]{chapters/chapter4_photonID/images/hists/y_topoCluster0_emProbability.png}
+    \caption[The distribution of the \gls{EM} probability moment of the leading topo-cluster]{The distribution of the \gls{EM} probability moment of the leading topo-cluster in truth-matched $\gamma+$jet events and truth-vetoed jet fake events}
+    \label{fig:topo-emProb}
 \end{figure}
 
 
@@ -134,9 +233,9 @@ The current photon identification working points are defined by a rectangular cu
 A gradient boosted \gls{BDT} was employed as an alternative classification algorithm. A major problem in training these \glspl{BDT} was the lack of background training statistics when segmenting into $\eta$-\pt bins. To navigate this problem, rather than training an independent model for each $\eta$-\pt bin, \pt inclusive models were trained. As shown in Figure \ref{fig:photonid-corrs}, the input variables have low correlation to \pt, and thus this does not bias the model.
 
 
-
-
 As a baseline, the \gls{BDT} is compared to the cut-based photon identification menu, using the same figure of merit defined in Equation \ref{eqn:improvement-metric}, where the efficiency denoted $i$ represents the \gls{BDT} model, and the efficiency denoted $0$ represents the current cut-based model.
 
 
 \subsection{Neural Network}
+
+In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification. The \gls{NN} considered the same variables. One was generated 
