@@ -32,27 +32,36 @@ A schematic of the ATLAS detector can be found in Figure \ref{fig:atlas}.
 
 \subsection{The ATLAS Coordinate System}
 
-ATLAS uses a right-handed coordinate system, with the \gls{IP} defining the origin. The $z$-axis is along the beamline, the $x$-axis points toward the center of the \gls{LHC}, and the $y$-axis points upwards, toward Earth's surface.  Transverse quantities such as \pt and \et are calculated in the $x-y$ plane. The half of the detector pointed toward the Saleve is known as the ``A-side'' and has positive $z$ coordinates. The side with negative $z$, pointed toward the Jura is denoted ``C-side,'' where ``B'' is the barrel.
+ATLAS uses a right-handed coordinate system, with the \gls{IP} defining the origin. The $z$-axis is along the beamline, the $x$-axis points toward the center of the \gls{LHC}, and the $y$-axis points upwards, toward Earth's surface.  Transverse quantities such as \pt and \et are calculated in the $x-y$ plane. The half of the detector pointed toward the Saleve is known as the ``A-side'' and has positive $z$ coordinates. The side with negative $z$, pointed toward the Jura, is denoted ``C-side,'' where ``B'' is used to denote the barrel.
 
-In terms of cylindrical coordinates, $\phi$, the azimuthal angle, is measured around the beam axis and $\theta$, the polar angle, is the angle from the beam axis. Commonly, the \textit{rapidity} is used,
-
-\begin{equation}
-    y = \frac{1}{2} \log{\frac{E+p_z}{E-p_z}}
-\end{equation}
-
-The \textit{pseudorapidity}, defined as 
+Due to the shape of the detector, cylindrical coordinates are also useful for describing position. The azimuthal angle, $\phi$, is measured around the beam axis, with $\phi=0$ lying on the postive $x$-axis. The polar angle, $\theta$, is the angle from the beam axis, where $\theta=0$ is parallel to the beampipe. Commonly, the \textit{pseudorapidity} is used to define position, defined as
 
 \begin{equation}
-    \eta = -\ln[\tan(\theta / 2)],
+    \eta = -\ln[\tan(\theta / 2)].
 \end{equation}
 
-is Lorentz invariant under longitudinal boosts, and used to define the distance between particles as
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.5\textwidth]{chapters/chapter2_experiment/images/Pseudorapidity_plot.png}
+    \caption[Pseudorapidity distribution shown on a polar grid]{Pseudorapidity distribution shown on a polar grid.}
+    \label{fig:pseudorapidity}
+\end{figure}
+
+This value is 0 perpendicular to the beamline, and infinite as it approaches the beam axis, as shown in Figure \ref{fig:pseudorapidity}. Occasionally the \textit{rapidity}, defined as
+
+\begin{equation}
+    y = \frac{1}{2} \log{\frac{E+p_z}{E-p_z}},
+\end{equation}
+
+is used to describe position as well. These two quantities are preferable to the polar angle due to their Lorentz invariance. For massless particles, the rapidity and pseudorapidity are equivalent.
+
+To describe distance between particles, the angle space in pseudorapidity and azimuth is commonly used, defined as
 
 \begin{equation}
     \Dr = \sqrt{\Deta^2 + \Delta \phi^2}
 \end{equation}
 
-% TODO: Finish this
+which is also Lorentz invariant. 
 
 \subsection{Magnet System} \label{ssec:magnetsystem}
 In order to measure the charge and momentum of particles in the detector, a magnetic field is used. The curvature of a charged particle as it traverses through a magnetic field can be used to derive the charge to mass ratio. The sign of the charge is determined from the direction of the track.
@@ -76,15 +85,14 @@ The magnet system in ATLAS is a hybrid system comprised of four superconducting 
 
 \subsection{Inner Detector}  \label{ssec:innerdetector}
 
-The \gls{ID} serves to identify the precise interaction point and trajectory of charged particles. The \gls{ID} is segmented into barrel and end-cap sections along the beam axis. The barrel extends 1.6 m, covering $|\eta| < 1$, and the end-cap sections cover the remainder of the 7 m length. With this setup, the \gls{ID} provides precision tracking up to $|\eta| = 2.5$ \cite{inner-detector-tdr}. It is composed of three subsystems, the Pixel Detector, the \gls{SCT}, and the \gls{TRT}.
+The \gls{ID} \cite{inner-detector-tdr} serves to identify the precise interaction point and trajectory of charged particles. The \gls{ID} is segmented into barrel and end-cap sections along the beam axis. The barrel extends 1.6 m, covering $|\eta| < 1$, and the end-cap sections cover the remainder of the 7 m length. With this setup, the \gls{ID} provides precision tracking up to $|\eta| = 2.5$. It is composed of three subsystems, the Pixel Detector, the \gls{SCT}, and the \gls{TRT}.
 
 \noindent\textbf{Pixel Detector}\\
-\indent Nearest the \gls{IP} is the Pixel Detector, which provides high-granularity, high-precision measurements over the full acceptance. It is responsible for resolving precise tracks to the \gls{IP} or to secondary vertices, as well as determining impact parameter resolution. 
+\indent Nearest the \gls{IP} is the Pixel Detector, which provides high-granularity, high-precision measurements, and is used to determine impact parameters.
 
 Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $ \unit{50}{\micron} \times \unit{400}{\micron}$, and a depth of $\unit{250}{\micron}$. Each Pixel module contains one sensor and 16 readout channel. In total there are 1744 pixel sensors with 80 million readout channels.
     
-The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between ``Run 1'' and ``Run 2,'' from 2013 to 2015. takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. This improved distance helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
-% Mention radiation challenges?
+The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between ``Run 1'' and ``Run 2,'' during the shutdown that lasted from 2013 to 2015. It takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. This improved distance helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
 
 \noindent\textbf{SemiConductor Tracker}\\
 \indent The \gls{SCT} provides measurements at intermediate range from the \gls{IP}, vital for momentum, impact parameter, and vertex position measurements. It is composed of a barrel region and two end-caps, covering the distance $R=\unit{300}{\mm}$ to $R= \unit{520}{\mm}$ from the \gls{IP}. \gls{SCT} modules are made up of four strip sensors, two on each side, oriented at an angle of $\unit{40}{mrad}$ from each other. The sensors are single-sided p-in-n microstrip detectors on silicon wafers. The barrel is constructed of 2112 modules in four layers that are equally spaced, and each end-cap is constructed of 988 modules over nine disks. Collectively, the \gls{SCT} has about 6 million silicon strips.
@@ -94,8 +102,7 @@ The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between ``Run 1
 
 It is a proportional drift tube composed of 372,032 straws, each with a $\unit{4}{\mm}$ inner diameter. In the barrel, the straws have a length of $\unit{144}{\cm}$ and are arranged parallel to the beam axis. In the end-cap, straws are $\unit{37}{\cm}$ long, and arranged into 18 wheels, radially from the beam axis.
 
-The straws are filled with a gaseous mixture composed of 70\% $Xe$, 27\% $CO_2$, and 3\% $O_2$. The radiator between photons is made of polypropylene, which, having a different dielectric constant than the gaseous mixture, can produce transition radiation photons. These photons can ionize the xenon gas, which creates the signal pulse.
-
+The straws are filled with a gaseous mixture composed of 70\% $Xe$, 27\% $CO_2$, and 3\% $O_2$\footnote{This was the design gas mixture, as described in the \gls{ID} Technical Design Report, Reference \cite{inner-detector-tdr}. During Run 2, straws with leaks were filled with 70\% $Ar$ gas, rather than $Xe$ due to cost. $Ar$ provides similar tracking performance as $Xe$, but a worse efficiency absorbing transition radiation X-rays.}. As a charged particle penetrates the straw, it deposits energy into the gas and creates electron-ion pairs. The electrons drift to the center wire, while the ions drift to the inner wall of the straw. The drifting charge produces an electrical signal, which is then compared to a low and high threshold. The low threshold is used to measure drift time, which is used to derive position of incidence. The high threshold is used to identify large energy deposits from transition radiation X-rays, which is useful to discriminate charged pions from electrons.
 
 For momentum measurement, the \gls{TRT} provides measurements equivalent to a single point with precision of $\unit{50}{\micron}$. For tracking, it provides around 36 hits per track. For electron-hadron discrimination, it has a pion rejection factor of between 15 and 200 (depending on $\eta$), at an electron efficiency of 90\%.
 
@@ -152,9 +159,9 @@ A sketch of the composition of the \gls{EM} calorimeter can be found in Figure \
 
 
 \noindent\textbf{Hadronic Calorimeter}\\
-\indent When a hadron interacts with matter, both elastic scattering and inelastic interactions occur. Secondary hadrons are produced, including K and $\pi$ mesons, as well as protons and neutrons. These also decay and the cascade, known as a hadronic shower, and will continue until the energy of the decay products is small enough to be halted by ionization energy loss or absorbed in a nuclear process \cite{detectors-for-radiation}.
+\indent As hadrons interact with matter, their scattering produces secondary hadrons as well as protons and neutrons. These also decay and this cascade, known as a hadronic shower, and will continue until the energy of the decay products is small enough to be halted by ionization energy loss or absorbed in a nuclear process.
 
-\indent The hadronic Tile Calorimeter is designed to measure such decays, and using steel as the absorber and scintillating tiles as the active material. The scintillators transmit light via fiber optics to \glspl{PMT}. It is composed of three regions, the central barrel, covering $|\eta| < 1.0$, and two extended barrels on either side of the central barrel, covering $|\eta| > 1.0$. Each of these three regions have 64 azimuthal modules, and 3 layers longitudinally. The first two layers have granularity $0.1 \times 0.1$ in $\Delta\eta \times \Delta \phi$, while the third is $0.2 \times 0.1$. The thickness covers $>9.7$ \gls{intLen}. A sketch of the composition of the Tile Calorimeter can be seen in Figure \ref{fig:tile}.
+\indent The hadronic Tile Calorimeter is designed to measure the energy of particles by using these decays, employing steel as the absorber and scintillating tiles as the active material. The scintillators transmit light via fiber optics to \glspl{PMT}. The hadronic calorimeter is composed of three regions, the central barrel, covering $|\eta| < 1.0$, and two extended barrels on either side of the central barrel, covering $|\eta| > 1.0$. Each of these three regions have 64 azimuthal modules, and 3 layers longitudinally. The first two layers have granularity $0.1 \times 0.1$ in $\Delta\eta \times \Delta \phi$, while the third is $0.2 \times 0.1$. The thickness covers $>9.7$ \gls{intLen}. A sketch of the composition of the Tile Calorimeter can be seen in Figure \ref{fig:tile}.
 
 A \gls{HEC} also works to detect hadronic decays, covering pseudorapidity range of $1.4 < |\eta| < 3.2$. There are two wheels per end-cap, located behind the \glspl{EMEC} and sharing their cryostats. The \gls{HEC} uses \gls{LAr} as the active material, and copper plates as the passive material. Each end-cap features 32 wedge shaped modules, and two segments in depth, making four total samplings per end-cap \cite{lar-tdr}.
 
@@ -164,9 +171,12 @@ A \gls{HEC} also works to detect hadronic decays, covering pseudorapidity range 
 
 
 \subsection{Muon Spectrometer} \label{ssec:muonspectrometer}
-The \glsfirst{MS} \cite{muon-tdr} is the outermost layer of the ATLAS detector, aiming to track muons via independent triggering (up to $|\eta| < 2.4$) and momentum measurement (up to $|\eta| < 2.7$). Triggers conducted in the \gls{MS} are combined with information from the \gls{ID} to make the final trigger decision, so good timing resolution is imperative.
+The \glsfirst{MS} \cite{muon-tdr} is the outermost layer of the ATLAS detector, aiming to track muons via independent triggering (up to $|\eta| < 2.4$) and momentum measurement (up to $|\eta| < 2.7$). Triggers based on the \gls{MS} are combined with information from the \gls{ID} to make the final trigger decision, so good timing resolution is imperative.
 
 Timing information in the \gls{MS} is collected in the \glspl{RPC} and \glspl{TGC}. These both feature timing resolution better than 4.5 ns. The \glspl{RPC} cover the barrel ($|\eta| < 1.05$) region while the \glspl{TGC} covers the end-cap ($1.0<|\eta|<2.4$).
+
+
+Momentum information is provided through Al tubes 30 mm in diameter and filled with a 0.05 mm gold-plated tungsten wire in the center, called a \glsfirst{MDT}. Three layers of \glspl{MDT} cover the central region of the \gls{MS}, at $|\eta| < 2.7$. In the forward region, $2.0<|\eta|<2.7$, the first \glspl{MDT} layer is replaced by multi-wire proportional chambers with precision cathode strips, known as \glspl{CSC}.
 
 \begin{figure}[!ht]
     \centering
@@ -175,26 +185,23 @@ Timing information in the \gls{MS} is collected in the \glspl{RPC} and \glspl{TG
     \label{fig:muon-schematic}
 \end{figure}
 
-
-Momentum information is provided through Al tubes 30 mm in diameter and filled with a 0.05 mm gold-plated tungsten wire in the center, called a \gls{MDT}. Three layers of \glspl{MDT} cover the central region of the \gls{MS}, at $|\eta| < 2.7$. In the forward region, $2.0<|\eta|<2.7$, the first \glspl{MDT} layer is replaced by multi-wire proportional chambers with precision cathode strips, known as \glspl{CSC}.
-
 A schematic of the \gls{MS} is found in Figure \ref{fig:muon-schematic}.
 
 \subsection{Trigger and Data-Acquisition} \label{ssec:tdaq}
 
-Dataflow and storage are a major challenge for ATLAS. Bunches of protons interact every 25 ns, a rate of 40 MHz. On average, raw event contains about 1.6 MB \cite{ATLASfact-sheet}, recording all of those interactions would not be possible, so to isolate events which contain interesting physics, ATLAS utilizes a two-stage trigger system \cite{trigger2010}.
+Dataflow and storage are a major challenge for ATLAS. Bunches of protons interact every 25 ns, a rate of 40 MHz. On average, raw event contains about 1.6 MB \cite{ATLASfact-sheet}; recording all of those interactions would not be possible, nor desirable since they are dominated by soft collisions processes which do not yield interesting physics. To isolate events which are desirable to record, ATLAS utilizes a two-stage trigger system \cite{triggerTDR}.
 
 First, the \gls{L1} trigger receives events at 40 MHz and makes quick decisions based on coarse information. This trigger system is hardware based, constructed out of custom electronics, and targets specific features in the calorimeter or muon system. From hits in each detector, candidate physics objects (electrons, photons, muons, jets, and \gls{MET}) are formed, and then events are accepted or rejected based on features of these candidates in order to get to an average event rate of between 75 and 100 kHz, a reduction factor of about 400. Additionally in this process, \glspl{ROI}, cones in $\eta \times \phi$ containing interesting physics, are identified, and passed down the trigger chain.
 
-The second stage of the trigger is software-based, known the \gls{HLT}. The \gls{HLT} itself is composed of two steps, the \gls{L2} trigger system and the \gls{EF}. \gls{L1} accepted events are passed to \glspl{ROB}, which are \glspl{ROB} are grouped into \glspl{ROS} and hold fragments until the \gls{L2} decision is made. The \gls{L2} makes decisions based on fast algorithms by reconstructing partial events within the \gls{ROI} identified by the \gls{L1} trigger. By using the \gls{ROI}, the \gls{L1} only requires 2\%-6\% of the total event data. At \gls{L2}, the event rate is reduced to around $\unit{3}{\kHz}$.
+The second stage of the trigger is software-based, known the \gls{HLT}. On average, the \gls{HLT} has $\unit{200}{\mu s}$ per event to make decisions. It uses the \gls{ROI} provided from \gls{L1} to make decisions based on fast algorithms by reconstructing partial events within that region, reconstructing just 2\%-6\% of the total event data. At this stage, the event rate is reduced to around $\unit{3}{\kHz}$.
 
-Events that pass the \gls{L2} trigger are passed to the \gls{EF}, which reconstructs physics objects in the full event with offline-like algorithms, allowing for triggering on sophisticated signatures (e.g. \gls{MET}) and then selects events using those objects. After the \gls{EF}, the final output is between 500 and 1000 Hz. Events selected by the \gls{EF} are saved to the offline system based on their trigger decision, known as data streams. A schematic of the pipeline for trigger decisions can be seen in Figure \ref{fig:trigger-schematic}.
+Events that pass this stage then are reconstructed with offline-like algorithms, allowing for triggering on sophisticated signatures (e.g. \gls{MET}) and the final trigger decision is made using those objects. This produces a final output between 500 and 1000 Hz. Events selected by the \gls{HLT} are saved to the offline system based on their trigger decision, known as data streams. A schematic of the pipeline for trigger decisions in conjunction with the \gls{DAQ} system is shown in Figure \ref{fig:trigger-schematic}.
 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.45\textwidth]{chapters/chapter2_experiment/images/trigger.png}
-    \caption[A flowchart indicating how trigger decisions are executed with rates labeled]{A flowchart indicating how trigger decisions are executed with rates labeled \cite{trigger2010}.}
+    \includegraphics[width=.80\textwidth]{chapters/chapter2_experiment/images/trigger.png}
+    \caption[The ATLAS Trigger and DAQ system during the Run 2 data taking period]{The ATLAS Trigger and DAQ systems during the Run 2 data taking period. Inputs from the various subsystems start at the top right, where they are then passed to the \gls{L1} trigger, shown in the upper left. Events passing that are sent to the \gls{HLT} (lower left), while simultaneously data are passed from the \glspl{ROD} to the \gls{ROS} on \gls{L1} accepts. They are buffered and available for the \gls{HLT} to sample. These accepted events are then sent to storage via the Data Logger. Event and data rates are shown for each step on the left and right, respectively \cite{trigger-run2}.}
     \label{fig:trigger-schematic}
 \end{figure}
 
