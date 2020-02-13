@@ -8,8 +8,6 @@ A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schem
 
 In order to account for detector segmentation and differences in upstream material, cuts on these variables are derived in bins of \abseta. The intervals are 0.0, 0.6, 0.8, 1.15, 1.37, 1.52, 1.81, 2.01, 2.37, with a bin defined between each step (e.g. $[0.0,0.6)$, $[0.6,0.8)$, etc.) except over $[1.37,1.52)$ where the transition crack between the \gls{EMB} and \gls{EMEC} lies. 
 
-% todo: make sure inclusivity here is correct
-
 \begin{figure}[!thp]
     \centering
     \includegraphics[width=.98\textwidth]{chapters/chapter4_photonID/images/ss-vars.png}
@@ -41,7 +39,7 @@ Photon reconstruction is performed through a method known as ``topological clust
 \noindent\textbf{Number of Topo-Clusters}\\
 \indent As described in Section \ref{ssec:em-signatures}, photons are  superclusters, which can be made up of one or more topo-clusters as a result of cluster splitting or bremsstrahlung radiation. In over 90\% of photon events, there is only 1 topo-cluster associated to the photon supercluster. As a result, the quantities studied as inputs are all of the leading topo-cluster. Additionally, the number of topo-clusters is on average fewer for prompt photons than fakes, so this value is used as an input into the photon identification menu.
 
-% TODO: Remake plot without name
+
 \begin{figure}[!thp]
     \centering
     \includegraphics[width=.90\textwidth]{chapters/chapter4_photonID/images/hists/y_nTopoClusters.png}
@@ -202,14 +200,14 @@ This section includes the comparisons for unconverted photons which are consider
 
 \subsection{Incorporating into Menu}
 
-The topological cluster variables were added to the existing shower shape variable-based menu. The cut-based approach is reoptimized including the new variables, and new cuts are derived in each $\eta$-\pt bin. To compare improvement across bins, a figure of merit is defined, the improvement in background rejection for the same signal efficiency as the current photon identification menu. In formulaic terms:
+The topological cluster variables were added to the existing shower shape variable-based menu. The cut-based approach is reoptimized including the new variables, and new cuts are derived in each $\eta$-\pt bin.  To compare improvement across bins, a figure of merit is defined, the improvement in background rejection for the same signal efficiency as the current photon identification menu. In formulaic terms:
 
 \begin{align}
-    Z &= \frac{(1-\epsilon_{bkg,i}) - (1-\epsilon_{bkg,0})}{(1-\epsilon_{bkg,0})} = \frac{\epsilon_{bkg,0} - \epsilon_{bkg,i}}{1-\epsilon_{bkg,0}}
+    Z_{\text{rel}} &= \frac{(1-\epsilon_{bkg,i}) - (1-\epsilon_{bkg,0})}{(1-\epsilon_{bkg,0})} = \frac{\epsilon_{bkg,0} - \epsilon_{bkg,i}}{1-\epsilon_{bkg,0}}
     \label{eqn:improvement-metric}
 \end{align}
 
-For figure of merit $Z$, and background efficiency $\epsilon_{bkg}$ (thus, background rejection is $(1-\epsilon_{bkg}$), where index $i$ indicates the reoptimized menu, and index $0$ indicates the original menu. This value is calculated bin-wise in $\eta$-\pt and shown in Figure ADD FIG. In principle, adding additional variables to a cut-based method should only improve optimization if the search over possible cut values is exhaustive. However, in several bins, worse performance is found by incorporating new variables. This can be the result of two causes:
+For relative gain $Z_{\text{rel}}$ (the figure of merit),  and background efficiency $\epsilon_{bkg}$ (thus, background rejection is $(1-\epsilon_{bkg}$), where index $i$ indicates the reoptimized menu, and index $0$ indicates the original menu. This value is calculated bin-wise in $\eta$-\pt and shown in Figure ADD FIG. In principle, adding additional variables to a cut-based method should only improve optimization if the search over possible cut values is exhaustive. However, in several bins, worse performance is found by incorporating new variables. This can be the result of two causes:
 \begin{itemize}
     \item In a high dimensional space, such a grid search becomes computationally prohibitive, so a Genetic Algorithm\footnote{The Genetic Algorithm used is a standard method implemented in \texttt{TMVA}, and the details of implementation can be found in Reference \cite{TMVA}.} \cite{genetic-algo} is used to find an approximate solution, and thus increasing dimensionality has the possibility to find local minima, and thus suboptimal solutions.
     \item Statistical fluctuations. As standard, models are trained on an orthogonal subset of events than they are evaluated on, and statistical fluctuations in these samples can influence reported gain, particularly in low stats bins. Figure \ref{fig:photonid-events} shows the number of signal and background events in each $\eta$-\pt bin.
@@ -223,6 +221,13 @@ For figure of merit $Z$, and background efficiency $\epsilon_{bkg}$ (thus, backg
     \label{fig:photonid-events}
 \end{figure}
 
+\begin{figure}[!thp]
+    \centering
+    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/gain_topoAdded_unconverted.pdf}
+    \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu]{The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu. Bins with fewer than 400 background events are masked.}
+    \label{fig:gain-topo-clusters-added-unconverted}
+\end{figure}
+
 
 \section{Multivariate Analysis Techniques}
 
@@ -234,6 +239,15 @@ A gradient boosted \gls{BDT} was employed as an alternative classification algor
 
 
 As a baseline, the \gls{BDT} is compared to the cut-based photon identification menu, using the same figure of merit defined in Equation \ref{eqn:improvement-metric}, where the efficiency denoted $i$ represents the \gls{BDT} model, and the efficiency denoted $0$ represents the current cut-based model.
+
+
+\begin{figure}[!th]
+    \centering
+    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/gain_BDTinclusive_cuts_unconverted.pdf}
+    \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \gls{BDT} compared to the cut-based photon identification menu]
+    {The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \gls{BDT} compared to the cut-based photon identification menu. Only shower-shape variables are included as inputs. Bins with fewer than 400 background events are masked.}
+    \label{fig:gain-topo-clusters-added-unconverted}
+\end{figure}
 
 
 \subsection{Neural Network}
