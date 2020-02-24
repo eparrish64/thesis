@@ -1,4 +1,5 @@
 \chapter{Theory}
+    \epigraph{It's nice to be right sometimes.}{--- \textup{Peter Higgs}}    
 
     Humans have been concerned with the fundamental nature and constituents of matter since as early as eighth century BC, found in ancient Indian philosophy, proposing object we experience are collections of particles too small to be seen \cite{indian-atomism}. In sixth century BC, Greek philosophers such as Democritus and Leucippus proposed indivisible building blocks of nature known as ``atoms.'' It wasn't until Dalton in the nineteenth century when scientific modeling of the atomic theory began to take shape \cite{dalton}. Fundamental advances on the nature of atoms and their substructure were made over the next centuries by Mendeleev, Thomson, Rutherford, among others. Over the course of the latter 1900s, particle theory advanced rapidly and many particles were discovered, forming what was known as the ``particle zoo.'' In order to classify these particles, Gell-Mann and Zweig proposed the quark model in 1964 \cite{quark-model}. In the 1970s Glashow, Weinberg, and Salam put forth the electroweak theory, which gave a model for vector bosons, leading to successful mass predictions of the $W^{\pm}$ and $Z$ bosons confirmed at \gls{CERN} in 1983 \cite{w-discovery, z-discovery}. The collective of these works is known as the \glsfirst{SM} of particle physics, a term first used in 1975 \cite{conceptual-developments-text}. It remains our best model for describing fundamental particles and their interactions\footnote{While the \gls{SM} has been extraordinarily successful in providing experimental predictions, it has several known shortcomings. Notably, the \gls{SM} only explains 3 of the 4 fundamental forces, the exception being gravitation. It does not have an explanation for dark energy or a dark matter candidate. Neutrino flavor oscillation is not predicted by the \gls{SM}, and it predicts neutrino mass to be zero, which has been experimentally disproven \cite{neutrino-oscillation}. The matter-antimatter asymmetry is not addressed by the \gls{SM}. Nevertheless, it represents our best collective understanding of particle physics.}, successfully predicting the top quark \cite{top-quark}, tau neutrino \cite{tau-neutrino}, and Higgs boson \cite{higgs-discovery-atlas,higgs-discovery-cms}.
     
@@ -6,6 +7,8 @@
     \section{The Standard Model}
 
         The \gls{SM} is a Yang-Mills theory that explains the observed particles in the universe: fermions and bosons. Fermions are the particles which take up space and make up matter. In Section \ref{ssec:fermions}, the two categories of fermions, quarks and leptons, will be discussed. By contrast, interactions between particles are due to exchange of a gauge boson, which are discussed throughout Section \ref{ssec:bosons}.
+
+        Yang-Mills theories are gauge theories, field theories in which the Lagrangian is invariant under local transformations (known as gauge invariance). The group of these transformations is known the symmetry group of the theory. Further, Yang-Mills theories are are non-abelian gauge theories, meaning their symmetry group is non-commutative. Noether's theorem \cite{noether} states that every symmetry of nature implies a corresponding conservation law, and the various gauge invariance of the \gls{SM} point toward such conservation laws. In Section \ref{ssec:bosons}, the interactions of the \gls{SM} are shown, each with a gauge invariance and associated force-carrying boson. %TODO: could make this better
 
 
         \subsection{Fermions} \label{ssec:fermions}
@@ -62,18 +65,22 @@
 
         \subsubsection{Quantum Electrodynamics}
 
-        Equation \ref{eqn:dirac}, the Dirac equation, is not gauge invariant. Meaning, performing a local gauge transformation on the aforementioned fermion spinor (denoted by $\psi$)
+        Equation \ref{eqn:dirac}, the Dirac equation, is not gauge invariant. Performing a local gauge transformation on the aforementioned fermion spinor (denoted by $\psi$)
         %
         \begin{equation} \label{eqn:gauge-transform}
             \psi(x) \rightarrow e^{-i\theta(x)}\psi(x),
         \end{equation}        
         %
-        for real-valued function $\theta(x)$, will transform the Lagrangian as:
+        for real-valued function $\theta(x)$, will transform the Dirac Lagrangian,
+        \begin{equation}
+            \mathcal{L} = \bar{\psi}(i \gamma^{\mu}\partial_{\mu}-m) \phi,
+        \end{equation}
+        which governs the interaction of spin-$\frac{1}{2}$ particles with charge $q$ and mass $m$, like
         \begin{equation}
             \mathcal{L} \rightarrow \mathcal{L} - (\partial_{\mu}\theta)\bar{\psi}\gamma^{\mu}\psi.
         \end{equation}
         %
-        In order to manually impose gauge invariance, we can introduce a vector field. Such a vector field must transform as
+        In order to impose gauge invariance, we can introduce a vector field. Such a vector field must transform as
         \begin{equation}
             A_{\mu}(x) \rightarrow A_{\mu}(x) + \partial_{\mu}\theta(x),
         \end{equation}
@@ -84,12 +91,12 @@
         \end{equation}
         %
         This massless vector field corresponds to the electromagnetic field, and the covariant derivative describes the minimal coupling of the photon, its quanta, to fermions. Applying this vector field to the Dirac Lagrangian gives the \gls{QED} Lagrangian,
-        \begin{equation}
+        \begin{equation}\label{eqn:qed-lagrangian}
             \mathcal{L}_{QED} = \bar{\psi} (i \gamma^{\mu} D_{\mu} - m)\psi - \frac{1}{4} F_{\mu \nu}F^{\mu \nu}
         \end{equation}
         %
         With $F_{\mu \nu}$, the electromagnetic field tensor, as:
-        \begin{equation}
+        \begin{equation}\label{eqn:em-field-tensor}
         F_{\mu \nu} = \partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}
         \end{equation}
         %
@@ -133,7 +140,7 @@
 
         In the \gls{SM}, the weak and electromagnetic interactions are interpreted as manifestations of a single force. This unification occurs at energies above $\unit{100}{\GeV}$, and the combined force after unification is known as the electroweak force.
 
-        Electroweak interactions have four mediators, the $W^{\pm}$, $Z$, and $\gamma$, and subsequently four generators prior to spontaneous symmetry breaking. After symmetry breaking, the gauge group must be electromagnetically gauge invariant. The \gls{SM} of electroweak interactions by Glashow, Weinberg, and Salam \cite{Glashow:1959,Weinberg:1967,Salam1959} contains symmetry breaking:
+        Electroweak interactions have four mediators, the $W^{\pm}$, $Z$, and $\gamma$, and subsequently four generators. The \gls{SM} would require the masses of these generators to be symmetric: all equal to zero. The $W^{\pm}$ and $Z$, however, have non-zero masses ($m_{W^{\pm}} = \pm80.379\pm0.012$ and  $m_{Z}=91.1876\pm0.0021$ GeV/c). To reconcile this, a symmetry breaking is introduced, making the gauge group electromagnetically invariant. The \gls{SM} of electroweak interactions by Glashow, Weinberg, and Salam \cite{Glashow:1959,Weinberg:1967,Salam1959} contains symmetry breaking:
         \begin{equation}
             SU(2) \times U(1) \rightarrow U(1)_{EM}.
         \end{equation}
@@ -142,7 +149,13 @@
 %%%%%% Higgs %%%%%%%%                
 \section{The Higgs Field and Higgs Boson}
 
-To spontaneously break electroweak gauge symmetry, a complex $SU(2)$ doublet scalar field is introduced
+%% New
+Consider the $U(1)$ gauge theory with a single gauge field (the photon). The Lagrangian is the second term of Equation \ref{eqn:qed-lagrangian},
+
+\begin{equation}
+    \mathcal{L}_{QED} = - \frac{1}{4} F_{\mu \nu}F^{\mu \nu},
+\end{equation}
+with $F_{\mu \nu}$ defined in Equation \ref{eqn:em-field-tensor}. Adding a massive term to this equation would violate the established local gauge invariance, the $U(1)$ invariance requires the photon to be massless. If we extend this by adding a complex scalar doublet,
 \begin{equation}
 \phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
     = \frac{1}{\sqrt{2}}\begin{pmatrix}
@@ -150,58 +163,72 @@ To spontaneously break electroweak gauge symmetry, a complex $SU(2)$ doublet sca
     \end{pmatrix}
 \end{equation}
 %
-with corresponding Lagrangian density and gauge-invariant potential,
+with the Lagrangian and gauge-invariant potential become:
 \begin{equation}
-    \mathcal{L} = (\partial_{\mu}\phi)^\dagger (\partial^{\mu}\phi) - V(\phi),
+    \mathcal{L} = - \frac{1}{4} F_{\mu \nu}F^{\mu \nu} + |D_{\mu}\phi|^2 - V(\phi),
+\end{equation}
+with:
+\begin{equation}
+    D_{\mu} = \partial_{\mu} + i \frac{g}{2}\tau \cdot W_{\mu} + i \frac{g'}{2}B_{\mu}Y
 \end{equation}
 \begin{equation}
-    V(\phi,\phi^\dagger) = m^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2.
+    V(\phi) = \mu^2 |\phi|^2 + \lambda (|\phi|^2)^2.
 \end{equation}
-%
+Where $g$ is the SU(2) gauge coupling, $g'$ is the U(1) gauge coupling, and $Y$ is the U(1) hypercharge. The minima of this potential is known as the vacuum state, and for the minima to be finite, $\lambda$ must be greater than 0. For $\mu^2 >0$, the minima is located at 0, however, for $\mu^2<0$, the potential has minima at:
+\begin{equation}
+    \phi^\dagger \phi = \frac{v^2}{2},
+\end{equation}
+where 
+\begin{equation}
+    v = \sqrt{-\mu^2 / \lambda}.
+\end{equation}
+This potential is shown (in 2 dimensions) in Figure \ref{fig:higgs-potential}. 
+
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{chapters/chapter1_theory/images/higgs-2d-vev.png}
     \caption[The one-dimensional Higgs potential where $\mu^2 <0$]{The one-dimensional Higgs potential where $\mu^2 <0$. The minima of this curve, known as the Higgs \gls{vev}, is indicated.}
     \label{fig:higgs-potential}
 \end{figure}
-%
-This potential is shown (in 2 dimensions) in Figure \ref{fig:higgs-potential}. The minima of this potential is known as the vacuum state, and for this minima to be finite, $\lambda$ must be greater than 0. For $\mu^2 >0$, the minima is located at 0, however, for $\mu^2<0$, the potential has minima at:
-%
-\begin{equation}
-    \phi^\dagger \phi = \frac{v^2}{2},
-\end{equation}
-%
-where 
-\begin{equation}
-    v = \sqrt{-m^2 / \lambda}.
-\end{equation}
-%
-These minima are degenerate. By convention, we select $v$ to be real, making $\phi_1 = \phi_2 = \phi_3 = 0$, and $\phi_4 = v$.  In making selection, electroweak symmetry is broken. Unitarity gauge is given by expanding about this minima, making this field:
+
+These minima are degenerate. By convention, we select $v$ to be real, making $\phi_1 = \phi_2 = \phi_3 = 0$, and $\phi_4 = v$.  In making this selection, electroweak symmetry is broken. Unitarity gauge is given by expanding about this minima, making this field:
 \begin{equation}
     \phi(x) = \frac{1}{\sqrt{2}} \begin{pmatrix} 0\\ H(x)+v \end{pmatrix}
 \end{equation}
-
 %
-In this formulation, $H(x)$ represents the Higgs field, and $v$ is known as the \glsfirst{vev}. A feature of this theory is the prediction of the W and Z boson masses:
+In this formulation, $H(x)$ represents the Higgs field, and $v$ is known as the \glsfirst{vev}. The contribution to the gauge boson masses from the scalar kinetic energy term of the Lagrangian is then,
+\begin{equation}
+\frac{1}{2}(0,v)(\frac{1}{2}g\tau \cdot W_{\mu} + \frac{1}{2}g'B_{\mu})^2 \begin{pmatrix}0\\v \end{pmatrix}
+\end{equation},
+yielding two charged gauge fields and two neutral gauge fields,
+\begin{align}
+    W^{\pm}_{\mu} &= \frac{1}{\sqrt{2}} ( W_{\mu}^1 \mp i W_{\mu}^2)\\
+    Z^{\mu} &= \frac{-g'B_{\mu} + g W_{\mu}^{3}}{\sqrt{g^2 + g'^{2}}}\\
+    A^{\mu} &= \frac{gB_{\mu} + g' W_{\mu}^{3}}{\sqrt{g^2 + g'^{2}}}.
+\end{align}
+This provides a prediction the prediction of the gauge boson masses:
 %
 \begin{equation}
-    m^2_W = \frac{g^2 v^2}{4}, \hspace{1cm} m^2_Z = \frac{(g^2 +g'^2)v^2}{4}
+    m^2_W = \frac{g^2 v^2}{4}, \hspace{1cm} m^2_Z = \frac{(g^2 +g'^2)v^2}{4}, \hspace{1cm} m_{A} =0,
 \end{equation}
 %
-which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$.
-
+which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$. Since the massless gauge boson must couple with strength $e$, this gives the weak mixing angle $\theta_{W}$,
+\begin{align}
+    e &= g \sin{\theta_W} \\
+    e &= g' \cos{\theta_W}
+\end{align}
 In unitarity gauge, the Higgs potential takes the form:
 \begin{equation}
     V(h) = \lambda v^2 h^2 + \lambda v h^3 + \frac{\lambda}{4}h^4,
 \end{equation}
 %
-indicating self-interactions with the Higgs boson. The second term gives rise to the trilinear coupling, while the third indicates the Higgs quartic coupling. The Higgs boson mass can also be derived as $m_h = \sqrt{2\lambda}v$. 
+indicating self-interactions with the Higgs boson. The second term gives rise to the trilinear coupling, while the third indicates the Higgs quartic coupling. These couplings imply the existence of $hhh$ and $hhhh$ verticies, respectively. The Higgs boson mass can also be derived as $m_h = \sqrt{2\lambda}v$. 
 
 
 %%%%%% Di-Higgs %%%%%%%%                
-\section{Di-Higgs Production}
+\section{Di-Higgs Production} \label{sec:diHiggs}
 
-For the Higgs mechanism described, in order to understand Electroweak Symmetry Breaking, study of the trilinear and quartic couplings is paramount. For a direct probe\footnote{Through loop corrections, mono-Higgs searches can provide an indirect handle on the trilinear coupling. ATLAS has published one such analysis with $\unit{80}{\invfb}$, found in Reference \cite{monohiggs-selfcoupling}. When making the assumption that all other Higgs couplings are as predicted by the \gls{SM}, this analysis finds the observed (expected) $95\%$ C.L. interval on the trilinear coupling to be $-3.2 < \kappa_\lambda <11.9$   $(-6.2 < \kappa_\lambda <14.4)$. }, production modes resulting in pair and triplet Higgs production must be studied. The cross-section of such production modes, however, is quite small. Triplet production of Higgs bosons occurs at a rate 6 orders of magnitude less frequently than mono-Higgs production, and is not feasible to study at the \gls{LHC}. Pair production is 3 orders of magnitude more rare than mono-Higgs production, but over the full \gls{LHC} lifetime, a handle on the trilinear self-coupling may be achievable.
+Observing the trilinear coupling directly probes electroweak symmetry breaking, and provides a precision test electroweak theory. For a direct probe\footnote{Through loop corrections, mono-Higgs searches can provide an indirect handle on the trilinear coupling. ATLAS has published one such analysis with $\unit{80}{\invfb}$, found in Reference \cite{monohiggs-selfcoupling}. When making the assumption that all other Higgs couplings are as predicted by the \gls{SM}, this analysis finds the observed (expected) $95\%$ C.L. interval on the trilinear coupling to be $-3.2 < \kappa_\lambda <11.9$   $(-6.2 < \kappa_\lambda <14.4)$. }, production modes resulting in pair and triplet Higgs production must be studied. The cross-section of such production modes, however, is quite small. Triplet production of Higgs bosons occurs at a rate 6 orders of magnitude less frequently than mono-Higgs production, and is not feasible to study at the \gls{LHC}. Pair production is 3 orders of magnitude more rare than mono-Higgs production, but over the full \gls{LHC} lifetime, a handle on the trilinear self-coupling may be achievable.
 
 The analysis presented in this thesis is one such search for di-Higgs production, specifically where one of the produced Higgs bosons decays to a pair of photons, and the other to a $b\bar{b}$ pair.
 
@@ -210,7 +237,7 @@ In the standard model, several production modes pair produce Higgs bosons. \gls{
 
 \subsubsection{Gluon-Gluon Fusion} \label{sssec:ggfHH}
 
-The predominant di-Higgs production mode is \gls{ggF}, in which the production is mediated by a quark loop. In the \gls{SM}, this proceeds through two diagrams at tree level, where the quark loop either forms a box or a triangle. The former directly pair produces two Higgs bosons while the latter pair produces via a virtual Higgs boson, making it sensitive to the Higgs self-coupling, $\lambda_{HHH}$. These two diagrams interfere destructively. QCD corrections to this process are known to \gls{NLO}, and can double the cross-section from the \gls{LO} value. Furthermore, \gls{NNLO} corrections are known in the large top mass limit and represent a $\sim 20\%$ increase from the \gls{NLO} prediction. At $\unit{13}{\TeV}$, the cross-section for \gls{ggF} production is $31.05^{+2.2\%}_{-5.0\%} \pm 3.0\%$\footnote{The first (upper and lower) uncertainties refer to scale uncertainties, the second is PDF + $\alpha_s$ uncertainty.}  \cite{hh-crosssections}.
+The predominant di-Higgs production mode is \gls{ggF}, in which the production is mediated by a quark loop. In the \gls{SM}, this proceeds through two diagrams at tree level, where the quark loop either forms a box or a triangle. The former directly pair produces two Higgs bosons while the latter pair produces via a virtual Higgs boson, making it sensitive to the Higgs self-coupling, $\lambda_{HHH}$. These two diagrams interfere destructively. QCD corrections to this process are known to \gls{NLO}, and can double the cross-section from the \gls{LO} value. Furthermore, \gls{NNLO} corrections are known in the large top mass limit\footnote{The large top mass limit approximates $m_t$ to be large compared to the partonic center-of-mass collision energy and $m_H$, in order to approximate \gls{QCD} corrections to HH production. This approximation provides a poor description of of the total cross section and kinematics \cite{large-mt}.} and represent a $\sim 20\%$ increase from the \gls{NLO} prediction. At $\unit{13}{\TeV}$, the cross-section for \gls{ggF} production is $31.05^{+2.2\%}_{-5.0\%} \pm 3.0\%$\footnote{The first (upper and lower) uncertainties refer to scale uncertainties, the second is PDF + $\alpha_s$ uncertainty.}  \cite{hh-crosssections}.
 
 \begin{figure}[!thp]
     \centering
@@ -244,19 +271,7 @@ The second-most dominant $HH$ production mode is \gls{VBF} ($qq \rightarrow HHqq
     \label{fig:vbf_feyn}
 \end{figure}
 
-The effective Lagrangian for this process (assuming couplings of the Higgs boson to \gls{SM} fermions scale with their masses and do not violate flavor) can be parameterized as 
-
-\begin{equation}
-    \begin{aligned}
-    \mathcal{L} \supset &\frac{1}{2}(\partial_{\mu} h)^2 -V(h) + \frac{v^2}{4} Tr(D_{\mu}\Sigma^\dagger D^\mu \Sigma) [1 + 2c_{V} \frac{h}{v} + c_{2V} \frac{h^2}{v^2} + ...] \\
-     &- m_i\bar{\psi}_{Li}\Sigma(1+c_{\psi}\frac{h}{v}+...)\psi_{Ri} + h.c.
-    \end{aligned}
-\end{equation}
-for Higgs potential,
-\begin{equation}
-    V(h) = \frac{1}{2}m_h^2h^2 +c_3 \frac{1}{6}\bigg(\frac{3m_h^2}{v}\bigg)h^3 + c_4 \frac{1}{24}\bigg(\frac{3m_h^2}{v^2}\bigg)h^4+...
-\end{equation}
-The coefficients $c_V$, $c_{2V}$, and $c_3$ indicate three different coupling strengths \cite{vbfhh}. The coupling denoted $c_V$ is the interaction between two vector bosons and a Higgs boson (vertex denoted $hVV$). This coupling has constraints from mono-Higgs analyses, measured at $1.21^{+0.22}_{-0.21}$ the \gls{SM} value \cite{higgs-measurements}. The coupling denoted $\kappa_{\lambda}$ is again the Higgs trilinear coupling, meaning that the \gls{VBF} production mode offers sensitivity to this vertex as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The coupling denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons ($hhVV$). \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
+The coupling denoted $c_V$ is the interaction between two vector bosons and a Higgs boson. This coupling has constraints from mono-Higgs analyses, measured at $1.21^{+0.22}_{-0.21}$ the \gls{SM} value \cite{higgs-measurements}. The coupling denoted $\kappa_{\lambda}$ is again the Higgs trilinear coupling, meaning that the \gls{VBF} production mode offers sensitivity to this vertex as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The coupling denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons. \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
 
 Despite the low cross-section of \gls{VBF} production, the unique kinematics make the channel appealing for searches. The diphoton \gls{VBF} channel crontributed to the 2012 single Higgs boson discovery \cite{higgs-discovery-atlas}. Notably, the \gls{VBF} quarks yield a high $m_{jj}$ system and are largely separated in $\eta$. The kinematics of \gls{VBF} di-Higgs production are similar to that of mono-Higgs. The major difference is that mono-Higgs searches take advantage of the low central jet activity by applying a veto. In $HH \rightarrow \gamma \gamma b\bar{b}$, however, the $H \rightarrow b\bar{b}$ system causes central jet activity, making such a veto impossible.
 
@@ -275,18 +290,18 @@ Non-resonant enhancements to the $HH$ cross-section could occur through two majo
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=.7\textwidth]{chapters/chapter1_theory/images/klambda-xsec.png}
-    \caption[LO and NLO cross-sections for the various $HH$ production modes as a function of the Higgs trilinear coupling]{LO and NLO cross-sections for the various $HH$ production modes as a function of the Higgs trilinear coupling, normalized to the standard model coupling value \cite{klambda-xsec}.}
+    \caption[LO and NLO cross-sections for the various $HH$ production modes as a function of the Higgs trilinear coupling]{\gls{LO} (dashed lines, light-color bands) and \gls{NLO} (solid lines, dark-color bands) cross-sections for the various $HH$ production modes as a function of the Higgs trilinear coupling, normalized to the standard model coupling value. Uncertainties represent scale and PDF uncertainties, added linearly \cite{klambda-xsec}.}
     \label{fig:klambda-xsec}
 \end{figure}
 
 \noindent{${\boldsymbol c_{2V}}$}\\
-\indent The \gls{VBF} $HH$ production mode offers sensitivity to the $hhVV$ vertex, and any deviations from \gls{SM} expectations for this coupling would lead to a significant enhancement in the $HH$ cross-section. At a factor of 2 times the standard model coupling strength, the cross-section increases by two orders of magnitude, allowing for an enhancement visible in the current \gls{LHC} dataset.
+\indent The \gls{VBF} $HH$ production mode offers sensitivity to the $hhVV$ vertex, and any deviations from \gls{SM} expectations for this coupling would lead to a significant enhancement in the $HH$ cross-section. At a factor of 2 times the standard model coupling strength, the cross-section increases by two orders of magnitude (shown in Figure \ref{fig:c2v-xsec}), allowing for an enhancement visible in the current \gls{LHC} dataset \cite{vbfhh}.
 
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=.7\textwidth]{chapters/chapter1_theory/images/coupling_xsec.png}
-    \caption[The VBF HH cross-section as a function of coupling deviation from the \gls{SM} prediction]{The VBF HH cross-section as a function of coupling deviation from the \gls{SM} prediction (i.e. $\delta=0$ corresponds to the \gls{SM} prediction). The solid blue line shows deviations in the $c_{2V}$ vertex, while the red line shows deviations for the $c_{3}$ vertex $(\kappa_\lambda)$. The dashed lines represent the cross-section after simple analysis cuts presented in Reference \cite{vbfhh}.}
+    \caption[The VBF HH cross-section as a function of coupling deviation from the \gls{SM} prediction]{The VBF HH cross-section as a function of coupling deviation from prediction, in units of the \gls{SM} value ($\delta=c-c_{SM}$ for coupling, $c$. I.e. $\delta=0$ corresponds to the \gls{SM} prediction, $\delta=1$ is twice the \gls{SM} prediction). The solid blue line shows deviations in the $c_{2V}$ vertex, $\delta_{c_{2V}}$, while the red line shows deviations for the $c_{3}$ vertex, $\delta_{\kappa_{\lambda}}$. The dashed lines represent the cross-section after simple analysis cuts presented in Reference \cite{vbfhh}.}
     \label{fig:c2v-xsec}
 \end{figure}
 
