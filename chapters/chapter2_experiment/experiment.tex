@@ -5,7 +5,7 @@
 \section{The Large Hadron Collider}
 The \gls{LHC} \cite{lhc} is a hadron accelerator and collider 27 km in circumference located on the French-Swiss border. It collides beams of protons\footnote{The LHC also collides ions to study lead-lead (PbPb) as well as proton-lead interactions} at high rate and center-of-mass energy. In \RunTwo, which spanned from 2015 to 2018, the \gls{come} in the laboratory frame was 13 TeV (6.5 TeV per beam), and bunches of about $10^{11}$ protons collided every 25 ns.
 
-Protons for the \gls{LHC} are created by ionizing hydrogen atoms using an electric field, then pass through several accelerators, which take advantage of \gls{RF} cavities, to get to their final energy. First, the \gls{Linac} accelerates the bunches to 50 MeV, and then passes bunches to the \gls{PSB}. The remainder of the acceleration chain are all circular accelerators, starting with the \gls{PSB}, which raises the energy to 1.4 GeV then passes the bunches to the \gls{PS}. The \gls{PS} accelerates bunches to 26 GeV, then the \gls{SPS} accelerates them to 450 GeV before finally delivering to the \gls{LHC}, where they are accelerated to their final energy of $\sqrt{s} = 13 $ \TeV.
+Hydrogen atoms are the source of the protons the \gls{LHC} collides. The protons are liberated from the atom using an electric field, then pass through several accelerators, which take advantage of \gls{RF} cavities, to get to their final energy. First, the \gls{Linac} accelerates the bunches to 50 MeV, and then passes these bunches to the \gls{PSB}. The remainder of the acceleration chain are all circular accelerators, starting with the \gls{PSB}, which raises the energy to 1.4 GeV then passes the bunches to the \gls{PS}. The \gls{PS} accelerates bunches to 26 GeV, then the \gls{SPS} accelerates them to 450 GeV before finally delivering to the \gls{LHC}, where they are accelerated to their final energy of $\sqrt{s} = 13 $ \TeV.
 
 
 Along the \gls{LHC}, collisions occur at four interaction points, where detectors are situated. LHCb (Large Hadron Collider beauty) is a forward physics experiment designed to study B physics \cite{lhcb}. ALICE (A Large Ion Collider Experiment) is a heavy-ion detector studying nuclear physics \cite{alice}. The ATLAS \cite{atlas-experiment} and \gls{CMS} \cite{cms} experiments are general-purpose detectors, designed to study a variety of physics. A schematic showing the location of these interaction points and detectors can be found in Figure \ref{fig:lhc}.
@@ -22,7 +22,7 @@ Along the \gls{LHC}, collisions occur at four interaction points, where detector
 
 ATLAS \cite{atlas-experiment} is a general-purpose detector designed to reconstruct events from hadrons collided by the \gls{LHC}. With respect to the \gls{IP}, it has forward-backward symmetric cylindrical geometry, and covers a solid angle of almost $4\pi$. It is 44 m long, 25 m in diameter, weighs over 7,000 tons, and to shield from cosmic ray noise, is located 100 m underground. 
 
-ATLAS is composed of several nested cylindrical subsystems. Nearest the \gls{IP} is the \glsfirst{ID} (discussed in \ref{ssec:innerdetector}), measuring the trajectory of charged-particles as they bend through a $\unit{2}{T}$ magnetic field created by a solenoid which envelops the \gls{ID} (discussed in \ref{ssec:magnetsystem}). The \gls{ID} is composed of three components: the silicon Pixel Detector, a semiconductor microstrip detector known as the \gls{SCT}, and a straw-tube tracker known as the \gls{TRT}. Outside of the \gls{ID} are the calorimeters (discussed in \ref{ssec:calorimeters}). ATLAS utilizes two calorimeters, a \gls{LAr} calorimeter to measure electromagnetic radiation and a scintillating tile calorimeter to measure hadronic radiation. Past the calorimeters is a $\unit{4}{T}$ toroidal magnetic field (also discussed in \ref{ssec:magnetsystem}) and the Muon Spectrometer (discussed in \ref{ssec:muonspectrometer}), which tracks muon trajectories. ATLAS employs a two-stage triggering system, one hardware-based and one software-based, to identify and record interactions containing interesting physics to the \gls{DAQ} system (discussed in \ref{ssec:tdaq}.)
+ATLAS is composed of several nested cylindrical subsystems. Nearest the \gls{IP} is the \glsfirst{ID} (discussed in \ref{ssec:innerdetector}), measuring the trajectory of charged-particles as they bend through a $\unit{2}{T}$ magnetic field created by a solenoid which envelops the \gls{ID} (discussed in \ref{ssec:magnetsystem}). The \gls{ID} is composed of three components: the silicon Pixel Detector, a semiconductor microstrip detector known as the \gls{SCT}, and a straw-tube tracker known as the \gls{TRT}. Outside of the \gls{ID} are the calorimeters (discussed in \ref{ssec:calorimeters}). ATLAS utilizes two calorimeters, a \glsfirst{LAr} calorimeter to measure electromagnetic radiation and a scintillating tile calorimeter to measure hadronic radiation. Beyond the calorimeters is a $\unit{4}{T}$ toroidal magnetic field (also discussed in \ref{ssec:magnetsystem}) and the Muon Spectrometer (discussed in \ref{ssec:muonspectrometer}), which tracks muon trajectories. ATLAS employs a two-stage triggering system, one hardware-based and one software-based, to identify and record interactions containing interesting physics by sending them to the \gls{DAQ} system (discussed in \ref{ssec:tdaq}.)
 
 A schematic of the ATLAS detector can be found in Figure \ref{fig:atlas}.
 
@@ -51,22 +51,20 @@ Due to the shape of the detector, cylindrical coordinates are also useful for de
 \end{figure}
 
 This value is 0 perpendicular to the beamline, and infinite as it approaches the beam axis, as shown in Figure \ref{fig:pseudorapidity}. Occasionally the \textit{rapidity}, defined as
-
+%
 \begin{equation}
     y = \frac{1}{2} \log{\frac{E+p_z}{E-p_z}},
 \end{equation}
+%
+is used to describe position as well. Rapidity and pseudorapidity are preferable to the polar angle due to their Lorentz invariance. For massless particles, the rapidity and pseudorapidity are equivalent.
 
-is used to describe position as well. These two quantities are preferable to the polar angle due to their Lorentz invariance. For massless particles, the rapidity and pseudorapidity are equivalent.
-
-To describe distance between particles, the angle space in pseudorapidity and azimuth is commonly used, defined as
-
+To describe distance between particles, the angle space in pseudorapidity and azimuth is commonly used. It is also Lorentz invariant and defined as
 \begin{equation}
-    \Dr = \sqrt{\Deta^2 + \Delta \phi^2}
+    \Dr = \sqrt{\Delta\eta^2 + \Delta \phi^2}.
 \end{equation}
+%
 
-which is also Lorentz invariant. 
-
-\subsection{Magnet System} \label{ssec:magnetsystem}
+\subsection{Magnet Systems} \label{ssec:magnetsystem}
 In order to measure the charge and momentum of particles in the detector, a magnetic field is used. The curvature of a charged particle as it traverses through a magnetic field can be used to derive the charge to mass ratio. The sign of the charge is determined from the direction of the track.
 
 The magnet system in ATLAS is a hybrid system comprised of four superconducting magnets: a central solenoid, a barrel toroid, and two end-cap toroids. The barrel toroids define the dimensions of the ATLAS detector, extending 26 m along the beam axis, and have an outer diameter of 22 m \cite{magnet-system-tdr}. A schematic of the components of the magnet system is shown in Figure \ref{fig:magnetSystem}.
@@ -95,15 +93,13 @@ The \gls{ID} \cite{inner-detector-tdr} serves to identify the precise interactio
 
 Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $ \unit{50}{\micron} \times \unit{400}{\micron}$, and a depth of $\unit{250}{\micron}$. Each Pixel module contains one sensor and 16 readout channel. In total there are 1744 pixel sensors with 80 million readout channels.
     
-The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between \RunOne and \RunTwo, during the shutdown that lasted from 2013 to 2015. It takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. This improved distance helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
+The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between \RunOne and \RunTwo, during the shutdown that lasted from 2013 to 2015. It takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. The smaller distance between the beamline and first detector layer helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
 
 \noindent\textbf{SemiConductor Tracker}\\
 \indent The \gls{SCT} provides measurements at intermediate range from the \gls{IP}, vital for momentum, impact parameter, and vertex position measurements. It is composed of a barrel region and two end-caps, covering the distance $R=\unit{300}{\mm}$ to $R= \unit{520}{\mm}$ from the \gls{IP}. \gls{SCT} modules are made up of four strip sensors, two on each side, oriented at an angle of $\unit{40}{mrad}$ from each other. The sensors are single-sided p-in-n microstrip detectors on silicon wafers. The barrel is constructed of 2112 modules in four layers that are equally spaced, and each end-cap is constructed of 988 modules over nine disks. Collectively, the \gls{SCT} has about 6 million silicon strips.
 
 \noindent\textbf{Transition Radiation Tracker}\\
-\indent The \gls{TRT} is the outermost subdetector of the \gls{ID}, spanning from a distance $R=\unit{554}{\mm}$ to $R= \unit{1082}{\mm}$ from the \gls{IP}, and pseudorapidity range $|\eta| < 2.0$. The \gls{TRT} contributes to the momentum measurement, aids in pattern recognition for tracking, and provides discrimination between electrons and hadrons. 
-
-It is a proportional drift tube composed of 372,032 straws, each with a $\unit{4}{\mm}$ inner diameter. In the barrel, the straws have a length of $\unit{144}{\cm}$ and are arranged parallel to the beam axis. In the end-cap, straws are $\unit{37}{\cm}$ long, and arranged into 18 wheels, radially from the beam axis.
+\indent The \gls{TRT} is the outermost subdetector of the \gls{ID}, spanning from a distance $R=\unit{554}{\mm}$ to $R= \unit{1082}{\mm}$ from the \gls{IP}, and pseudorapidity range $|\eta| < 2.0$. The \gls{TRT} contributes to the momentum measurement, aids in pattern recognition for tracking, and provides discrimination between electrons and hadrons. It is a proportional drift tube composed of 372,032 straws, each with a $\unit{4}{\mm}$ inner diameter. In the barrel, the straws have a length of $\unit{144}{\cm}$ and are arranged parallel to the beam axis. In the end-cap, straws are $\unit{37}{\cm}$ long, and arranged into 18 wheels, radially from the beam axis.
 
 The straws are filled with a gaseous mixture composed of 70\% $Xe$, 27\% $CO_2$, and 3\% $O_2$\footnote{This was the design gas mixture, as described in the \gls{ID} Technical Design Report, Reference \cite{inner-detector-tdr}. During \RunTwo, straws with leaks were filled with 70\% $Ar$ gas, rather than $Xe$ due to cost. $Ar$ provides similar tracking performance as $Xe$, but a worse efficiency absorbing transition radiation X-rays.}. As a charged particle penetrates the straw, it deposits energy into the gas and creates electron-ion pairs. The electrons drift to the center wire, while the ions drift to the inner wall of the straw. The drifting charge produces an electrical signal, which is then compared to a low and high threshold. The low threshold is used to measure drift time, which is used to derive position of incidence. The high threshold is used to identify large energy deposits from transition radiation X-rays, which is useful to discriminate charged pions from electrons.
 
@@ -162,7 +158,7 @@ A sketch of the composition of the \gls{EM} calorimeter can be found in Figure \
 
 
 \noindent\textbf{Hadronic Calorimeter}\\
-\indent As hadrons interact with matter, their scattering produces secondary hadrons as well as protons and neutrons. These also decay and this cascade, known as a hadronic shower, and will continue until the energy of the decay products is small enough to be halted by ionization energy loss or absorbed in a nuclear process.
+\indent As hadrons interact with matter, their scattering produces secondary hadrons as well as protons and neutrons. These also decay and this cascade, known as a hadronic shower, will continue until the energy of the decay products is small enough to be halted by ionization energy loss or absorbed in a nuclear process.
 
 \indent The hadronic Tile Calorimeter is designed to measure the energy of particles by using these decays, employing steel as the absorber and scintillating tiles as the active material. The scintillators transmit light via fiber optics to \glspl{PMT}. The hadronic calorimeter is composed of three regions, the central barrel, covering $|\eta| < 1.0$, and two extended barrels on either side of the central barrel, covering $|\eta| > 1.0$. Each of these three regions have 64 azimuthal modules, and 3 layers longitudinally. The first two layers have granularity $0.1 \times 0.1$ in $\Delta\eta \times \Delta \phi$, while the third is $0.2 \times 0.1$. The thickness covers $>9.7$ \gls{intLen}. A sketch of the composition of the Tile Calorimeter can be seen in Figure \ref{fig:tile}.
 
