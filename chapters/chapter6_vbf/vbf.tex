@@ -1,68 +1,27 @@
 
-\chapter{Future Improvements - Vector Boson Fusion HH Production}
+\chapter{Future Improvements - Vector Boson Fusion HH Production} \label{ch:vbf}
 
 To improve this analysis, a signal model for the Vector Boson Fusion production mode has been designed and will be implemented into this analysis using the full \RunTwo dataset. This signal model is integrated into the analysis through a separate analysis category that is enriched in VBF events, defined via cuts on multiclass \gls{BDT} scores.
 
-\section{Simulated Samples}
+This chapter outlines the approach to defining the signal selection for the \gls{VBF} production mode. Section \ref{sec:vbf-samples} describes the \gls{MC} simulation produced to model VBF \hhyybb production. Section \ref{ssec:vbf-event-selection} outlines improvements in signal selection for the analysis, starting with a \gls{BDT} used to define analysis categories focused on ggF \hh production (Section \ref{ssec:ggf-bdt}), followed by a separate multiclass \gls{BDT} used to define a VBF-enriched signal category (Section \ref{ssec:vbf-bdt}).
 
-\subsection{Non-resonant VBF HH Samples}
+\section{Simulated Samples} \label{sec:vbf-samples}
 
-The signal MC samples for VBF $HH$ production are generated at LO using \MGMCatNLO 2.6.0, using cards presented in \cite{vbfhh}. The process generated is $pp \rightarrow HHqq$. The dominant production in this sample is VBF $HH$ production, but contains contributions from $VHH$  hadronic and Higgsstrahlung production. The NNPDF 2.3 LO PDF set \cite{NNPDF} is used in the matrix element, interfaced to \HERWIG 7.0.4 using the H7-UE-MMHT tune for underlying events and the H7-MMHT2014LO tune for parton shower and hadronization.
+\subsection{Non-resonant VBF HH Samples} \label{ssec:vbf-samples-production}
 
-Samples have been produced for the various coupling values shown in Table \ref{tab:vbf-coupling-samples}. The values of $\kappa_\lambda$,$c_{2V}$, and $c_{v}$ are all 1 in the SM. The values selected for production aim to vary each coupling value enough that interpolation may be performed, and one value was produced near where limits could be expected to be set ($\kappa_\lambda = 10$ and $c_{2V}=4$).
+The signal MC samples\footnote{Samples with varied coupling strengths were also produced, described in Appendix \ref{app:vbf-couplings}.} for VBF $HH$ production are generated at LO using \MGMCatNLO 2.6.0, using cards presented in \cite{vbfhh}. The process generated is $pp \rightarrow HHqq$. The dominant production in this sample is VBF \hh production, but contains contributions from $VHH$  hadronic and Higgsstrahlung production. The \texttt{NNPDF 2.3 LO} PDF set \cite{NNPDF} is used in the matrix element, interfaced to \HERWIG 7.0.4 using the \texttt{H7-UE-MMHT} tune for underlying events and the \texttt{H7-MMHT2014LO} tune for parton shower and hadronization.
 
-\begin{table}[htbp]
-    \centering
-    \caption{Grid of coupling values used in production of VBF $HH$ samples.}
-    \begin{tabular}{c|c|c}
-        $\kappa_\lambda$ & $c_{2V}$ & $c_{v}$ \\
-        \hline
-        1 & 0 & 0.5 \\
-        1 & 1 & 0.5 \\
-        0 & 0 & 1 \\
-        1 & 0 & 1 \\
-        1 & 0.5 & 1 \\
-        1 & 0 & 0.5 \\
-        1 & 1 & 1 \\
-        1 & 1.5 & 1 \\
-        1 & 2 & 1 \\
-        1 & 4 & 1 \\
-        0 & 1 & 1 \\
-        2 & 1 & 1 \\
-        10 & 1 & 1 \\
-        1 & 1 & 1.5
-    \end{tabular}
-    \label{tab:vbf-coupling-samples}
-\end{table}
+\subsection{Non-resonant ggF HH Samples}
 
-Relevant distributions for validation of these samples can be seen in Figure \ref{fig:vbf-mc-validation}. Plots are shown at parton level, with a basic jet selection applied to isolate the VBF jets similar to that done at reconstruction level. Jets are considered if they have $\pt > 25$, then the $m_{bb}$ pair is selected as the two jets with $m_{bb}$ closest to 125 \GeV. The VBF jets are selected as the highest $m_{jj}$ pair after removing jets used in the $m_{bb}$ pairing. Additional detail on the validation for these samples is outlined in Ref. \cite{mc-validation}.
+The ggF \hh sample produced in these studies matches the non-resonant \gls{SM} signal sample described in Section \ref{sssec:signal-samples}, however is produced for the full \RunTwo dataset, with independent samples produced to match running conditions in the 2017 and 2018 data taking periods in addition to the 2015+2016 sample.
 
-\begin{figure}[htbp]
-    \centering
-    \subfloat{
-      \includegraphics[width=0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/m_jj_cv.pdf}
-    }
-    \subfloat{
-      \includegraphics[width= 0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/m_jj_cvv.pdf}
-    }
-    \subfloat{
-      \includegraphics[width= 0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/m_jj_klambda.pdf}
+\subsection{Background Samples} \label{ssec:vbf-bkg-samples}
 
-    }       
+The same \yy-continuum processes described in Section \ref{sssec:background-samples} are the predominant background in these studies. Dominant mono-Higgs backgrounds described in Section \ref{sssec:background-samples} are considered as well, $ttH$, $ZH$, and $ggH$. Both of these have been produced to match the conditions of the full \RunTwo data taking period.
 
-    \subfloat{
-        \includegraphics[width=0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/jj_deta_cv.pdf}
-      }
-      \subfloat{
-        \includegraphics[width= 0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/jj_deta_cvv.pdf}
-      }
-      \subfloat{
-        \includegraphics[width= 0.33\textwidth]{chapters/chapter6_vbf/images/mc_samples/jj_deta_klambda.pdf}
-    }    
+Additionally, \gls{NTNI} data, which fails photon identification, isolation, or both, is considered to model $\gamma j$, $j \gamma$, and $jj$ contributions. The yield is proportionally scaled to the template fits, described in Section \ref{ssec:background-composition}. Last, a sample of top-quark pair production associated with 2 photons, $tt \yy$, is used. 
 
-    \caption{Validation plots at parton level for the VBF $HH$ signal sample. The highest $m_{jj}$ pair is selected as a proxy for the VBF jets. The top row shows the invariant mass distribution of this system, the bottom depicts the $\Delta \eta$ between these jets. Left to right, these plots vary the $c_V$, $c_{2V}$, and $\kappa_\lambda$ strength. The peak at low $m_{jj}$ values and shoulder at low $\Delta \eta$ is a product of the $VHH$ hadronic and Higgsstrahlung contributions in the samples.}
-    \label{fig:vbf-mc-validation}
-\end{figure}
+%TODO find the ttyy information
 
 \section{Event Selection} \label{ssec:vbf-event-selection}
 
@@ -71,13 +30,13 @@ To improve the event selection presented in Section \ref{sec:yybb-event-selectio
 First, the following preselection cuts are applied:
 
 \begin{itemize}
-	\item $N_{\text{cen jets}} < 6$, to help reject ttH production (hadronic top decays)
-	\item $N_{\text{lep}} = 0$, to help reject ttH production (leptonic top decays)
+	\item $N_{\text{cen jets}} < 6$, to help reject $ttH$ production (hadronic top decays)
+	\item $N_{\text{lep}} = 0$, to help reject $ttH$ production (leptonic top decays)
 	\item $N_{\text{85 \% b-tags}} >= 2$ 
 	\item $N_{\text{70 \% b-tags}} < 3$, to maintain orthogonality with the $HH \rightarrow \bb\bb$ analysis
 \end{itemize}
 
-\subsection{BDT for ggF Production}
+\subsection{BDT for ggF Production} \label{ssec:ggf-bdt}
 A \gls{BDT} has been trained in order to maximize signal efficiency for ggF HH production. Following preselection, events are segmented into two regions, a high mass region with $M_X^{*} > 350 \text{GeV}$ targeting the standard model signal, and a low mass region with $M_X^{*} < 350 \text{GeV}$ targeting BSM signals. 
 
 In each region, a separate BDT is trained using a benchmark HH signal against a combination of \yy, $ttH$, $ggH$, and $ZH$ backgrounds. In the high mass region, the standard model HH sample is used as signal, while in the low mass region, the $\klambda = 6$ sample is used as signal.
@@ -101,26 +60,26 @@ Where,
 \end{itemize}
 
 After training, two categories are created in each mass region by creating cuts on the BDT output. The category boundaries are optimized to give the best Asimov number counting significance \cite{asimov}, given by
-
 \begin{equation}\label{eqn:asimov-significance}
     Z = \sqrt{2[(s+b)\log{(1 + s/b)} -s]}.
 \end{equation}
+The signal, $s$, is the sum of both ggF and VBF HH contributions in a category. The background, $b$, is the sum of the considered backgrounds described in \ref{ssec:vbf-bkg-samples}: \yy-continuum processes, \gls{NTNI} data to model jets faking photons, leading mono-Higgs production modes ($ttH$, $ZH$, and $ggH$), and $tt\gamma\gamma$. The four signal categories are added in quadrature for the final Asimov significance of 0.415.
 
 
-\subsection{BDT for VBF Production}
+\subsection{BDT for VBF Production}\label{ssec:vbf-bdt}
 Atop the ggF \gls{BDT} selection, a dedicated VBF-enriched analysis category is built. Events which have already passed the ggF BDT based selection and have at least 4 jets are considered the VBF category. The 4 jet requirement is imposed in order to reconstruct VBF-based variables, since 2 jets are needed for the \Hbb decay, and another 2 are needed for the VBF jets. The VBF jets are then selected as the highest $m_{jj}$ pairing, excluding $H\rightarrow b\bar{b}$ candidate jets.
 
-These events are then evaluated by a multiclass BDT, which has independent classes for VBF HH, ggF HH, $\gamma \gamma$-continuum, and $ttH$. Ultimately, an event selected for the VBF category if it passes the BDT score threshold for VBF HH, and fails the score threshold for the other three classes. A flowchart of this logic is shown in Figure \ref{fig:vbf-logic}.
+These events are then evaluated by a multiclass BDT, which has independent classes for VBF HH, ggF HH, \yy-continuum, and $ttH$. This model was chosen due to large $ttH$ contamination in the VBF enriched category by binary classifiers considering just \yy-continuum backgrounds. Ultimately, an event selected for the VBF category if it passes the BDT score threshold for VBF HH, and fails the score threshold for the other three classes. A flowchart of this logic is shown in Figure \ref{fig:vbf-logic}.
 
 \begin{figure}[htbp]
     \centering
 	\includegraphics[width=0.9\textwidth]{chapters/chapter6_vbf/images/vbf_logic.png}
-    \caption{Logic flow for an event to be selected into the VBF-enriched signal region. The starting set of candidates (denoted ``event'') requires passing preselection and at least one of the ggF-based signal categories. If an event is assigned to the ggF categories, it is separated into 4 categories.}
+    \caption{Logic flow for an event to be selected into the VBF-enriched signal region. The starting set of candidates (denoted ``event'') requires passing preselection and at least one of the ggF-based signal categories. If an event is assigned to the ggF categories, it is separated into 4 categories by the \gls{BDT} described in Section \ref{ssec:ggf-bdt}.}
     \label{fig:vbf-logic}
 \end{figure}
 
 \subsubsection{Input Selection}
-A set of 26 variables were considered for this BDT, listed in Appendix \ref{app:vbf-variables}. Broadly, they describe the kinematics of various physics objects in the event, as well as event shape variables \cite{STDM-2011-33} and variables to reconstruct the W-mass, which aim to suppress the ttH background.
+A set of 26 variables were considered for this BDT, listed in Appendix \ref{app:vbf-variables}. Broadly, they describe the kinematics of various physics objects in the event, as well as event shape variables \cite{STDM-2011-33} and variables to reconstruct the $W$-mass, which aim to suppress the ttH background.
 
 For dimensionality reduction, a pruning procedure was performed.
 \begin{enumerate}
@@ -129,53 +88,47 @@ For dimensionality reduction, a pruning procedure was performed.
 \end{enumerate}
 
 After this pruning procedure, the 10 final inputs were: 
+\begin{itemize}
+\item \textbf{VBF-targeted:} $\Delta \eta_{jj}$, $m_{jj}$
 
-\textbf{VBF-targeted:} $\Delta \eta_{jj}$, $m_{jj}$
+\item \textbf{$\gamma \gamma$-suppressing:} \myybb, $\Delta R_{\gamma\gamma}$, $\Delta R_{\bb}$, the best b-tagging WP for the $H\rightarrow \bb$ jets
 
-\textbf{$\gamma \gamma$-suppressing:} \myybb, $\Delta R_{\gamma\gamma}$, $\Delta R_{\bb}$, the best b-tagging WP for the $H\rightarrow \bb$ jets
-
-\textbf{$ttH$-suppressing:} Transverse Sphericity ($S_{\perp}$), Planar Flow ($Pf$), $\pt^\text{balance}$
-
-Where $S_{\perp}$ is given in Reference \cite{STDM-2011-33}, Planar Flow is given in Reference \cite{planar-flow}, and $\pt^\text{balance}$ is given by:
+\item \textbf{$ttH$-suppressing:} Transverse Sphericity ($S_{\perp}$), Planar Flow ($Pf$), $\pt^\text{balance}$
+\end{itemize}
+%
+$S_{\perp}$ is given in Reference \cite{STDM-2011-33}, Planar Flow is given in Reference \cite{planar-flow}, and $\pt^\text{balance}$ is given by:
 
 \begin{equation} \label{eqn:pt-balance}
     \pt^\text{balance} = \frac
     {| \vec{p}_T^{\ell_1} + \vec{p}_T^{\ell_2} + \vec{p}_T^{j_1} +  \vec{p}_T^{j_2}|}
     {|\vec{p}_T^{\ell_1}| + |\vec{p}_T^{\ell_2}| + |\vec{p}_T^{j_1}| +  |\vec{p}_T^{j_2}|}.
 \end{equation}
-
-
+%
 Distributions for each these variables after applying a 4-jet requirement can be found in Appendix \ref{app:vbf-variables}. 
 
 \subsubsection{Model Optimization}
 
-This subsection outlines two optimizations performed on the \gls{BDT}. First, the selection of model hyperparameters, and second, the selection of cuts on the \gls{BDT} score to define the \gls{VBF} signal category. For these optimizations, an orthogonal sample of events must be selected to ensure the model is generalizable. A subset of 50\% of the data is used for training, 25\% for testing, and 25\% for model selection\footnote{This split is done using the ATLAS global event number. A modulo 4 operation is performed on the event number, if the result is 0 or 1, it is used in the training sample. If the result is 2, it is used in the testing sample. If the result is 3, it is used in the model selection sample.}.
+This section outlines two optimizations performed in the definition of the VBF-enriched category. First, the optimization of the model's main hyperparameters. Second, the selection of cuts on the \gls{BDT} scores to define the \gls{VBF} signal category. For these optimizations, an orthogonal sample of events must be selected to ensure the model is generalizable. A subset of 50\% of the data is used for training, 25\% for testing, and 25\% for model selection\footnote{This split is done using the ATLAS global event number. A modulo 4 operation is performed on the event number, if the result is 0 or 1, it is used in the training sample. If the result is 2, it is used in the testing sample. If the result is 3, it is used in the model selection sample.}.
 
 \noindent\textbf{Hyperparameter Optimization}\\
-\indent The maximum \gls{BDT} depth is selected at the point in which the accuracy on the testing set maximizes, a depth of 14. After that point, the accuracy on the training set flattens, while it continues to increase on the testing set, leading to overtraining. The same procedure is performed for the number of trees, however this parameter flattens for both training and testing, so a safe choice of 200 trees is used. The accuracy as a function of these parameters is shown in Figure \ref{fig:hp-opt}.
+\indent The maximum \gls{BDT} depth is selected by training models at increasing depth and selecting the depth when the accuracy on the testing set ceases to improve, a depth of 14. After that point, the accuracy on the training set flattens, while it continues to increase on the testing set, leading to overtraining. The same procedure is performed for the number of trees, evaluating 10, 25, 50, 75, 100, 150, 200, and 300 trees. This parameter flattens for both training and testing, so a safe choice of 200 trees is used. The accuracy as a function of these parameters is shown in Figure \ref{fig:hp-opt}.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/hp_opt/multiclass_optimized_depth.png}
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/hp_opt/multiclass_optimized_trees.png}
-  \caption[The \gls{BDT} accuracy as a function of hyperparameter values]{The \gls{BDT} accuracy as a function of hyperparameter values. The left is the maximum tree depth, which is chosen to be 14. The right shows the number of trees, which is chosen to be 200.}
+  \caption[The \gls{BDT} accuracy as a function of hyperparameter values]{The \gls{BDT} accuracy as a function of hyperparameter values. The left is the maximum tree depth, which is chosen to be 14. The right shows the number of trees, which is chosen to be 200. The ``validation'' set is the events used for testing, and orthogonal to the training set.}
   \label{fig:hp-opt}
 \end{figure}
 
 \noindent\textbf{BDT Score Cuts}\\
-\indent Evaluating an event on this multiclass \gls{BDT} outputs 4 probabilities, one for each class. These are denoted $p_{\text{class}}$ for each target class, e.g. $p_{\text{VBF}}$ for the class targeting VBF HH production. In order to set the thresholds for each of these probabilities, an optimization procedure is performed. A 4-dimensional scan over the 4 probability scores is performed, in steps of 0.03. At each step, the Asimov significance, given in Equation \ref{eqn:asimov-significance}, is calculated for each category and summed in quadrature. In this equation, the signal $s$, is the sum of both ggF and VBF HH contributions in a category. The background, $b$, is the sum of the following considered backgrounds:
-\begin{itemize}
-  \item \yy-continuum processes
-  \item \glsfirst{NTNI} data. This is data that fails either photon identification, isolation, or both. It is proportionally scaled to the sum of the $\gamma j$, $j \gamma$, and $jj$ events derived by the 2x2D method, described in section \ref{ssec:background-composition}.
-  \item Top-quark pair production associated with 2 photons, $t\bar{t}\yy$
-  \item The leading mono-Higgs backgrounds, $ttH$, $ZH$, and $ggH$.
-\end{itemize}
+\indent Evaluating an event on this multiclass \gls{BDT} outputs 4 probabilities, one for each class. These are denoted $p_{\text{class}}$ for each target class, e.g. $p_{\text{VBF}}$ for the class targeting VBF HH production. In order to set the thresholds for each of these probabilities, an optimization procedure is performed. A 4-dimensional scan over the 4 probability scores is performed, in steps of 0.03. At each step, the Asimov significance, given in Equation \ref{eqn:asimov-significance}, is calculated for each category and summed in quadrature. The contributions to the signal and background components of this equation match that used to evaluate the Asimov significance in Section \ref{ssec:ggf-bdt}.
 
 Through this optimization procedure, the thresholds shown in Table \ref{tab:multiclass-thresholds} are found. The output probability distributions for each class on each sample is shown in Figure \ref{fig:bdt-scores}, with the optimized thresholds overlaid.
 
 \begin{table}[!htb]
   \centering
-  \caption[The optimized thresholds for each \gls{BDT} score used to define the VBF-enriched category]{The optimized thresholds for each \gls{BDT} score used to define the VBF-enriched category. The cut threshold of 0.00 on the VBF HH class means that this class is not cut on.}
+  \caption[The optimized thresholds for each \gls{BDT} score used to define the VBF-enriched category]{The optimized thresholds for each \gls{BDT} score used to define the VBF-enriched category. The cut threshold of 0.00 on the VBF \hh class means that this class is not cut on.}
   \begin{tabular}{c|c|c}
     \hline
     Class & Target & Selection Logic  \\
@@ -199,7 +152,7 @@ Through this optimization procedure, the thresholds shown in Table \ref{tab:mult
   \label{fig:bdt-scores}
 \end{figure}
 
-The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}.
+The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}. The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. The categorization for the mono-Higgs, \gls{NTNI}, and $tt\yy$ samples are shown in Appendix TODO. Adding these 5 categories in quadrature gives an Asimov significance of 0.459, a 9.7\% improvement over not defining such a category.
 
 \begin{figure}[p!]
   \centering
@@ -212,7 +165,6 @@ The contribution of each signal and background process to each category is shown
   \label{fig:category-yields}
 \end{figure}
 
-The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. The categorization for the mono-Higgs, \gls{NTNI}, and $tt\yy$ samples are shown in Appendix \ref{app:vbf-yield}.
 
 \begin{figure}
   \centering
@@ -223,5 +175,5 @@ The categorization for each signal process as well as the dominant \yy-continuum
   \label{fig:process-categorization}}
 \end{figure}
 
-By Asimov Significance, equation \ref{eqn:asimov-significance}, adding a VBF-enriched category provides a XXX percent improvement over not defining such a category.
+
 
