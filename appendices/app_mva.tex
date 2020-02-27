@@ -1,6 +1,6 @@
 
 \chapter{Multivariate Analysis and Machine Learning}
-\epigraph{It's tough to make predictions, especially about the future.}{Danish Proverb}
+\quoteAuthor{It's tough to make predictions, especially about the future.}{Danish Proverb}
 \label{app:MVA}
 
 In the broad classes of problems known as classification and regression, distinct features of events can be taken advantage of to label the event as a product of a signal process or background process. Over the last several decades, methods to approach this problem have grown increasingly sophisticated, using a multi-dimensional observable space rather than univariate techniques. These algorithms broadly are known as \glsfirst{MVA} algorithms.
@@ -15,6 +15,7 @@ The ``learning'' process in \gls{ML} is an updating of internal weights and bias
 
 \begin{table}[!ht]
     \centering
+    \caption[A list of common tasks in which \gls{ML} is employed, and loss functions typically used.]{A list of common tasks in which \gls{ML} is employed, and loss functions typically minimized in setting biases and weights for \gls{ML} models.}
     \begin{tabular}{c|c}
         Task                  & Common Loss Function \\
         \cline{1-2}
@@ -22,7 +23,6 @@ The ``learning'' process in \gls{ML} is an updating of internal weights and bias
         Multiclass Classification & Categorical Cross-Entropy\\
         Regression                & Mean Squared Error
     \end{tabular}  
-    \caption[A list of common tasks in which \gls{ML} is employed, and loss functions typically used.]{A list of common tasks in which \gls{ML} is employed, and loss functions typically minimized in setting biases and weights for \gls{ML} models.}
     \label{tab:loss-functions}
 \end{table}
 
