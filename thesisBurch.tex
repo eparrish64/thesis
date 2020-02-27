@@ -13,7 +13,6 @@
 \usepackage{hepunits}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage[hidelinks]{hyperref}
 \usepackage[acronym]{glossaries}
 \usepackage[style=numeric-comp,sorting=none,block=ragged,firstinits=true]{biblatex}
 \renewbibmacro{in:}{}
@@ -30,15 +29,30 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 
-\usepackage{epigraph}
+\font\eightss=cmssq8
+\font\eightssi=cmssqi8
+\newcommand\quoteAuthor[2]{\begingroup
+  \baselineskip 10pt
+  \parfillskip 0pt
+  \interlinepenalty 10000 % not needed in example
+  \leftskip 0pt plus 40pc minus \parindent
+  \let\rm=\eightss
+  \let\sl=\eightssi
+  \everypar{\sl}#1\par
+  \nobreak\smallskip
+  \noindent\rm--- #2\unskip\par
+\endgroup}
+
 
 \usepackage{subfig}
 \usepackage{multirow} % Table formatting
 \usepackage{tablefootnote}
 \usepackage{array,booktabs}
 \usepackage{dcolumn}
+\usepackage[hidelinks]{hyperref}
 
 \let\degree\relax
+
 \restoresymbol{DEFAULT}{degree} % make sure this is ok
 % \usepackage{hyperref}		% to insert hyperrefs
 
@@ -63,7 +77,10 @@
 %\def\files{ch1,ch2,refs,app1,app2}
 
 %%% use this to work with only one chapter
-%\def\files{chapters/chapter2_experiment/experiment, glossary, variable_defs}
+%\def\files{chapters/chapter2_experiment/experiment}
+%\def\files{chapters/chapter4_photonID/photonID}
+\def\files{chapters/chapter5_yybb/yybb}
+%\def\files{chapters/chapter6_vbf/vbf, chapters/chapter7_conclusion/conclusion}
 %\includeonly{\files}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,7 +96,7 @@
 
 \major{Physics}
 \degree{Dissertation}{Ph.D.}{Doctor of Philosophy}
-\degreedate{December}{2019}
+\degreedate{March}{2020}
 \department{Department of Physics}
 \director{Jahred Adelman}
 
@@ -106,19 +123,20 @@
 \include{chapters/chapter4_photonID/photonID}
 \include{chapters/chapter5_yybb/yybb}
 \include{chapters/chapter6_vbf/vbf}
-\include{chapters/chapter6_conclusion/conclusion}
+\include{chapters/chapter7_conclusion/conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices
 
 \appendix
 \appendixpage
-\addappheadtotoc
-\input{appendices/app1_mva}			% file with Appendix A contents
-\input{appendices/app2_datamc}
-\input{appendices/app3_vbfvariables}
-\input{appendices/app4_2x2d}
-\input{appendices/app5_cutflows}
+%\addappheadtotoc
+\input{appendices/app_mva}			% file with Appendix A contents
+\input{appendices/app_datamc}
+\input{appendices/app_photonID_models}
+\input{appendices/app_2x2d}
+\input{appendices/app_cutflows}
+\input{appendices/app_vbfvariables}
 
 \printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 \include{refs}		% file with references
