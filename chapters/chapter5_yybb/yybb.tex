@@ -1,13 +1,13 @@
-\chapter{Search for di-Higgs Production in the \yybb Channel} % todo: yybb not capitalized?
+\chapter{Search for di-Higgs Production in the $\gamma\gamma b\bar{b}$ Channel} % todo: yybb not capitalized?
 
 \section{Analysis Overview}
 
-This analysis searches for resonant and non-resonant di-Higgs production, where one Higgs boson decays to a pair of photons, and the other decays to a \bb pair. The motivation for searching for di-Higgs production is outlined in Section \ref{sec:diHiggs}. Di-Higgs production provides a direct probe on the Higgs trilinear coupling. This decay channel, \yybb, is appealing to study due to the clean diphoton trigger, relatively small backgrounds, and excelling diphoton mass resolution. Enhancements to the di-Higgs rate may be observable in the current \RunTwo dataset, and realized through a resonance or non-resonantly. This search looks for a generic scalar, and thus is model independent, however this scalar may be realized as a heavy Higgs in a \gls{THDM} \cite{THDM}. Non-resonantly, enhancements can occur through the presence of \gls{BSM} couplings, or coupling strengths which deviate from \gls{SM} expectations.
+This analysis searches for resonant and non-resonant di-Higgs production, where one Higgs boson decays to a pair of photons, and the other decays to a \bb pair. The motivation for searching for di-Higgs production is outlined in Section \ref{sec:diHiggs}. Di-Higgs production provides a direct probe of the Higgs trilinear coupling. This decay channel, \yybb, is appealing to study due to the clean diphoton trigger, relatively small backgrounds, and excellent diphoton mass resolution. Enhancements to the di-Higgs rate may be observable in the current \RunTwo dataset, and realized through a resonance or non-resonantly. The resonant search looks for a generic scalar, and thus is model independent, however this scalar may be realized as a heavy Higgs in a \gls{THDM} \cite{THDM}. Non-resonantly, enhancements can occur through the presence of \gls{BSM} couplings.
 
 
 Previous results were presented with an integrated luminosity of 20 \ifb at $\sqrt{s}=\unit{8}{\TeV}$ representing ATLAS dataset in 2012. In this, a 2.4$\sigma$ excess was observed \cite{yybb-2015}. This was followed by a search encompassing early \RunTwo data, just that taken in 2015, corresponding to 3.2 \ifb at $\sqrt{s}=\unit{13}{\TeV}$ \cite{run2_2015}. This search used the same object selection as the \RunOne analysis, and a common selection between the resonant and non-resonant analysis. No significant excesses were seen.
 
-The presented analysis expands on the prior analyses, using \RunTwo data from 2015-2016 corresponding to 36.1 \ifb. A new event selection is defined to be sensitive to the \RunTwo conditions. Furthermore, the previous cut-and-count approach has been replaced by a fit procedure. In the resonant analysis, this is performed on the \myybb distribution after cutting on \myy. In the non-resonant analysis the fit is performed on the \myy spectrum.
+The presented analysis expands on the prior analyses, using \RunTwo data from 2015-2016 corresponding to 36.1 \ifb. A new event selection is defined to be sensitive to the \RunTwo conditions. Furthermore, the previous cut-and-count approach has been replaced by a fit procedure. In the resonant analysis, this is performed on the \myybb distribution after cutting on \myy to isolate $H\rightarrow \gamma \gamma$ events. In the non-resonant analysis the fit is performed on the \myy spectrum. Chapter \ref{ch:vbf} will then present future updates to this analysis.
 
 
 \section{Data and Simulated Samples}
@@ -15,7 +15,7 @@ The presented analysis expands on the prior analyses, using \RunTwo data from 20
 
 \subsection{Data}
 
-The analysis presented uses $pp$ collision data recorded by the ATLAS experiment at the LHC in 2015 and 2016, the first half of ``Run 2.'' After detector and data quality requirements, the total collected data corresponds to 36.1 \ifb. The loose diphoton trigger is used for this search, \texttt{HLT\_g35\_loose\_g25\_loose}, which triggers on diphoton events where the leading (subleading) photon \pt is greater than 35\% (25\%) the diphoton invariant mass.
+The analysis presented uses $pp$ collision data recorded by the ATLAS experiment at the LHC in 2015 and 2016, the first half of ``Run 2.'' After detector and data quality requirements, the total collected data corresponds to 36.1 \ifb. A loose diphoton trigger is used for this search, \texttt{HLT\_g35\_loose\_g25\_loose}, which triggers on diphoton events where the leading (subleading) photon \pt is greater than 35\% (25\%) the diphoton invariant mass.
 
 \subsection{Simulated Samples}
 
@@ -43,7 +43,7 @@ For generic \klambda, an interpolation function can be used to predict the ampli
   A(k_t,\klambda) = k_t^2 B + k_t \klambda T,
 \end{equation}
 %
-where $B$ is the contribution from the box diagram (with two $th$ vertices, thus squared), $T$ is the contribution from the trilinear diagram (containing one $th$ and one $hhh$ vertex). Squaring this amplitude and varying \klambda (consider values 0, 1, and 10) gives
+where $B$ is the contribution from the box diagram (with two $th$ vertices, thus squared) and $T$ is the contribution from the trilinear diagram (containing one $th$ and one $hhh$ vertex). Squaring this amplitude and varying \klambda (consider values 0, 1, and 10) gives
 
 \begin{align}
   &|A(k_t,\klambda)|^2 = k_t^4 |B|^2 + k_t^2\klambda^2 |T|^2 + k_t^3\klambda(B^*T + BT^*)\\
@@ -52,7 +52,7 @@ where $B$ is the contribution from the box diagram (with two $th$ vertices, thus
   &|A(1,10)|^2 = |B|^2 + 100|T|^2 + 10(B^*T + BT^*).
 \end{align}
 %
-These equations can then be combined to express the squared amplitude in terms of the amplitudes of the varied reference samples,
+These equations can then be combined to express the squared amplitude in terms of the amplitudes of the varied reference samples for any arbitrary $\klambda$ and $k_t$,
 \begin{equation}
   |A(k_t,\klambda)|^2 = k_t^2 \left[ 
     \frac{90 k_t^2 + 9\klambda^2 - 99k_t\klambda}{90}|A(1,0)|^2 +
@@ -70,7 +70,7 @@ These equations can then be combined to express the squared amplitude in terms o
 The dominant background in this analysis are the non-resonant \myy continuum events. Additionally, mono-Higgs boson production is a subdominant background to this analysis, which is composed of several production modes ($ggH$, VBF $H$, $ZH$, $WH$, $tH$, $ttH$, $bbH$). This section describes the samples used to model these background processes.\\
 
 \noindent\textbf{\yy-Continuum}\\
-\indent \yy-continuum processes including two photons and jets are generated using \SHERPA. This \gls{MC} sample is used predominantly for shape information, since normalization is taken through a data-driven approach using the diphoton sidebands. Jets faking photons are also modeled from the data sidebands, using a template fit. \\
+\indent \yy-continuum processes including two photons and jets are generated using \SHERPA. This \gls{MC} sample is used predominantly for shape information, since normalization is taken through a data-driven approach using the diphoton sidebands. Jets faking photons are also modeled from the data sidebands using a template fit, described in Section \ref{ssec:background-composition}.\\
 
 \noindent\textbf{Mono-Higgs Production}\\
 \indent The following mono-Higgs production channels are considered: gluon-gluon fusion ($ggH$), vector-boson fusion (VBF $H$) $Z$-associated production ($ZH$), $W$-associated production ($WH$), single and top quark pair associated production ($tH$ and \tth, respectively), and bottom quark pair associated production ($bbH$)\footnote{There are two $bbH$ samples in order to account for interference.}. Rates for these samples are taken from the 2016 Yellow Report \cite{yellow-report}. The generators for these samples vary, and are listed in Table \ref{tab:single-higgs-samples}, along with the cross-section times \gls{BR} for each sample.
@@ -157,6 +157,10 @@ To select the \gls{PV}, a \gls{NN} is used. This \gls{NN} uses the following inp
 After selecting this \gls{PV}, tracking and calorimeter variables are recomputed with respect to the new chosen \gls{PV}. This method is greater than 85\% efficient at selecting the correct \gls{PV}.
 
 
+\subsection{Electrons}
+
+Electrons are used to reject jets originating from leptons. Electrons are required to have $\pt > \unit{10}{\GeV}$, and $\abseta < 2.47$ and outside of the crack-region ($1.37 < \abseta < 1.52$). They must pass medium identification and loose isolation requirements, which are set on both calorimeter and tracking variables and are 99\% efficient.
+
 \subsection{Jets}
 
 Jets are reconstructed with the \path{FastJet} \cite{fastjet} package. They are defined using the \antikt algorithm with $R=0.4$, using jets with energy corrected for pile-up effects and direction readjusted to the primary vertex (EM-JES jets). Jets considered must have $\pt > \unit{25}{\GeV}$ and be within the tagging region, $\abseta < 2.5$. The following additional requirements are applied\footnote{This selection is similar to that of the default jet selection for ATLAS $H\rightarrow \yy$ analyses. The $\abseta < 2.5$ is an additional requirement imposed atop that selection for b-tagging.}:
@@ -214,13 +218,10 @@ The jet with the highest \gls{BDT} score is selected as the pairing when constru
 
 % TODO: ADD plots
 
-\subsection{Electrons}
-
-Electrons are used to reject jets originating from leptons. Electrons are required to have $\pt > \unit{10}{\GeV}$, and $\abseta < 2.47$ and outside of the crack-region ($1.37 < \abseta < 1.52$). They must pass medium identification and loose isolation requirements, which are set on both calorimeter and tracking variables and are 99\% efficient.
 
 \subsection{Muons}
 
-In jet reconstruction, a muon-in-jet correction is used to improve resolution for $b$-jets. This accounts for leptonic decays involving muons which do not entirely deposit their energy in the \gls{EM} calorimeter. Muons must pass medium requirements, have $\pt > \unit{4}{\GeV}$, $\abseta < 2.7$, $|d_{0}|$ significance less than 3, $|z_{0}|$ less than 0.5 mm\footnote{Both $|d_{0}|$ and $|z_{0}|$ requirements are with respect to the primary vertex.}.
+In jet reconstruction, a muon-in-jet correction is used to improve resolution for $b$-jets. This accounts for leptonic decays involving muons which do not entirely deposit their energy in the \gls{EM} or hadronic calorimeters. Muons must pass medium requirements, have $\pt > \unit{4}{\GeV}$, $\abseta < 2.7$, $|d_{0}|$ significance less than 3, $|z_{0}|$ less than 0.5 mm\footnote{Both $|d_{0}|$ and $|z_{0}|$ requirements are with respect to the primary vertex.}.
 
 For correcting the $b$-jets, the 4-momenta of all muons within the jet's \Dr cone are added to the $b$-jet. Adding this correction shifts the $m_{bb}$ distribution closer to the Higgs mass and provides a $5-6\%$ improvement in signal acceptance for each resonant mass point. Figure \ref{fig:n_muons} shows the number of muons added to each jet, typically 0 or 1 muon.
 
@@ -240,7 +241,7 @@ For correcting the $b$-jets, the 4-momenta of all muons within the jet's \Dr con
 \indent For all samples, a preselection common to all \Hgg analyses is applied \cite{hgam-preselection}. To target this decay, events must pass the diphoton trigger, which requires two photons passing \textit{loose} identification. One of these photons must have $\et > \unit{35}{\GeV}$ and the other must have $\et > \unit{25}{\GeV}$. Nominally, this is the \path{g35_loose_g25_loose} trigger. After this trigger requirement, \pt cuts are applied, requiring the leading (subleading) photon \pt to be greater than 35\% (25\%) the diphoton invariant mass. Additionally the diphoton invariant mass must be in the window of 105 to 160 GeV.
 
 \noindent\textbf{Signal Selection}\\
-\indent In addition to the preselection requirements, a further requirement of two jets within the \btagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay. Events are separated into 0, 1, and 2-tag regions based on \btagging criteria. Events with 3 jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis. The 2-tag signal region requires exactly two jets passing the 70\% efficient \btagging \gls{WP}. If an event fails this requirement, but has one \bjet passing the 60\% efficient \btagging \gls{WP}, it is added to the 1-tag signal region. If it fails both of these criteria The 1 and 2-tag regions are used as signal regions, the 0-tag is used as a control region. This logic flow is shown in Figure \ref{fig:btag-logic}.
+\indent In addition to the preselection requirements, a further requirement of two jets within the \btagging region ($\abseta <2.5$) is added to the preselection in order to target the \Hbb decay. Events are separated into 0, 1, and 2-tag regions based on \btagging criteria. Events with 3 or more jets passing the 70\% efficient \btagging \gls{WP} are vetoed from this analysis in order to maintain orthogonality with the $HH \rightarrow \bb \bb$ analysis. The 2-tag signal region requires exactly two jets passing the 70\% efficient \btagging \gls{WP}. If an event fails this requirement, but has one \bjet passing the 60\% efficient \btagging \gls{WP}, it is added to the 1-tag signal region. If it fails both of these criteria The 1 and 2-tag regions are used as signal regions, the 0-tag is used as a control region. This logic flow is shown in Figure \ref{fig:btag-logic}.
 
 
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=orange!30]
@@ -302,7 +303,7 @@ Due to the poor mass resolution of the \bb system, a scale factor is applied, as
 
 Last, in only the resonant analysis, a tight diphoton mass cut is applied, isolating a window around the Higgs boson mass that contains 95\% of signal events. This corresponds to $m_H \pm \unit{4.7}{\GeV}$ for the low mass selection and $m_H \pm \unit{4.3}{\GeV}$ for the high mass selection.
 
-The absolute and relative signal efficiency for the 2 \btag region of the resonant analysis is shown in Figure \ref{fig:resonant-cutflow}. The yield and efficiency for each successive cut for the non-resonant, 2 \btag region are in Table \ref{tab:cutflow-nonres-2tag-low} and \ref{tab:cutflow-nonres-2tag-high} for the low and high mass selections, respectively. The background yield for the resonant and non-resonant selections are shown in Figure \ref{tab:background-yield}. Further cutflow studies can be found in Appendix \ref{app:cutflows}.
+The absolute and relative signal efficiency for the 2 \btag region of the resonant analysis is shown in Figure \ref{fig:resonant-cutflow}. The yield and efficiency for each successive cut for the non-resonant, 2 \btag region are in Tables \ref{tab:cutflow-nonres-2tag-low} and \ref{tab:cutflow-nonres-2tag-high} for the low and high mass selections, respectively. The background yield for the resonant and non-resonant selections are shown in Figure \ref{tab:background-yield}. Further cutflow studies can be found in Appendix \ref{app:cutflows}.
 
 \begin{figure}[!h]
   \centering
@@ -354,7 +355,7 @@ The \yy-continuum background contains contributions from both diphoton events, a
 
 In order to get expected shapes of the \yy, \yj, \jy and \jj contributions, the 2x2D method is applied bin-wise in \myy (bins defined in width of 2.5 GeV between 105 and 160 GeV). First, a template for each category is produced using the high stats \yy-continuum sample. For the \yy contribution, this requires both photons passing both tight identification and FixedCutLoose isolation. For the \yj, \jy and \jj, this requires photons which pass loose requirements, but do not fall into the \yy category.
 
-These templates from \gls{MC} are then compared to the data-driven 2x2D method and reweighted to better match data. The template and 2x2D templates are separately fitted using an exponential of second order polynomial function and their ratio is used as a smooth reweighting function in \myy. Figures \ref{fig:2x2D_templates_lowMass} and \ref{fig:2x2D_templates_highMass} show this for the low and high mass selection respectively, in the 0-tag region. There are insufficient statistics to perform this in the 1 and 2 \btag regions, however the same reweighting functions from the 0-tag may be applied. For the final continuum \yy background prediction, the proportions shown in Figure \ref{fig:background_fractions} are used. The fractional contribution is shown in Table \ref{tab:modelling-background-fractions}. The normalization is chosen such that the sideband region ($105 < \myy < 120$ GeV and $130 < \myy <160$ GeV) contribution is equal to the contribution in data.
+These templates from \gls{MC} are then compared to the data-driven 2x2D method and reweighted to better match data. The template and 2x2D templates are separately fitted using an exponential of second order polynomial function and their ratio is used as a smooth reweighting function in \myy. Figures \ref{fig:2x2D_templates_lowMass} and \ref{fig:2x2D_templates_highMass} show this for the low and high mass selection respectively, in the 0-tag region. There are insufficient statistics to perform this in the 1 and 2 \btag regions, so the same reweighting functions from the 0-tag region are applied. For the final continuum \yy background prediction, the proportions shown in Figure \ref{fig:background_fractions} are used. The fractional contribution is shown in Table \ref{tab:modelling-background-fractions}. The normalization is chosen such that the sideband region ($105 < \myy < 120$ GeV and $130 < \myy <160$ GeV) contribution is equal to the contribution in data.
 
 \begin{figure}[!hp]
   \centering
@@ -426,7 +427,7 @@ A double-sided Crystal Ball function \cite{dscb-diphoton}, a Gaussian core with 
 The background for the non-resonant analysis is composed of a model for the smoothly-falling \yy-continuum, and a model for single Higgs boson production. 
 
 
-For the \yy-continuum background, a functional form is fit to data. The fit function is selected through a \textit{spurious signal} test \cite{spurious-signal-diphoton}, which evaluates potential bias from this procedure. This test performs signal-plus-background fits to just the simulated background, evaluating the extracted signal in the $\unit{121}{\GeV} < \myy < \unit{129}{\GeV}$ window, which is taken as the bias. This procedure is repeated for each considered function, and the function with the fewest spurious signal events is selected as the background function. If functions have the same bias, then by an Occam's Razor argument, the function with fewer free parameters is selected. The considered functions for this test are as follows:
+For the \yy-continuum background, a functional form is fit to data. The fit function is selected through a \textit{spurious signal} test \cite{spurious-signal-diphoton}, which evaluates potential bias from this procedure. This test performs signal-plus-background fits to just the background, evaluating the extracted signal in the $\unit{121}{\GeV} < \myy < \unit{129}{\GeV}$ window, which is taken as the bias. This procedure is repeated for each considered function, and the function with the fewest spurious signal events is selected as the background function. If functions have the same bias, then by an Occam's Razor argument, the function with fewer free parameters is selected. The considered functions for this test are as follows:
 \begin{itemize}
   \item Exponential, consider orders $N=1,2,3$. Generalized form: $Exp^N (\myy ; \theta^{bkg}) = exp(\sum\limits_{j=0}^{N} \theta_j^{bkg} \dot m_{\gamma\gamma}^j)$
   \item Bernstein, consider orders $N=3,4,5$. Generalized form: $Bernstein^N (\myy ; \theta^{bkg}) = \sum\limits_{j=0}^{N} \theta_j^{bkg} b_{j,N}$, for $b_{j,N} = C_n^i x^j (1-x)^{N-j}$, where $x= (\myy-100)/60$
@@ -460,7 +461,7 @@ The single Higgs boson background is modeled through a double-sided Crystal Ball
 \subsection{Modeling in the Resonant Analysis}
 \subsubsection{Signal Modeling}
 
-For the resonant analysis, several functional forms were considered, including \texttt{ExpGaussExp}\footnote{Also called a ``double-shouldered GaussExp.''}, Crystal Ball + Gaussian, Crystal Ball + Voigt, and a Double Sided Crystal Ball. The model with the fewest parameters that converged was selected. This model was the \texttt{ExpGaussExp}, a function using a gaussian core with exponential tails. The mass hypotheses were fit simultaneously, which this yielded more stable fits. Sample fits for two mass hypotheses, one high mass (750 GeV) and one low mass (325 GeV), are shown in Figure \ref{fig:resonant_myybb_EGE}.
+For the resonant analysis, several functional forms were considered, including \texttt{ExpGaussExp}\footnote{Also called a ``double-shouldered GaussExp.''}, Crystal Ball + Gaussian, Crystal Ball + Voigt, and a Double Sided Crystal Ball. The model with the fewest parameters that converged was selected. This model was the \texttt{ExpGaussExp}, a function using a gaussian core with exponential tails. The mass hypotheses were fit simultaneously, which yielded more stable fits. Sample fits for two mass hypotheses, one high mass (750 GeV) and one low mass (325 GeV), are shown in Figure \ref{fig:resonant_myybb_EGE}.
 
 \begin{figure}[htbp!]
   \centering
@@ -597,7 +598,9 @@ A $H\rightarrow \yy$ \gls{BR} uncertainty of $^{+2.9\%}_{-2.8\%}$ and a $H\right
 
 \noindent\textbf{Simulation:} Calibration uncertainties apply to photons and jets used in the analysis, for all samples except the \yy-continuum, which is estimated from data. The uncertainties are propagated through the analysis chain, and relevant observables are constructed. Then changes in peak location and width ($m_{\text{peak}}$ and $\sigma_{\text{peak}}$, respectively), as well as signal yield in \myy (non-resonant) or \myybb (resonant) are extracted. In the resonant analysis, uncertainties are evaluated at each mass hypothesis are evaluated, and the maximum value is taken.
 
-\noindent\textbf{Yield:} Photon identification and isolation affect the diphoton selection efficiency. Peak uncertainties are primarily due to photon energy scale, and are about 0.2-0.6\% for both mono and di-Higgs samples. Width uncertainties are primarily due to photon energy resolution, and are 5-14\%. Uncertainties in \gls{JES} and \gls{JER} affect the \mbb acceptance \cite{jes-uncertainty}.  Uncertainties in flavor tagging can miscategorization of events in the tagging categories. A summary of the most dominant systematic uncertainties can be found in Table \ref{tab:systematic_uncertainties}
+\noindent\textbf{Yield:} Photon identification and isolation affect the diphoton selection efficiency. Peak uncertainties are primarily due to photon energy scale, and are about 0.2-0.6\% for both mono and di-Higgs samples. Width uncertainties are primarily due to photon energy resolution, and are 5-14\%. 
+
+\noindent\textbf{Jets:} Uncertainties in \gls{JES} and \gls{JER} affect the \mbb acceptance \cite{jes-uncertainty}.  Uncertainties in flavor tagging can miscategorization of events in the tagging categories. A summary of the most dominant systematic uncertainties can be found in Table \ref{tab:systematic_uncertainties}
 
 \noindent\textbf{Signal Model:} The spurious signal, described in Section \ref{sssec:nonres-bkg-model}, is used as an uncertainty on the number of signal events. The values for each analysis category can be found in Table \ref{tab:unc-sig-events}.
 
@@ -664,9 +667,27 @@ A $H\rightarrow \yy$ \gls{BR} uncertainty of $^{+2.9\%}_{-2.8\%}$ and a $H\right
 \end{table}
 %%%%%% SYSTEMATICS TABLE
 
+\section{Statistical Analysis}
+
+The statistical analysis uses the profile likelihood ratio
+\begin{equation}
+  \label{eq:qmutilda}
+  \tilde{q}_{\mu} = \left\{
+  \begin{array}{ll}
+    %-2ln$\frac{L(\mu,\hat{\hat{\theta}}(\mu))}{L(0,\hat{\hat{\theta}}(0))}$
+    -2\ln\frac{L(\mu,\hat{\hat{\theta}}(\mu))}{L(0,\hat{\hat{\theta}}(0))}  & \mbox{$\hat{\mu}<0$} \\
+    -2\ln\frac{L(\mu,\hat{\hat{\theta}}(\mu))}{L(\hat{\mu},\hat{\theta}(\mu))} & \mbox{$0\leq\hat{\mu}\leq\mu$} \\
+    0 & \mbox{$\hat\mu>\mu$} \\
+  \end{array}
+  \right .
+\end{equation}
+where $\theta$ is the nuisance parameters and $\mu$ is the \gls{POI}. This analysis is statistics limited, so toy experiments are generated following the frequentist recommendation. Global observables are randomized around the corresponding nuisance parameter values fit on the data on the data for the given signal hypothesis ($\mu$), except spurious signal, which is randomized around 0.
+
 
 
 \section{Results}
+
+
 
 \subsection{Limits on Non-Resonant Production}
 
