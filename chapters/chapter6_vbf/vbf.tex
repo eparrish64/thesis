@@ -37,7 +37,7 @@ First, the following preselection cuts are applied:
 \end{itemize}
 
 \subsection{BDT for ggF Production} \label{ssec:ggf-bdt}
-A \gls{BDT} has been trained in order to maximize signal efficiency for ggF HH production. Following preselection, events are segmented into two regions, a high mass region with $M_X^{*} > 350 \text{GeV}$ targeting the standard model signal, and a low mass region with $M_X^{*} < 350 \text{GeV}$ targeting BSM signals. 
+A \gls{BDT} has been trained in order to maximize signal efficiency for ggF HH production\footnote{The \glspl{BDT} presented in this chapter use the \texttt{XGBoost} library \cite{XGBoost}. Data manipulation is performed using the \texttt{Numpy} library \cite{numpy}}. Following preselection, events are segmented into two regions, a high mass region with $M_X^{*} > 350 \text{GeV}$ targeting the standard model signal, and a low mass region with $M_X^{*} < 350 \text{GeV}$ targeting BSM signals. 
 
 In each region, a separate BDT is trained using a benchmark HH signal against a combination of \yy, $ttH$, $ggH$, and $ZH$ backgrounds. In the high mass region, the standard model HH sample is used as signal, while in the low mass region, the $\klambda = 6$ sample is used as signal.
 
@@ -111,7 +111,7 @@ Distributions for each these variables after applying a 4-jet requirement can be
 This section outlines two optimizations performed in the definition of the VBF-enriched category. First, the optimization of the model's main hyperparameters. Second, the selection of cuts on the \gls{BDT} scores to define the \gls{VBF} signal category. For these optimizations, an orthogonal sample of events must be selected to ensure the model is generalizable. A subset of 50\% of the data is used for training, 25\% for testing, and 25\% for model selection\footnote{This split is done using the ATLAS global event number. A modulo 4 operation is performed on the event number, if the result is 0 or 1, it is used in the training sample. If the result is 2, it is used in the testing sample. If the result is 3, it is used in the model selection sample.}.
 
 \noindent\textbf{Hyperparameter Optimization}\\
-\indent The maximum \gls{BDT} depth is selected by training models at increasing depth and selecting the depth when the accuracy on the testing set ceases to improve, a depth of 14. After that point, the accuracy on the training set flattens, while it continues to increase on the testing set, leading to overtraining. The same procedure is performed for the number of trees, evaluating 10, 25, 50, 75, 100, 150, 200, and 300 trees. This parameter flattens for both training and testing, so a safe choice of 200 trees is used. The accuracy as a function of these parameters is shown in Figure \ref{fig:hp-opt}.
+\indent The maximum \gls{BDT} depth is selected by training models at increasing depth and selecting the depth when the accuracy on the testing set ceases to improve, a depth of 14. After that point, the accuracy on the training set flattens, while it continues to increase on the testing set, leading to overtraining. The same procedure is performed for the number of trees, evaluating 10, 25, 50, 75, 100, 150, 200, and 300 trees. This parameter flattens for both training and testing, so a safe choice of 200 trees is used. The accuracy as a function of these parameters is shown in Figure \ref{fig:hp-opt}\footnote{Plots in this chapter are created using the \texttt{Matplotlib} python library \cite{matplotlib}}.
 
 \begin{figure}[!h]
   \centering
