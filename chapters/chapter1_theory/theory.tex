@@ -6,9 +6,9 @@
 
     \section{The Standard Model}
 
-        The \gls{SM} is a Yang-Mills theory that explains the observed particles in the universe: fermions and bosons. Fermions are the particles which take up space and make up matter. In Section \ref{ssec:fermions}, the two categories of fermions, quarks and leptons, will be discussed. By contrast, interactions between particles are due to exchange of a gauge boson, which are discussed throughout Section \ref{ssec:bosons}.
+        The \gls{SM} of particle physics aims to provide a description of the known fundamental particles and their interactions. A fundamental particle is one which cannot be further divided into smaller particles, thus having no substructure. These can be separated into two classes, fermions and bosons. Fermions are the particles which take up space and make up matter. In Section \ref{ssec:fermions}, the two categories of fermions, quarks and leptons, will be discussed. By contrast, interactions between particles are due to exchange of a gauge boson, which are discussed throughout Section \ref{ssec:bosons}.
 
-        Yang-Mills theories are gauge theories, field theories in which the Lagrangian is invariant under local transformations (known as gauge invariance). The group of these transformations is known the symmetry group of the theory. Further, Yang-Mills theories are non-abelian gauge theories, meaning their symmetry group is non-commutative. Noether's theorem \cite{noether} states that every symmetry of nature implies a corresponding conservation law, and the various gauge invariance of the \gls{SM} point toward such conservation laws. In Section \ref{ssec:bosons}, the interactions of the \gls{SM} are shown, each with a gauge invariance and associated force-carrying boson. %TODO: could make this better
+        The \gls{SM} is a Yang-Mills theory \cite{yang-mills}, a gauge theory based on $SU(3)$ symmetry. Gauge theories are field theories in which the Lagrangian is invariant under local transformations (known as gauge invariance). The group of these transformations is known the symmetry group of the theory. Further, Yang-Mills theories are non-abelian gauge theories, meaning their symmetry group is non-commutative. Noether's theorem \cite{noether} states that every symmetry of nature implies a corresponding conservation law, and the various gauge invariance of the \gls{SM} point toward such conservation laws. In Section \ref{ssec:bosons}, the interactions of the \gls{SM} are shown, each with a gauge invariance and associated force-carrying boson.
 
 
         \subsection{Fermions} \label{ssec:fermions}
@@ -41,9 +41,13 @@
 
         Generally, the wave function of a fermion is given by $\psi(x)$, and is a spinor of four components. The motion is described by the relativistic version of the Schr{\"o}dinger equation known as the Dirac equation, given as
         \begin{equation} \label{eqn:dirac}
-            (i\gamma'^{\mu}\partial_{\mu}-m)\Psi' = 0
+            (i\gamma'^{\mu}\partial_{\mu}-m)\Psi' = 0,
         \end{equation}
-
+        and interactions are given by the Dirac Lagrangian,
+        \begin{equation} \label{eqn:dirac-l}
+            \mathcal{L} = \bar{\psi}(i \gamma^{\mu}\partial_{\mu}-m) \psi,
+        \end{equation}  
+        for a particle of mass $m$.
 
         %%%%%% Forces %%%%%%%%        
         \subsection{Bosons and Particle Interactions} \label{ssec:bosons}
@@ -71,11 +75,7 @@
             \psi(x) \rightarrow e^{-i\theta(x)}\psi(x),
         \end{equation}        
         %
-        for real-valued function $\theta(x)$, will transform the Dirac Lagrangian,
-        \begin{equation}
-            \mathcal{L} = \bar{\psi}(i \gamma^{\mu}\partial_{\mu}-m) \psi,
-        \end{equation}
-        which governs the interaction of spin-$\frac{1}{2}$ particles with charge $q$ and mass $m$, like
+        for real-valued function $\theta(x)$, will transform the Dirac Lagrangian, Equation \ref{eqn:dirac-l}, like
         \begin{equation}
             \mathcal{L} \rightarrow \mathcal{L} - (\partial_{\mu}\theta)\bar{\psi}\gamma^{\mu}\psi.
         \end{equation}
@@ -90,7 +90,7 @@
             D_{\mu} = \partial_{\mu} + iqA_{\mu},
         \end{equation}
         %
-        This massless vector field corresponds to the electromagnetic field, and the covariant derivative describes the minimal coupling of the photon, its quanta, to fermions. Applying this vector field to the Dirac Lagrangian gives the \gls{QED} Lagrangian,
+        for a particle with charge $q$. This massless vector field corresponds to the electromagnetic field, and the covariant derivative describes the minimal coupling of the photon, its quanta, to fermions. Applying this vector field to the Dirac Lagrangian gives the \gls{QED} Lagrangian,
         \begin{equation}\label{eqn:qed-lagrangian}
             \mathcal{L}_{QED} = \bar{\psi} (i \gamma^{\mu} D_{\mu} - m)\psi - \frac{1}{4} F_{\mu \nu}F^{\mu \nu}
         \end{equation}
@@ -212,12 +212,7 @@ This provides a prediction the prediction of the gauge boson masses:
     m^2_W = \frac{g^2 v^2}{4}, \hspace{1cm} m^2_Z = \frac{(g^2 +g'^2)v^2}{4}, \hspace{1cm} m_{A} =0,
 \end{equation}
 %
-which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$. Since the massless gauge boson must couple with strength $e$, this gives the weak mixing angle $\theta_{W}$,
-\begin{align}
-    e &= g \sin{\theta_W} \\
-    e &= g' \cos{\theta_W}
-\end{align}
-In unitarity gauge, the Higgs potential takes the form:
+which agrees with experimental values when the \gls{vev} is $\unit{246}{\GeV}$. In unitarity gauge, the Higgs potential takes the form:
 \begin{equation}
     V(h) = \lambda v^2 h^2 + \lambda v h^3 + \frac{\lambda}{4}h^4,
 \end{equation}
@@ -225,7 +220,51 @@ In unitarity gauge, the Higgs potential takes the form:
 indicating self-interactions with the Higgs boson. The second term gives rise to the trilinear coupling, while the third indicates the Higgs quartic coupling. These couplings imply the existence of $hhh$ and $hhhh$ verticies, respectively. The Higgs boson mass can also be derived as $m_h = \sqrt{2\lambda}v$. 
 
 
-%%%%%% Di-Higgs %%%%%%%%                
+%%%%%% Di-Higgs %%%%%%%%     
+\subsection{The Higgs Boson at the \gls{LHC}}
+
+\noindent \textbf{Higgs Boson Production}\\
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.7\textwidth]{chapters/chapter1_theory/images/production_rates.png}
+    \caption[The cross-section of various Higgs boson production modes for a as a function of the center-of-mass energy]{The cross-section of various Higgs boson production modes for a \gls{SM} Higgs boson with $m_{H}=\unit{125}{\GeV}$ as a function of the center-of-mass energy \cite{hh-crosssections}.}
+    \label{fig:higgs-production-modes}
+\end{figure}
+
+The dominant Higgs boson production modes are shown in Figure \ref{fig:higgs-production-modes} as a function of the center-of-mass energy.
+
+\glsfirst{ggF} production is the dominant Higgs boson production channel at the \gls{LHC}. At the current center-of-mass energy of 13 TeV, it makes up 87\% of Higgs boson events. In this production mode, two initial state gluons produce the Higgs boson through a heavy quark loop.
+
+\glsfirst{VBF} production is the second-most dominant Higgs boson production mode at the \gls{LHC}, comprising 6.8\% of Higgs boson events. In \gls{VBF} production, incoming quarks radiate vector bosons, which interact to produce the Higgs boson. The radiating quarks are present in the final state, and possess a distinct forward signature.
+
+The remaining major Higgs boson production modes are vector boson associated production ($WH$ and $ZH$), top associated production (\tth and $tH$), and \bb fusion ($b\bar{b}H$).
+
+
+\noindent \textbf{Higgs Boson Decay}\\
+\indent Due to the short lifetime of the Higgs boson, measurements and searches are performed by studying its decay particles. The Higgs directly couples to all massive particles, and decays directly to any such massive particles provided conservation laws are followed. Additionally, it can decay to massless particles via virtual loops, but as a result, these branching ratios are relatively small. The \gls{SM} Higgs branching ratios are shown in table \ref{tab:higgs-decays}. 
+
+\begin{table}[!thp]
+    \centering
+    \caption[Branching ratios for the \gls{SM} Higgs boson]{Branching ratios for the \gls{SM} Higgs boson \cite{pdg}.}
+    \begin{tabular}{c|c}
+        Channel & Branching Ratio \\
+        \cline{1-2}
+        $H \rightarrow b\bar{b}$ & $57.5 \pm 1.9$\\
+        $H \rightarrow WW^*$ & $21.6 \pm 0.9$\\
+        $H \rightarrow gg$ & $8.56 \pm 0.86$\\
+        $H \rightarrow \tau^+ \tau^-$ & $6.30 \pm 0.36$\\
+        $H \rightarrow c\bar{c}$ & $2.90 \pm 0.35$\\
+        $H \rightarrow ZZ^*$ & $2.67 \pm 0.11$\\
+        $H \rightarrow \gamma\gamma$ & $0.228 \pm 0.011$\\
+        $H \rightarrow Z\gamma$ & $0.155 \pm 0.014$\\
+        $H \rightarrow \mu^+ \mu^-$ & $0.022 \pm 0.001$
+    \end{tabular}
+    \label{tab:higgs-decays}
+\end{table}
+
+
+
 \section{Di-Higgs Production} \label{sec:diHiggs}
 
 Observing the trilinear coupling directly probes electroweak symmetry breaking, and provides a precision test electroweak theory. For a direct probe\footnote{Through loop corrections, mono-Higgs searches can provide an indirect handle on the trilinear coupling. ATLAS has published one such analysis with $\unit{80}{\invfb}$, found in Reference \cite{monohiggs-selfcoupling}. When making the assumption that all other Higgs couplings are as predicted by the \gls{SM}, this analysis finds the observed (expected) $95\%$ C.L. interval on the trilinear coupling to be $-3.2 < \kappa_\lambda <11.9$   $(-6.2 < \kappa_\lambda <14.4)$. }, production modes resulting in pair and triplet Higgs production must be studied. The cross-section of such production modes, however, is quite small. Triplet production of Higgs bosons occurs at a rate 6 orders of magnitude less frequently than mono-Higgs production, and is not feasible to study at the \gls{LHC}. Pair production is 3 orders of magnitude more rare than mono-Higgs production, but over the full \gls{LHC} lifetime, a handle on the trilinear self-coupling may be achievable.
@@ -271,7 +310,7 @@ The second-most dominant $HH$ production mode is \gls{VBF} ($qq \rightarrow HHqq
     \label{fig:vbf_feyn}
 \end{figure}
 
-The coupling denoted $c_V$ is the interaction between two vector bosons and a Higgs boson. This coupling has constraints from mono-Higgs analyses, measured at $1.21^{+0.22}_{-0.21}$ the \gls{SM} value \cite{higgs-measurements}. The coupling denoted $\kappa_{\lambda}$ is again the Higgs trilinear coupling, meaning that the \gls{VBF} production mode offers sensitivity to this vertex as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The coupling denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons. \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
+The coupling denoted $c_V$ is the interaction between two vector bosons and a Higgs boson. This coupling has constraints from mono-Higgs analyses, measured at $1.21^{+0.22}_{-0.21}$ the \gls{SM} value \cite{higgs-measurements}. The coupling denoted $\kappa_{\lambda}$ is equal to $\lambda/\lambda_{SM}$, meaning that the \gls{VBF} production mode offers sensitivity to the Higgs trilinear coupling as well. Phenomenology studies at parton level have shown the sensitivity in the \gls{VBF} mode to provide a competitive handle on $\kappa_{\lambda}$ \cite{vbf_lambda}. The coupling denoted $c_{2V}$ is the interaction between two vector bosons and two Higgs bosons. \gls{VBF} $HH$ searches offer a unique handle on this vertex, previously entirely unconstrained.
 
 Despite the low cross-section of \gls{VBF} production, the unique kinematics make the channel appealing for searches. The diphoton \gls{VBF} channel contributed to the 2012 single Higgs boson discovery \cite{higgs-discovery-atlas}. Notably, the \gls{VBF} quarks yield a high $m_{jj}$ system and are largely separated in $\eta$. The kinematics of \gls{VBF} di-Higgs production are similar to that of mono-Higgs. The major difference is that mono-Higgs searches take advantage of the low central jet activity by applying a veto. In $HH \rightarrow \gamma \gamma b\bar{b}$, however, the $H \rightarrow b\bar{b}$ system causes central jet activity, making such a veto impossible.
 
@@ -312,7 +351,7 @@ Non-resonant enhancements to the $HH$ cross-section could occur through two majo
 Several \gls{BSM} theories predict new particles that would decay to a pair of Higgs bosons, which would result in a resonant enhancement to the $HH$ cross-section. Notably, \glspl{THDM} extend the Higgs sector with the presence of a heavy scalar doublet \cite{THDM}. Among these models are the minimal supersymmetric extension of the \gls{SM} \cite{mssm}, twin Higgs models, and composite Higgs models \cite{compositeHiggs}. The analysis presented in this thesis is model-independent, searching for enhancements to the $HH$ cross section through the presence of a generic scalar particle.
 
 \noindent\textbf{\gls{ggF}}\\
-\indent In \gls{ggF} production, the resonance would be present through the generic scalar coupling to the triangle diagram, which subsequently decays into the $HH$ pair. As a result, this resonance would be observed as an enhancement to the $HH$ cross section, as this production is not modeled in the \gls{SM}. A sample Feynman diagram for such a resonance can be seen in Figure \ref{fig:ggf-resonant}.
+\indent In \gls{ggF} production, the resonance would be present through a coupling to the triangle diagram, which subsequently decays into the $HH$ pair. As a result, this resonance would be observed as an enhancement to the $HH$ cross section, as this production is not modeled in the \gls{SM}. By conservation, its mass would be equivalent to the four-vector sum of the pair produced Higgs bosons, $m_{X} = m_{HH}$. A sample Feynman diagram for such a resonance can be seen in Figure \ref{fig:ggf-resonant}. The presented analysis searches for this resonance as a generic scalar particle, in order to maintain model-independence.
 
 
 \begin{figure}[!ht]
@@ -334,30 +373,10 @@ particularly well studied (Reference \cite{res_vbf} presents an analysis in the 
     \label{fig:vbf-resonant}
 \end{figure}
 
-\subsection{Decay in the Standard Model}
 
-Due to the short lifetime of the Higgs boson, measurements and searches are performed by studying its decay particles. The Higgs directly couples to all massive particles, and decays directly to any such massive particles provided conservation laws are followed. Additionally, it can decay to massless particles via virtual loops, but as a result, these branching ratios are relatively small. The \gls{SM} Higgs branching ratios are shown in table \ref{tab:higgs-decays}. 
+\subsection{Di-Higgs Decay}
 
-\begin{table}[!thp]
-    \centering
-    \caption[Branching ratios for the \gls{SM} Higgs boson]{Branching ratios for the \gls{SM} Higgs boson \cite{pdg}.}
-    \begin{tabular}{c|c}
-        Channel & Branching Ratio \\
-        \cline{1-2}
-        $H \rightarrow b\bar{b}$ & $57.5 \pm 1.9$\\
-        $H \rightarrow WW^*$ & $21.6 \pm 0.9$\\
-        $H \rightarrow gg$ & $8.56 \pm 0.86$\\
-        $H \rightarrow \tau^+ \tau^-$ & $6.30 \pm 0.36$\\
-        $H \rightarrow c\bar{c}$ & $2.90 \pm 0.35$\\
-        $H \rightarrow ZZ^*$ & $2.67 \pm 0.11$\\
-        $H \rightarrow \gamma\gamma$ & $0.228 \pm 0.011$\\
-        $H \rightarrow Z\gamma$ & $0.155 \pm 0.014$\\
-        $H \rightarrow \mu^+ \mu^-$ & $0.022 \pm 0.001$
-    \end{tabular}
-    \label{tab:higgs-decays}
-\end{table}
-
-In di-Higgs searches, properties of both Higgs decays must be considered. Branching ratios for various combinations of $HH$ decays are shown in Figure \ref{fig:hh-brs}. The already small $HH$ cross section motivates searches to target high branching ratio decay modes, thus the three primary channels of study all incorporate the $H\rightarrow b\bar{b}$ decay. The $b\bar{b}b\bar{b}$ decay channel has highest possible branching ratio at $33.9\%$, but has significant challenges presented by triggering and a large QCD background. The $b\bar{b}\tau \tau$ has the third largest branching ratio at $7.3\%$, and benefits from a much smaller \gls{SM} background than the $b\bar{b}b\bar{b}$ channel, primarily $t\bar{t}$ and $Z\rightarrow \tau^+ \tau^-$ + jets. Last the $b\bar{b} \gamma \gamma$ channel, presented in this thesis, has just a $0.3\%$ branching ratio, but takes advantage of the excellent $H\rightarrow \gamma\gamma$ mass resolution, as well as the clean diphoton trigger and photon reconstruction efficiency.
+In di-Higgs searches, properties of both decaying Higgs decays must be considered. Branching ratios for various combinations of $HH$ decays are shown in Figure \ref{fig:hh-brs}. The already small $HH$ cross section motivates searches to target high branching ratio decay modes, thus the three primary channels of study all incorporate the $H\rightarrow b\bar{b}$ decay. The $b\bar{b}b\bar{b}$ decay channel has highest possible branching ratio at $33.9\%$, but has significant challenges presented by triggering and a large QCD background. The $b\bar{b}\tau \tau$ has the third largest branching ratio at $7.3\%$, and benefits from a much smaller \gls{SM} background than the $b\bar{b}b\bar{b}$ channel, primarily $t\bar{t}$ and $Z\rightarrow \tau^+ \tau^-$ + jets. Last the $b\bar{b} \gamma \gamma$ channel, presented in this thesis, has just a $0.3\%$ branching ratio, but takes advantage of the excellent $H\rightarrow \gamma\gamma$ mass resolution, as well as the clean diphoton trigger and photon reconstruction efficiency.
 
 \begin{figure}[!htp]
     \centering
