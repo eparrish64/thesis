@@ -1,5 +1,5 @@
-
 \chapter{Future Improvements - Vector Boson Fusion HH Production} \label{ch:vbf}
+\quoteAuthor{The signal is the truth. The noise is what distracts us from the truth.}{Nate Silver, The Signal and the Noise}
 
 To improve this analysis, a signal model for the Vector Boson Fusion production mode has been designed and will be implemented into this analysis using the full \RunTwo dataset. This signal model is integrated into the analysis through a separate analysis category that is enriched in VBF events, defined via cuts on multiclass \gls{BDT} scores.
 
@@ -19,9 +19,8 @@ The ggF \hh sample produced in these studies matches the non-resonant \gls{SM} s
 
 The same \yy-continuum processes described in Section \ref{sssec:background-samples} are the predominant background in these studies. Dominant mono-Higgs backgrounds described in Section \ref{sssec:background-samples} are considered as well, $ttH$, $ZH$, and $ggH$. Both of these have been produced to match the conditions of the full \RunTwo data taking period.
 
-Additionally, \gls{NTNI} data, which fails photon identification, isolation, or both, is considered to model $\gamma j$, $j \gamma$, and $jj$ contributions. The yield is proportionally scaled to the template fits, described in Section \ref{ssec:background-composition}. Last, a sample of top-quark pair production associated with 2 photons, $tt \yy$, is used. 
+Additionally, \gls{NTNI} data, which fails photon identification, isolation, or both, is considered to model $\gamma j$, $j \gamma$, and $jj$ contributions. The yield is proportionally scaled to the template fits, described in Section \ref{ssec:background-composition}. Last, a sample of top-quark pair production associated with 2 photons, $tt \yy$, is used. This sample is produced at \gls{LO} using \MADGRAPH, showered with \peight using the \texttt{A14} tune and the \texttt{NNPDF23LO} PDF set.
 
-%TODO find the ttyy information
 
 \section{Event Selection} \label{ssec:vbf-event-selection}
 
@@ -74,7 +73,7 @@ These events are then evaluated by a multiclass BDT, which has independent class
 \begin{figure}[htbp]
     \centering
 	\includegraphics[width=0.9\textwidth]{chapters/chapter6_vbf/images/vbf_logic.png}
-    \caption{Logic flow for an event to be selected into the VBF-enriched signal region. The starting set of candidates (denoted ``event'') requires passing preselection and at least one of the ggF-based signal categories. If an event is assigned to the ggF categories, it is separated into 4 categories by the \gls{BDT} described in Section \ref{ssec:ggf-bdt}.}
+    \caption[Logic flow for an event to be selected into the VBF-enriched signal region]{Logic flow for an event to be selected into the VBF-enriched signal region. The starting set of candidates (denoted ``event'') requires passing preselection and at least one of the ggF-based signal categories. If an event is assigned to the ggF categories, it is separated into 4 categories by the \gls{BDT} described in Section \ref{ssec:ggf-bdt}.}
     \label{fig:vbf-logic}
 \end{figure}
 
@@ -152,7 +151,8 @@ Through this optimization procedure, the thresholds shown in Table \ref{tab:mult
   \label{fig:bdt-scores}
 \end{figure}
 
-The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}. The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. The categorization for the mono-Higgs, \gls{NTNI}, and $tt\yy$ samples are shown in Appendix TODO. Adding these 5 categories in quadrature gives an Asimov significance of 0.459, a 9.7\% improvement over not defining such a category.
+The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}. The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. Adding these 5 categories in quadrature gives an Asimov significance of 0.459, a 9.7\% improvement over not defining such a category.
+% The categorization for the mono-Higgs, \gls{NTNI}, and $tt\yy$ samples are shown in Appendix TODO.
 
 \begin{figure}[p!]
   \centering

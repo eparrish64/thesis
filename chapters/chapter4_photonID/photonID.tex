@@ -1,4 +1,5 @@
 \chapter{Photon Identification Optimization}
+\quoteAuthor{Science does not know its debt to imagination.}{Ralph Waldo Emerson}
 
 Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interaction in the calorimeter. These include variables describing the leakage in the hadronic calorimeter ($R_{had}$, $R_{had_1}$), widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), and the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$). A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}. Two sets of cuts are defined, corresponding to two working points, nominally the \textit{tight} and \textit{loose} menus. 
 
@@ -29,7 +30,7 @@ This chapter describes an optimization to the tight photon identification menu t
 
 In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. 
 
-For these studies, a sample of leading-order $\gamma+$jet events from $qg \rightarrow q \gamma$ and $q\bar{q} \rightarrow g \gamma$ hard scattering, as well as and quark fragmentation in QCD dijet events is used. For background, a jet-jet sample with all tree-level $2\rightarrow2$ QCD processes, except $\gamma+$jet events from quark fragmentation is used. Both samples are generated using \peight with the \texttt{A14} tune and \texttt{NNPDF2.3LO} PDF set. The simulation matched the detector conditions in the 2015 and 2016 data taking period. 
+For these studies, a sample of leading-order $\gamma+$jet events from $qg \rightarrow q \gamma$ and $q\bar{q} \rightarrow g \gamma$ hard scattering, as well as and quark fragmentation in QCD dijet events is used. For background, a jet-jet sample with all tree-level $2\rightarrow2$ QCD processes, except $\gamma+$jet events from quark fragmentation is used. Both samples are generated using \peight with the \texttt{A14} tune and \texttt{NNPDF2.3LO} PDF set. The simulation matched the detector conditions in the 2015 and 2016 data taking period. In both cases, an inclusive \texttt{OR} of single photon triggers is applied, with thresholds running as low as 10 GeV\footnote{The triggers applied are \texttt{HLT\_g*\_loose}}.
 
 \subsection{Event Selection}
 
@@ -158,7 +159,7 @@ for $N^{\pi^0(\pi^\pm)}_{ijkl}$ topo-clusters in a given bin $ijkl$ and $N^{\pi^
 
 
 \subsection{Data-MC Comparison} \label{ssec:yid-datamc}
-In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Furthermore, photons in \gls{MC} must correspond to a truth photon. Comparisons for $\sqrt{\lambda_{0}^2}$ and $\sqrt{r_{0}^2}$ are shown in Figure \ref{fig:data-mc-secondLambda} and \ref{fig:data-mc-secondR}, respectively. Comparisons for the remaining input variables considered are included into Appendix \ref{app:datamc} for both converted and unconverted photons.
+In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Data from the 2015+2016 data-taking period is considered, collected using a set of single-photon triggers with loose identification requirements matching those applied to the \gls{MC} samples, running as low as 10 GeV. As before, photons in \gls{MC} must correspond to a truth photon. Comparisons for $\sqrt{\lambda_{0}^2}$ and $\sqrt{r_{0}^2}$ are shown in Figure \ref{fig:data-mc-secondLambda} and \ref{fig:data-mc-secondR}, respectively. Comparisons for the remaining input variables considered are included into Appendix \ref{app:datamc} for both converted and unconverted photons.
 
 In general, the \gls{MC} models the unconverted photons well, with the exception of the isolation, particularly in the most central bin and beyond the crack. For converted photons, $\sqrt{r_{0}^2}$ modeling differs between data and \gls{MC}, and isolation differs considerably, particularly in the most central bin. On average converted photons have more topo-clusters per photon object, meaning they suffer more from cluster splitting, which influences these effects.
 
@@ -182,11 +183,11 @@ In general, the \gls{MC} models the unconverted photons well, with the exception
 \noindent\textbf{Correlations}\\
 \indent The correlations of the topo-cluster variables to each other, to the shower shape variables, and to the isolation working points is evaluated. The correlations between variables is checked since highly correlated do not bring new information, and thus are not useful for adding additional cuts on. Photon identification and isolation must be uncorrelated in order to define the regions used for 2x2D sideband methods \cite{2x2d-definition}, as correlations can affect the purity estimation. These correlations are shown for both the $\gamma$+jet and jet-fakes sample in in Figure \ref{fig:photonid-corrs}. 
 
-\begin{figure}[!thp]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=.77\textwidth]{chapters/chapter4_photonID/images/sig_none_corr.png}
     \includegraphics[width=.77\textwidth]{chapters/chapter4_photonID/images/bkg_none_corr.png}
-    \caption{Correlation values between the shower shape variables, topological cluster variables, and isolation working points for the $\gamma$+jet (top) and jet-fakes (bottom) sample.}
+    \caption[Correlation values between the shower shape variables, topological cluster variables, and isolation working points for the $\gamma$+jet and jet-fakes sample] {Correlation values between the shower shape variables, topological cluster variables, and isolation working points for the $\gamma$+jet (top) and jet-fakes (bottom) samples.}
     \label{fig:photonid-corrs}
 \end{figure}
 
@@ -203,7 +204,7 @@ for relative gain $Z_{\text{rel}}$ (the figure of merit),  and background effici
     \item In a high dimensional space, such a grid search becomes computationally prohibitive, so a Genetic Algorithm\footnote{The Genetic Algorithm used is a standard method implemented in \texttt{TMVA}, and the details of implementation can be found in Reference \cite{TMVA}.} \cite{genetic-algo} is used to find an approximate solution. Increasing dimensionality increases the probability to find local minima that differ from the global minimum, and thus suboptimal solutions.
     \item Statistical fluctuations. Models are trained on an orthogonal subset of events than they are evaluated on, and statistical fluctuations in these samples can influence reported gain, particularly in low stats bins. Figure \ref{fig:photonid-events}\footnote{These plots, and the remainder of the plots shown in this chapter were created using the \texttt{Seaborn} library \cite{seaborn} and data manipulation was performed in \texttt{Pandas} \cite{pandas}.} shows the number of signal and background events in each $\eta$-\pt bin.
 \end{itemize}
-\begin{figure}[!thp]
+\begin{figure}[!hp]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/sig_events.pdf}
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/bkg_events.pdf}
@@ -217,7 +218,7 @@ for relative gain $Z_{\text{rel}}$ (the figure of merit),  and background effici
 %    \caption[Number of training events used in the model for converted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample, and the background jet fakes sample]{Number of training events used in the model for converted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample (top), and the background jet fakes sample (bottom). The preselection described in Section \ref{sec:photon-id-samples} is used.}
 %    \label{fig:conv-photonid-events}
 %\end{figure}
-\begin{figure}[!th]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/gain_topoAdded_unconverted.pdf}
     \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu]{The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu. Bins with fewer than 400 background events are masked.}
@@ -235,17 +236,17 @@ The current photon identification working points are defined by a univariate rec
 
 A gradient boosted \gls{BDT} was employed as an alternative classification algorithm. These models are built using \texttt{TMVA} \cite{TMVA}. In training, performance suffered heavily from the lack of background training statistics when segmenting into $\eta$-\pt bins. To navigate this problem, rather than training an independent model for each $\eta$-\pt bin, \pt inclusive models were trained. As shown in Figure \ref{fig:photonid-corrs}, the input variables have low correlation to \pt, and thus this does not bias the model. This provided better performance in high \pt bins. In low \pt bins, it provided better performance overall, but in a few bins had equivalent or negligibly worse performance. The percent improvement, as defined using the same metric defined in \ref{eqn:improvement-metric}, is shown in Figure \ref{fig:bdtinclusive-vs-bdt}, with the bin-wise trained \gls{BDT} used as the baseline.
 
-\begin{figure}[!th]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/BDTInclusive_v_BDT_normed.pdf}
-    \caption[The relative improvement in background rejection by using a \pt-inclusive trained \gls{BDT} compared to a \pt-binned \gls{BDT}]
-    {The relative improvement in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \pt-inclusive trained \gls{BDT} compared to a \pt-binned \gls{BDT}. Only shower-shape variables are included as inputs. Bins with fewer than 400 background events are masked.}
+    \caption[The relative gain in background rejection by using a \pt-inclusive trained \gls{BDT} compared to a \pt-binned \gls{BDT}]
+    {The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \pt-inclusive trained \gls{BDT} compared to a \pt-binned \gls{BDT}. Only shower-shape variables are included as inputs. Bins with fewer than 400 background events are masked.}
     \label{fig:bdtinclusive-vs-bdt}
 \end{figure}
 
 
 As a baseline, the \gls{BDT} is compared to the cut-based photon identification menu, using the same figure of merit defined in Equation \ref{eqn:improvement-metric}, where the efficiency denoted $i$ represents the \gls{BDT} model, and the efficiency denoted $0$ represents the current cut-based model. This model performs better in the majority of bins, by as much as 22\%, but performs worse in all of the outer $\eta$ bins, shown in Figure \ref{fig:gain-bdt-vs-cuts}.
-\begin{figure}[!th]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/gain_BDTinclusive_cuts_unconverted.pdf}
     \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \gls{BDT} compared to the cut-based photon identification menu]
@@ -256,7 +257,7 @@ As a baseline, the \gls{BDT} is compared to the cut-based photon identification 
 
 \subsection{Neural Network}\label{ssec:yid-nn}
 
-In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification, considering the same shower shape variables. It was developed using Keras \cite{Keras} using the Tensorflow \cite{Tensorflow} backend\footnote{Additionally, data manipulation was performed using the \texttt{Numpy} \cite{numpy} library.}. The model topology\footnote{A description of \gls{NN} topologies, activation functions, and other associated terminology can be found in Appendix \ref{app:MVA}.} used is shown in Figure \ref{fig:nn-model}, it has an input layer of size 9 to match the number of shower shape variables, which is densely connected to a hidden layer of size 6, with ReLU activation functions. This layer is densely connected to an output, where a dropout \cite{dropout} of 20\% is used while training to reduce overtraining. This produces a total of 67 trainable parameters. Models with additional layers and with a wider hidden layer were investigated but found to not provide any additional improvement in background rejection, so were rejected.
+In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification, considering the same shower shape variables. It was developed using Keras \cite{Keras} using the Tensorflow \cite{Tensorflow} backend\footnote{Data manipulation was performed using the \texttt{Numpy} \cite{numpy} library.}. The model topology\footnote{A description of \gls{NN} topologies, activation functions, and other associated terminology can be found in Appendix \ref{app:MVA}.} used is shown in Figure \ref{fig:nn-model}, it has an input layer of size 9 to match the number of shower shape variables, which is densely connected to a hidden layer of size 6, with ReLU activation functions. This layer is densely connected to an output with a sigmoid activation function. A dropout \cite{dropout} of 20\% is used while training to reduce overtraining. This produces a total of 67 trainable parameters. Models with additional layers and with a wider hidden layer were investigated but found to not provide any additional improvement in background rejection, so were rejected.
 
 \begin{figure}
     \centering
@@ -268,7 +269,7 @@ In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification, co
 
 The \gls{NN} performed better at low \pt than the inclusively trained \gls{BDT} by as much as 30\%, but worse at high \pt. This comparison can be seen in Figure \ref{fig:nn-v-bdt-unconverted}. A \pt-inclusive training approach was considered for the \gls{NN} as well, however provided a worse performance for the majority of $\eta-\pt$ bins, shown in Figure \ref{fig:nninclusive-v-binned}.
 
-\begin{figure}
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/NN_v_BDTinclusive_normed.pdf}
     \caption[The relative gain in background rejection by using a \gls{NN} trained bin-wise compared to a \gls{BDT} trained inclusively]
@@ -277,7 +278,7 @@ The \gls{NN} performed better at low \pt than the inclusively trained \gls{BDT} 
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/NNinclusive_v_NN_normed.pdf}
     \caption[The relative gain in background rejection by using a \gls{NN} trained inclusively compared to one trained bin-wise]
@@ -289,4 +290,11 @@ The \gls{NN} performed better at low \pt than the inclusively trained \gls{BDT} 
 
 \subsection{MVA With Topo-Cluster Variables}
 
-The \gls{BDT} was also studied incorporating the topo-cluster moments as inputs. This 
+The \gls{BDT} was studied incorporating the topo-cluster moments as inputs. The relative gain when doing so is shown in Figure \ref{fig:bdt-topo-vs-cuts}, as compared to the current tight photon identification working point using the cut based method. Through applying this optimization, as much as a 27\% improvement is shown, and in most \pt-$\eta$ bins, a gain of greater than 10\% is shown.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/BDTtopo_v_cuts_normed.pdf}
+    \caption[The relative gain in background rejection by using a \gls{BDT} with topo-cluster variables compared to the current tight photon identification methods]
+    {The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by using a \gls{BDT} with the topo-cluster variables as input in addition to the shower shape variables compared to compared to the current tight photon identification cut-based method. Bins with fewer than 400 background events are masked.}
+    \label{fig:bdt-topo-vs-cuts}
+\end{figure}

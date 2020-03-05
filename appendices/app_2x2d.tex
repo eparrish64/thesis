@@ -1,5 +1,7 @@
 \chapter{2x2D Sideband Method} \label{app:2x2d}
 
+\section{Formulation}
+
 The 2x2D sideband method\footnote{This method is described in detail in Reference \cite{2x2d-definition}} defines a \LoosePrime identification preselection, using all the standard photon ID shower shape cuts, except on $F_{side}$, $w_{s3}$, $\Delta E$, and $E_{ratio}$. Events that pass this criteria are input into the 2x2D method, and split into 16 orthogonal subsamples, based on if each photon passes or fails tight identification criteria or isolation criteria. This creates 15 background regions where one or both of the photons fails one or both of the identification and isolation criteria. The signal region is the category where both photons pass both identification and isolation criteria. In each region, the yield can be expressed in terms of signal and background yields for the whole L'L' sample, along with identification and isolation efficiencies for photons and jets and the correlations between the isolation distributions of the two fake photons in dijet events as follows:
 
 \begin{eqnarray}
@@ -136,8 +138,8 @@ The 2x2D sideband method\footnote{This method is described in detail in Referenc
   \end{itemize}
   
   \begin{table}[tb]
-    \caption{Isolation and identification efficiencies for true photons used as input to the 2x2D sideband method for the measurement of the inclusive diphoton purity of the sample passing the full selection, for the various selections under study.
-             The efficiencies are determined with respect to the leading and subleading photon candidates of true diphoton events that pass the full selection except the isolation and tight identification criteria: the photons must instead pass the \LoosePrime identification requirements.
+    \caption[Isolation and identification efficiencies for true photons used as input to the 2x2D sideband method]{Isolation and identification efficiencies for true photons used as input to the 2x2D sideband method for the measurement of the inclusive diphoton purity of the sample passing the full selection, for the various selections.
+             Efficiencies are determined with respect to the leading and subleading photon candidates of true diphoton events that pass the full selection except the isolation and tight identification criteria: the photons must instead pass the \LoosePrime identification requirements.
              The uncertainty arises from the limited MC statistics.
       \label{tab:2x2D_MC_inputs}}
     \begin{center}

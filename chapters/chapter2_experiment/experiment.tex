@@ -43,7 +43,7 @@ Due to the shape of the detector, cylindrical coordinates are also useful for de
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.5\textwidth]{chapters/chapter2_experiment/images/Pseudorapidity_plot.png}
+    \includegraphics[width=.43\textwidth]{chapters/chapter2_experiment/images/Pseudorapidity2.png}
     \caption[Pseudorapidity distribution shown on a polar grid]{Pseudorapidity distribution shown on a polar grid.}
     \label{fig:pseudorapidity}
 \end{figure}
@@ -76,7 +76,7 @@ The magnet system in ATLAS is a hybrid system comprised of four superconducting 
 \end{figure}
 
 \noindent\textbf{Central Solenoid}\\
-\indent The central solenoid sits between the \gls{ID} and the \gls{EM} calorimeter and provides a $\unit{2}{T}$ magnetic field. This field is axially symmetric, and causes curvature in charged particles as they move through the \gls{ID}. In order to minimize material before the calorimeters, it was designed to be thin, a single-layer coil wound with 1173 turns with Al-stabilized Nb/Ti conductor. It covers a length of $\unit{5.3}{m}$ along the beam axis and has an outer diameter of 2.63 m \cite{central-solenoid}.
+\indent The central solenoid sits between the \gls{ID} and the \gls{EM} calorimeter and provides a $\unit{2}{T}$ magnetic field. This field is axially symmetric, and causes curvature in charged particles as they move through the \gls{ID}. In order to minimize material before the calorimeters, it was designed to be thin, a single-layer coil wound with 1173 turns with Al-stabilized Nb/Ti conductor. It covers a length of $\unit{5.3}{m}$ along the beam axis and has an outer diameter of $\unit{2.63}{m}$ \cite{central-solenoid}.
 
 \noindent\textbf{Toroids}\\
 \indent The barrel toroid is made up of eight coils of a flat racetrack shape, which provide a symmetric radial magnetic field toward the beam axis, with a peak field of $\unit{3.9}{T}$ \cite{barrel-toroid}. The two end-cap toroids are also composed of eight coils, with a length of 5 m, outer diameter of 10.7 m and an inner bore of 1.65 m, and providing a peak $\unit{4.1}{T}$ field. The end-cap toroids are inserted into the barrel toroid and line up with the center solenoid. The three-toroid design was chosen over a single toroid to maintain easy access to the core of the detector \cite{endcap-toroid}. Together the toroids provide a magnetic field to the muon system, causing curvature in the muon trajectory.
@@ -89,7 +89,7 @@ The \gls{ID} \cite{inner-detector-tdr} serves to identify the precise interactio
 \noindent\textbf{Pixel Detector}\\
 \indent Nearest the \gls{IP} is the Pixel Detector, which provides high-granularity, high-precision measurements, and is used to determine impact parameters.
 
-Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $ \unit{50}{\micron} \times \unit{400}{\micron}$, and a depth of $\unit{250}{\micron}$. Each Pixel module contains one sensor and 16 readout channel. In total there are 1744 pixel sensors with 80 million readout channels.
+Pixel sensors are reversely polarized diodes, created by an n+ implant on an n-doped silicon substrate with dimensions $ \unit{50}{\micron} \times \unit{400}{\micron}$, and a depth of $\unit{250}{\micron}$. The detector has 1,744 modules with 46,080 readout channels per modules, for a total of over 80 million pixels.
     
 The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between \RunOne and \RunTwo, during the shutdown that lasted from 2013 to 2015. It takes advantage of smaller modules for finer granularity at $\unit{50}{\micron} \times \unit{250}{\micron}$. Additionally, it is located closer to the interaction point, at a distance of $R=\unit{33.25}{\mm}$, compared to the previous first layer at $R=\unit{50.5}{\mm}$. The smaller distance between the beamline and first detector layer helps for finding displaced vertices from b-jets and photons converting into an $e^+e^-$ pair.
 
@@ -101,7 +101,7 @@ The innermost layer, the \gls{IBL} \cite{ibl-tdr}, was installed between \RunOne
 
 The straws are filled with a gaseous mixture composed of 70\% $Xe$, 27\% $CO_2$, and 3\% $O_2$\footnote{This was the design gas mixture, as described in the \gls{ID} Technical Design Report, Reference \cite{inner-detector-tdr}. During \RunTwo, straws with leaks were filled with 70\% $Ar$ gas, rather than $Xe$ due to cost. $Ar$ provides similar tracking performance as $Xe$, but a worse efficiency absorbing transition radiation X-rays.}. As a charged particle penetrates the straw, it deposits energy into the gas and creates electron-ion pairs. The electrons drift to the center wire, while the ions drift to the inner wall of the straw. The drifting charge produces an electrical signal, which is then compared to a low and high threshold. The low threshold is used to measure drift time, which is used to derive position of incidence. The high threshold is used to identify large energy deposits from transition radiation X-rays, which is useful to discriminate charged pions from electrons.
 
-For momentum measurement, the \gls{TRT} provides measurements equivalent to a single point with precision of $\unit{50}{\micron}$. For tracking, it provides around 36 hits per track. For electron-hadron discrimination, it has a pion rejection factor of between 15 and 200 (depending on $\eta$), at an electron efficiency of 90\%.
+For momentum measurement, the \gls{TRT} provides measurements equivalent to a single point with precision of $\unit{50}{\micron}$. For tracking, it provides around 36 hits per track. For electron-hadron discrimination, it has a pion rejection factor of between 15 and 200 (depending on $\eta$) for pions with $\pt > \unit{20}{\GeV}$, at an electron efficiency of 90\%.
 
 
 \begin{figure}[!thp]
@@ -164,7 +164,7 @@ A \gls{HEC} also works to detect hadronic decays, covering pseudorapidity range 
 
 
 \noindent\textbf{\gls{FCal}}\\
-\indent In order to get precise measurements of \gls{MET}, full $\eta$ coverage is necessary. The \gls{FCal} covers the most forward regions, covering $3.1 < |\eta| < 4.9$. It is three modules deep, covering 10 \gls{intLen}, the first module made of copper, targeting \gls{EM} depositions, and the outer two made of tungsten targeting hadronic depositions.
+\indent In order to get precise measurements of \gls{MET}\footnote{\gls{MET} is not used in the present work, however is used in many ATLAS analyses. It aims to measure those particles which do not interact with the detector, such as neutrinos or many \gls{BSM} signatures. Since the two colliding partons cancel out each other's momentum, the initial momentum is 0. Because of the law of conservation of momentum, the sum of momentum of the final state particles must also sum to 0. If the reconstructed particles do not, then the remainder is taken as \gls{MET}.}, full $\eta$ coverage is necessary. The \gls{FCal} covers the most forward regions, covering $3.1 < |\eta| < 4.9$. It is three modules deep, covering 10 \gls{intLen}, the first module made of copper, targeting \gls{EM} depositions, and the outer two made of tungsten targeting hadronic depositions.
 
 
 \subsection{Muon Spectrometer} \label{ssec:muonspectrometer}

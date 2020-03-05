@@ -45,7 +45,7 @@ plt.close()
 # Combined Plot
 months = mdates.MonthLocator()  # every month
 days = mdates.DayLocator()  # every dat
-date_fmt = mdates.DateFormatter('%m-%d')
+date_fmt = mdates.DateFormatter('%b %Y')
 
 fig, ax = plt.figure(), plt.gca()
 ax2= ax.twinx()
