@@ -1,7 +1,7 @@
 \chapter{Photon Identification Optimization}
 \quoteAuthor{Science does not know its debt to imagination.}{Ralph Waldo Emerson}
 
-Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interaction in the calorimeter. These include variables describing the leakage in the hadronic calorimeter ($R_{had}$, $R_{had_1}$), widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), and the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$). A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}. Two sets of cuts are defined, corresponding to two working points, nominally the \textit{tight} and \textit{loose} menus. 
+Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interactions in the calorimeter. These include widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$), and variables describing the energy that deposits past the \gls{EM} calorimeter, in the hadronic calorimeter, called leakage ($R_{had}$, $R_{had_1}$). A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}. Two sets of cuts are defined, the \textit{tight} and \textit{loose} working points. 
 
 \begin{figure}
     \centering
@@ -21,50 +21,82 @@ Photon identification in ATLAS is carried out through applying cuts to 9 shower 
 
 % todo: maybe describe these a bit better https://arxiv.org/pdf/1606.01813.pdf 
 
-In order to account for detector segmentation and differences in upstream material, cuts on these variables are derived in bins of \abseta. The intervals are 0.0, 0.6, 0.8, 1.15, 1.37, 1.52, 1.81, 2.01, 2.37, with a bin defined between each step (e.g. $[0.0,0.6)$, $[0.6,0.8)$, etc.) except over $[1.37,1.52)$ where the transition crack between the \gls{EMB} and \gls{EMEC} lies. The most recent iteration of the tight photon identification menu introduced binning in \pt, where bins are defined at 25, 30, 40, 50, 60, 80, 100, 125, 150, 175, 250, 500, and 1000 GeV. This provides increased signal efficiency at low \pt, and improved background rejection at high \pt.
+Cuts on these variables are derived in bins of \abseta. The intervals are 0.0, 0.6, 0.8, 1.15, 1.37, 1.52, 1.81, 2.01, 2.37, with a bin defined between each step (e.g. $[0.0,0.6)$, $[0.6,0.8)$, etc.) to account for the geometry of the calorimeter and the effects upstream material has on the shower shapes. The region $[1.37,1.52)$ is omitted, due to the transition crack between the \gls{EMB} and \gls{EMEC} lies. In this region, there is considerable material before the \gls{EM} calorimeter, and is not considered for precision photon identification. The most recent iteration of the tight photon identification menu introduced binning in \pt, where bins are defined at 25, 30, 40, 50, 60, 80, 100, 125, 150, 175, 250, 500, and 1000 GeV. This provides increased signal efficiency at low \pt, and improved background rejection at high \pt.
 
 This chapter describes an optimization to the tight photon identification menu through two approaches. First, adding additional discriminating variables to be used as inputs to the menu. This is done through investigating the use of observables of topological clusters, described in Section \ref{sec:topo-clusters-yid}. Second, alternative methods of classification are studied, replacing the current univariate cut-based approach with a multivariate algorithm. This is shown in Section \ref{sec:mva-yid}, in which a \gls{BDT} and a \gls{NN} are studied.
 
 
 \section{MC Samples} \label{sec:photon-id-samples}
 
-In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is that from hadronically decaying jets. 
+In optimization of photon identification, the aim is to discriminate prompt photons from various background sources. The predominant background is from decays inside of hadronic jets which result in non-prompt photons, such as $\pi^{0}\rightarrow \gamma \gamma$.
 
-For these studies, a sample of leading-order $\gamma+$jet events from $qg \rightarrow q \gamma$ and $q\bar{q} \rightarrow g \gamma$ hard scattering, as well as and quark fragmentation in QCD dijet events is used. For background, a jet-jet sample with all tree-level $2\rightarrow2$ QCD processes, except $\gamma+$jet events from quark fragmentation is used. Both samples are generated using \peight with the \texttt{A14} tune and \texttt{NNPDF2.3LO} PDF set. The simulation matched the detector conditions in the 2015 and 2016 data taking period. In both cases, an inclusive \texttt{OR} of single photon triggers is applied, with thresholds running as low as 10 GeV\footnote{The triggers applied are \texttt{HLT\_g*\_loose}}.
+For these studies, a sample of leading-order $\gamma+$jet events from $qg \rightarrow q \gamma$ and $q\bar{q} \rightarrow g \gamma$ hard scattering, as well as and quark fragmentation in QCD dijet events is used. For background, a jet-jet sample with all tree-level $2\rightarrow2$ QCD processes, except $\gamma+$jet events from quark fragmentation is used. Both samples are generated using \peight with the \texttt{A14} tune and \texttt{NNPDF2.3LO} PDF set. The simulation matched the detector conditions in the 2015 and 2016 data taking period. In both cases, an inclusive \texttt{OR} of loose single photon triggers is applied, with thresholds running as low as 10 GeV\footnote{The triggers applied are \texttt{HLT\_g*\_loose}}.
 
 \subsection{Event Selection}
 
-Both the $\gamma+$jet and jet-jet samples used were required to have $\abseta < 2.37$ and exclude the crack region ($1.37<\abseta<1.52$). Additionally, a \pt requirement of 25 GeV is applied. For the signal single photon sample, \gls{MC} truth information is used to require a prompt photon in the event, for the jet-jet background a prompt photon veto is applied. In each event, the photon with the highest \pt is considered.
+Selected events are required to have a photon with $\abseta < 2.37$, excluding the crack region ($1.37<\abseta<1.52$), and $\pt > \unit{25}{\GeV}$. In each event, the photon with the highest \pt is considered. For the signal single photon sample, \gls{MC} truth information is used to require the selected photon to be a prompt photon (\textit{truth-matched}), for the jet-jet background a prompt photon veto is applied to the selected photon (\textit{truth-vetoed}). 
 
 
 \section{Topological Clusters} \label{sec:topo-clusters-yid}
 
-Photon reconstruction is performed through a method known as ``topological clustering,'' which is outlined in Section \ref{ssec:em-signatures}. In the calorimeter, energy depositions are clustered via this method, then these topo-clusters are merged into superclusters, which are ultimately the detector signature defined as the photon. The reconstructed observables of these topological clusters, or \textit{moments}, can be used to characterize them. This section will discuss the use of these topological cluster moments in photon identification to better reject background from non-prompt photons.
+Photon reconstruction is performed through a method known as ``topological clustering,'' which is outlined in Section \ref{ssec:em-signatures}. In the calorimeter, energy depositions are clustered via this method, then these topo-clusters are merged into superclusters, which are ultimately the detector signature which may be defined as the photon. The reconstructed observables of these topological clusters, or \textit{moments}, can be used to characterize them. This section will discuss the use of these topological cluster moments in photon identification to better reject background from non-prompt photons.
+
+In general, moments are given at order $n$ for a calorimeter cell variable, $v_{\text{cell}}$ as
+\begin{equation}\label{eqn:moment-calculation}
+    \langle v_{\text{cell}}^{n} \rangle = \frac{
+        \sum_{\{i|E_{\text{cell},i}^{\text{EM}}>0\}}w^{\text{geo}}_{\text{cell},i} E_{\text{cell},i}^{\text{EM}} v_{\text{cell},i}^{n}
+    }
+    {
+        \sum_{\{i|E_{\text{cell},i}^{\text{EM}}>0\}}w^{\text{geo}}_{\text{cell},i} E_{\text{cell},i}^{\text{EM}}
+    }.
+\end{equation}
+The moments use \gls{EM} scale cell signals, $E_{\text{cell},i}^{\text{EM}}$. To restrict moment calculation to in-time signals, $E_{\text{cell},i}^{\text{EM}}$ must be greater than 0. The geometrical signal weights are given by $w^{\text{geo}}_{\text{cell},i}$. These are introduced by cluster splitting. If proto-clusters have multiple local signal maxima with $E_{\text{cell}}^{\text{EM}} > 500$ in the \gls{EM} sampling layers, the cluster is split. Cells which are neighbors to multiple maxima are assigned in a weighted proportion to the two highest energy clusters, $E_{\text{clus},1}^{\text{EM}}$ and $E_{\text{clus},2}^{\text{EM}}$, after splitting the original topo-cluster. For cells of distances $d_1$ and $d_2$ to the center of the maxima, these are given by: 
+\begin{equation}
+    w^{\text{geo}}_{\text{cell,1}} = \frac{E_{\text{clus},1}^{\text{EM}}}{E_{\text{clus},1}^{\text{EM}} + r E_{\text{clus},2}^{\text{EM}}}
+\end{equation}
+\begin{equation}
+    w^{\text{geo}}_{\text{cell,2}} = 1-w^{\text{geo}}_{\text{cell,1}}
+\end{equation}
+\begin{equation}
+    r = \exp(d_1 -d_2).
+\end{equation}
+For cells not split between maxima, this value is 1. The used moments are all of order $n=1$ (centroids) or $n=2$ (spreads) \cite{topo-cluster}.
 
 \noindent\textbf{Number of Topo-Clusters}\\
-\indent As described in Section \ref{ssec:em-signatures}, superclusters are made up of one or more topo-clusters. Multiple topo-clusters in a supercluster can be a result of cluster splitting or bremsstrahlung radiation. In over 90\% of photon events, there is only 1 topo-cluster associated to the photon supercluster. As a result, the quantities studied as inputs are all of the leading topo-cluster. Additionally, the number of topo-clusters is on average fewer for prompt photons than fakes, so this value is used as an input into the photon identification menu.
+\indent As described in Section \ref{ssec:em-signatures}, superclusters are made up of one or more topo-clusters. Multiple topo-clusters in a supercluster can be a result of cluster splitting or bremsstrahlung radiation. In over 90\% of photon events, there is only 1 topo-cluster associated to the photon supercluster, shown in Figure \ref{fig:num-clusters}. As a result, the quantities studied as inputs are all of the topo-cluster with the largest total energy (summed over constituent cells). Additionally, the number of topo-clusters is on average fewer for prompt photons than fakes, so this value is used as an input into the classification.
 
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{chapters/chapter4_photonID/images/hists/y_nTopoClusters.png}
-    \caption[Number of topo-clusters in photon superclusters]
-    {Number of topo-clusters in photon superclusters in truth-matched $\gamma+$jet events and truth-vetoed jet fake events} 
-    \label{fig:topo-geom}
+    \caption[Number of topo-clusters in unconverted photon superclusters]
+    {Number of topo-clusters in unconverted photon superclusters in truth-matched $\gamma+$jet events and truth-vetoed jet fake events. Both prompt and fake photons predominantly just have 1 topo-cluster per supercluster. This is more true for prompt photons, which on fewer topo-clusters on average than fakes.} 
+    \label{fig:num-clusters}
 \end{figure}
 
 
 \noindent\textbf{Shape Information}\\
-\indent The size of the topological cell is parametrized by moments in $r_i$ and $\lambda_i$, which are defined as:
+\indent The size of the topo-cluster indexed $i$ is parametrized by moments in $r_i$ and $\lambda_i$, which are defined as:
 
 \begin{equation}
     r_i = |(\vec{x_i} - \vec{c}) \times \vec{s}| \text{\hspace{2em}(radial distance to shower axis)} \\
 \end{equation}
 \begin{equation}
-    \lambda_i = (\vec{x_i} - \vec{c}) \cdot \vec{s} \text{\hspace{2em}(longitudinal distance to shower center of gravity)} 
+    \lambda_i = (\vec{x_i} - \vec{c}) \cdot \vec{s} \text{\hspace{2em}(longitudinal distance to shower center of gravity)},
 \end{equation}
+where $\vec{s}$ is the shower axis and $\vec{c}$ is the center of gravity. The center of gravity, $\vec{c}$, is calculated using Equation \ref{eqn:moment-calculation}, using the first moments of the Cartesian coordinates specifying calorimeter cell centers. The locations are in the frame of reference of the detector with the \gls{IP} at $(x,y,z)= (0,0,0)$. The shower axis measures the direction of flight of the particle and is given by:
+\begin{equation}
+    \mathcal{C}_{uv} = \frac{1}{\mathcal{W}} \sum\limits_{\{i|E_{\text{cell},i}^{\text{EM}} >0\}}(w^{\text{geo}}_{\text{cell,i}}, E_{\text{cell},i}^{\text{EM}})^2 (u_i - \langle u \rangle)(v_i - \langle v \rangle)
+\end{equation}
+for every permutation of $u,v \in \{x,y,z\}$ and 
+\begin{equation}
+    \mathcal{W} = \sum\limits_{\{i|E_{\text{cell},i}^{\text{EM}} >0\}} (w^{\text{geo}}_{\text{cell,i}}, E_{\text{cell},i}^{\text{EM}})^2.
+\end{equation}
+Then, the values of $\mathcal{C}_{uv}$ can be used to create a $3 \times 3$ matrix, $\mathbf{C}=[\mathcal{C}_{uv}]$. The shower axis, $\vec{s}$, is the eigenvector of $\boldsymbol{C}$ closest to the direction $\vec{c}$ from the \gls{IP} to the center of gravity of the topo-cluster. If the angular distance between $\vec{c}$ and $\vec{s}$ is larger than 20 degrees, then $\vec{c}$ is used as the shower axis.
 
-Where $\vec{s}$ is the shower axis and $\vec{c}$ is the center of gravity. Through this parametrization, the topo-cluster can be analyzed as a spheroid, with the second moments in $r$ and $\lambda$ as the extensions. $\sqrt{\langle \lambda^2 \rangle}$ is the semi-major axis in depth (along the shower axis), $\sqrt{\langle r^2 \rangle}$ is the semi-major axis in width. The distribution of these two parameters are shown for the leading topo cluster in Figures \ref{fig:topo-secondLambda} and \ref{fig:topo-secondR}\footnote{Plots in this chapter are created using the \texttt{Matplotlib} python library \cite{matplotlib}}, after applying the current loose and tight photon identification criteria.
+ Through this parametrization, the topo-cluster can be analyzed as a spheroid, with the second moments in $r$ and $\lambda$ as the extensions; $\sqrt{\langle \lambda^2 \rangle}$ is the semi-major axis in depth (along the shower axis), $\sqrt{\langle r^2 \rangle}$ is the semi-major axis in width. The distribution of these two parameters are shown for the leading topo cluster in Figures \ref{fig:topo-secondLambda} and \ref{fig:topo-secondR}, after applying the current loose and tight photon identification criteria. Differences remaining in these distributions after applying the current identification is information the current criteria does not capture, and can bring additional discriminating power.
+
+%\footnote{Plots in this chapter are created using the \texttt{Matplotlib} python library \cite{matplotlib}}
 
 \begin{figure}
     \centering
@@ -84,7 +116,7 @@ Where $\vec{s}$ is the shower axis and $\vec{c}$ is the center of gravity. Throu
 
 
 \noindent\textbf{Location Information}\\
-\indent The location of the topo-cluster is calculated from the first moments of the three cartesian coordinates, describing the position of $\vec{c}$. Due to azimuthal symmetry in the detector, the key component to locational parametrization of topo-clusters is the depth in the calorimeter. Thus, this location can be described via $\lambda_{clus}$, the distance of the center of gravity from the front face of the calorimeter. This distribution is shown in Figure \ref{fig:topo-centerLambda}.
+\indent The location of the topo-cluster is calculated from the first moments of the three cartesian coordinates, describing the position of $\vec{c}$. Due to azimuthal symmetry in the detector, the key locational component of topo-clusters is the depth in the calorimeter. Thus, this location can be described via $\lambda_{clus}$, the distance of the center of gravity from the front face of the calorimeter. This distribution is shown in Figure \ref{fig:topo-centerLambda}.
 
 \begin{figure}
     \centering 
@@ -159,7 +191,7 @@ for $N^{\pi^0(\pi^\pm)}_{ijkl}$ topo-clusters in a given bin $ijkl$ and $N^{\pi^
 
 
 \subsection{Data-MC Comparison} \label{ssec:yid-datamc}
-In order to ensure that the topological clusters are properly modeled in the \gls{MC}, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} and data. Data from the 2015+2016 data-taking period is considered, collected using a set of single-photon triggers with loose identification requirements matching those applied to the \gls{MC} samples, running as low as 10 GeV. As before, photons in \gls{MC} must correspond to a truth photon. Comparisons for $\sqrt{\lambda_{0}^2}$ and $\sqrt{r_{0}^2}$ are shown in Figure \ref{fig:data-mc-secondLambda} and \ref{fig:data-mc-secondR}, respectively. Comparisons for the remaining input variables considered are included into Appendix \ref{app:datamc} for both converted and unconverted photons.
+In order to ensure that the topological clusters are properly modeled in the \gls{MC} simulation, the variables investigated are compared to data. To do so, the present tight photon ID is applied to both the \gls{MC} simulation and data. Data from the 2015+2016 data-taking period is considered, collected using a set of single-photon triggers with loose identification requirements matching those applied to the \gls{MC} samples, running as low as 10 GeV. As before, photons in \gls{MC} must correspond to a truth photon. Comparisons for $\sqrt{\lambda_{0}^2}$ and $\sqrt{r_{0}^2}$ are shown in Figure \ref{fig:data-mc-secondLambda} and \ref{fig:data-mc-secondR}, respectively. Comparisons for the remaining input variables considered are included into Appendix \ref{app:datamc} for both converted and unconverted photons.
 
 In general, the \gls{MC} models the unconverted photons well, with the exception of the isolation, particularly in the most central bin and beyond the crack. For converted photons, $\sqrt{r_{0}^2}$ modeling differs between data and \gls{MC}, and isolation differs considerably, particularly in the most central bin. On average converted photons have more topo-clusters per photon object, meaning they suffer more from cluster splitting, which influences these effects.
 
@@ -181,7 +213,12 @@ In general, the \gls{MC} models the unconverted photons well, with the exception
 % TODO: split these figs?
 
 \noindent\textbf{Correlations}\\
-\indent The correlations of the topo-cluster variables to each other, to the shower shape variables, and to the isolation working points is evaluated. The correlations between variables is checked since highly correlated do not bring new information, and thus are not useful for adding additional cuts on. Photon identification and isolation must be uncorrelated in order to define the regions used for 2x2D sideband methods \cite{2x2d-definition}, as correlations can affect the purity estimation. These correlations are shown for both the $\gamma$+jet and jet-fakes sample in in Figure \ref{fig:photonid-corrs}. 
+\indent The correlations of the topo-cluster variables to each other, to the shower shape variables, and to the isolation working points are evaluated. The correlations between variables are checked since highly correlated do not bring new information, and thus are not useful for adding to photon identification methods. Photon identification and isolation must be uncorrelated in order to define the regions used for 2x2D sideband methods \cite{2x2d-definition}, as correlations can affect the purity estimation. These correlations are shown for both the $\gamma$+jet and jet-fakes sample in in Figure \ref{fig:photonid-corrs}. The highest correlations in the signal sample are:
+\begin{itemize}
+    \item The sum of topo-cluster energy and the photon \pt. The latter is defined using the former, and thus the topo-cluster energy is not used as an input
+    \item Isolation working points to one another 
+    \item 
+\end{itemize}
 
 \begin{figure}[!hp]
     \centering
