@@ -3,13 +3,13 @@
 
 To improve this analysis, a signal model for the Vector Boson Fusion production mode has been designed and will be implemented into this analysis using the full \RunTwo dataset. This signal model is integrated into the analysis through a separate analysis category that is enriched in VBF events, defined via cuts on multiclass \gls{BDT} scores.
 
-This chapter outlines the approach to defining the signal selection for the \gls{VBF} production mode. Section \ref{sec:vbf-samples} describes the \gls{MC} simulation produced to model VBF \hhyybb production. Section \ref{ssec:vbf-event-selection} outlines improvements in signal selection for the analysis, starting with a \gls{BDT} used to define analysis categories focused on ggF \hh production (Section \ref{ssec:ggf-bdt}), followed by a separate multiclass \gls{BDT} used to define a VBF-enriched signal category (Section \ref{ssec:vbf-bdt}).
+This chapter outlines the approach to defining the signal selection for the \gls{VBF} production mode. Section \ref{sec:vbf-samples} describes the \gls{MC} simulation produced to model VBF \hhyybb production. Section \ref{ssec:vbf-event-selection} outlines improvements in signal selection for the analysis, starting with a \gls{BDT} used to define analysis categories focused on ggF \hh production (Section \ref{ssec:ggf-bdt}), followed by a separate multiclass \gls{BDT} used to define a VBF-enriched signal category (Section \ref{ssec:vbf-bdt}). Adding such a category takes advantage of the unique \gls{VBF} topology to improve the overall Asimov significance, and also provides sensitivity to additional couplings, most notably the $c_{2V}$ coupling corresponding to the interaction between the two vector bosons and two Higgs bosons, which can lead to significant increases in the \hh cross section, described in Section \ref{sssec:vbfHH}.
 
 \section{Simulated Samples} \label{sec:vbf-samples}
 
 \subsection{Non-resonant VBF HH Samples} \label{ssec:vbf-samples-production}
 
-The signal MC samples\footnote{Samples with varied coupling strengths were also produced, described in Appendix \ref{app:vbf-couplings}.} for VBF $HH$ production are generated at LO using \MGMCatNLO 2.6.0, using cards presented in \cite{vbfhh}. The process generated is $pp \rightarrow HHqq$. The dominant production in this sample is VBF \hh production, but contains contributions from $VHH$  hadronic and Higgsstrahlung production. The \texttt{NNPDF 2.3 LO} PDF set \cite{NNPDF} is used in the matrix element, interfaced to \HERWIG 7.0.4 using the \texttt{H7-UE-MMHT} tune for underlying events and the \texttt{H7-MMHT2014LO} tune for parton shower and hadronization.
+The signal MC samples\footnote{Samples with varied coupling strengths were also produced, described in Appendix \ref{app:vbf-couplings}.} for VBF $HH$ production are generated at LO using \MGMCatNLO 2.6.0, using cards presented in \cite{vbfhh}. The process generated is $pp \rightarrow HHqq$. The dominant production in this sample is VBF \hh production, but contains contributions from $VHH$  hadronic and Higgsstrahlung production. While these additional production modes are not \gls{VBF} \hh production, they do not overlap with the \gls{ggF} \hh sample, since the generated process differs. The \gls{VBF} sample requires protons decaying to two Higgs bosons and two additional jets, where the \gls{ggF} sample requires the production of two Higgs bosons without additional jets. The \texttt{NNPDF 2.3 LO} PDF set \cite{NNPDF} is used in the matrix element, interfaced to \HERWIG 7.0.4 using the \texttt{H7-UE-MMHT} tune for underlying events and the \texttt{H7-MMHT2014LO} tune for parton shower and hadronization.
 
 \subsection{Non-resonant ggF HH Samples}
 
@@ -36,7 +36,9 @@ First, the following preselection cuts are applied:
 \end{itemize}
 
 \subsection{BDT for ggF Production} \label{ssec:ggf-bdt}
-A \gls{BDT} has been trained in order to maximize signal efficiency for ggF HH production\footnote{The \glspl{BDT} presented in this chapter use the \texttt{XGBoost} library \cite{XGBoost}. Data manipulation is performed using the \texttt{Numpy} library \cite{numpy}}. Following preselection, events are segmented into two regions, a high mass region with $M_X^{*} > 350 \text{GeV}$ targeting the standard model signal, and a low mass region with $M_X^{*} < 350 \text{GeV}$ targeting BSM signals. 
+A \gls{BDT} has been trained in order to maximize signal efficiency for ggF HH production\footnote{This \gls{BDT} has been developed within the full \hhyybb analysis group. While contributions were made to early \gls{ggF} BDTs, the focus of the work presented is on the \gls{VBF} selection. The \gls{ggF} \gls{BDT} is constructed to target di-Higgs production, and is used as a prerequisite for selection into the \gls{VBF} category. Further, the signal categories defined with this \gls{BDT} are used as a benchmark to evaluate improvement in significance, so a description is included.}. Following preselection, events are segmented into two regions, a high mass region with $M_X^{*} > \unit{350}{GeV}$ targeting the standard model signal, and a low mass region with $M_X^{*} < 350 \text{GeV}$ targeting BSM signals. 
+
+%\footnote{The \glspl{BDT} presented in this chapter use the \texttt{XGBoost} library \cite{XGBoost}. Data manipulation is performed using the \texttt{Numpy} library \cite{numpy}}
 
 In each region, a separate BDT is trained using a benchmark HH signal against a combination of \yy, $ttH$, $ggH$, and $ZH$ backgrounds. In the high mass region, the standard model HH sample is used as signal, while in the low mass region, the $\klambda = 6$ sample is used as signal.
 
@@ -49,9 +51,7 @@ The following inputs are used:
 	\item{The $p_{T}$, $\eta$, $\phi$, and mass of the $H\rightarrow \bb$ candidate}
 	\item{The $H_{T}$ (scalar $p_{T}$ sum of all jets)}
 \end{itemize}
-
-Where,
-
+where,
 \begin{itemize}
 	\item{The $p_{T}$ of the two photons are scaled by $m_{\yy}$ to prevent the BDT from learning the $m_{\yy}$ variable. There is no equivalent scaling done for the two jets, since nominally we only fit to $m_{\yy}$, not $m_{\bb}$.}
 	\item{Jets are ordered by pseudo-continuous b-tagging score, and then by $p_{T}$ in case of a tie. The $H \rightarrow \bb$ candidate is then formed by the two highest ranked jets by simply summing their four-vectors.}
@@ -62,11 +62,11 @@ After training, two categories are created in each mass region by creating cuts 
 \begin{equation}\label{eqn:asimov-significance}
     Z = \sqrt{2[(s+b)\log{(1 + s/b)} -s]}.
 \end{equation}
-The signal, $s$, is the sum of both ggF and VBF HH contributions in a category. The background, $b$, is the sum of the considered backgrounds described in \ref{ssec:vbf-bkg-samples}: \yy-continuum processes, \gls{NTNI} data to model jets faking photons, leading mono-Higgs production modes ($ttH$, $ZH$, and $ggH$), and $tt\gamma\gamma$. The four signal categories are added in quadrature for the final Asimov significance of 0.415.
+The signal, $s$, is the sum of both ggF and VBF HH contributions in a category. The background, $b$, is the sum of the considered backgrounds described in Section \ref{ssec:vbf-bkg-samples}: \yy-continuum processes, \gls{NTNI} data to model jets faking photons, leading mono-Higgs production modes ($ttH$, $ZH$, and $ggH$), and $tt\gamma\gamma$. The four signal categories (two mass regions, each with two categories) are added in quadrature for the final Asimov significance of 0.415 using the full 140 \ifb collected in \RunTwo.
 
 
 \subsection{BDT for VBF Production}\label{ssec:vbf-bdt}
-Atop the ggF \gls{BDT} selection, a dedicated VBF-enriched analysis category is built. Events which have already passed the ggF BDT based selection and have at least 4 jets are considered the VBF category. The 4 jet requirement is imposed in order to reconstruct VBF-based variables, since 2 jets are needed for the \Hbb decay, and another 2 are needed for the VBF jets. The VBF jets are then selected as the highest $m_{jj}$ pairing, excluding $H\rightarrow b\bar{b}$ candidate jets.
+On top of the ggF \gls{BDT} selection, a dedicated VBF-enriched analysis category is built. Events which have already passed the ggF BDT based selection and have at least 4 jets are considered the VBF category. The 4 jet requirement is imposed in order to reconstruct VBF-based variables, since 2 jets are needed for the \Hbb decay, and another 2 are needed for the VBF jets. The VBF jets are then selected as the highest $m_{jj}$ pairing, excluding $H\rightarrow b\bar{b}$ candidate jets.
 
 These events are then evaluated by a multiclass BDT, which has independent classes for VBF HH, ggF HH, \yy-continuum, and $ttH$. This model was chosen due to large $ttH$ contamination in the VBF enriched category by binary classifiers considering just \yy-continuum backgrounds. Ultimately, an event selected for the VBF category if it passes the BDT score threshold for VBF HH, and fails the score threshold for the other three classes. A flowchart of this logic is shown in Figure \ref{fig:vbf-logic}.
 
@@ -78,7 +78,7 @@ These events are then evaluated by a multiclass BDT, which has independent class
 \end{figure}
 
 \subsubsection{Input Selection}
-A set of 26 variables were considered for this BDT, listed in Appendix \ref{app:vbf-variables}. Broadly, they describe the kinematics of various physics objects in the event, as well as event shape variables \cite{STDM-2011-33} and variables to reconstruct the $W$-mass, which aim to suppress the ttH background.
+A set of 26 variables were considered for this BDT, listed in Appendix \ref{app:vbf-variables}. Broadly, they describe the kinematics of various physics objects in the event, as well as event shape variables \cite{STDM-2011-33} and variables to reconstruct the $W$ and top mass, which aim to suppress the $ttH$ background.
 
 For dimensionality reduction, a pruning procedure was performed.
 \begin{enumerate}
@@ -151,7 +151,7 @@ Through this optimization procedure, the thresholds shown in Table \ref{tab:mult
   \label{fig:bdt-scores}
 \end{figure}
 
-The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}. The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. Adding these 5 categories in quadrature gives an Asimov significance of 0.459, a 9.7\% improvement over not defining such a category.
+The contribution of each signal and background process to each category is shown in Figure \ref{fig:category-yields}. The categorization for each signal process as well as the dominant \yy-continuum background is shown in Figure \ref{fig:process-categorization}. The \gls{VBF} \hh category is dominated by \gls{ggF} production due to the large difference in cross sections, however the \gls{VBF} \hh sample is predominantly classified into the \gls{VBF}-targeted signal region. Adding these 5 categories in quadrature gives an Asimov significance of 0.459, a 9.7\% improvement over not defining such a category.
 % The categorization for the mono-Higgs, \gls{NTNI}, and $tt\yy$ samples are shown in Appendix TODO.
 
 \begin{figure}[p!]
@@ -161,7 +161,7 @@ The contribution of each signal and background process to each category is shown
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/ggfcat3.pdf}
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/ggfcat4.pdf}
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/vbfcat.pdf}
-  \caption[The contribution of signal and leading background samples to each analysis category after adding the optimized VBF-enriched category]{The contribution of signal and leading background samples to each analysis category after adding the optimized VBF-enriched category. VBF and ggF HH are the two considered signal production modes. $\gamma \gamma$ is the diphoton continuum background, $t\bar{t}\gamma\gamma$ is top-quark pair production associated with 2 photons, NTNI is not-tight not-isolated data (scaled using a template fit).  The three dominant mono-Higgs backgrounds, ttH, ggH, and $ZH$ are shown.}
+  \caption[The contribution of signal and leading background samples to each analysis category after adding the optimized VBF-enriched category]{The contribution of signal and leading background samples to each analysis category after adding the optimized VBF-enriched category. VBF and ggF HH are the two considered signal production modes. $\gamma \gamma$ is the diphoton continuum background, $t\bar{t}\gamma\gamma$ is top-quark pair production associated with 2 photons, and NTNI is not-tight not-isolated data (scaled using a template fit). The three dominant mono-Higgs backgrounds, ttH, ggH, and $ZH$ are shown. The \gls{ggF} categories correspond to (1) $M_X^{*} < \unit{350}{\GeV}$, loose b-tag (2) $M_X^{*} < \unit{350}{\GeV}$, tight b-tag (3) $M_X^{*} \geq \unit{350}{\GeV}$, loose b-tag (4) $M_X^{*} \geq \unit{350}{\GeV}$, tight b-tag.}
   \label{fig:category-yields}
 \end{figure}
 
@@ -171,7 +171,7 @@ The contribution of each signal and background process to each category is shown
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/ggf_sample.pdf}
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/vbf_sample.pdf}
   \includegraphics[width=0.48\textwidth]{chapters/chapter6_vbf/images/category_breakdown/yy_sample.pdf}
-  \caption[The categorization of the VBF HH, ggF HH, and \yy-continuum samples]{The categorization of the VBF HH, ggF HH, and \yy-continuum samples. The ``Uncategorized'' bin are events which do not fall into any of the analysis categories. The \yy-continuum plot is shown with log-scale.
+  \caption[The categorization of the VBF HH, ggF HH, and \yy-continuum samples]{The categorization of the VBF HH, ggF HH, and \yy-continuum samples. The ``Uncategorized'' bin are events which do not fall into any of the analysis categories. The \yy-continuum plot is shown with log-scale. The \gls{ggF} categories correspond to (1) $M_X^{*} < \unit{350}{\GeV}$, loose b-tag (2) $M_X^{*} < \unit{350}{\GeV}$, tight b-tag (3) $M_X^{*} \geq \unit{350}{\GeV}$, loose b-tag (4) $M_X^{*} \geq \unit{350}{\GeV}$, tight b-tag.
   \label{fig:process-categorization}}
 \end{figure}
 
