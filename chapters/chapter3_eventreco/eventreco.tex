@@ -25,6 +25,7 @@ The ATLAS software contains many event generators. For the samples used in the p
     \item \SHERPA: A general-purpose simulation tool, containing all necessary components for a factorized description of scattering events \cite{sherpa2.2}
 \end{description}
 
+
 \subsection{Parton Showering} \label{ssec:partonshower} % https://arxiv.org/pdf/1411.4085.pdf
 After interacting, the parton showering must then be simulated. Hard scatter processes emit \gls{QCD} bremsstrahlung radiation in the form of gluons. Emitted gluons carry color charge, which also can further radiate. This process is known as parton showering, and generators approximate these higher-order \gls{QCD} corrections through a chain of one-to-two parton branching. This is performed iteratively until reaching the non-perturbative regime, around $\unit{1}{\GeV}$.
 
@@ -35,7 +36,7 @@ Three event generators in the ATLAS software have parton showering built in: \PY
 In addition to the hard scatter process, these generators simulate the underlying event. This process accounts for effects due to rescattering or multiple parton interactions within the colliding protons.
 
 \subsection{Hadronization} \label{ssec:hadronization}
-Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization\footnote{Also ``jet fragmentation''}. Hadronization is a non-perturbative process, that relies on phenomenological models tuned on data. Commonly used models are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG, \SHERPA).
+Once partons have reached sufficiently low energies, they form hadrons. This is known as hadronization\footnote{Also ``jet fragmentation''}. Hadronization is a non-perturbative process, that relies on phenomenological models tuned on data. Commonly used models are the Lund string model \cite{lund-string} (\PYTHIA) or clustering models \cite{clustering-hadronization} (\HERWIG, \SHERPA). ATLAS has several set tunes for each event generator\footnote{The \texttt{A14} (ATLAS 2014) is used in \peight, }
 
 Through hadronization, simulation is agnostic of detector, describing just the particle interaction. A schematic of the evolution of a simulated event from event generation through hadronization is shown in Figure \ref{fig:parton-shower-sketch}.
 
@@ -81,7 +82,7 @@ For \gls{EM} objects, only energy in the \gls{EM} calorimeter is used\footnote{I
 \noindent\textbf{Track Reconstruction}\\ %https://arxiv.org/pdf/1902.04655.pdf
 \indent Tracks are constructed out of hits within the \gls{ID}, in which three dimensional space-points are constructed out of clusters. Three sets of space-points are formed into track seeds, which then undergo stages of pattern recognition, ambiguity resolution, and \gls{TRT} extension. Track candidates with $\pt > \unit{400}{\MeV}$ are fit with the ATLAS Global $\chi^2$ fitter \cite{chi-2-fitter}.
 
-For tracks with at least four silicon hits that match to an \gls{EM} cluster, a secondary fit is performed using a Gaussian-sum filter \cite{gaussian-sum-filter}. This filter is is a generalization of the Kalman filter \cite{kalman-filter}, taking into account non-linearities resulting from bremsstrahlung radiation. The track perigee is then used to extrapolate to the \gls{EM} cluster in the second layer of the calorimeter, and must satisfy the following matching criteria to the cluster barycenter: $|\eta_{cluster} - \eta_{track}| < 0.05$, and $-0.10 < q \cdot (\phi_{track}-\phi_{cluster}) < 0.05$\footnote{This requirement is asymmetric because clusters can measure energy from radiated photons that tracks miss.} for reconstructed track charge, $q$.
+For tracks with at least four silicon hits that match to an \gls{EM} cluster, a secondary fit is performed using a Gaussian-sum filter \cite{gaussian-sum-filter}. This filter is is a generalization of the Kalman filter \cite{kalman-filter}, taking into account non-linearities resulting from bremsstrahlung radiation. The track perigee is then used to extrapolate to the \gls{EM} cluster in the second layer of the calorimeter, and must satisfy the following matching criteria\footnote{This requirement is asymmetric because clusters can measure energy from radiated photons that tracks miss.} to the cluster barycenter: $|\eta_{cluster} - \eta_{track}| < 0.05$, and $-0.10 < q \cdot (\phi_{track}-\phi_{cluster}) < 0.05$ for reconstructed track charge, $q$.
 %https://arxiv.org/pdf/1908.00005.pdf
 
 If multiple tracks are matched to a cluster, they are ranked. First, priority is given to tracks with pixel hits over those with just \gls{SCT} hits. Second, tracks are ordered in \Dr to the cluster. If multiple tracks have small \Dr differences, then the track with the most pixel hits is selected. 
@@ -126,7 +127,7 @@ The supercluster reconstruction logic is shown in Figure \ref{fig:supercluster-r
 
 
 \subsection{Jets} \label{ssec:jet-reco}
-As discussed in Section \ref{ssec:fermions}, strongly interacting particles cannot exist independently due to color confinement. Due to this, partons created in $pp$ collisions shower, a process where quarks radiate gluons and gluons split into quarks, ultimately creating a proliferation of subsequent partons. Ultimately, once they've reached a sufficiently low energy, about $\unit{1}{\GeV}$, they hadronize in order to create a colorless state, such as mesons or baryons that deposit energy into the calorimeters. This spray of interactions all proceeding in the same general direction as the initial parton is known as a ``jet.''
+As discussed in Section \ref{ssec:fermions}, strongly interacting particles cannot exist independently due to color confinement. Due to this, partons created in $pp$ collisions shower, a process where they produce additional strongly interacting particles through splitting and radiation. This creates a proliferation of nearly collinear subsequent partons. Ultimately, once they've reached a sufficiently low energy, about $\unit{1}{\GeV}$, they hadronize in order to create a colorless state, such as mesons or baryons that deposit energy into the calorimeters. This spray of interactions all proceeding in the same general direction as the initial parton is known as a ``jet.''
 
 In principle, jets can be built from any set of 4-vector objects. The standardized jet definition \cite{jet-standardization} requires that jets be:
 \begin{itemize}
