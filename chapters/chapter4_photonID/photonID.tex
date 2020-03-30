@@ -1,7 +1,7 @@
 \chapter{Photon Identification Optimization}
 \quoteAuthor{Science does not know its debt to imagination.}{Ralph Waldo Emerson}
 
-Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interactions in the calorimeter. These include widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$), and variables describing the energy that deposits past the \gls{EM} calorimeter, in the hadronic calorimeter, called leakage ($R_{had}$, $R_{had_1}$). A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}. Two sets of cuts are defined, the \textit{tight} and \textit{loose} working points. 
+Photon identification in ATLAS is carried out through applying cuts to 9 shower shape variables that explain the longitudinal and lateral showering development of electromagnetic interactions in the calorimeter. These include widths of energy depositions in the \gls{EM} calorimeter ($w_{\eta_2}$, $w_{s3}$), energy ratios of depositions in the \gls{EM} calorimeter ($R_{\eta}$, $R_{\phi}$, $F_{side}$), the energy difference and ratios of the strips ($\Delta E$, $E_{ratio}$), and variables describing the energy that deposits past the \gls{EM} calorimeter, in the hadronic calorimeter, called leakage ($R_{had}$, $R_{had_1}$). A schematic of all these variables can be found in Figure \ref{fig:ss-vars-schematic}. Additionally, a table describing these variables can be found in Table \ref{tab:ss-vars-table}. Two sets of cuts are defined, the \textit{Tight} and \textit{Loose} working points. 
 
 \begin{figure}
     \centering
@@ -50,7 +50,7 @@ In general, moments are given at order $n$ for a calorimeter cell variable, $v_{
         \sum_{\{i|E_{\text{cell},i}^{\text{EM}}>0\}}w^{\text{geo}}_{\text{cell},i} E_{\text{cell},i}^{\text{EM}}
     }.
 \end{equation}
-The moments use \gls{EM} scale cell signals, $E_{\text{cell},i}^{\text{EM}}$. To restrict moment calculation to in-time signals, $E_{\text{cell},i}^{\text{EM}}$ must be greater than 0. The geometrical signal weights are given by $w^{\text{geo}}_{\text{cell},i}$. These are introduced by cluster splitting. If proto-clusters have multiple local signal maxima with $E_{\text{cell}}^{\text{EM}} > 500$ in the \gls{EM} sampling layers, the cluster is split. Cells which are neighbors to multiple maxima are assigned in a weighted proportion to the two highest energy clusters, $E_{\text{clus},1}^{\text{EM}}$ and $E_{\text{clus},2}^{\text{EM}}$, after splitting the original topo-cluster. For cells of distances $d_1$ and $d_2$ to the center of the maxima, these are given by: 
+The moments use \gls{EM} scale cell signals, $E_{\text{cell},i}^{\text{EM}}$, and the summation is performed over $i$ cells in a cluster. To restrict moment calculation to in-time signals, $E_{\text{cell},i}^{\text{EM}}$ must be greater than 0. The geometrical signal weights are given by $w^{\text{geo}}_{\text{cell},i}$. These are introduced by cluster splitting. If proto-clusters have multiple local signal maxima with $E_{\text{cell}}^{\text{EM}} > 500$ in the \gls{EM} sampling layers, the cluster is split. Cells which are neighbors to multiple maxima are assigned in a weighted proportion to the two highest energy clusters, $E_{\text{clus},1}^{\text{EM}}$ and $E_{\text{clus},2}^{\text{EM}}$, after splitting the original topo-cluster. For cells of distances $d_1$ and $d_2$ to the center of the maxima, these are given by: 
 \begin{equation}
     w^{\text{geo}}_{\text{cell,1}} = \frac{E_{\text{clus},1}^{\text{EM}}}{E_{\text{clus},1}^{\text{EM}} + r E_{\text{clus},2}^{\text{EM}}}
 \end{equation}
@@ -162,14 +162,14 @@ Here, $N_{\text{cell},s}^{\text{noclus}} / N_{\text{cell},s}^{\text{neighbor}}$ 
     \label{fig:topo-isolation}
 \end{figure}
 
-Energy losses in topo-clusters are corrected through a method known as \glsfirst{LCW} calibration \cite{lcw-calib}. Since energy losses differ between hadronic and electromagnetic deposits, the \gls{LCW} calibration includes a step where the likelihood that a topo-cluster originates from an electromagnetic shower is evaluated. The likelihood is defined through measuring the efficiency for detecting an EM-like cluster in bins of four other topo-cluster observables, defined by
+Energy losses in topo-clusters are corrected through a method known as \gls{LCW} \cite{lcw-calib}. Since energy losses differ between hadronic and electromagnetic deposits, the \gls{LCW} calibration includes a step where the likelihood that a topo-cluster originates from an electromagnetic shower is evaluated. The likelihood is defined through measuring the efficiency for detecting an EM-like cluster in bins of four other topo-cluster observables, defined by
 
 \begin{equation}
     \mathfrak{O}_{\text{clus}}^{\text{class}} = \{
         E_{\text{clus}}^{\text{EM}},
         \eta_{\text{clus}},
         \log_{10}(\rho_{\text{clus}} / \rho_{\text{0}}) - \log_{10}(E_{\text{clus}}^{\text{EM}} / E_{\text{0}}),
-        \log_{10}(\lambda_{\text{clus}} / \lambda_{\text{0}}
+        \log_{10}(\lambda_{\text{clus}} / \lambda_{\text{0}})
     \}
 \end{equation}
 where $\rho_0 = 1$ MeV mm$^{-3}$, $E_0 = \unit{1}{\MeV}$, $\lambda_{0} = \unit{1}{\mm}$. These bins (denoted $ijkl$) can then be used to define the likelihood, $ \mathcal{P}_{\text{clus}}^{\text{EM}}$, in each bin as
@@ -200,14 +200,14 @@ In general, the \gls{MC} models the unconverted photons well, with the exception
     \centering
     \includegraphics[width=.74\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondLambda_Unconverted_lowerEta.png}
     \includegraphics[width=.74\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondLambda_Unconverted_upperEta.png}
-    \caption[Data-MC comparison of the semi-major axis in depth of the leading topo-cluster ($\sqrt{\lambda_0^2}$) for unconverted photons]{Data-MC comparison of the semi-major axis in depth of the leading topo-cluster ($\sqrt{\lambda_0^2}$) for unconverted photons. The current tight identification is applied to both samples, and the \gls{MC} requires truth-matched photons. The absolute difference of the distribution means normalized to their average mean, $|\Delta \mu|/\mu_{avg}|$ is shown.}
+    \caption[Data-MC comparison of the semi-major axis in depth of the leading topo-cluster ($\sqrt{\lambda_0^2}$) for unconverted photons]{Data-MC comparison of the semi-major axis in depth of the leading topo-cluster ($\sqrt{\lambda_0^2}$) for unconverted photons. The current tight identification is applied to both samples, and the \gls{MC} requires truth-matched photons. The absolute difference of the distribution means normalized to their average mean, $|\Delta \mu|/\mu_{avg}$ is shown.}
     \label{fig:data-mc-secondLambda}
 \end{figure}
 \begin{figure}[!thp]
     \centering
     \includegraphics[width=.74\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondR_Unconverted_lowerEta.png}
     \includegraphics[width=.74\textwidth]{chapters/chapter4_photonID/images/y_topoCluster0_secondR_Unconverted_upperEta.png}
-    \caption[Data-MC comparison of the semi-major axis in width of the leading topo-cluster ($\sqrt{r_0^2}$) for unconverted photons]{Data-MC comparison of the semi-major axis in width of the leading topo-cluster ($\sqrt{r_0^2}$) for unconverted photons.The current tight identification is applied to both samples, and the \gls{MC} requires truth-matched photons. The absolute difference of the distribution means normalized to their average mean, $|\Delta \mu|/\mu_{avg}|$ is shown.}
+    \caption[Data-MC comparison of the semi-major axis in width of the leading topo-cluster ($\sqrt{r_0^2}$) for unconverted photons]{Data-MC comparison of the semi-major axis in width of the leading topo-cluster ($\sqrt{r_0^2}$) for unconverted photons.The current tight identification is applied to both samples, and the \gls{MC} requires truth-matched photons. The absolute difference of the distribution means normalized to their average mean, $|\Delta \mu|/\mu_{avg}$ is shown.}
     \label{fig:data-mc-secondR}
 \end{figure}
 % TODO: split these figs?
@@ -230,36 +230,30 @@ In general, the \gls{MC} models the unconverted photons well, with the exception
 
 \subsection{Incorporating into Photon Identification}
 
-The topological cluster variables were added to the existing shower shape variable-based photon identification. The cut-based approach is reoptimized including the new variables, and new cuts are derived in each $\eta$-\pt bin. To compare improvement across bins, the figure of merit used is the improvement in background rejection for the same signal efficiency as the current method, given as
+The topological cluster variables were added to the existing shower shape variable-based photon identification. The cut-based approach is reoptimized including the new variables, and new cuts are derived in each \etaPt bin. To compare improvement across bins, the figure of merit used is the improvement in background rejection for the same signal efficiency as the current method, given as
 
 \begin{align}
     Z_{\text{rel}} &= \frac{(1-\epsilon_{bkg,i}) - (1-\epsilon_{bkg,0})}{(1-\epsilon_{bkg,0})} = \frac{\epsilon_{bkg,0} - \epsilon_{bkg,i}}{1-\epsilon_{bkg,0}},
     \label{eqn:improvement-metric}
 \end{align}
-for relative gain $Z_{\text{rel}}$ (the figure of merit), and background efficiency $\epsilon_{bkg}$ (thus, background rejection is $(1-\epsilon_{bkg}$), where index $i$ indicates the reoptimized photon identification, and index $0$ indicates the shower shape-only identification. This value is calculated bin-wise in $\eta$-\pt and shown in Figure \ref{fig:gain-topo-clusters-added-unconverted}. In principle, adding additional variables to a cut-based method should only improve optimization if the search over possible cut values is exhaustive. However, in several bins, worse performance is found by incorporating new variables. This can be the result of two causes:
+for relative gain $Z_{\text{rel}}$ (the figure of merit), and background efficiency $\epsilon_{bkg}$ (thus, background rejection is $(1-\epsilon_{bkg}$), where index $i$ indicates the reoptimized photon identification, and index $0$ indicates the shower shape-only identification. This value is calculated bin-wise in \etaPt and shown in Figure \ref{fig:gain-topo-clusters-added-unconverted}. In principle, adding additional variables to a cut-based method should only improve optimization if the search over possible cut values is exhaustive. However, in several bins, worse performance is found by incorporating new variables. This can be the result of two causes:
 \begin{itemize}
     \item In a high dimensional space, such a grid search becomes computationally prohibitive, so a Genetic Algorithm\footnote{The Genetic Algorithm used is a standard method implemented in \texttt{TMVA}, and the details of implementation can be found in Reference \cite{TMVA}.} \cite{genetic-algo} is used to find an approximate solution. Increasing dimensionality increases the probability to find local minima that differ from the global minimum, and thus suboptimal solutions.
-    \item Statistical fluctuations. Models are trained on an orthogonal subset of events than they are evaluated on, and statistical fluctuations in these samples can influence reported gain, particularly in low stats bins. Figure \ref{fig:photonid-events} shows the number of signal and background events in each $\eta$-\pt bin.
+    \item Statistical fluctuations. Models are trained on an orthogonal subset of events than they are evaluated on, and statistical fluctuations in these samples can influence reported gain, particularly in low stats bins. Figure \ref{fig:photonid-events} shows the number of signal and background events in each \etaPt bin.
 \end{itemize}
 %\footnote{These plots, and the remainder of the plots shown in this chapter were created using the \texttt{Seaborn} library \cite{seaborn} and data manipulation was performed in \texttt{Pandas} \cite{pandas}.}
 \begin{figure}[!hp]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/sig_events.pdf}
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/bkg_events.pdf}
-    \caption[Number of training events used in the model for unconverted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample, and the background jet fakes sample]{Number of training events used in the model for unconverted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample (top), and the background jet fakes sample (bottom). The preselection described in Section \ref{sec:photon-id-samples} is used.}
+    \caption[Number of training events used in the model for unconverted photons in each \etaPt bin for the signal $\gamma$+jets sample, and the background jet fakes sample]{Number of training events used in the model for unconverted photons in each \etaPt bin for the signal $\gamma$+jets sample (top), and the background jet fakes sample (bottom). The preselection described in Section \ref{sec:photon-id-samples} is used.}
     \label{fig:photonid-events}
 \end{figure}
-%\begin{figure}[!thp] %%% TODO: Either take out or add converted for the rest
-%    \centering
-%    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/conv_sig_events.pdf}
-%    \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/conv_bkg_events.pdf}
-%    \caption[Number of training events used in the model for converted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample, and the background jet fakes sample]{Number of training events used in the model for converted photons in each $\eta$-\pt bin for the signal $\gamma$+jets sample (top), and the background jet fakes sample (bottom). The preselection described in Section \ref{sec:photon-id-samples} is used.}
-%    \label{fig:conv-photonid-events}
-%\end{figure}
+
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/gain_topoAdded_unconverted.pdf}
-    \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu]{The relative gain in background rejection, $Z_{\text{rel}}$, for each $\eta-\pt$ bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu. Bins with fewer than 400 background events are masked.}
+    \caption[The relative gain in background rejection, $Z_{\text{rel}}$, for each \etaPt bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu]{The relative gain in background rejection, $Z_{\text{rel}}$, for each \etaPt bin at 85\% signal efficiency by adding topo-cluster moment variables into the cut-based photon identification menu. Bins with fewer than 400 background events are masked.}
     \label{fig:gain-topo-clusters-added-unconverted}
 \end{figure}
 As shown in Figure \ref{fig:gain-topo-clusters-added-unconverted}, by adding these variables as inputs, as much as a 12\% improvement in background rejection for the same signal efficiency can be achieved.
@@ -272,7 +266,7 @@ The current photon identification working points are defined by a univariate rec
 
 \subsection{Boosted Decision Tree}\label{ssec:yid-bdt}
 
-A gradient boosted \gls{BDT} was employed as an alternative classification algorithm. These models are built using \texttt{TMVA} \cite{TMVA}. In training, performance suffered heavily from the lack of background training statistics when segmenting into $\eta$-\pt bins. To navigate this problem, rather than training an independent model for each $\eta$-\pt bin, \pt inclusive models were trained. As shown in Figure \ref{fig:photonid-corrs}, the input variables have low correlation to \pt, and thus this does not bias the model. This provided better performance in high \pt bins. In low \pt bins, it provided better performance overall, but in a few bins had equivalent or negligibly worse performance. The percent improvement, as defined using the same metric defined in \ref{eqn:improvement-metric}, is shown in Figure \ref{fig:bdtinclusive-vs-bdt}, with the bin-wise trained \gls{BDT} used as the baseline.
+A gradient boosted \gls{BDT} was employed as an alternative classification algorithm. These models are built using \texttt{TMVA} \cite{TMVA}. In training, performance suffered heavily from the lack of background training statistics when segmenting into \etaPt bins. To navigate this problem, rather than training an independent model for each \etaPt bin, \pt inclusive models were trained. As shown in Figure \ref{fig:photonid-corrs}, the input variables have low correlation to \pt, and thus this does not bias the model. This provided better performance in high \pt bins. In low \pt bins, it provided better performance overall, but in a few bins had equivalent or negligibly worse performance. The percent improvement, as defined using the same metric defined in \ref{eqn:improvement-metric}, is shown in Figure \ref{fig:bdtinclusive-vs-bdt}, with the bin-wise trained \gls{BDT} used as the baseline.
 
 \begin{figure}[!htb]
     \centering
@@ -295,7 +289,9 @@ As a baseline, the \gls{BDT} is compared to the cut-based photon identification 
 
 \subsection{Neural Network}\label{ssec:yid-nn}
 
-In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification, considering the same shower shape variables. It was developed using Keras \cite{Keras} using the Tensorflow \cite{Tensorflow} backend\footnote{Data manipulation was performed using the \texttt{Numpy} \cite{numpy} library.}. The model topology\footnote{A description of \gls{NN} topologies, activation functions, and other associated terminology can be found in Appendix \ref{app:MVA}.} used is shown in Figure \ref{fig:nn-model}, it has an input layer of size 9 to match the number of shower shape variables, which is densely connected to a hidden layer of size 6, with ReLU activation functions. This layer is densely connected to an output with a sigmoid activation function. A dropout \cite{dropout} of 20\% is used while training to reduce overtraining. This produces a total of 67 trainable parameters. Models with additional layers and with a wider hidden layer were investigated but found to not provide any additional improvement in background rejection, so were rejected.
+In addition to a \gls{BDT}, a \gls{NN} was studied for photon classification, considering the same shower shape variables. It was developed using Keras \cite{Keras} using the Tensorflow \cite{Tensorflow} backend. The model topology\footnote{A description of \gls{NN} topologies, activation functions, and other associated terminology can be found in Appendix \ref{app:MVA}.} used is shown in Figure \ref{fig:nn-model}, it has an input layer of size 9 to match the number of shower shape variables, which is densely connected to a hidden layer of size 6, with ReLU activation functions. This layer is densely connected to an output with a sigmoid activation function. A dropout \cite{dropout} of 20\% is used while training to reduce overtraining. This produces a total of 67 trainable parameters. Models with additional layers and with a wider hidden layer were investigated but found to not provide any additional improvement in background rejection, so were rejected.
+
+%\footnote{Data manipulation was performed using the \texttt{Numpy} \cite{numpy} library.}
 
 \begin{figure}
     \centering
@@ -328,7 +324,7 @@ The \gls{NN} performed better at low \pt than the inclusively trained \gls{BDT} 
 
 \subsection{MVA With Topo-Cluster Variables}
 
-The \gls{BDT} was studied incorporating the topo-cluster moments as inputs. The relative gain when doing so is shown in Figure \ref{fig:bdt-topo-vs-cuts}, as compared to the current tight photon identification working point using the cut based method. Through applying this optimization, as much as a 27\% improvement is shown, and in most \pt-$\eta$ bins, a gain of greater than 10\% is shown.
+The \gls{BDT} was studied incorporating the topo-cluster moments as inputs. The relative gain when doing so is shown in Figure \ref{fig:bdt-topo-vs-cuts}, as compared to the current tight photon identification working point using the cut-based method. Through applying this optimization, as much as a 27\% improvement is shown, and in most \etaPt bins, a gain of greater than 10\% is shown.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=.85\textwidth]{chapters/chapter4_photonID/images/BDTtopo_v_cuts_normed.pdf}
@@ -339,6 +335,6 @@ The \gls{BDT} was studied incorporating the topo-cluster moments as inputs. The 
 
 \section{Conclusion}
 
-Through adding topo-cluster moments as inputs and by switching to a \gls{BDT}, an improvement of greater than 10\% in background rejection for the same signal efficiency as the tight working point is demonstrated in most \pt-$\eta$ bins, and as much as a 27\% improvement is shown. While the comparison between data and \gls{MC} modeling for the topo-cluster moments already demonstrates reasonably good agreement, proper calibration must be performed before full implementation. 
+Through adding topo-cluster moments as inputs and by switching to a \gls{BDT}, an improvement of greater than 10\% in background rejection for the same signal efficiency as the tight working point is demonstrated in most \etaPt bins, and as much as a 27\% improvement is shown. While the comparison between data and \gls{MC} modeling for the topo-cluster moments already demonstrates reasonably good agreement, proper calibration must be performed before full implementation. 
 
 The presented analysis in this thesis, studying \hhyybb production, has two photons in the final state. These per-photon improvements can lead to a improvement, since the signal selection is sensitive to the square of the photon identification efficiency. The analysis is statistics limited, the signal significance effectively scales as the number of signal events, so the ability to loosen the signal selection will directly improve the final analysis sensitivity.
