@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import seaborn as sns
-savedir = "/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/"
+savedir = "/Users/eparrish/Work/thesis/progressTracking/"
 
-df = pd.read_csv('/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/progress.csv')
+df = pd.read_csv('/Users/eparrish/Work/thesis/progressTracking/progress.csv')
 df['timestamp_fixed'] = pd.to_datetime(df['timestamp'], format="%Y-%m-%d %H:%M:%S")
 df = df.set_index('timestamp_fixed')
 

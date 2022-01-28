@@ -2,10 +2,10 @@
 export PATH=/usr/local/bin:/Library/TeX/texbin/:$PATH
 #export PATH=/usr/local/bin:$PATH
 echo "Updating dissertation progress"
-DOCUMENT='/Users/tburch/Documents/gitDevelopment/thesis/thesisBurch.pdf'
-TEX_DOC='/Users/tburch/Documents/gitDevelopment/thesis/thesisBurch.tex'
-PROGRESSFILE='/Users/tburch/Documents/gitDevelopment/thesis/progressTracking/progress.csv'
-cd /Users/tburch/Documents/gitDevelopment/thesis/
+DOCUMENT='/Users/eparrish/Work/thesis/thesisParrish.pdf'
+TEX_DOC='/Users/eparrish/Work/thesis/thesisParrish.tex'
+PROGRESSFILE='/Users/eparrish/Work/thesis/progressTracking/progress.csv'
+cd /Users/eparrish/Work/thesis/
 WORDCOUNT=`texcount -sum -total -merge {$TEX_DOC} | grep "Sum count:" | tr -d "Sum count: "`
 # Use this line in OSX
 PAGECOUNT=`mdls -name kMDItemNumberOfPages -raw ${DOCUMENT}`
@@ -14,4 +14,4 @@ PAGECOUNT=`mdls -name kMDItemNumberOfPages -raw ${DOCUMENT}`
 echo `date '+%Y-%m-%d %H:%M:%S'`,$WORDCOUNT,$PAGECOUNT >> $PROGRESSFILE
 echo "Done! Page count ${PAGECOUNT}, word count ${WORDCOUNT}"
 
-python /Users/tburch/Documents/gitDevelopment/thesis/progressTracking/plotProgress.py
+python /Users/eparrish/Work/thesis/progressTracking/plotProgress.py
