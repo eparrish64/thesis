@@ -14,4 +14,4 @@ PAGECOUNT=`mdls -name kMDItemNumberOfPages -raw ${DOCUMENT}`
 echo `date '+%Y-%m-%d %H:%M:%S'`,$WORDCOUNT,$PAGECOUNT >> $PROGRESSFILE
 echo "Done! Page count ${PAGECOUNT}, word count ${WORDCOUNT}"
 
-python /Users/eparrish/Work/thesis/progressTracking/plotProgress.py
+python3 /Users/eparrish/Work/thesis/progressTracking/plotProgress.py

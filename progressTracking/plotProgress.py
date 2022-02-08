@@ -80,11 +80,11 @@ for title,dt in dates.items():
 ax.tick_params(labelsize=12)
 ax2.tick_params(labelsize=12)
 plt.tight_layout()
-add_watermark()
+# add_watermark()
 plt.savefig(savedir+"plots/combinedProgress.png")
 
 # Twitter-friendly
 fig = plt.gcf()
 fig.set_size_inches(2*fig.get_figheight(),fig.get_figheight(),forward=True)
-add_watermark()
+# add_watermark()
 plt.savefig(savedir+"plots/combinedProgress_twitter.png")
