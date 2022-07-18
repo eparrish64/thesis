@@ -1,22 +1,53 @@
 \chapter{Theory}
-    In this chapter, the theoretical motivation of a search for \HpLong is described. Firstly, a review of the Standard Model of particle physics (SM) is laid out, then a brief overview of Supersymmetry focusing on the Minimal Supersymmetric Standard Model (MSSM) Higgs sector is detailed. Finally, the Type II 2-Higgs Doublet Model's (2HDM) relation to the \Hp production cross section and subsequent branching ratio into SM particles is described as motivation for the choice of studying \HpLong.
+    In this chapter, the theoretical motivation of a search for \HpLong is described. Firstly, a review of the Standard Model of particle physics (SM) is laid out, then a brief overview of Supersymmetry focusing on the Minimal Supersymmetric Standard Model (MSSM). Finally, the Type II 2-Higgs Doublet Model's (2HDM) relation to the \Hp production cross section and subsequent branching ratio into SM particles is described as motivation for the choice of studying \HpLong.
 
 \section{The Standard Model}
-	The Standard Model of particle physics is a mathematical model that describes all known matter and forces. The Standard Model is built upon a gauge group of type $SU(3)_C \times SU(2)_L \times U(1)_Y$. The $SU(3)_C$ term dictates the strong interaction while the $SU(2)_L \times U(1)_Y$ term describes the electroweak interaction. These interactions occur between fundamental particles called fermions that comprise the known matter of the universe. The interactions, or forces, are mediated by fundamental particles called bosons. 
+	 The Standard Model of particle physics is a quantum field theory that describes all known matter and forces. The Standard Model is built upon a gauge group of type $SU(3)_C \times SU(2)_L \times U(1)_Y$. The $SU(3)_C$ term dictates the strong interaction while the $SU(2)_L \times U(1)_Y$ term describes the electroweak interaction. These interactions occur between fundamental particles called fermions that comprise the known matter of the universe. The interactions, or forces, are mediated by fundamental particles called bosons. 
 
 	\subsection{Particles}        
 		The particles that make up the Standard Model are separated into two groups according to their intrinsic angular momentum charge, or spin. Fermions are those that carry half-integer spin while Bosons carry full integer spin values.
 
-
-		\textcolor{red}{Include standard model diagram}
-
+		
 		\subsubsection{Fermions}	
-		Fermions are even further divided into two groups, quarks and leptons. The quarks participate in the strong interaction via their color charge. Quarks cannot exist as a singular particle and thus combine into hadrons. Leptons carry no color charge and therefore do not participate in strong force interactions. The fermions in the standard model all participate in the electroweak interaction. However, the electromagnetic interaction is limited to those fermions that carry an electromagnetic charge.
+			The matter we encounter in everyday life is comprised of fermions that obey Fermi-Dirac statistics. Fermions are subdivided into two groups, quarks and leptons. The quarks participate in the strong interaction via their color charge. Quarks cannot exist as a singular particle and thus combine into hadrons in a process called hadronization; the bound states they form are colorless. Leptons carry no color charge and therefore do not participate in strong force interactions. The fermions in the standard model all participate in the electroweak interaction. However, the electromagnetic interaction is limited to those fermions that carry an electromagnetic charge.
 
-		Fermions can then be split further into three generations, each lepton has a weak force partner in the form of a neutrino.
+			Fermions can then be further divided into three generations, each lepton has an electrically neutral weak force partner in the form of a neutrino. Table~\ref{tab:fermions} lists all the SM fermions and their properties.
+
+
+			\begin{table}[!thp]
+				\centering
+				\caption{Standard Model fermions and their properties ~\cite{pdg}}
+				\begin{tabular}{c | c | c | c | c | c | c | c |}
+				\cline{2-8}
+
+																& \begin{tabular}[c]{@{}c@{}}$1^{st}$ \\ Generation \end{tabular} & \begin{tabular}[c]{@{}c@{}} $2^{nd}$ \\ Generation \end{tabular} 	& \begin{tabular}[c]{@{}c@{}} $3^{rd}$ \\ Generation \end{tabular}	& Spin 			& \begin{tabular}[c]{@{}c@{}}EM \\Charge \end{tabular}		& Color 		& Mass \\ \hline
+				\multicolumn{1}{|c|}{\multirow{3}{*}{Quarks}}   & Up (u)						& Charm (c)						& Top (t)						& $\frac{1}{2}$ & $+\frac{2}{3}$	& \scalecheck  	& \begin{tabular}[c]{@{}c@{}} $m_u = 2.3^{+0.7}_{-0.5}$ MeV \\ $m_c = 1.275 \pm 0.025$ MeV \\ $m_t = 173.2 \pm 0.7$ GeV \end{tabular}		\\ \cline{2-8}
+				\multicolumn{1}{|l|}{}                         	& Down (d)						& Strange (s)					& Bottom (b) 					& $\frac{1}{2}$ & $-\frac{1}{3}$	& \scalecheck	& \begin{tabular}[c]{@{}c@{}} $m_d = 4.8^{+0.5}_{-0.3}$ MeV \\ $m_s = 95\pm 5$ MeV \\ $m_b = 4.18 \pm 0.03$ GeV \end{tabular}				\\	\hline
+				\multicolumn{1}{|c|}{\multirow{3}{*}{Leptons}}  & Electron ($e^{-}$)			& Muon ($\mu^{-}$)				& Tau ($\tau^{-}$)				& $\frac{1}{2}$ & $-1$ 				& X 			& \begin{tabular}[c]{@{}c@{}} $m_{e^{-}} = 511$ keV \\ $m_{\mu^{-}} = 105.7$ MeV \\ $m_{\tau^{-}} = 1.8$ GeV \end{tabular}		\\ \cline{2-8}
+				\multicolumn{1}{|c|}{}  						& \begin{tabular}[c]{@{}c@{}}Electron \\ Neutrino\end{tabular} ($\nu_{e}$)	& \begin{tabular}[c]{@{}c@{}}Muon \\ Neutrino\end{tabular} ($\nu_{\mu}$)	& \begin{tabular}[c]{@{}c@{}}Tau \\ Neutrino\end{tabular} ($\nu_{\tau}$) & $\frac{1}{2}$ & $0$ 				& X 			& \begin{tabular}[c]{@{}c@{}} $m_{\nu_{e}} < 1.1$ eV \\ $m_{\nu_{\mu}} < 0.19 $ MeV  \\ $m_{\nu_{\tau}} < 18.2 $ MeV \end{tabular}		\\ \hline			
+				\end{tabular}
+				\label{tab:fermions}
+			\end{table}
+
+			\textcolor{red}{Check these numbers with current PDG}
+
 
 		\subsubsection{Bosons}
-			\textcolor{red}{NEEDS TO BE DONE}
+			Bosons are colloquially referred to as force-carriers in that the fundamental forces act via an exchanging gauge bosons. This means that each force has an associated boson which is described by a field theory, which has a set scale on which it operates.
+
+			\begin{table}[!thp]
+			\centering
+			\caption{Standard Model bosons and their properties ~\cite{pdg}}
+			\begin{tabular}{| c | c | c | c | c | c |}  
+			\hline
+			Field Theory 												& Boson 				& Spin 	& \begin{tabular}[c]{@{}c@{}} EM \\ Charge \end{tabular} 	& Color 		& Mass 	\\ \hline 
+			Quantum Chromodynamics										& Gluon (g)				& 1 	& 0 														& \scalecheck 	& 0		\\ \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{ElectroWeak Theory}}  	& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& $< 1 \, \mathrm{x} \, 10^{-18}$ eV  	\\ \cline{2-6}
+			\multicolumn{1}{|c|}{} 										& $W^{\pm}$ 			& 1 	& $\pm 1$													& X 			& $80.377 \pm 0.012$ GeV	\\ \cline{2-6}
+			\multicolumn{1}{|c|}{} 										& Z						& 1 	& 0 													 	& X 			& $91.1876 \pm 0.0021$ GeV  	\\ \hline
+			\end{tabular}
+			\label{tab:bosons}
+			\end{table}
 
 	\subsection{Interactions}
 
