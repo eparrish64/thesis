@@ -1,15 +1,14 @@
-\chapter{Theory}
+\chapter{Theory}\label{sec:Theory}
     In this chapter, the theoretical motivation of a search for \HpLong is described. Firstly, a review of the Standard Model of particle physics (SM) is laid out, then a brief overview of Supersymmetry focusing on the Minimal Supersymmetric Standard Model (MSSM). Finally, the Type II 2-Higgs Doublet Model's (2HDM) relation to the \Hp production cross section and subsequent branching ratio into SM particles is described as motivation for the choice of studying \HpLong.
 
-\section{The Standard Model}
+\section{The Standard Model}\label{sec:SM}
 	 The Standard Model of particle physics is a quantum field theory that describes all known matter and forces. The Standard Model is built upon a gauge group of type $SU(3)_C \times SU(2)_L \times U(1)_Y$. The $SU(3)_C$ term dictates the strong interaction while the $SU(2)_L \times U(1)_Y$ term describes the electroweak interaction. These interactions occur between fundamental particles called fermions that comprise the known matter of the universe. The interactions, or forces, are mediated by fundamental particles called bosons. 
 
-	\subsection{Particles}        
-		The particles that make up the Standard Model are separated into two groups according to their intrinsic angular momentum charge, or spin. Fermions are those that carry half-integer spin while Bosons carry full integer spin values.
-
+	\subsection{Particles}\label{ssec:Particles}
+		The particles that make up the Standard Model are separated into two groups according to their intrinsic angular momentum charge, or spin. Fermions are those that carry half-integer spin, and thus obey Fermi-Dirac statistics, while Bosons carry full integer spin values and obey Bose-Einstein statistics.
 		
-		\subsubsection{Fermions}	
-			The matter we encounter in everyday life is comprised of fermions that obey Fermi-Dirac statistics. Fermions are subdivided into two groups, quarks and leptons. The quarks participate in the strong interaction via their color charge. Quarks cannot exist as a singular particle and thus combine into hadrons in a process called hadronization; the bound states they form are colorless. Leptons carry no color charge and therefore do not participate in strong force interactions. The fermions in the standard model all participate in the electroweak interaction. However, the electromagnetic interaction is limited to those fermions that carry an electromagnetic charge.
+		\subsubsection{Fermions}\label{sssec:Fermions}
+			The matter we encounter in everyday life is comprised of fermions. Fermions are subdivided into two groups, quarks and leptons. The quarks participate in the strong interaction via their color charge. Quarks cannot exist as a singular particle and thus combine into hadrons in a process called hadronization; the bound states they form are colorless. Leptons carry no color charge and therefore do not participate in strong force interactions. The fermions in the standard model all participate in the electroweak interaction. However, the electromagnetic interaction is limited to those fermions that carry an electromagnetic charge.
 
 			Fermions can then be further divided into three generations, each lepton has an electrically neutral weak force partner in the form of a neutrino. Table~\ref{tab:fermions} lists all the SM fermions and their properties.
 
@@ -32,55 +31,56 @@
 			\textcolor{red}{Check these numbers with current PDG}
 
 
-		\subsubsection{Bosons}
-			Bosons are colloquially referred to as force-carriers in that the fundamental forces act via an exchanging gauge bosons. This means that each force has an associated boson which is described by a field theory, which has a set scale on which it operates.
+		\subsubsection{Bosons}\label{sssec:Bosons}
+			Bosons are colloquially referred to as force-carriers in that the fundamental forces act via an exchanging gauge bosons. This means that each force has an associated boson which is described by a field theory. The ElectroWeak quantum field theory (QFT) is more complicated, and is described in detail in section~\ref{sssec:ElectroWeak}
 
 			\begin{table}[!thp]
 			\centering
 			\caption{Standard Model bosons and their properties ~\cite{pdg}}
 			\begin{tabular}{| c | c | c | c | c | c |}  
 			\hline
-			Field Theory 												& Boson 				& Spin 	& \begin{tabular}[c]{@{}c@{}} EM \\ Charge \end{tabular} 	& Color 		& Mass 	\\ \hline 
-			Quantum Chromodynamics										& Gluon (g)				& 1 	& 0 														& \scalecheck 	& 0		\\ \hline
-			\multicolumn{1}{|c|}{\multirow{3}{*}{ElectroWeak Theory}}  	& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& $< 1 \, \mathrm{x} \, 10^{-18}$ eV  	\\ \cline{2-6}
-			\multicolumn{1}{|c|}{} 										& $W^{\pm}$ 			& 1 	& $\pm 1$													& X 			& $80.377 \pm 0.012$ GeV	\\ \cline{2-6}
-			\multicolumn{1}{|c|}{} 										& Z						& 1 	& 0 													 	& X 			& $91.1876 \pm 0.0021$ GeV  	\\ \hline
+			\multicolumn{1}{|c|}{Field Theory}							& Boson 				& Spin 	& \begin{tabular}[c]{@{}c@{}} EM \\ Charge \end{tabular} 	& Color 		& Mass 	\\ \hline 
+			\multicolumn{1}{|c|}{Quantum Chromodynamics (QCD)}			& Gluon (g)				& 1 	& 0 														& \scalecheck 	& 0		\\ \hline
+ 			\multicolumn{1}{|c|}{Quantum Electrodynamics (QED)} 		& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& $< 1 \, \mathrm{x} \, 10^{-18}$ eV  	\\ \hline
+			\multicolumn{1}{|c|}{\multirow{2}{*}{ElectroWeak Theory}} 	& $W^{\pm}$ 			& 1 	& $\pm 1$													& X 			& $80.377 \pm 0.012$ GeV	\\ \cline{2-6}
+			\multicolumn{1}{|c|}{} 										& $Z^{0}$				& 1 	& 0 													 	& X 			& $91.1876 \pm 0.0021$ GeV  	\\ \hline
 			\end{tabular}
 			\label{tab:bosons}
 			\end{table}
 
-	\subsection{Interactions}
+	\subsection{Interactions}\label{ssec:Interactions}
 
 		At its core, the SM relies upon symmetries. From these symmetries, conservation laws follow. It is these laws of conservation, and the breaking of said symmetries,  that dictate the allowed interactions of matter. The first, being a symmetry under charge conjugation, mirror reflection, and time reversal is known as CPT symmetry. The symmetry between charge conjugation and mirror reflection (CP) can be broken in certain circumstances, but holds in strong and electromagnetic interactions. This breaking of CP symmetry occurs in the weak interaction and implies a non-symmetry between matter and antimatter. Since this symmetry holds for strong and electromagnetic interactions, baryon number $(B = \frac{1}{3}(n_{q} - n_{\bar{q}}) )$ and lepton number are conserved in SM interactions. Lepton generation number \footnote{Ignoring neutrino oscillations}, electric charge, color charge, 4-momentum ($p=(E,\vec{p})$), and angular momentum are all conserved in the SM.
 
+		\subsubsection{Quantum Electrodynamics}\label{sssec:QED}
 
-		\subsubsection{Electromagnetic Interaction}
+		The electromagnetic force is governed by the QFT known as Quantum Electrodynamics (QED). This force is mediated by the photon, $\gamma$, a massless boson with EM charge 0. The EM force only affects, i.e. the photon only interacts with, charged particles; including all quarks and the $e$, $\mu$, and $\tau$ leptons. Antiparticles are those that carry the opposite EM charge from their normal counterparts and differ in no other way.
 
-			\textcolor{red}{NEEDS TO BE DONE}
+		\subsubsection{ElectroWeak Interaction}\label{sssec:ElectroWeak}
 
-		\subsubsection{Weak Interaction}
-			\textcolor{red}{NEEDS TO BE DONE}
+		The electroweak interaction 
 
-		\subsubsection{Strong Interaction}
-			\textcolor{red}{NEEDS TO BE DONE}
+		\subsubsection{Quantum Chromodynamics}\label{sssec:QCD}
+		
+		Quantum chromodynamics (QCD) is the QFT that describes the strong force that holds together atomic nuclei and other objects called hadrons. The strong force interacts via the color charge \footnote{This color does is not the visual color we are used to. Merely an convenient analogous naming scheme.} which can have values of either red, green, or blue. Particles that have a color charge cannot exist on their own, they must form colorless bound states called hadrons. Since the strong force grows with distance, if a quark is ejected out from a hadron, the stored energy is such that new particles with color charge will be spontaneously created from the vacuum, binding with the free quark in a process called hadronization. In a particle detector, the hadronization process cascades and creates showers of energy that are reconstructed as so called jets.
 
-	\subsection{The Higgs Mechanism}
+	\subsection{The Higgs Mechanism}\label{ssec:Higgs}
 		\textcolor{red}{NEEDS TO BE DONE}
 
-\section{Supersymmetry}
+\section{Supersymmetry}\label{sec:SUSY}
 	\textcolor{red}{NEEDS TO BE DONE}
 
-	\subsection{MSMM Particles}
+	\subsection{MSMM Particles}\label{ssec:MSMM}
 		\textcolor{red}{NEEDS TO BE DONE}
 
-	\subsection{R-Parity}
+	\subsection{R-Parity}\label{ssec:R-Parity}
 		\textcolor{red}{NEEDS TO BE DONE}
 
-	\subsection{The MSSM Higgs Sector}
+	\subsection{The MSSM Higgs Sector}\label{ssec:MSMM Higgs}
 		\textcolor{red}{NEEDS TO BE DONE}
 
-\section{Charged Higgs Bosons}
+\section{Charged Higgs Bosons}\label{sec:HPlus}
 	\textcolor{red}{NEEDS TO BE DONE}
 
-	\subsection{Previous Result}
+	\subsection{Previous Result}\label{ssec:Prev HPlus}
 		\textcolor{red}{NEEDS TO BE DONE}
