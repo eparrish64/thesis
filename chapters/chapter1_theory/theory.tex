@@ -32,7 +32,7 @@
 
 
 		\subsubsection{Bosons}\label{sssec:Bosons}
-			Bosons are colloquially referred to as force-carriers in that the fundamental forces act via an exchanging gauge bosons. This means that each force has an associated boson which is described by a field theory. The ElectroWeak quantum field theory (QFT) is more complicated, and is described in detail in section~\ref{sssec:ElectroWeak}
+			Bosons are colloquially referred to as force-carriers in that the fundamental forces act via an exchanging gauge bosons. This means that each force has an associated boson which is described by a field theory. The ElectroWeak quantum field theory (QFT) is more complicated, and is described in detail in section~\ref{sssec:ElectroWeak}. Table~\ref{tab:bosons} lists the SM bosons \footnote{excluding the Higgs}, their associated field theory and properties.
 
 			\begin{table}[!thp]
 			\centering
@@ -58,14 +58,99 @@
 
 		\subsubsection{ElectroWeak Interaction}\label{sssec:ElectroWeak}
 
-		The electroweak interaction 
+		The weak force is mediated by the $W^{\pm}$ and $Z^0$ bosons. Due to the relatively large mass of these bosons, the weak force has a very limited range. The $W^{pm}$ affects the third component of isospin ($T_3$), thus only coupling to so called left-handed fermions. This ``handedness'', or chirality, is a property similar to color charge, in that an individual particle can have a number of different values. Table~\ref{tab:weak} contains the allowed values for isospin ($T$) and hypercharge ($Y_W$). 
+
+		\begin{table}[!thp]
+				\centering
+				\caption{Standard Model fermions and their ElectroWeak properties ~\cite{pdg}}
+				\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c |}
+				\hline
+
+																& \begin{tabular}[c]{@{}c@{}}$1^{st}$ \\ Generation \end{tabular} & \begin{tabular}[c]{@{}c@{}} $2^{nd}$ \\ Generation \end{tabular} 	& \begin{tabular}[c]{@{}c@{}} $3^{rd}$ \\ Generation \end{tabular}		& \begin{tabular}[c]{@{}c@{}}EM \\ Charge \end{tabular} & \multicolumn{2}{|c|}{$Y_{W}$} & \multicolumn{2}{|c|}{T} 	& \multicolumn{2}{|c|}{$T_{3}$} \\ \hline
+				& & & & &  LH 				& RH 					& LH 			& RH 				& LH 	& RH \\ \cline{6-11}
+				\multicolumn{1}{|c|}{\multirow{3}{*}{Quarks}}   & Up (u)						& Charm (c)						& Top (t)						&  $+\frac{2}{3}$ & $+\frac{1}{3}$	& $+\frac{4}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \cline{2-11}
+				\multicolumn{1}{|l|}{}                         	& Down (d)						& Strange (s)					& Bottom (b) 					&  $-\frac{1}{3}$ & $+\frac{1}{3}$	& $-\frac{2}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+				\multicolumn{1}{|c|}{\multirow{3}{*}{Leptons}}  & Electron ($e^{-}$)			& Muon ($\mu^{-}$)				& Tau ($\tau^{-}$)				&  $-1$ & $-1$				& $0$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \cline{2-11}
+				\multicolumn{1}{|c|}{}  						& \begin{tabular}[c]{@{}c@{}}Electron \\ Neutrino\end{tabular} ($\nu_{e}$)	& \begin{tabular}[c]{@{}c@{}}Muon \\ Neutrino\end{tabular} ($\nu_{\mu}$)	& \begin{tabular}[c]{@{}c@{}}Tau \\ Neutrino\end{tabular} ($\nu_{\tau}$) & $0$ & $-1$				& $-2$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline			
+				\end{tabular}
+				\label{tab:weak}
+			\end{table}
+
+		The $W^\pm$ bosons have a $T_3$ component of isospin and act as raising or lowering operators on the $T_3$ component of left handed fermions. The Z does not have a $T_3$ component, and thus does not act on isospin of fermions. However, the Z boson instead transfers momentum, energy, and spin on all fermions irregardless of their chirality. At energies $> 100 $ \unit{GeV} the electromagnetic and weak forces combine into the electroweak force. In fact, isospin and hypercharge combine to give electromagnetic charge. $Q_{EM} = T_3 + \frac{1}{2} Y_W$
+
+		% \begin{table}[!thp]
+		% 	\centering
+		% 	\caption{Standard Model particles and their electroweak quantum numbers ~\cite{pdg}}
+		% 	\begin{tabular}{| c | c | c | c | c | c | c |}  
+		% 	\hline
+		% 	Particle 	& \multicolumn{2}{|c|}{$Y_{W}$} & \multicolumn{2}{|c|}{T} 	& \multicolumn{2}{|c|}{$T_{3}$} \\ \hline
+		% 				& LH 				& RH 					& LH 			& RH 				& LH 	& RH \\ \hline
+		% 	u 			& $+\frac{1}{3}$	& $+\frac{4}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	d 			& $+\frac{1}{3}$	& $-\frac{2}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	c 			& $+\frac{1}{3}$	& $+\frac{4}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	s 			& $+\frac{1}{3}$	& $-\frac{2}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	t 			& $+\frac{1}{3}$	& $+\frac{4}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	b 			& $+\frac{1}{3}$	& $-\frac{2}{3}$		& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	e 			& $-1$				& $0$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\nu_e$ 	& $-1$				& $-2$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\mu$ 		& $-1$				& $0$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\nu_\mu$ 	& $-1$				& $-2$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\tau$ 		& $-1$				& $0$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\nu_\tau$ 	& $-1$				& $-2$					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$\gamma$ 	& \multicolumn{2}{|c|}{$0$}					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$g$ 		& \multicolumn{2}{|c|}{X}					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$W$ 		& \multicolumn{2}{|c|}{$0$}					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$Z$ 		& \multicolumn{2}{|c|}{$0$}					& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	$H$ 		& \multicolumn{2}{|c|}{$+1$}				& $\frac{1}{2}$	& 0					& $\pm \frac{1}{2}$	 	& 0	 \\[1ex] \hline
+		% 	\end{tabular}
+		% 	\label{tab:weak}
+		% 	\end{table}
 
 		\subsubsection{Quantum Chromodynamics}\label{sssec:QCD}
 		
 		Quantum chromodynamics (QCD) is the QFT that describes the strong force that holds together atomic nuclei and other objects called hadrons. The strong force interacts via the color charge \footnote{This color does is not the visual color we are used to. Merely an convenient analogous naming scheme.} which can have values of either red, green, or blue. Particles that have a color charge cannot exist on their own, they must form colorless bound states called hadrons. Since the strong force grows with distance, if a quark is ejected out from a hadron, the stored energy is such that new particles with color charge will be spontaneously created from the vacuum, binding with the free quark in a process called hadronization. In a particle detector, the hadronization process cascades and creates showers of energy that are reconstructed as so called jets.
 
 	\subsection{The Higgs Mechanism}\label{ssec:Higgs}
-		\textcolor{red}{NEEDS TO BE DONE}
+
+		The Higgs field was first theorized by Peter Higgs~\cite{Higgs-paper}, François Englert, and Robert Brout~\cite{Englert-Brout} in 1964.  The SM itself has four massless Goldstone bosons that do not correspond to the observed bosons. Instead, the Higgs mechanism couples to them via a complex scalar doublet. 
+		\begin{equation}\label{eqn:scal doub} \phi = \binom{\phi^+}{\phi^0}\end{equation}
+		The scalar potential that gives rise to this phenomena can be written as 
+		\begin{equation}\label{eqn:higgs potential} V(\phi) = \mu^2 |\phi^{\dagger}\phi| + \lambda (|\phi^{\dagger}\phi|)^2\end{equation}
+		When $\mu^2>0$ and $\lambda>0$ the minimum of the potential $V(\phi)$ is 0. 
+		\begin{figure}[!ht] \centering \includegraphics[width=.7\textwidth,keepaspectratio=true]{chapters/chapter1_theory/images/higgspotential.png} \caption{The Higgs potential defined in~\ref{eqn:higgs potential} with $\mu^2<0$ ~\cite{Higgs-phys}} \label{fig:higgs-potential}\end{figure}
+		However, when $\mu^2<0$, the scalar potential $V(\phi)$ takes the shape shown in figure~\ref{fig:higgs-potential}
+		It follows that the vacuum expectation value (VEV) of $\phi$ is then 
+		\begin{equation}\label{eqn:higgs vev} \langle \phi \rangle = \sqrt{\frac{-\mu^2}{2\lambda}} = \frac{\nu}{\sqrt{2}}	\end{equation}
+		From here, convention states that we choose an arbitrary direction of the fluctuation as 
+		\begin{equation}\label{eqn:phi zero} \phi^0 = \frac{1}{\sqrt{2}} \binom{0}{\nu} \end{equation}
+		By choosing these values, $SU(2)$ and $U(1)_Y$ symmetries are broken, the Goldstone bosons are ``eaten'' and we are left with the remaining degree of freedom being the real scalar field $h(x)$
+		\begin{equation}\label{eqn:phi-h} \phi(x) = \phi^0 + h(x) \end{equation}
+		Substituting in our definition of $\phi^0$, we get
+		\begin{equation}\label{eqn:phi-h-vec} \phi = \frac{1}{\sqrt{2}} \binom{0}{\nu+h(x)} \end{equation}
+		and our coupling becomes 
+		\begin{equation}\label{eqn:coupling} (\frac{1}{2} g \vec{\sigma} \cdot \vec{W} + \frac{1}{2} g^\prime B ) \phi^0  \end{equation}, where $\vec{\sigma}$ are the Pauli matrices, $\vec{W}$ are $W_{1,2,3}$, $g$ is the weak coupling constant, and $g\prime$ is the hypercharge coupling constant. From this coupling, we get the four eigenstates that correspond to the observed bosons
+		\begin{equation}\label{eqn:mass-eigenstates} \begin{split}
+		W^\pm = \frac{1}{\sqrt{2}} ( W^1_\mu \mp i W^2_\mu ) \\
+		Z^\mu = \frac{ - g\prime B_\mu + g W^3_\mu }{ \sqrt{g^2+g\prime^2} } \\
+		A^\mu = \frac{ g B_\mu + g\prime W^3_\mu }{ \sqrt{g^2+g\prime^2} }
+		\end{split}
+		\end{equation}
+		These eigenstates have corresponding mass values of 
+		\begin{equation}\label{eqn:mass-eigenstates-masses} \begin{split}
+		M^2_W = \frac{1}{4}g^2\nu^2 \\
+		M^2_Z = \frac{1}{4}(g^2+g\prime^2)\nu \\
+		M^2_A = 0
+		\end{split}
+		\end{equation}
+
+		The eigenstate labeled here as $A$ is the photon. The Higgs field is the mass generator of the SM. The Higgs boson was discovered in 2012 by the ATLAS and CMS collaborations at CERN with a mass of $125$ GeV ~\cite{higgs-discovery-atlas}. The scalar boson that was found appears to be the SM Higgs Boson. 
+
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.7\textwidth,keepaspectratio=true]{chapters/chapter1_theory/images/Higgs_Discovery_gam_gam.jpeg}
+		\caption{The distributions of the invariant mass of diphoton candidates after all selections for the combined 7 TeV and 8 TeV data sample. The inclusive sample is shown in (a) and a weighted version of the same sample in (c); the weights are explained in the text. The result of a fit to the data of the sum of a signal component fixed to $m_H=126.5$ GeV  and a background component described by a fourth-order Bernstein polynomial is superimposed. The residuals of the data and weighted data with respect to the respective fitted background component are displayed in (b) and (d).}
+		\label{fig:higgs-discovery}
+		\end{figure}
 
 \section{Supersymmetry}\label{sec:SUSY}
 	\textcolor{red}{NEEDS TO BE DONE}
