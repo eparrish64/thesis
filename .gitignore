@@ -16,3 +16,9 @@
 *.fls
 *.aux
 *.sublime-project
+*.lot
+*.aux
+chapters/chapter1_theory/theory.aux
+refs.aux
+thesis.sublime-workspace
+thesisParrish.lof
