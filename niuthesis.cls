@@ -559,7 +559,7 @@
   %
   % \listofXXX is a hook dummy to add more stuff such as a List of Symbols
   % Enable it by using something like \newcommand{\listofXXX}{\input{symbols}}
-  \@ifundefined{listofXXX}{}{\listofXXX}
+  % \@ifundefined{listofXXX}{}{\listofXXX}
   %
   \ifth@loxheaderflag 
     \addtocontents{toc}{\noindent Chapter\par} 

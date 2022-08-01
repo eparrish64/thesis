@@ -1,11 +1,75 @@
 \chapter{Experimental Apparatus}
 
-\section{The Large Hadron Collider}
-	In order to study the Standard Model, the Higgs boson, and hints of new physics, the Large Hadron Collider (LHC) was built outside of Geneva, Switzerland. At 27 km in circumference with a center of mass energy of 13.6 TeV, the LHC is the largest and highest energy particle accelerator ever built.
+
+\section{Particle Accelerators}
+
+	To study the Standard Model, the Higgs boson, and hints of new physics, particle accelerators are used. Particle accelerators can be categorized as either fixed target or colliders. As the naming suggest, in a fixed target accelerator the beam hits a target that then produces the desired particle collisions. Whereas a collider uses two opposite circulating beams that are then brought to collide inside a detector. A fixed target accelerator energy scales as $E_{CM} = \sqrt{E_{beam}}$ whereas a collider scales as $E_{CM} = 2 \, E_{beam}$. 
 
 	\subsection{Hadron Colliders}
 
+		There are two main types of particle colliders, those that use hadrons and those that use leptons. Lepton colliders are often referred to as precision machines, as the longitude momentum is known and backgrounds are well understood. The center of mass energy is well controlled in a lepton collider, meaning particles can be produced on resonance. On the other hand, due to the nature of hadrons not being fundamental particles a hadron collider produces a wide range of collisions. The constituents of a hadron participate in the collisions, meaning it is impossible to know the exact longitude momentum of the initial state. It is because of this exact reason that hadron colliders are referred to as discovery machines. The synchrotron radiation produced from a hadron collider is much lower than that of a lepton collider; meaning the beams are easier to control and can be pushed to higher energies without extra loses. The center of mass energy scales with $\frac{1}{m^4}$ in a hadron collider; again leading to an increased energy gain by simply using heavier particles.
+
+	\subsection{The Large Hadron Collider}
+
+		The Large Hadron Collider (LHC) is a 27 km circumference circular collider built outside of Geneva, Switzerland at CERN (Conseil Européen pour la Recherche Nucléaire). At center of mass energy $13.6$ TeV, the LHC is the largest and highest energy particle accelerator ever built. There are four main collision points along the LHC: the ATLAS, CMS, ALICE, and LHCb experiments. ATLAS and CMS are general purpose particle detectors while ALICE and LHCb focus on heavy ion collisions. The numbers stated in the following sections are in reference to proton-proton collisions.
+
+		The LHC consists of 1104 NbTi superconducting dipole magnets, each being 15 m long, weighing 35 tonnes, cooled to 2 K, operating at 11,000 Amps, and produce a magnetic field of 8 T. A cross-section of a dipole magnet and the surrounding cryogenic system can be see in figure \ref{fig:dipole-xsec}. The dipole magnets are used to bend the beam around the ring with another 128 used in the beam dump system to remove the beam safely from the LHC. A 2-in-1 configuration is used within the dipole magnets to create the required magnetic fields to bend two equally charged beams in opposite directions. A diagram of the magnetic fields in this configuration produced can be seen in \ref{fig:dipole-field}. To focus the beam in the horizontal and vertical planes two quadrapole magnets are used; one magnet focuses in one plane while defocusing in the other. The end result is a horizontally and vertically focused beam. While in the LHC, the hadrons are accelerated using radiofrequency cavities. Table \ref{tab:LHC} lists some information on the LHC. 
+
+		\begin{table}[!thp]
+			\centering
+			\caption{LHC parameters  ~\cite{lhc-facts}}
+			\begin{tabular}{| l | l |}  
+			\hline
+			Circumference 						& $26,659$ m 					\\ 	\hline
+			Dipole operating temperature 		& $1.9$ K 						\\ 	\hline
+			Dipole magnets 						& $1232$ 						\\	\hline
+			Quadrapole magnets 					& $392$ 						\\	\hline
+			Radiofrequency cavities 			& $16$ ($8$ per beam) 			\\ 	\hline
+			Beam energy 						& $6.5$ TeV ($13$ CoM TeV) 		\\ \hline
+			Protons per bunch 					& $1.2 \mathrm{x} 10^11$ 		\\ \hline
+			Bunches per beam 					& $2808$ 						\\ \hline
+			Revolutions per second 				& $11245$ 						\\ \hline
+			Collisions per second 				& $1,000,000,000$ 				\\ \hline
+			\end{tabular}
+			\label{tab:LHC}
+		\end{table}
+
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/dipole-crosssection.png}
+		\caption{Cross-section of cryodipole (lengths in mm). \cite{lhc-machine}}
+		\label{fig:dipole-xsec}
+		\end{figure}
+
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/dipole-field.jpeg}
+		\caption{Field of the LHC dipole magnets. \cite{dipole-field}}
+		\label{fig:dipole-field}
+		\end{figure}
+
 	\subsection{CERN Accelerator Complex}
+		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN. 
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/CERN-complex.png}
+		\caption{The CERN accelerator complex. \cite{CERN-complex}}
+		\label{fig:CERN-complex}
+		\end{figure}
+		The protons used in the LHC start the accelerating process in the linear accelerator LINAC 2. The exit energies of protons from each accelerator can be seen in \ref{tab:accelerator-complex}.
+		\begin{table}[!thp]
+			\centering
+			\caption{Accelerator exit energies}
+			\begin{tabular}{| l | l |}  
+			\hline
+			LINAC 2 						& $50$ MeV 		\\ 	\hline
+			Booster 						& $1.4$ GeV 	\\ 	\hline
+			Proton Synchrotron (PS)			& $26$ GeV 		\\ 	\hline
+			Super Proton Synchrotron (SPS) 	& $450$ GeV 	\\ 	\hline
+			Large Hadron Collider (LHC)		& $6.5$ TeV 	\\ 	\hline
+			\end{tabular}
+			\label{tab:accelerator-complex}
+		\end{table}
 
 	\subsection{Luminosity}
 
