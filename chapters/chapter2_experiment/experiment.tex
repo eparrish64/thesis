@@ -13,7 +13,7 @@
 
 		The Large Hadron Collider (LHC) is a 27 km circumference circular collider built outside of Geneva, Switzerland at CERN (Conseil Européen pour la Recherche Nucléaire). At center of mass energy $13.6$ TeV, the LHC is the largest and highest energy particle accelerator ever built. There are four main collision points along the LHC: the ATLAS, CMS, ALICE, and LHCb experiments. ATLAS and CMS are general purpose particle detectors while ALICE and LHCb focus on heavy ion collisions. The numbers stated in the following sections are in reference to proton-proton collisions.
 
-		The LHC consists of 1104 NbTi superconducting dipole magnets, each being 15 m long, weighing 35 tonnes, cooled to 2 K, operating at 11,000 Amps, and produce a magnetic field of 8 T. A cross-section of a dipole magnet and the surrounding cryogenic system can be see in figure \ref{fig:dipole-xsec}. The dipole magnets are used to bend the beam around the ring with another 128 used in the beam dump system to remove the beam safely from the LHC. A 2-in-1 configuration is used within the dipole magnets to create the required magnetic fields to bend two equally charged beams in opposite directions. A diagram of the magnetic fields in this configuration produced can be seen in \ref{fig:dipole-field}. To focus the beam in the horizontal and vertical planes two quadrapole magnets are used; one magnet focuses in one plane while defocusing in the other. The end result is a horizontally and vertically focused beam. While in the LHC, the hadrons are accelerated using radiofrequency cavities. Table \ref{tab:LHC} lists some information on the LHC. 
+		The LHC consists of 1104 NbTi superconducting dipole magnets, each being 15 m long, weighing 35 tonnes, cooled to 2 K, operating at 11,000 Amps, and produce a magnetic field of 8.3 T. A cross-section of a dipole magnet and the surrounding cryogenic system can be see in figure \ref{fig:dipole-xsec}. The dipole magnets are used to bend the beam around the ring with another 128 used in the beam dump system to remove the beam safely from the LHC. A 2-in-1 configuration is used within the dipole magnets to create the required magnetic fields to bend two equally charged beams in opposite directions. A diagram of the magnetic fields in this configuration produced can be seen in \ref{fig:dipole-field}. To focus the beam in the horizontal and vertical planes two quadrapole magnets are used; one magnet focuses in one plane while defocusing in the other. The end result is a horizontally and vertically focused beam. While in the LHC, the hadrons are accelerated using radiofrequency cavities. Table \ref{tab:LHC} lists some information on the LHC. 
 
 		\begin{table}[!thp]
 			\centering
@@ -56,11 +56,13 @@
 		\caption{The CERN accelerator complex. \cite{CERN-complex}}
 		\label{fig:CERN-complex}
 		\end{figure}
-		The protons used in the LHC start the accelerating process in the linear accelerator LINAC 2. The exit energies of protons from each accelerator can be seen in \ref{tab:accelerator-complex}.
+		The protons used in the LHC start the accelerating process in the linear accelerator LINAC 2. They then are accelerated in the booster, PS, SPS, and are finally injected at the LHC where they are accelerated to the final 6.5 TeV beam energy. The final energies of protons from each accelerator can be seen in Table \ref{tab:accelerator-complex}.
 		\begin{table}[!thp]
 			\centering
-			\caption{Accelerator exit energies}
+			\caption{Accelerator final energies}
 			\begin{tabular}{| l | l |}  
+			\hline
+			Accelerator 					& Final Energy 	\\ \hline
 			\hline
 			LINAC 2 						& $50$ MeV 		\\ 	\hline
 			Booster 						& $1.4$ GeV 	\\ 	\hline
@@ -72,10 +74,53 @@
 		\end{table}
 
 	\subsection{Luminosity}
+		The amount of data collected from colliders is often referred to in terms of luminosity. Luminosity is measured in terms of inverse barns, where $1 \, b = 10^{-28} \, m^2$. Instantaneous luminosity of one bunch crossing can be written as 
+		\begin{equation}\label{eqn:bunch-lumi}
+		\mathcal{L}_{bunch} = \frac{ \mu  f }{\sigma}
+		\end{equation}
+		where $\sigma$ is the cross section and can be thought of as the probability of a collision occurring, $\mu$ is the number of inelastic interactions per bunch crossing, and $f$ is the revolution frequency of the LHC $f=11246$ Hz. Therefore, the total instantaneous luminosity is 
+		\begin{equation}\label{eqn:tot-inst-lumi}
+		\mathcal{L} = N_b \frac{ \langle \mu \rangle f}{\sigma}
+		\end{equation}
+		where $\langle \mu \rangle$ is the average number of inelastic interactions per bunch crossing. 
 
-	\subsection{Detector Coordinates}
+		The integrated luminosity then corresponds to the total amount of data that was taken during a time period and can be seen for the LHC Run-2 in \ref{fig:lhc-lumi}
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/intlumivstimeRun2DQall.png}
+		\caption{ Cumulative luminosity versus time delivered to ATLAS (green), recorded by ATLAS (yellow), and certified to be good quality data (blue) during stable beams for pp collisions at 13 TeV center of mass energy in 2015-2018. The difference between the colored histograms reflects inefficiencies, especially those seen when restarting data taking. }
+		\label{fig:lhc-lumi}
+		\end{figure}
+		The value of $\langle \mu \rangle$ changed throughout data taking and can be seen in Figure \ref{fig:run2-mu} and is referred to as pileup because the higher the $\langle \mu \rangle$ value, the more messy a collision becomes.
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/mu_2015_2018.png}
+		\caption{ The luminosity-weighted distribution of the mean number of interactions per bunch crossing for the 2015-2018 \pp collision dataset at $13$ TeV center of mass energy. }
+		\label{fig:run2-mu}
+		\end{figure}
+
+		A common calculation using the total integrated luminosity is shown in Equation \ref{eqn:tot-proc-num}; where the number of times a particular process was produced is calculated.
+		\begin{equation}\label{eqn:tot-proc-num}
+		N_{x} = \mathcal{L} \sigma_{x}
+		\end{equation}
+		where again, $\sigma$ is the cross section. In this case, the cross section corresponding to process $x$.
+
 
 \section{The ATLAS Detector}
+
+	\subsection{Detector Coordinates}
+	Since ATLAS is a cylinder, it is convenient to start with polar cylindrical coordinates. For ATLAS, the z-axis is inline with the beam line, the x-axis points towards the center of the LHC ring, and the y-axis points vertically. However, since particle collisions are relativistic by nature, a set of Lorentz invariant coordinates is much more useful. The radial coordinate r defines the radial distance from the interaction point (IP) at the center of ATLAS, $\phi$ is the azimuthal angle describing the angle from the x-axis in, and $\eta$, the pseudorapidity, is defined as 
+	\begin{equation}\label{eqn:eta}
+	\eta \equiv - ln(tan(\frac{\theta}{2}))
+	\end{equation}
+	where $\theta$ is the angle from the y-axis. It is in the differences in $\eta$ between particles that provides the Lorentz invariance in this coordinate system of $(r,\phi,\eta)$. Due to the large collision energies of the LHC, the pseudorapidity is a close estimate to the true rapidity of the particles. 
+	\begin{equation}\label{eqn:rapidity}
+	y \equiv \frac{1}{2} ln(\frac{E+p_Z}{E-p_Z}) \approx \eta
+	\end{equation}
+	When speaking of differences in particle locations within ATLAS, $\Delta R$  is often used.
+	\begin{equation}\label{eqn:dR}
+	\Delta R \equiv \sqrt{ (\Delta \eta)^2 + (\Delta \phi)^2}
+	\end{equation}
 
 	\subsection{Inner Detector}
 
