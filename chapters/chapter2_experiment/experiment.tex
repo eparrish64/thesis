@@ -49,7 +49,7 @@
 		\end{figure}
 
 	\subsection{CERN Accelerator Complex}
-		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN. 
+		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN.\footnote{Figure \ref{fig:CERN-complex} shows the newer LINAC 4 at the start of Run-3. This work is concerning data taken with LINAC 2.} 
 		\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/CERN-complex.png}
@@ -107,13 +107,20 @@
 
 
 \section{The ATLAS Detector}
-	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:etmiss}.} Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector.
+	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{sec:Trigger}. 
 
 	\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_3d_run3.png}
-	\caption{ The ATLAS detector with major subdetectors highlighted.}
+	\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_3d_run3.png}
+	\caption{ Cut-away view of the ATLAS detector with major subdetectors highlighted.}
 	\label{fig:ATLAS}
+	\end{figure}
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLASCrossSectionDiagram.png}
+	\caption{ Cross section view of the ATLAS detector with subdetectors labeled. Various types of particles radial trajectories are shown.}
+	\label{fig:ATLAS-XSec}
 	\end{figure}
 
 	\subsection{Detector Coordinates}
@@ -130,7 +137,42 @@
 	\Delta R \equiv \sqrt{ (\Delta \eta)^2 + (\Delta \phi)^2}
 	\end{equation}
 
+	% In the ATLAS detector, the central barrel section corresponds to $|\eta| < 2.5$
+	Figure \ref{fig:pseudorapidity} shows visually how $\eta$ relates to $\theta$. In the ATLAS detector, the central barrel section corresponds to a range of $|\eta|<1$. 
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.25\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/Pseudorapidity.png}
+	\caption{ A diagram showing the pseudorapidity $\eta$ and corresponding $\theta$ values. \cite{pseudorapidity} }
+	\label{fig:pseudorapidity}
+	\end{figure}
+
+	\subsection{Magnet Systems}
+	The ATLAS detector makes use of two superconducting magnet systems; a central solenoid and a toroid system. Both systems provide large magnetic fields to curve charged particles. The curvature can be used to measure the electromagnetic charge and charge to mass ratio, effectively measuring the momentum of charged particles. Figure \ref{fig:ATLAS-magnets} shows the magnets in ATLAS.
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/magnetSystems.png}
+	\caption{ The ATLAS magnet systems.}
+	\label{fig:ATLAS-magnets}
+	\end{figure}
+
+	\subsubsection{Solenoid System}
+	The central solenoid encases the Inner Detector (ID), creating an axially symmetric 2 T magnetic field. This magnetic field bends charged particles in the transverse plane throughout the ID. The solenoid magnet itself measures 5.3 m in length and 2.63 m in diameter. In an effort to decrease the amount of material in front of the calorimeters the solenoid magnet was made to be thin. It is a single-layer coil with approximately 1200 turns of NbTi superconducting wires encased in Al to structurally stabilize the magnet material \cite{atlas-solenoid}. The steel structure within the Tile calorimeter acts as the magnetic flux return for the solenoid magnet system \cite{ATLAS-tile}.
+
+	\subsubsection{Toroid System}
+	The ATLAS detector gets its name from the toroid magnetic system that is critical in the identification of high energy muons. The toroid system bends any charged particles that make it past the calorimeters along the beam axis. This is achieved through a radially symmetric magnetic field of 3.9 T in the barrel and 4.1 in the end-caps. The barrel toroid system is comprised of 8 air core superconducting toroid magnets that each measure 25 m in length, 10 m in diameter, and weigh 750 tonnes. The superconducting wires are the same used in the solenoid, NbTi encased in Al-Cu \cite{atlas-toroid}. Each magnet is encased in a stainless steel cryogenic chamber, or cryostat. The toroid magnet system has two end-cap toroids that are very similar in construction to the barrel toroids. The end-cap toroids also have 8 coils measuring 5 m in length and 10 m in diameter. Instead of individual cryostats for each coil, the end-caps are encased in large cryostats that hold all 8 coils. This allows the end-caps to be pulled out and offers easy access to the rest of the detector. Just like with the central solenoid system, the design of the toroid system was chosen to limit the amount of material between detector components. A solenoid magnet of similar size to the toroid system would not only add more material, but would be cost prohibitive as well.
+
+
 	\subsection{Inner Detector}
+		The ID 
+
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}
+		\caption{ Cut-away view of the ATLAS Inner Detector.}
+		\label{fig:ATLAS-ID}
+		\end{figure}
 
 		\subsubsection{Pixel}
 
@@ -154,10 +196,5 @@
 
 		\subsubsection{Thin Gap Chambers}
 
-	\subsection{Magnet Systems}
-
-		\subsubsection{Solenoid Magnet}
-
-		\subsubsection{Toroid Magnet}
 
 		

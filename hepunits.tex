@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+\usepackage{xspace,setspace,fancyvrb,a4wide}
+\usepackage{url,relsize,booktabs,ccaption,braket}
+\usepackage[colorlinks=true,bookmarks=true]{hyperref}
+\usepackage{mathpazo,microtype}
+
+\usepackage[sicmds,freestanding]{hepunits}
+\newcommand{\hepunits}{\texttt{hepunits}\xspace}
+
+\let\OldCite\cite
+\renewcommand{\cite}[1]{\mbox{\!\!\OldCite{#1}}}
+
+\onehalfspacing
+\DefineShortVerb{\|}
+
+\author{Andy Buckley, \texttt{andy@insectnation.org}}
+\title{The \hepunits \LaTeX{} package}
+
+\newcommand{\texcmd}[1]{\texttt{\char`\\#1}}
+\newcommand{\texenv}[1]{\texttt{\char`#1}}
+\newcommand{\texopt}[1]{\texttt{\char`#1}}
+\newcommand{\texarg}[1]{\texttt{\char`#1}}
+\newcommand{\texpkg}[1]{\texttt{\char`#1}}
+\newcommand{\texcls}[1]{\texttt{\char`#1}}
+\newcommand{\texcommand}[1]{\texcmd{#1}}
+\newcommand{\texoption}[1]{\texopt{#1}}
+\newcommand{\texgen}[1]{\ensuremath{\braket{\text{\emph{#1}}}}}
+\newenvironment{snippet}{\Verbatim}{\endVerbatim}
+
+
+
+\begin{document}
+\maketitle
+
+
+%\abstract{%
+The \hepunits~v2 package extends the existing (and excellent) \texpkg{siunitx}
+package to support units commonly used in high-energy physics. HEP uses a
+rather specialised set of units to describe measurements of energies, masses,
+momenta, reaction cross-sections, luminosities and so-on. Using this package
+provides particle physicists with a consistent and accurate way to refer to
+dimensionful HEP quantities. It additionally tweaks the often problematic
+character spacing around the \si\eV and \si\eVcsq units, as an ``eV kern''
+is not typically defined in \LaTeX{} fonts. %
+%}
+
+
+\section{Recommended usage}
+The basic usage mode for \hepunits is to place |\usepackage{hepunits}|
+% %
+% \begin{snippet}
+%   \usepackage{hepunits}
+% \end{snippet}
+% %
+in the preamble of your document.
+
+This loads the \texpkg{amsmath} (for \texcmd{mspace}/\texcmd{mkern}) and
+\texpkg{siunitx} packages, as well as defining new HEP units using the
+\texpkg{siunitx} mechanisms. For convenience, it also sets the \texpkg{siunitx}
+defaults to detect the surrounding text style (include displayed mathematics)
+and to use text-mode rendering of units, again to match the surrounding text
+font for numbers and unit text. If these features aren't wanted, or you want to
+set any of the myriad other \texpkg{siunitx} rendering options, call the
+\texcmd{sisetup} macro \emph{after} the |\usepackage{hepunits}| call.
+
+
+\section{Options}
+\hepunits accepts three optional arguments during import:
+%
+\begin{description}
+\item[sicmds:] Also define convenience short versions of SI units, e.g.~\texcmd{cm};
+\item[noprefixcmds:] Don't define convenience SI-prefixed versions of HEP units, e.g.~\texcmd{GeV} in addition to \texcmd{eV};
+\item[freestanding:] Make the unit macros also usable outside the \texcmd{SI} and \texcmd{si} macros (equivalent to |\sisetup{free-standing-units=true}|.
+\end{description}
+%
+These can be used as follows: |\usepackage[sicmds,freestanding]{heputils}|.
+
+
+\section{Requirements}
+\hepunits requires the \texpkg{siunitx} and \texpkg{amsmath}
+packages to be installed as part of your \TeX{} distribution. I don't know of
+any distributions for which this isn't the case, so chances are you're safe to
+just install \hepunits and use it right away.
+
+
+\section{Provided units}
+The HEP units provided by \hepunits are listed in Tables \ref{tab:normunits} and
+\ref{tab:hepunits} below. All the example outputs have been produced with a
+command like |\SI{1.0}{|\texgen{unit}|}| where \texgen{unit} is one of the unit
+commands listed in the first columns of the tables. Note that standard
+\texpkg{siunitx} parsing extensions like |\SI{1.23e-4}{\GeV}| $\to$
+\SI{1.23e-4}{\GeV}, and significant-digit control, also work but aren't shown
+here in the interests of brevity.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lllll}
+    \toprule
+    Unit command & Normal & Italic & Bold & Math \\
+
+    \midrule
+    Lengths \\
+    \texcmd{nm}     & \SI{1.0}{\nm}     & \textit{\SI{1.0}{\nm}}     & \textbf{\SI{1.0}{\nm}}     & $x = \SI{1.0}{\nm}$    \\
+    \texcmd{um}     & \SI{1.0}{\um}     & \textit{\SI{1.0}{\um}}     & \textbf{\SI{1.0}{\um}}     & $x = \SI{1.0}{\um}$    \\
+    \texcmd{mm}     & \SI{1.0}{\mm}     & \textit{\SI{1.0}{\mm}}     & \textbf{\SI{1.0}{\mm}}     & $x = \SI{1.0}{\mm}$    \\
+    \texcmd{cm}     & \SI{1.0}{\cm}     & \textit{\SI{1.0}{\cm}}     & \textbf{\SI{1.0}{\cm}}     & $x = \SI{1.0}{\cm}$    \\
+    \texcmd{micron} & \SI{1.0}{\um}     & \textit{\SI{1.0}{\um}}     & \textbf{\SI{1.0}{\um}}     & $x = \SI{1.0}{\um}$    \\
+
+    \midrule
+    Times \\
+    \texcmd{ns}     & \SI{1.0}{\ns}     & \textit{\SI{1.0}{\ns}}     & \textbf{\SI{1.0}{\ns}}     & $x = \SI{1.0}{\ns}$    \\
+    \texcmd{ps}     & \SI{1.0}{\ps}     & \textit{\SI{1.0}{\ps}}     & \textbf{\SI{1.0}{\ps}}     & $x = \SI{1.0}{\ps}$    \\
+    \texcmd{fs}     & \SI{1.0}{\fs}     & \textit{\SI{1.0}{\fs}}     & \textbf{\SI{1.0}{\fs}}     & $x = \SI{1.0}{\fs}$    \\
+    \texcmd{as}     & \SI{1.0}{\as}     & \textit{\SI{1.0}{\as}}     & \textbf{\SI{1.0}{\as}}     & $x = \SI{1.0}{\as}$    \\
+
+    \midrule
+    Rates \\
+    \texcmd{mHz}    & \SI{1.0}{\mHz}    & \textit{\SI{1.0}{\mHz}}    & \textbf{\SI{1.0}{\mHz}}    & $x = \SI{1.0}{\mHz}$   \\
+    \texcmd{Hz}     & \SI{1.0}{\Hz}     & \textit{\SI{1.0}{\Hz}}     & \textbf{\SI{1.0}{\Hz}}     & $x = \SI{1.0}{\Hz}$    \\
+    \texcmd{kHz}    & \SI{1.0}{\kHz}    & \textit{\SI{1.0}{\kHz}}    & \textbf{\SI{1.0}{\kHz}}    & $x = \SI{1.0}{\kHz}$   \\
+    \texcmd{MHz}    & \SI{1.0}{\MHz}    & \textit{\SI{1.0}{\MHz}}    & \textbf{\SI{1.0}{\MHz}}    & $x = \SI{1.0}{\MHz}$   \\
+    \texcmd{GHz}    & \SI{1.0}{\GHz}    & \textit{\SI{1.0}{\GHz}}    & \textbf{\SI{1.0}{\GHz}}    & $x = \SI{1.0}{\GHz}$   \\
+    \texcmd{THz}    & \SI{1.0}{\THz}    & \textit{\SI{1.0}{\THz}}    & \textbf{\SI{1.0}{\THz}}    & $x = \SI{1.0}{\THz}$   \\
+
+    \midrule
+    Misc. \\
+    \texcmd{mrad}   & \SI{1.0}{\mrad}   & \textit{\SI{1.0}{\mrad}}   & \textbf{\SI{1.0}{\mrad}}   & $x = \SI{1.0}{\mrad}$  \\
+    \texcmd{gauss}  & \SI{1.0}{\gauss}  & \textit{\SI{1.0}{\gauss}}  & \textbf{\SI{1.0}{\gauss}}  & $x = \SI{1.0}{\gauss}$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{List of non-HEP specific units provided by \hepunits. Other than \texttt{\textbackslash{}gauss}, these units are only available via the \texttt{sicmds} package option.}
+  \label{tab:normunits}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lllll}
+    \toprule
+    Unit command & Normal & Italic & Bold & Math \\
+    \midrule
+    Luminosities \\
+    \texcmd{invcmsq}                       & \SI{1.0}{\invcmsq}           & \textit{\SI{1.0}{\invcmsq}}           & \textbf{\SI{1.0}{\invcmsq}}           & $x = \SI{1.0}{\invcmsq}$          \\
+    \texcmd{invcmsqpersecond}              & \SI{1.0}{\invcmsqpersecond}  & \textit{\SI{1.0}{\invcmsqpersecond}}  & \textbf{\SI{1.0}{\invcmsqpersecond}}  & $x = \SI{1.0}{\invcmsqpersecond}$ \\
+    \texcmd{invcmsqpersec}                 & \SI{1.0}{\invcmsqpersec}     & \textit{\SI{1.0}{\invcmsqpersec}}     & \textbf{\SI{1.0}{\invcmsqpersec}}     & $x = \SI{1.0}{\invcmsqpersec}$    \\
+
+    \midrule
+    Cross-sections \\
+    \texcmd{barn}                          & \SI{1.23e-4}{\barn}          & \textit{\SI{1.0}{\barn}}              & \textbf{\SI{1.0}{\barn}}              & $x = \SI{1.0}{\barn}$             \\
+    \texcmd{invbarn}                       & \SI{1.0}{\invbarn}           & \textit{\SI{1.0}{\invbarn}}           & \textbf{\SI{1.0}{\invbarn}}           & $x = \SI{1.0}{\invbarn}$          \\
+    \texcmd{nanobarn}                      & \SI{1.0}{\nanobarn}          & \textit{\SI{1.0}{\nanobarn}}          & \textbf{\SI{1.0}{\nanobarn}}          & $x = \SI{1.0}{\nanobarn}$         \\
+    \texcmd{invnanobarn} / \texcmd{invnb}  & \SI{1.0}{\invnanobarn}       & \textit{\SI{1.0}{\invnanobarn}}       & \textbf{\SI{1.0}{\invnanobarn}}       & $x = \SI{1.0}{\invnanobarn}$      \\
+    \texcmd{picobarn}                      & \SI{1.0}{\picobarn}          & \textit{\SI{1.0}{\picobarn}}          & \textbf{\SI{1.0}{\picobarn}}          & $x = \SI{1.0}{\picobarn}$         \\
+    \texcmd{invpicobarn} / \texcmd{invpb}  & \SI{1.0}{\invpicobarn}       & \textit{\SI{1.0}{\invpicobarn}}       & \textbf{\SI{1.0}{\invpicobarn}}       & $x = \SI{1.0}{\invpicobarn}$      \\
+    \texcmd{femtobarn}                     & \SI{1.0}{\femtobarn}         & \textit{\SI{1.0}{\femtobarn}}         & \textbf{\SI{1.0}{\femtobarn}}         & $x = \SI{1.0}{\femtobarn}$        \\
+    \texcmd{invfemtobarn} / \texcmd{invfb} & \SI{1.0}{\invfemtobarn}      & \textit{\SI{1.0}{\invfemtobarn}}      & \textbf{\SI{1.0}{\invfemtobarn}}      & $x = \SI{1.0}{\invfemtobarn}$     \\
+    \texcmd{attobarn}                      & \SI{1.0}{\attobarn}          & \textit{\SI{1.0}{\attobarn}}          & \textbf{\SI{1.0}{\attobarn}}          & $x = \SI{1.0}{\attobarn}$         \\
+    \texcmd{invattobarn} / \texcmd{invab}  & \SI{1.0}{\invattobarn}       & \textit{\SI{1.0}{\invattobarn}}       & \textbf{\SI{1.0}{\invattobarn}}       & $x = \SI{1.0}{\invattobarn}$      \\
+
+    \bottomrule
+  \end{tabular}
+  \caption{List of HEP-specific luminosity units provided by \hepunits.}
+  \label{tab:hepunits}
+\end{table}
+
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{lllll}
+    \toprule
+    Unit command & Normal & Italic & Bold  & Math \\
+    \midrule
+    \eV-based units \\
+    %\multicolumn{4}{\eV-based units} \\
+    \texcmd{eV}     & \SI{1.0}{\eV}     & \textit{\SI{1.0}{\eV}}     & \textbf{\SI{1.0}{\eV}}     & $x = \SI{1.0}{\eV}$     \\
+    \texcmd{eVc}    & \SI{1.0}{\eVc}    & \textit{\SI{1.0}{\eVc}}    & \textbf{\SI{1.0}{\eVc}}    & $x = \SI{1.0}{\eVc}$    \\
+    \texcmd{eVcsq}  & \SI{1.0}{\eVcsq}  & \textit{\SI{1.0}{\eVcsq}}  & \textbf{\SI{1.0}{\eVcsq}}  & $x = \SI{1.0}{\eVcsq}$  \\
+    \texcmd{meV}    & \SI{1.0}{\meV}    & \textit{\SI{1.0}{\meV}}    & \textbf{\SI{1.0}{\meV}}    & $x = \SI{1.0}{\meV}$    \\
+    \texcmd{keV}    & \SI{1.0}{\keV}    & \textit{\SI{1.0}{\keV}}    & \textbf{\SI{1.0}{\keV}}    & $x = \SI{1.0}{\keV}$    \\
+    \texcmd{MeV}    & \SI{1.0}{\MeV}    & \textit{\SI{1.0}{\MeV}}    & \textbf{\SI{1.0}{\MeV}}    & $x = \SI{1.0}{\MeV}$    \\
+    \texcmd{GeV}    & \SI{1.0}{\GeV}    & \textit{\SI{1.0}{\GeV}}    & \textbf{\SI{1.0}{\GeV}}    & $x = \SI{1.0}{\GeV}$    \\
+    \texcmd{TeV}    & \SI{1.0}{\TeV}    & \textit{\SI{1.0}{\TeV}}    & \textbf{\SI{1.0}{\TeV}}    & $x = \SI{1.0}{\TeV}$    \\
+    \texcmd{meVc}   & \SI{1.0}{\meVc}   & \textit{\SI{1.0}{\meVc}}   & \textbf{\SI{1.0}{\meVc}}   & $x = \SI{1.0}{\meVc}$   \\
+    \texcmd{keVc}   & \SI{1.0}{\keVc}   & \textit{\SI{1.0}{\keVc}}   & \textbf{\SI{1.0}{\keVc}}   & $x = \SI{1.0}{\keVc}$   \\
+    \texcmd{MeVc}   & \SI{1.0}{\MeVc}   & \textit{\SI{1.0}{\MeVc}}   & \textbf{\SI{1.0}{\MeVc}}   & $x = \SI{1.0}{\MeVc}$   \\
+    \texcmd{GeVc}   & \SI{1.0}{\GeVc}   & \textit{\SI{1.0}{\GeVc}}   & \textbf{\SI{1.0}{\GeVc}}   & $x = \SI{1.0}{\GeVc}$   \\
+    \texcmd{TeVc}   & \SI{1.0}{\TeVc}   & \textit{\SI{1.0}{\TeVc}}   & \textbf{\SI{1.0}{\TeVc}}   & $x = \SI{1.0}{\TeVc}$   \\
+    \texcmd{meVcsq} & \SI{1.0}{\meVcsq} & \textit{\SI{1.0}{\meVcsq}} & \textbf{\SI{1.0}{\meVcsq}} & $x = \SI{1.0}{\meVcsq}$ \\
+    \texcmd{keVcsq} & \SI{1.0}{\keVcsq} & \textit{\SI{1.0}{\keVcsq}} & \textbf{\SI{1.0}{\keVcsq}} & $x = \SI{1.0}{\keVcsq}$ \\
+    \texcmd{MeVcsq} & \SI{1.0}{\MeVcsq} & \textit{\SI{1.0}{\MeVcsq}} & \textbf{\SI{1.0}{\MeVcsq}} & $x = \SI{1.0}{\MeVcsq}$ \\
+    \texcmd{GeVcsq} & \SI{1.0}{\GeVcsq} & \textit{\SI{1.0}{\GeVcsq}} & \textbf{\SI{1.0}{\GeVcsq}} & $x = \SI{1.0}{\GeVcsq}$ \\
+    \texcmd{TeVcsq} & \SI{1.0}{\TeVcsq} & \textit{\SI{1.0}{\TeVcsq}} & \textbf{\SI{1.0}{\TeVcsq}} & $x = \SI{1.0}{\TeVcsq}$ \\
+    \bottomrule
+  \end{tabular}
+  \contcaption{List of HEP-specific units provided by \hepunits (cont.)}
+  \label{tab:hepunits2}
+\end{table}
+
+Note that a lot of these units have, for convenience, been provided as explicit
+commands with various SI prefixes, rather than just defining the base unit and
+using the \texpkg{siunitx} prescription for the prefixes. Let's give a demo in
+case you don't know what I'm waffling about\dots the ``usual'' \texpkg{siunitx}
+way of doing things is like this:
+|\SI{1.0}{\mega\eVc}|. This produces ``\SI{1.0}{\mega\eVc}''
+just like |\SI{1.0}{\MeVc}| would do.
+
+I've chosen to provide the explicit prefixed commands for convenience: choose
+your own favourite way (the same applies even more so for most of the non-HEP
+units). If you are bothered about the explictly prefixed commands clogging up
+the \LaTeX{} macro namespace then pass the \texopt{noprefixcmds} option to
+\hepunits and the offending commands won't be defined at all. This will make
+life awkward when it comes to inverse cross-sections as used for integrated
+luminosities, but with suitable use of \texcmd{invbarn} I'm sure you can make
+do.
+
+\section{Summary}
+\hepunits is a handy package for particle physicists who'd like their units to
+look right, with upright \si{\micro}{s}, properly italicised $c$s, and properly
+kerned \eV{s} in the appropriate places. Fortunately most of the work has
+already been done by the marvellous \texpkg{siunitx} package and I've just
+provided a few more commands and an option passing wrapper on to that excellent
+piece of work.
+
+If you have any comments, criticism, huge cash donations etc., then please do
+send them my way.
+
+\end{document}
