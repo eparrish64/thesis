@@ -1,15 +1,14 @@
-\chapter{Experimental Apparatus}
+\chapter{Experimental Apparatus}\label{chap:experiment}
 
-
-\section{Particle Accelerators}
+\section{Particle Accelerators}\label{sec:accelerators}
 
 	To study the Standard Model, the Higgs boson, and hints of new physics, particle accelerators are used. Particle accelerators can be categorized as either fixed target or colliders. As the naming suggest, in a fixed target accelerator the beam hits a target that then produces the desired particle collisions. Whereas a collider uses two opposite circulating beams that are then brought to collide inside a detector. A fixed target accelerator energy scales as $E_{CM} = \sqrt{E_{beam}}$ whereas a collider scales as $E_{CM} = 2 \, E_{beam}$. 
 
-	\subsection{Hadron Colliders}
+	\subsection{Hadron Colliders}\label{ssec:hadron-colliders}
 
 		There are two main types of particle colliders, those that use hadrons and those that use leptons. Lepton colliders are often referred to as precision machines, as the longitude momentum is known and backgrounds are well understood. The center of mass energy is well controlled in a lepton collider, meaning particles can be produced on resonance. On the other hand, due to the nature of hadrons not being fundamental particles a hadron collider produces a wide range of collisions. The constituents of a hadron participate in the collisions, meaning it is impossible to know the exact longitude momentum of the initial state. It is because of this exact reason that hadron colliders are referred to as discovery machines. The synchrotron radiation produced from a hadron collider is much lower than that of a lepton collider; meaning the beams are easier to control and can be pushed to higher energies without extra loses. The center of mass energy scales with $\frac{1}{m^4}$ in a hadron collider; again leading to an increased energy gain by simply using heavier particles.
 
-	\subsection{The Large Hadron Collider}
+	\subsection{The Large Hadron Collider}\label{ssec:LHC}
 
 		The Large Hadron Collider (LHC) is a 27 km circumference circular collider built outside of Geneva, Switzerland at CERN (Conseil Européen pour la Recherche Nucléaire). At center of mass energy $13.6$ TeV, the LHC is the largest and highest energy particle accelerator ever built. There are four main collision points along the LHC: the ATLAS, CMS, ALICE, and LHCb experiments. ATLAS and CMS are general purpose particle detectors while ALICE and LHCb focus on heavy ion collisions. The numbers stated in the following sections are in reference to proton-proton collisions.
 
@@ -48,7 +47,7 @@
 		\label{fig:dipole-field}
 		\end{figure}
 
-	\subsection{CERN Accelerator Complex}
+	\subsection{CERN Accelerator Complex}\label{ssec:cern-accelerators}
 		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN.\footnote{Figure \ref{fig:CERN-complex} shows the newer LINAC 4 at the start of Run-3. This work is concerning data taken with LINAC 2.} 
 		\begin{figure}[!ht]
 		\centering
@@ -73,7 +72,7 @@
 			\label{tab:accelerator-complex}
 		\end{table}
 
-	\subsection{Luminosity}
+	\subsection{Luminosity}\label{ssec:lumi}
 		The amount of data collected from colliders is often referred to in terms of luminosity. Luminosity is measured in terms of inverse barns, where $1 \, b = 10^{-28} \, m^2$. Instantaneous luminosity of one bunch crossing can be written as 
 		\begin{equation}\label{eqn:bunch-lumi}
 		\mathcal{L}_{bunch} = \frac{ \mu  f }{\sigma}
@@ -106,7 +105,7 @@
 		where again, $\sigma$ is the cross section. In this case, the cross section corresponding to process $x$.
 
 
-\section{The ATLAS Detector}
+\section{The ATLAS Detector}\label{sec:ATLAS}
 	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{sec:Trigger}. 
 
 	\begin{figure}[!ht]
@@ -123,7 +122,7 @@
 	\label{fig:ATLAS-XSec}
 	\end{figure}
 
-	\subsection{Detector Coordinates}
+	\subsection{Detector Coordinates}\label{ssec:coordinates}
 	Since ATLAS is a cylinder, it is convenient to start with polar cylindrical coordinates. For ATLAS, the z-axis is inline with the beam line, the x-axis points towards the center of the LHC ring, and the y-axis points vertically. However, since particle collisions are relativistic by nature, a set of Lorentz invariant coordinates is much more useful. The radial coordinate r defines the radial distance from the interaction point (IP) at the center of ATLAS, $\phi$ is the azimuthal angle describing the angle from the x-axis in, and $\eta$, the pseudorapidity, is defined as 
 	\begin{equation}\label{eqn:eta}
 	\eta \equiv - ln(tan(\frac{\theta}{2}))
@@ -147,7 +146,7 @@
 	\label{fig:pseudorapidity}
 	\end{figure}
 
-	\subsection{Magnet Systems}
+	\subsection{Magnet Systems}\label{ssec:magnets}
 	The ATLAS detector makes use of two superconducting magnet systems; a central solenoid and a toroid system. Both systems provide large magnetic fields to curve charged particles. The curvature can be used to measure the electromagnetic charge and charge to mass ratio, effectively measuring the momentum of charged particles. Figure \ref{fig:ATLAS-magnets} shows the magnets in ATLAS.
 
 	\begin{figure}[!ht]
@@ -157,44 +156,55 @@
 	\label{fig:ATLAS-magnets}
 	\end{figure}
 
-	\subsubsection{Solenoid System}
-	The central solenoid encases the Inner Detector (ID), creating an axially symmetric 2 T magnetic field. This magnetic field bends charged particles in the transverse plane throughout the ID. The solenoid magnet itself measures 5.3 m in length and 2.63 m in diameter. In an effort to decrease the amount of material in front of the calorimeters the solenoid magnet was made to be thin. It is a single-layer coil with approximately 1200 turns of NbTi superconducting wires encased in Al to structurally stabilize the magnet material \cite{atlas-solenoid}. The steel structure within the Tile calorimeter acts as the magnetic flux return for the solenoid magnet system \cite{ATLAS-tile}.
+	\subsubsection{Solenoid System}\label{sssec:solenoid}
+	The central solenoid encases the Inner Detector (ID), creating an axially symmetric 2 T magnetic field. This magnetic field bends charged particles in the transverse plane throughout the ID. The solenoid magnet itself measures 5.3 m in length and 2.63 m in diameter. In an effort to decrease the amount of material in front of the calorimeters the solenoid magnet was made to be thin. It is a single-layer coil with approximately 1200 turns of NbTi superconducting wires encased in Al-Cu to structurally stabilize the magnet material \cite{atlas-solenoid}. The steel structure within the Tile calorimeter acts as the magnetic flux return for the solenoid magnet system \cite{ATLAS-tile}.
 
-	\subsubsection{Toroid System}
+	\subsubsection{Toroid System}\label{sssec:toroid}
 	The ATLAS detector gets its name from the toroid magnetic system that is critical in the identification of high energy muons. The toroid system bends any charged particles that make it past the calorimeters along the beam axis. This is achieved through a radially symmetric magnetic field of 3.9 T in the barrel and 4.1 in the end-caps. The barrel toroid system is comprised of 8 air core superconducting toroid magnets that each measure 25 m in length, 10 m in diameter, and weigh 750 tonnes. The superconducting wires are the same used in the solenoid, NbTi encased in Al-Cu \cite{atlas-toroid}. Each magnet is encased in a stainless steel cryogenic chamber, or cryostat. The toroid magnet system has two end-cap toroids that are very similar in construction to the barrel toroids. The end-cap toroids also have 8 coils measuring 5 m in length and 10 m in diameter. Instead of individual cryostats for each coil, the end-caps are encased in large cryostats that hold all 8 coils. This allows the end-caps to be pulled out and offers easy access to the rest of the detector. Just like with the central solenoid system, the design of the toroid system was chosen to limit the amount of material between detector components. A solenoid magnet of similar size to the toroid system would not only add more material, but would be cost prohibitive as well.
 
 
-	\subsection{Inner Detector}
-		The ID 
+	\subsection{Inner Detector}\label{ssec:ID}
+		The ID is the inner-most detector, closest to the IP and is used to track the trajectory of charged particles leading to the measurement of electromagnetic charge and momentum. The ID is immersed in the 2 T magnetic field provided by the central solenoid described in section \ref{sssec:solenoid} and covers a pseudorapidity range of $|\eta|<2.5$. The three subdetectors within the ID can be seen in Figure \ref{fig:ATLAS-ID}, the Pixel, \textbf{S}emi\textbf{C}onductor \textbf{T}racker (SCT), and the \textbf{T}ransition \textbf{R}adiation \textbf{T}racker (TRT). Like the toroid system, and many of the other subdetectors, the ID is comprised of barrel and end-cap segments. The ID barrel section is 1.6 m in length and covers $|\eta|<1$ while the end-caps measure over 7 m in length and cover $1 < |\eta| < 2.5$. 
 
-		\begin{figure}[!ht]
+		% \begin{figure}[!ht]
+		% \centering
+		% \includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}
+		% \caption{ Cut-away view of the ATLAS Inner Detector.}
+		% \label{fig:ATLAS-ID}
+		% \end{figure}
+
+		\begin{figure}[!h]
 		\centering
-		\includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}
-		\caption{ Cut-away view of the ATLAS Inner Detector.}
-		\label{fig:ATLAS-ID}
+		\subfloat[\label{fig:hpm-diagrams_a}]{\includegraphics[width=.55\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}}
+		\subfloat[\label{fig:hpm-diagrams_b}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Transverse_View.png}}
+		\caption{\label{fig:ATLAS-ID} (a) Cut-away view of the ATLAS Inner Detector. (b) Cross-sectional view of the ATLAS Inner Detector.}
 		\end{figure}
 
-		\subsubsection{Pixel}
+		\subsubsection{Pixel}\label{sssec:pixel}
+		The detector closest to the beam and IP is the Pixel Detector. The Pixel Detector is designed to measure with high-precision and high-granularity. The barrel Pixel detector consists of three layers of n-type silicon substrate with n-type implants. The closest layer to the IP sits at 50.5 mm and the outermost layer extends out to 12 cm. This combination gives the Pixel Detector the ability to determine the impact parameters of collisions with incredible precision. Due to the high radiation dose this close to the IP, the Pixel Detector was designed to be operated only in partial depletion. Each pixel cell measures $200 \mu m \times 400 \mu m \times 250 \mu m$. There are five Pixel disks on each end-cap of the ID. In total there are 1,744 modules, 46,080 readout channels per module, giving over 80 million channels with a spatial resolution of $10 \, \mu m (R-\phi) \times 115 \, \mu m (z)$ \cite{ATLAS-pixel}. 
 
-		\subsubsection{Semiconductor Tracker}
+		In order to keep up with the increased demand of Run-2 data taking conditions, an additional layer of pixels was installed in the Long Shutdown 1 (LS1) between 2013 and 2015. This \textbf{I}nsertable \textbf{B} \textbf{L}ayer (IBL) provides even finer granularity tracking with pixel cells measuring $50 \, \mu m \times 250 \, \mu m$ installed at a radial distance of $R=33.25$ mm from the IP and a spatial resolution of $8 \, \mu m (R-\phi) \times 40 \, \mu m (z)$ \cite{ATLAS-IBL}. The IBL has proved incredibly useful in the reconstruction of displaced vertices from processes like \bjet hadronization and $\gamma \rightarrow e^+ e^-$.
 
-		\subsubsection{Transition Radiation Tracker}
+		\subsubsection{Semiconductor Tracker}\label{sssec:SCT}
+		Moving radially outward, the next subdetector is the SCT that provides tracking in the intermediate radial range from the IP and covers a range of $|\eta| < 2.5$. Similar to the Pixel Detector, the SCT has 4 barrel layers and 9 end-cap wheels on each side. The SCT provides four measurements per track via silicon microstrip detectors. Each microstrip is made of two $6.36 \times 6.40 \, cm^2$ detectors glued end to end so each microstrip is $12.8 \, cm$ long. Two microstrips are then glued back to back with a $40 \, \mu rad$ angle. In total there are 768 strips, giving 6.2 million readout channels. The SCT has a spatial resolution of $17 \, \mu m (R-\phi) \times 580 \,\mu m (z)$ and can distinguish tracks with as small as a $200 \, \mu m$ separation \cite{ATLAS-SCT}.
 
-	\subsection{Calorimeters}
+		\subsubsection{Transition Radiation Tracker}\label{sssec:TRT}
 
-		\subsubsection{Liquid Argon Electromagnetic Calorimeter}
+	\subsection{Calorimeters}\label{ssec:calorimeters}
 
-		\subsubsection{Tile Hadronic Calorimeter}
+		\subsubsection{Liquid Argon Electromagnetic Calorimeter}\label{sssec:LAr}
 
-	\subsection{Muon System}
+		\subsubsection{Tile Hadronic Calorimeter}\label{sssec:Tile}
 
-		\subsubsection{Monitored Drift Tubes}
+	\subsection{Muon System}\label{ssec:muon-system}
 
-		\subsubsection{Cathode Strip Chambers}
+		\subsubsection{Monitored Drift Tubes}\label{sssec:MDT}
 
-		\subsubsection{Resistive Plate Chambers} 
+		\subsubsection{Cathode Strip Chambers}\label{sssec:CST}
 
-		\subsubsection{Thin Gap Chambers}
+		\subsubsection{Resistive Plate Chambers}\label{sssec:RPC}
+
+		\subsubsection{Thin Gap Chambers}\label{sssec:TGC}
 
 
 		
