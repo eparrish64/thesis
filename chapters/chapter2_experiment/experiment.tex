@@ -164,15 +164,6 @@
 
 
 	\subsection{Inner Detector}\label{ssec:ID}
-		The ID is the inner-most detector, closest to the IP and is used to track the trajectory of charged particles leading to the measurement of electromagnetic charge and momentum. The ID is immersed in the 2 T magnetic field provided by the central solenoid described in section \ref{sssec:solenoid} and covers a pseudorapidity range of $|\eta|<2.5$. The three subdetectors within the ID can be seen in Figure \ref{fig:ATLAS-ID}, the Pixel, \textbf{S}emi\textbf{C}onductor \textbf{T}racker (SCT), and the \textbf{T}ransition \textbf{R}adiation \textbf{T}racker (TRT). Like the toroid system, and many of the other subdetectors, the ID is comprised of barrel and end-cap segments. The ID barrel section is 1.6 m in length and covers $|\eta|<1$ while the end-caps measure over 7 m in length and cover $1 < |\eta| < 2.5$. 
-
-		% \begin{figure}[!ht]
-		% \centering
-		% \includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}
-		% \caption{ Cut-away view of the ATLAS Inner Detector.}
-		% \label{fig:ATLAS-ID}
-		% \end{figure}
-
 		\begin{figure}[!h]
 		\centering
 		\subfloat[\label{fig:hpm-diagrams_a}]{\includegraphics[width=.55\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_ID_Run3.png}}
@@ -180,15 +171,25 @@
 		\caption{\label{fig:ATLAS-ID} (a) Cut-away view of the ATLAS Inner Detector. (b) Cross-sectional view of the ATLAS Inner Detector.}
 		\end{figure}
 
+		The ID is the inner-most detector, closest to the IP and is used to track the trajectory of charged particles leading to the measurement of electromagnetic charge and momentum. The ID is immersed in the 2 T magnetic field provided by the central solenoid described in section \ref{sssec:solenoid} and covers a pseudorapidity range of $|\eta|<2.5$. The three subdetectors within the ID can be seen in Figure \ref{fig:ATLAS-ID}, the Pixel, \textbf{S}emi\textbf{C}onductor \textbf{T}racker (SCT), and the \textbf{T}ransition \textbf{R}adiation \textbf{T}racker (TRT). Like the toroid system, and many of the other subdetectors, the ID is comprised of barrel and end-cap segments. The ID barrel section is 1.6 m in length and covers $|\eta|<1$ while the end-caps measure over 7 m in length and cover $1 < |\eta| < 2.5$. 
+
+		A track is considered good if there are hits in at least 3 pixel layers and 8 strips. The ID tracking system was designed with a resolution of 
+		\begin{equation}\label{eqn:tracking-resolution}
+		\frac{\sigma_{\pt}}{\pt} = 0.05 \% \, \pt \oplus 1\%
+		\end{equation}
+	
 		\subsubsection{Pixel}\label{sssec:pixel}
 		The detector closest to the beam and IP is the Pixel Detector. The Pixel Detector is designed to measure with high-precision and high-granularity. The barrel Pixel detector consists of three layers of n-type silicon substrate with n-type implants. The closest layer to the IP sits at 50.5 mm and the outermost layer extends out to 12 cm. This combination gives the Pixel Detector the ability to determine the impact parameters of collisions with incredible precision. Due to the high radiation dose this close to the IP, the Pixel Detector was designed to be operated only in partial depletion. Each pixel cell measures $200 \mu m \times 400 \mu m \times 250 \mu m$. There are five Pixel disks on each end-cap of the ID. In total there are 1,744 modules, 46,080 readout channels per module, giving over 80 million channels with a spatial resolution of $10 \, \mu m (R-\phi) \times 115 \, \mu m (z)$ \cite{ATLAS-pixel}. 
 
 		In order to keep up with the increased demand of Run-2 data taking conditions, an additional layer of pixels was installed in the Long Shutdown 1 (LS1) between 2013 and 2015. This \textbf{I}nsertable \textbf{B} \textbf{L}ayer (IBL) provides even finer granularity tracking with pixel cells measuring $50 \, \mu m \times 250 \, \mu m$ installed at a radial distance of $R=33.25$ mm from the IP and a spatial resolution of $8 \, \mu m (R-\phi) \times 40 \, \mu m (z)$ \cite{ATLAS-IBL}. The IBL has proved incredibly useful in the reconstruction of displaced vertices from processes like \bjet hadronization and $\gamma \rightarrow e^+ e^-$.
 
 		\subsubsection{Semiconductor Tracker}\label{sssec:SCT}
-		Moving radially outward, the next subdetector is the SCT that provides tracking in the intermediate radial range from the IP and covers a range of $|\eta| < 2.5$. Similar to the Pixel Detector, the SCT has 4 barrel layers and 9 end-cap wheels on each side. The SCT provides four measurements per track via silicon microstrip detectors. Each microstrip is made of two $6.36 \times 6.40 \, cm^2$ detectors glued end to end so each microstrip is $12.8 \, cm$ long. Two microstrips are then glued back to back with a $40 \, \mu rad$ angle. In total there are 768 strips, giving 6.2 million readout channels. The SCT has a spatial resolution of $17 \, \mu m (R-\phi) \times 580 \,\mu m (z)$ and can distinguish tracks with as small as a $200 \, \mu m$ separation \cite{ATLAS-SCT}.
+		Moving radially outward, the next subdetector is the SCT that provides tracking in the intermediate radial range from the IP and covers a range of $|\eta| < 2.5$. Similar to the Pixel Detector, the SCT has 4 barrel layers and 9 end-cap wheels on each side. The SCT provides four measurements per track via silicon microstrip detectors. Each microstrip is made of two $6.36 \times 6.40 \, cm^2$ detectors glued end to end so each microstrip is $12.8 \, cm$ long. Two microstrips are then glued back to back with a $40 \, \mu rad$ angle. In total there are 768 strips, giving 6.2 million readout channels. The SCT has a spatial resolution of $17 \, \mu m (R-\phi) \times 580 \,\mu m (z)$ and can distinguish tracks with as small as a $200 \, \mu m$ separation \cite{ATLAS-ID}.
 
 		\subsubsection{Transition Radiation Tracker}\label{sssec:TRT}
+		The final subdetector of the ID is the TRT $(R=554 \, \mathrm{mm} \, - 1082 \, \mathrm{mm})$ . Instead of silicon detectors the TRT uses 4 mm diameter straw tubes; a hollow tube with a sense wire held at high voltage in the middle. The max length of a straw is 150 cm. The straws are filled with a gaseous mixture of $70\% \, \mathrm{Xe,} \, 27\% \, \mathrm{CO}_2, \, 3\% \, \mathrm{O}_2$.\footnote{During Run-2 the Xe was replaced with Ar as a cost saving measure. Ar provides similar performance as Xe in tracking, but is less efficient in absorbing X-rays from transition radiation.} Charged particles ionize the gas mixture, thereby releasing an electron and an ion. The ion drifts to the straw surface and the electron drifts to the wire; this charge drift is then measured as a signal. The TRT checks the signals against two thresholds, a lower threshold for measuring the drift time to derive a position and a higher threshold that is used to identify transition radiation X-rays. The higher threshold provides discriminating power between charged pions and electrons.
+
+		The TRT consists of a barrel section and 18 wheels in each end-cap. In the barrel, there are 50,000 straws divided in two at the center to allow for two separate readouts. The end-caps have 320,000 straws. In total, there are 420,000 readout channels. Each straw provides a spatial resolution of $170 \mu m$. \cite{ATLAS-ID}
 
 	\subsection{Calorimeters}\label{ssec:calorimeters}
 
