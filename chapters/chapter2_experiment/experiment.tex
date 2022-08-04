@@ -106,7 +106,7 @@
 
 
 \section{The ATLAS Detector}\label{sec:ATLAS}
-	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{sec:Trigger}. 
+	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:reco-etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{sec:Trigger}. 
 
 	\begin{figure}[!ht]
 	\centering
@@ -157,7 +157,7 @@
 	\end{figure}
 
 	\subsubsection{Solenoid System}\label{sssec:solenoid}
-	The central solenoid encases the Inner Detector (ID), creating an axially symmetric 2 T magnetic field. This magnetic field bends charged particles in the transverse plane throughout the ID. The solenoid magnet itself measures 5.3 m in length and 2.63 m in diameter. In an effort to decrease the amount of material in front of the calorimeters the solenoid magnet was made to be thin. It is a single-layer coil with approximately 1200 turns of NbTi superconducting wires encased in Al-Cu to structurally stabilize the magnet material \cite{atlas-solenoid}. The steel structure within the Tile calorimeter acts as the magnetic flux return for the solenoid magnet system \cite{ATLAS-tile}.
+	The central solenoid encases the Inner Detector (ID), creating an axially symmetric 2 T magnetic field. This magnetic field bends charged particles in the transverse plane throughout the ID. The solenoid magnet itself measures 5.3 m in length and 2.63 m in diameter. In an effort to decrease the amount of material in front of the calorimeters the solenoid magnet was made to be thin. It is a single-layer coil with approximately 1200 turns of NbTi superconducting wires encased in Al-Cu to structurally stabilize the magnet material \cite{atlas-solenoid}. The steel structure within the Tile calorimeter acts as the magnetic flux return for the solenoid magnet system. 70\% of this flux passes through the supporting girder structure, 25\% through the active calorimeter material, and roughly 2\% through the front-plates of the Tile calorimeter \cite{ATLAS-tile}.
 
 	\subsubsection{Toroid System}\label{sssec:toroid}
 	The ATLAS detector gets its name from the toroid magnetic system that is critical in the identification of high energy muons. The toroid system bends any charged particles that make it past the calorimeters along the beam axis. This is achieved through a radially symmetric magnetic field of 3.9 T in the barrel and 4.1 in the end-caps. The barrel toroid system is comprised of 8 air core superconducting toroid magnets that each measure 25 m in length, 10 m in diameter, and weigh 750 tonnes. The superconducting wires are the same used in the solenoid, NbTi encased in Al-Cu \cite{atlas-toroid}. Each magnet is encased in a stainless steel cryogenic chamber, or cryostat. The toroid magnet system has two end-cap toroids that are very similar in construction to the barrel toroids. The end-cap toroids also have 8 coils measuring 5 m in length and 10 m in diameter. Instead of individual cryostats for each coil, the end-caps are encased in large cryostats that hold all 8 coils. This allows the end-caps to be pulled out and offers easy access to the rest of the detector. Just like with the central solenoid system, the design of the toroid system was chosen to limit the amount of material between detector components. A solenoid magnet of similar size to the toroid system would not only add more material, but would be cost prohibitive as well.
@@ -192,10 +192,61 @@
 		The TRT consists of a barrel section and 18 wheels in each end-cap. In the barrel, there are 50,000 straws divided in two at the center to allow for two separate readouts. The end-caps have 320,000 straws. In total, there are 420,000 readout channels. Each straw provides a spatial resolution of $170 \mu m$. \cite{ATLAS-ID}
 
 	\subsection{Calorimeters}\label{ssec:calorimeters}
+	The ATLAS detector makes use of two types of sampling calorimeters, one that uses liquid argon as the active medium and another that uses scintillating plastic tiles. Both types of calorimeters are designed to fully absorb particles via showering. Incoming particles interact with an absorber material and generate secondary particles. Those secondary particles interact with the absorber and create another set of particles. This cascading effect creates showers of particles inside the calorimeters. The shape and depth of these particles is important in the design choices for the calorimeters as well as particle identification. Two helpful variables when talking about shower depth are radiation length $\chi_0$ and nuclear interaction length $\lambda$. $\chi_0$ is defined as the distance where a particle has lost energy via bremsstrahlung equal to $\frac{1}{e}$.\footnote{$\chi_0$ can also be defined as $\frac{7}{9}$ of the mean free path of a high energy photon.} Whereas $\lambda$ is the mean free path of a hadron before undergoing a inelastic nuclear interaction. In order to fully absorb a wide energy range of incident particles the calorimeters are such that any path through them is at least $25 \, \chi_0$ or $10 \, \lambda$. Figure \ref{fig:calo-interaction-length} shows the calorimeters and their nuclear interaction lengths as a function of $\eta$.
 
-		\subsubsection{Liquid Argon Electromagnetic Calorimeter}\label{sssec:LAr}
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/Calo_Interaction_Lengths.png}
+	\caption{ Interaction lengths as a function of $\eta$ in the ATLAS calorimeters. The unlabeled brown color is the material in front of the EM calorimeters and the unlabeled cyan is the amount of material in front of the first active layer of the muon spectrometer. \cite{atlas-experiment}}
+	\label{fig:calo-interaction-length}
+	\end{figure}
 
-		\subsubsection{Tile Hadronic Calorimeter}\label{sssec:Tile}
+	The design resolution of the calorimeters can be seen in Table \ref{tab:calo-resolution}.
+
+	\begin{table}[!thp]
+	\centering
+	\caption{ Design resolution of EM and hadronic calorimeters in the ATLAS Detector.}
+	\resizebox{.45\textwidth}{!}{\begin{tabular}{| c | c | c |}  
+	\hline
+	Calorimeter											& Pseudorapidity range 																		& Resolution \\[1ex] \hline 
+	Electromagnetic 									& $| \eta | < 3.2$ 																			& $\frac{\sigma}{E} = \frac{10\%}{\sqrt{E}} \oplus 0.7\%$ \\[1ex] \hline
+	\multicolumn{1}{|c|}{\multirow{2}{*}{Hadronic}} 	& \begin{tabular}[c]{@{}c@{}} $| \eta | < 3.2$ \\[1ex] $3.1 < | \eta | < 4.9$ \end{tabular} & \begin{tabular}[c]{@{}c@{}} $\frac{\sigma}{E} = \frac{50\%}{\sqrt{E}} \oplus 3\%$ \\[1ex] $\frac{\sigma}{E} = \frac{100\%}{\sqrt{E}} \oplus 10\%$ \end{tabular} \\ \hline 
+	\end{tabular}}
+	\label{tab:calo-resolution}
+	\end{table}
+
+	The layout of calorimeters in the ATLAS detector can be seen in Figure \ref{fig:calo-layout}.
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_Calorimeters_Run3.png}
+	\caption{ Cut-out view of the ATLAS detector's calorimeters.}
+	\label{fig:calo-layout}
+	\end{figure}
+
+		\subsubsection{Liquid Argon Calorimeters}\label{sssec:LAr}
+		A liquid argon (LAr) is based on a similar principle to the straw tubes of the TRT described in section \ref{sssec:TRT}. In this case, the LAr is the active medium that is ionized by the incoming particle. The free electron then drifts to an electrode, copper-tungsten in the case of the barrel LAr calorimeter. The drifting electrons are then readout as an electrical signal; there are approximately 180,000 LAr readout channels in the ATLAS detector. LAr was chosen as the active medium due to it's intrinsic radiation hardness, stability over time, and linear response. The LAr must be kept at very cold temperatures, around 85 K. To achieve this, the LAr calorimeters are kept in cryostats, the barrel calorimeter shares the cryostat and vacuum with the central solenoid.
+
+		There are four LAr calorimeters within the ATLAS detector. The main barrel section (EMB) is designed for electromagnetic calorimetry with a lead-stainless steel absorber and covers a pseudorapidity range of $|\eta|<2.5$. Next in $\eta$ is the LAr Electromagnetic End-Cap (EMEC) that also uses lead-stainless steel absorber and the LAr Hadronic End-Cap (HEC) which has a copper plate absorber; both EMEC and HEC cover $1.5 < |\eta| < 3.2$. The final LAr calorimeter is the aptly named Forward Calorimeter (FCAL) that covers $|\eta|<4.9$ and has three modules. The first is optimized for EM calorimetry and uses a copper absorber. The other two FCAL modules are used to measure hadronic showers and use tungsten absorbers.
+
+		The EMB and EMEC both utilize an accordion geometry pictured in Figure \ref{fig:LAr-accordion} to ensure a full $\phi$ coverage. 
+		\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/LAr_Accordion_Geometry.png}
+		\caption{ A EMB module showing the accordion geometry and granularity. \cite{atlas-experiment}}
+		\label{fig:LAr-accordion}
+		\end{figure}
+		The EMB consists of four layers, the first being a LAr presampler of 1.1 cm thickness. The presampler is used to correct for energy losses due to material in front of the calorimeter. The first layer after the presampler is finely segmented to ensure good position measurements. The second layer is $16 \, \chi_0$ thick and collects most of the electromagnetic showers. Typically, only the tails of EM showers make it to the third and final layer, so a courser granularity is used. 
+
+		\subsubsection{Tile Calorimeter}\label{sssec:Tile}
+		The hadronic Tile Calorimeter (TileCal) is a sampling calorimeter that is designed to fully absorb hadronic showers covering a range of $|\eta|<1.7$ at a radial distance of $2.28 \, \mathrm{m} \leq R \leq 4.25 \, \mathrm{m}$ from the IP. This radial distance translates to approximately $7.4\, \lambda$. A similar design of absorber and electrode is used in TileCal to capture the full energy of hadronic showers. TileCal uses a steel absorber. However, instead of a liquid or gas being ionized and the free electrons being collected as a signal, TileCal takes advantage of a special material called scintillating plastic. When an ionizing particle interacts with the scintillating plastic, light is created; this light is absorbed in wavelength shifting (WLS) fibers. It is then re-emitted and transmitted to photomultiplier tubes (PMTs). The PMT signal is then shaped, amplified at two gains with a ratio of 64:1, then digitized at 40 MHz with 10-bit analogue-to-digital converters (ADCs). Each cell within TileCal has 2 PMTs, giving over 10,000 readout channels. There are 256 modules within TileCal. A diagram of an individual module and the layout of two modules side-by-side can be seen in Figure \ref{fig:tile-module}.
+		\begin{figure}[!h]
+		\centering
+		\subfloat[\label{fig:tile-modules_a}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/TileModuleCrossSection.png}} \\
+		\subfloat[\label{fig:tile-modules_b}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/Tile_Modules_Azimuth_View.png}}
+		\caption{\label{fig:tile-modules} (a) Diagram of an individual TileCal module. (b) Azimuthal view of two TileCal modules with the IP being to the right.}
+		\end{figure}
+
+		A significant fraction of the author's time and effort during their PhD went to data quality monitoring and maintenance of TileCal. These works are detailed in Appendix \ref{app:Tile-DQ}.
 
 	\subsection{Muon System}\label{ssec:muon-system}
 
