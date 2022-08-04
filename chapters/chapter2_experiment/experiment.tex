@@ -106,7 +106,7 @@
 
 
 \section{The ATLAS Detector}\label{sec:ATLAS}
-	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:reco-etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{sec:Trigger}. 
+	The ATLAS (\textbf{A} \textbf{T}oroidal LHC \textbf{A}pparatu\textbf{S}) detector is one of two general purpose particle detectors on the LHC. The other being the \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid (CMS). ATLAS, like other particle detectors, is comprised of four main components; the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy of all possible particle decays.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:reco-etmiss}.} The full ATLAS detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes. Figure \ref{fig:ATLAS} shows a 3D model of the ATLAS detector and Figure \ref{fig:ATLAS-XSec} shows a cross section of the detector and various particles trajectory.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the Trigger and Data Acquisition (TDAQ) system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in \ref{ssec:trigger}. 
 
 	\begin{figure}[!ht]
 	\centering
@@ -238,25 +238,34 @@
 		The EMB consists of four layers, the first being a LAr presampler of 1.1 cm thickness. The presampler is used to correct for energy losses due to material in front of the calorimeter. The first layer after the presampler is finely segmented to ensure good position measurements. The second layer is $16 \, \chi_0$ thick and collects most of the electromagnetic showers. Typically, only the tails of EM showers make it to the third and final layer, so a courser granularity is used. 
 
 		\subsubsection{Tile Calorimeter}\label{sssec:Tile}
-		The hadronic Tile Calorimeter (TileCal) is a sampling calorimeter that is designed to fully absorb hadronic showers covering a range of $|\eta|<1.7$ at a radial distance of $2.28 \, \mathrm{m} \leq R \leq 4.25 \, \mathrm{m}$ from the IP. This radial distance translates to approximately $7.4\, \lambda$. A similar design of absorber and electrode is used in TileCal to capture the full energy of hadronic showers. TileCal uses a steel absorber. However, instead of a liquid or gas being ionized and the free electrons being collected as a signal, TileCal takes advantage of a special material called scintillating plastic. When an ionizing particle interacts with the scintillating plastic, light is created; this light is absorbed in wavelength shifting (WLS) fibers. It is then re-emitted and transmitted to photomultiplier tubes (PMTs). The PMT signal is then shaped, amplified at two gains with a ratio of 64:1, then digitized at 40 MHz with 10-bit analogue-to-digital converters (ADCs). Each cell within TileCal has 2 PMTs, giving over 10,000 readout channels. There are 256 modules within TileCal. A diagram of an individual module and the layout of two modules side-by-side can be seen in Figure \ref{fig:tile-module}.
 		\begin{figure}[!h]
 		\centering
 		\subfloat[\label{fig:tile-modules_a}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/TileModuleCrossSection.png}} \\
 		\subfloat[\label{fig:tile-modules_b}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/Tile_Modules_Azimuth_View.png}}
 		\caption{\label{fig:tile-modules} (a) Diagram of an individual TileCal module. (b) Azimuthal view of two TileCal modules with the IP being to the right.}
 		\end{figure}
+		The hadronic Tile Calorimeter (TileCal) is a sampling calorimeter that is designed to fully absorb hadronic showers covering a range of $|\eta|<1.7$ at a radial distance of $2.28 \, \mathrm{m} \leq R \leq 4.25 \, \mathrm{m}$ from the IP. This radial distance translates to approximately $7.4\, \lambda$. A similar design of absorber and electrode is used in TileCal to capture the full energy of hadronic showers. TileCal uses a steel absorber. However, instead of a liquid or gas being ionized and the free electrons being collected as a signal, TileCal takes advantage of a special material called scintillating plastic. When an ionizing particle interacts with the scintillating plastic, light is created; this light is absorbed in wavelength shifting (WLS) fibers. It is then re-emitted and transmitted to photomultiplier tubes (PMTs). The PMT signal is then shaped, amplified at two gains with a ratio of 64:1, then digitized at 40 MHz with 10-bit analogue-to-digital converters (ADCs). Each cell within TileCal has 2 PMTs, giving over 10,000 readout channels. There are 256 modules within TileCal. A diagram of an individual module and the layout of two modules side-by-side can be seen in Figure \ref{fig:tile-module}.
+		
 
 		A significant fraction of the author's time and effort during their PhD went to data quality monitoring and maintenance of TileCal. These works are detailed in Appendix \ref{app:Tile-DQ}.
 
-	\subsection{Muon System}\label{ssec:muon-system}
+	\subsection{Muon Spectrometer}\label{ssec:muon-system}
+	High momentum muons provide a vital signature at the LHC. Muons are minimally ionizing particles, meaning they leave a small amount of energy inside detectors and travel to the edge and beyond the volume of the ATLAS detector. Instead of attempting to fully absorb muons, high precision position measurements are taken to track their trajectories. The toroid magnet system described in section \ref{sssec:toroid} is an integral part of the Muon Spectrometer; it provides the bending force, changing the trajectories to the direction of the beamline. The barrel section of the Muon Spectrometer consists of three concentric cylindrical shells at $R=5 \, \mathrm{ m, }\, 7.5 \, \mathrm{ m, } \,  10 \, \mathrm{ m}$ made of Monitored Drift Tubes (MDTs) $(|\eta|<1)$. \cite{ATLAS-muon} These cylindrical shells sit in-between and on the air core toroid magnets. On the $2^{\mathrm{nd}}$ and $3^{\mathrm{rd}}$ shells are Resistive Plate Chambers (RPCs) that provide quick triggering. Complimenting the barrel section are the end-caps, referred to as wheels for the Muon Spectrometer. The wheels are placed at $|z|\approx 7.4 \, \mathrm{ m, } \, 10.8 \, \mathrm{ m, } \, 14 \, \mathrm{ m, and} \,21.5 \,\mathrm{ m }$ $(2.0 < |\eta| < 2.7)$. The innermost layer of these wheels experience the highest rates of incident particles. To cope with this, Cathode Strip Chambers (CSCs) with a finer granularity than the MDTs that are used in the barrel. Similarly, Thin Gap Chambers (TGCs) are used for triggering instead of RPCs. These wheels provide spatial coordinates orthogonal to those of the precision-tracking MDTs in the barrel. Figure \ref{fig:muon-spec} shows the positioning of the various Muon Spectrometer components.\footnote{Figure \ref{fig:muon-spec} Shows the New Small Wheel (NSW). The NSW is an upgrade to the old Small Wheels that were used in the data taking period that concerns this dissertation.}
 
-		\subsubsection{Monitored Drift Tubes}\label{sssec:MDT}
+	% \begin{figure}[!h]
+	% \centering
+	% \subfloat[\label{fig:muon-spec_a}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_Muon_System_Run3.png}}
+	% \subfloat[\label{fig:muon-spec_b}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS-muon-rz-tdr.eps}} \\
+	% \subfloat[\label{fig:muon-spec_c}]{\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS-muon-xy-tdr.eps}}
+	% \caption{\label{fig:muon-spec} (a)   (b)}
+	% \end{figure}
 
-		\subsubsection{Cathode Strip Chambers}\label{sssec:CST}
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter2_experiment/images/ATLAS_Muon_System_Run3.png}
+	\caption{Cut-out view of the ATLAS detector Muon Spectrometer.}
+	\label{fig:muon-spec}
+	\end{figure}
 
-		\subsubsection{Resistive Plate Chambers}\label{sssec:RPC}
-
-		\subsubsection{Thin Gap Chambers}\label{sssec:TGC}
-
-
-		
+	\subsection{Trigger System}\label{ssec:trigger}
+	
