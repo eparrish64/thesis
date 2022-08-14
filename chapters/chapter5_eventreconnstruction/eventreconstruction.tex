@@ -69,11 +69,53 @@
 		\item Tight: High purity, slightly lower efficiency than medium WP. Significantly higher background rejection.
 	\end{itemize}
 
+	The analysis discussed in this dissertation uses the Loose WP for muons.
+
 
 	\section{e $\gamma$ Identification}\label{sec:reco-egamma}
-	\cite{electron-perf}
+	Electrons and photons deposit the majority of their energy in the EM calorimeters in similar fashion. Electrons produce Bremsstrahlung photons as they interact with the EM calorimeter, the produced photons then convert into an electron-positron pair. This process repeats and produces a shower. A photon that is produced in the ID and travels to the EM calorimeters creates a very similar shower by converting into an electron-positron pair, thus creating a very similar shower. The discerning difference between an electron's signature and that of a photon is matching tracks. An electron carries an EM charge, thus leaving a track in the ID; whereas a photon does not carry an EM charge, therefore does not leave a track. The process of identifying an EM shower as either electron initiated or photon initiated is detailed in \cite{electron-perf}. A brief algorithm flow chart of this process can be seen in Figure \ref{fig:egamma-reco}. If tracks in the ID are found to match a topocluster in the EM calorimeter, then it is identified as an electron, re-clustered into so called superclusters to ensure the full shower is captured, calibrated, then lastly made into an analysis object for use in physics analyses. The same algorithm is used to identify photons with the exception of matching tracks to the ID. Instead, photons are matched to conversion vertices where the initial photon first converted into an electron-positron pair. Both electrons and photons are reconstructed at three WPs. As with muons, there are three WPs, Loose, Medium, and Tight; the stricter WPs being subsets of the looser WPs.
 
-	\section{Jet Clustering}\label{sec:reco-jets}
+	To ensure that an electron or photon is indeed an initial particle and not part of another shower, whether it be from a converted photon in a hadron decay, electrons from heavy flavor hadrons or a light hadron mis-identified as an electron, an isolation variable is calculated. The isolation variable is based on track isolation and defined as the sum of transverse momenta of all tracks within a cone around the electron candidate of $\Delta R = 0.2$ or in the case of high energy photons, 10 GeV/$E_T$. Where $E_T$ is the transverse energy of the electron.
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/egamma_flow_01.png}
+	\caption{\label{fig:egamma-reco} Algorithm flow diagram for the electron and photon reconstruction \cite{electron-perf}.}
+	\end{figure}
+
+	\section{Jets}\label{sec:reco-jets}
+	A jet is a reconstructed object of calorimeter energy that is meant to capture the energy of a hadronic shower, typically initiated from hard scatter quarks or hadrons. There are several algorithms available to perform a clustering of calorimeter topoclusters to form jets. This dissertation uses jets created from particle flow objects. The particle flow algorithm is described in detail in \cite{pflow}, a flow chart of the algorithm is shown in Figure \ref{fig:pflow-flowchart} and an idealized example of the algorithm performing the reconstruction of hadrons is shown in Figure \ref{fig:pflow-example}. 
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/pflow_flow_chart.png}
+	\caption{\label{fig:pflow-flowchart} A flow chart of how the particle flow algorithm proceeds, starting with track selection and continuing until the energy associated with the selected tracks has been removed from the calorimeter. At the end, charged particles, topoclusters which have not been modified by the algorithm, and remnants of topoclusters which have had part of their energy removed remain \cite{pflow}.}
+	\end{figure}
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/pflow_example.png}
+	\caption{\label{fig:pflow-example} Idealized examples of how the algorithm is designed to deal with several different cases. The red cells are those which have energy from the $\pi^{+}$, the green have cells energy from the photons in the $\pi^{0}$  decay, the dotted lines represent the original topocluster boundaries with those outlined in blue having been matched by the algorithm to the $\pi^{+}$, while those in black are yet to be selected. The different layers in the EM calorimeter (Presampler, EMB1, EMB2, EMB3) are indicated. In this sketch only the first two layers of the Tile calorimeter are shown (TileBar0 and TileBar1) \cite{pflow}.}
+	\end{figure}
+
+	The particle flow algorithm starts by matching selected tracks to a single topocluster. The expected energy of the initial particle in the calorimeter is calculated from the track momentum and the topocluster position. The probability of the track-topocluster system being deposited in multiple topoclusters is then calculated. The algorithm then adds in more topoclusters to the output object based on this probability. The expected energy of the initial particle is subtracted from the energy of the matched topoclusters cell by cell. If the energy of the output object is consistent with a single particle signal, then the remaining topocluster remnants are removed. The outputs of the particle flow algorithm are then fed into the anti-$k_t$ algorithm \cite{anti-kt} with a radius value of $R=0.4$. 
+
+	The anti-$k_t$ algorithm is a jet finding algorithm that is collinear and infrared safe. Meaning the number of identified jets does not change due to splitting or merging of high transverse momentum particles, nor the presence of soft gluon emission between jets \cite{Cacciari_2008}. A jet is constructed in the anti-$k_t$ algorithm through an iterative process using a the distance parameter defined as 
+
+	\begin{equation}\label{eqn:anti-kt-distance}
+	d_{ij} = min(k_{t,i}^{-2} , k_{t,j}^{-2}) \frac{\Delta_{ij}^{2}}{R^2} 
+	\end{equation}
+	where $k_t$ is the transverse momentum, R is an input parameter defining the radius of the jet cone, and $\Delta_{ij}$ is the distance between objects $i$ and $j$ defined as
+	\begin{equation}\label{eqn:anti-kt-delta}
+	\Delta{ij} = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
+	\end{equation}
+	The anti-kt algorithm first identifies the smallest $d_ij$ and clusters the particle flow objects if $d_{ij}>k_{t,i}^{-2}$. If $d_{ij}>k_{t,i}^{-2}$ then the particle flow object is discarded. This process continues iteratively until there are no more objects to consider. Objects with $\Delta>R$ are still considered, making the R input parameter an energy cut-off for clustering and not a direct radius value. Figure \ref{fig:anti-kt-comparison} shows the anti-kt algorithm's performance compared to other jet finding algorithms.
+
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/anti-kt-comparison.png}
+	\caption{\label{fig:anti-kt-comparison} Comparison between several jet finding algorithms \cite{anti-kt}.}
+	\end{figure}
 
 		\subsection{\bjet Tagging}\label{ssec:flavor-tagging}
 
@@ -82,12 +124,3 @@
 
 	\section{\Etm}\label{sec:reco-etmiss}
 	\cite{met-perf}
-
-	\section{Particle Flow}\label{sec:pflow}
-	\cite{pflow}
-
-	\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/pflow_flow_chart.png}
-	\caption{\label{fig:pflow} A flow chart of how the particle flow algorithm proceeds, starting with track selection and continuing until the energy associated with the selected tracks has been removed from the calorimeter. At the end, charged particles, topoclusters which have not been modified by the algorithm, and remnants of topoclusters which have had part of their energy removed remain. \cite{pflow}}
-	\end{figure}
