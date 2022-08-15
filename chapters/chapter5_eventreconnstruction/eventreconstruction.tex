@@ -118,9 +118,19 @@
 	\end{figure}
 
 		\subsection{\bjet Tagging}\label{ssec:flavor-tagging}
+		Jets originating from hard scatter b quarks are an important signature in high energy physics colliders, especially so in the analysis discussed in this dissertation. An initial state b quark hadronizes into B-hadrons which have a relatively long lifetime. Due to the relativistic speeds and long lifetime of the B-hadrons they travel a distance away from the IP before decaying and creating a hadronic shower. This leads to a secondary vertex that can be measured. A pictorial representation is shown in Figure \ref{fig:bjet}. The impact parameter $d_0$ shown is the minimum distance between the tracks from the secondary vertex and IP. 
+
+			\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
+			\caption{\label{fig:bjet} Schematic view of the tracks in a b-jet \cite{bjet-trigger}.}
+			\end{figure}
+
+		There are several methods used to tag a jet as coming from a b quark; this analysis uses the DL1 high level tagger \cite{b-tagging} that is based on an Artificial Deep Neural Network. Neural networks are discussed in detail in Section \ref{ssec:mva}. DL1 not only tags \bjets, but also output the probability for a jet to be initiated from a charm or light flavor quark. The DL1 tagger has over 20 input variables, including the $p_{T}$ and $\eta$ of jets \cite{b-tagging-input-variables}. The analysis discussed in this dissertation uses a fixed cut working point that corresponds to an average efficiency of 70\% for \bjets in \ttbar events.
+
 
 	\section{$\tau$ Identification}\label{ssec:reco-tau}
-
+	
 
 	\section{\Etm}\label{sec:reco-etmiss}
 	\cite{met-perf}
