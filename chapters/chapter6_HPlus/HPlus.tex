@@ -4,83 +4,131 @@
 	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modelling of backgrounds, analysis strategy, studies of systematic uncertainties, and results.
 
 	\section{Signature and Event Selection}\label{sec:signal}
-		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on the mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values with respect to the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), as well as the main source of background. The two subchannels have similar signal signatures with a hard scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay.
+		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on the mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values with respect to the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), as well as the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{ssec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
 
 		\begin{table}
-		\centering
-		\caption{\Hpm production mechanisms based on \mHpm, dominant \Hpm decay mode, and the main background associated with the diagram.}
-		\resizebox{\textwidth}{!}{
-		\begin{tabular}{| c | c | c | c |}
-		\hline
-		\textbf{\Hpm Mass} & \textbf{Production Mechanism} & \textbf{Decay}  & \textbf{Main Background}\\
-		\hline \hline
-		\multicolumn{1}{|c|}{\multirow{2}{*}{$\mHpm < m_{t}$}} 		& \begin{tabular}[c]{@{}c@{}} double-resonant $t \rightarrow H^\pm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/double_resonant_production_low_mass.png} \end{tabular} 											& \begin{tabular}[c]{@{}c@{}} \HpmLong \\ (low $\tanb \implies$ $\Hpm \rightarrow cs$ or $\Hpm \rightarrow cb$ ) \end{tabular} 																	& \ttbar, single-top \\ \hline
+			\centering
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{| c | c | c | c |}
+			\hline
+			\textbf{\Hpm Mass} & \textbf{Production Mechanism} & \textbf{Decay}  & \textbf{Main Background}\\
+			\hline \hline
+			\multicolumn{1}{|c|}{\multirow{2}{*}{$\mHpm < m_{t}$}} 		& \begin{tabular}[c]{@{}c@{}} double-resonant $t \rightarrow H^\pm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/double_resonant_production_low_mass.png} \end{tabular} 											& \begin{tabular}[c]{@{}c@{}} \HpmLong \\ (low $\tanb \implies$ $\Hpm \rightarrow cs$ or $\Hpm \rightarrow cb$ ) \end{tabular} 																	& \ttbar, single-top \\ \hline
 
-		\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm \simeq m_{t}$}} & \begin{tabular}[c]{@{}c@{}} non-resonant $t \rightarrow \Hpm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/non_resonant_production_intermediate_mass.png} \\ interferences taken into account \end{tabular} 	& $\Hpm \rightarrow \tau \nu$  																																									& \ttbar, single-top \\ \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm \simeq m_{t}$}} & \begin{tabular}[c]{@{}c@{}} non-resonant $t \rightarrow \Hpm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/non_resonant_production_intermediate_mass.png} \\ interferences taken into account \end{tabular} 	& $\Hpm \rightarrow \tau \nu$  																																									& \ttbar, single-top \\ \hline
 
-		\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm > m_{t}$}}		& \begin{tabular}[c]{@{}c@{}} single-resonant $gg \rightarrow tbH^\pm$ (NLO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/single_resonant_production_large_mass.png} \end{tabular} 										& \begin{tabular}[c]{@{}c@{}} $\Hpm \rightarrow tb$ \\ ($cos(\beta-\alpha) \simeq 0$ and large $tan(\beta) \implies \Hpm \rightarrow \tau \nu$ \\ $BR(\HpmLong) \simeq 10-15\%$ ) \end{tabular} & multi-jet \\ \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm > m_{t}$}}		& \begin{tabular}[c]{@{}c@{}} single-resonant $gg \rightarrow tbH^\pm$ (NLO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/single_resonant_production_large_mass.png} \end{tabular} 										& \begin{tabular}[c]{@{}c@{}} $\Hpm \rightarrow tb$ \\ ($cos(\beta-\alpha) \simeq 0$ and large $tan(\beta) \implies \Hpm \rightarrow \tau \nu$ \\ $BR(\HpmLong) \simeq 10-15\%$ ) \end{tabular} & multi-jet \\ \hline
 
-		\end{tabular}}
-		\label{tab:hplus-production}
+			\end{tabular}}
+			\caption{\Hpm production mechanisms based on \mHpm, dominant \Hpm decay mode, and the main background associated with the diagram.}
+			\label{tab:hplus-production}
 		\end{table}
 
 		\subsection{Object Definitions}\label{ssec:object-def}
+		Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, an overlap removal with electrons is also performed. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}.
 
-		  \begin{table}
-		  \centering
-		  \caption{Definitions of physics objects used in this analysis.}
-		  \resizebox{\textwidth}{!}{
-		  \begin{tabular}{| c | l | l |}
-		  \hline
-		  Object & \textbf{\taujets} & \textbf{\taulep} \\
-		  \hline \hline
-		  \multicolumn{1}{|c|}{\multirow{3}{*}{$\tau$}} & \begin{tabular}[c]{@{}c@{}}Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 40$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} & \begin{tabular}[c]{@{}c@{}} Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} \\[4ex] \hline
-		  \multicolumn{1}{|c|}{\multirow{3}{*}{$e$}} & \begin{tabular}[c]{@{}c@{}} LoseLLH, $p_{T} > 20$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Loose isolation, IP cuts \end{tabular} &  \begin{tabular}[c]{@{}c@{}} TightLLH, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline
-		  \multicolumn{1}{|c|}{\multirow{3}{*}{$\mu$}} & \begin{tabular}[c]{@{}c@{}} LooseID, $p_{T} > 20$ GeV, $\abs{\eta} < 2.5$, \\Loose isolation, IP cuts \end{tabular} & \begin{tabular}[c]{@{}c@{}} TightID, $p_{T} > 30$ GeV, $\abs{\eta} < 2.5$,\\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline 
-		  \multicolumn{1}{|c|}{\multirow{3}{*}{jet}} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$, GeV $\abs{\eta} < 2.5$,\\ JVT$^{**}$  $> 0.59$, Btag=70\%, DL1r \end{tabular} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$ GeV, $\abs{\eta} <2.5$, \\ JVT$^{**}$  $ > 0.59$ , Btag=70\%, DL1r \end{tabular} \\[4ex] \hline
-		  \end{tabular}}
-		  \label{tab:object-defs}
-		  \end{table}
+		\begin{table}
+			\centering
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{| c | l | l |}
+			\hline
+			Object & \textbf{\taujets} & \textbf{\taulep} \\
+			\hline \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{\tauhad}} & \begin{tabular}[c]{@{}c@{}}Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 40$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} & \begin{tabular}[c]{@{}c@{}} Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} \\[4ex] \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$e$}} & \begin{tabular}[c]{@{}c@{}} LoseLLH, $p_{T} > 20$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Loose isolation, IP cuts \end{tabular} &  \begin{tabular}[c]{@{}c@{}} TightLLH, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mu$}} & \begin{tabular}[c]{@{}c@{}} LooseID, $p_{T} > 20$ GeV, $\abs{\eta} < 2.5$, \\Loose isolation, IP cuts \end{tabular} & \begin{tabular}[c]{@{}c@{}} TightID, $p_{T} > 30$ GeV, $\abs{\eta} < 2.5$,\\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline 
+			\multicolumn{1}{|c|}{\multirow{3}{*}{jet}} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$, GeV $\abs{\eta} < 2.5$,\\ JVT$^{**}$  $> 0.59$, Btag=70\%, DL1r \end{tabular} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$ GeV, $\abs{\eta} <2.5$, \\ JVT$^{**}$  $ > 0.59$ , Btag=70\%, DL1r \end{tabular} \\[4ex] \hline
+			\end{tabular}}
+			\caption{Definitions of physics objects used in this analysis.}
+			\label{tab:object-defs}
+		\end{table}
 
-		  % \begin{columns}
-		  % \column{.3\textwidth}
-		  % \begin{itemize}
-		  %   \footnotesize
-		  %   \item $\tau$ mediumID$^{*}$
-		  %   \begin{itemize}
-		  %     \tiny
-		  %     \item 1-prong: 75\% ID eff 
-		  %     \item 3-prong: 60\% ID eff
-		  %   \end{itemize}
-		  % \end{itemize}
-		  % \column{.3\textwidth}
-		  % \begin{itemize}
-		  %   \footnotesize
-		  %   \item JVT$^{**}$
-		  %     \begin{itemize}
-		  %       \tiny
-		  %       \item $p_{T} < 60$ GeV
-		  %       \item $\abs{\eta}<2.4$
-		  %   \end{itemize}
-		  % \end{itemize}
-		  % \column{.3\textwidth}
-		  % \begin{itemize}
-		  %   \footnotesize
-		  %   \item $\abs{\eta}^{***}$
-		  %     \begin{itemize}
-		  %       \tiny
-		  %       \item $1.37 < \abs{eta} < 1.52 $ excluded
-		  %   \end{itemize}
-		  % \end{itemize}
-		  % \end{columns}
+		% \begin{columns}
+		% \column{.3\textwidth}
+		% \begin{itemize}
+		%   \footnotesize
+		%   \item $\tau$ mediumID$^{*}$
+		%   \begin{itemize}
+		%     \tiny
+		%     \item 1-prong: 75\% ID eff 
+		%     \item 3-prong: 60\% ID eff
+		%   \end{itemize}
+		% \end{itemize}
+		% \column{.3\textwidth}
+		% \begin{itemize}
+		%   \footnotesize
+		%   \item JVT$^{**}$
+		%     \begin{itemize}
+		%       \tiny
+		%       \item $p_{T} < 60$ GeV
+		%       \item $\abs{\eta}<2.4$
+		%   \end{itemize}
+		% \end{itemize}
+		% \column{.3\textwidth}
+		% \begin{itemize}
+		%   \footnotesize
+		%   \item $\abs{\eta}^{***}$
+		%     \begin{itemize}
+		%       \tiny
+		%       \item $1.37 < \abs{eta} < 1.52 $ excluded
+		%   \end{itemize}
+		% \end{itemize}
+		% \end{columns}
 
 		\subsection{Event Selections}\label{ssec:event-selection}
+			Each subchannel signal region has stricter requirements than those described in Section \ref{tab:object-defs}. Table \ref{tab:signal-regions} details these selections. The channels differ in the triggers used; the \taujets subchannel relies on \Etm triggers while the \taulep subchannel relies on single lepton triggers. Due to the difficulty of separating signal from background the \taujets subchannel has a higher \pt cut on the \tauhad of 40 GeV as opposed to the \taulep value of 30 GeV. In addition, a higher value of \Etm of 150 GeV is required for the \taujets subchannel. A value of 50 GeV is also required of the transverse mass $m_{T}$ defined as 
+			\begin{equation}\label{eqn:transverse-mass}
+			m_{T} = \sqrt{ 2 \pt^{\tau} \Etm (1 - cos \Delta \phi_{\tau,\Etm}) }
+			\end{equation}
+			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal control regions are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}.
+
+
+			\begin{table}
+				\centering
+				\resizebox{.75\textwidth}{!}{
+				\begin{tabular}{| c | c |}
+				\hline
+				\textbf{$\tau + jets$ SR } & \textbf{$\tau + \ell$ SR} \\
+				\hline \hline
+				$E^{miss}_{T}$ Trigger (mostly HLT\_xe110) & Single lepton trigger (e or $\mu$) \\[1.2ex] \hline
+				1 hadronic $\tau$ ; $p_{T}^{\tau} > 40$ GeV & 1 hadronic $\tau$ ; $p_{T}^{\tau} > 30$ GeV\\[1.2ex] \hline
+				% $p_{T}^{\tau} > 40$ GeV & $p_{T}^{\tau} > 30$ GeV \\ \hline
+				0 $\ell$ (e or $\mu$) ; $p_{T}^{\ell} > 20$ GeV  & 1 $\ell$ (e or $\mu$) ; $p_{T}^{\ell} > 30$ GeV \\[1.2ex] \hline
+				% $p_{T}^{\ell} > 20$ GeV & $p_{T}^{\ell} > 30$ GeV \\ \hline
+				$\geq$ 3 jets ; $p_{T}^{j} > 25$ GeV  & $\geq$ 1 jet ; $p_{T}^{j} > 25$ GeV \\[1.2ex] \hline
+				% $p_{T}^{j} > 25$ GeV & $p_{T}^{j} > 25$ GeV \\ \hline
+				$\geq$ 1 b-jets ; $p_{T}^{b-jet} > 25$ GeV & $\geq$ 1 b-jets ; $p_{T}^{b-jet} > 25$ GeV \\[1.2ex] \hline
+				% $p_{T}^{b-jet} > 25$ GeV & $p_{T}^{b-jet} > 25$ GeV \\ \hline
+				\Etm$ > 150$ GeV & \Etm$ > 50$ GeV \\[1.2ex] \hline
+				$m_{T}(\tau,E^{miss}_{T}) > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\[1.2ex] 
+				\hline
+				\end{tabular}}
+				\caption{\taujets and \taulep signal region definitions.}
+				\label{tab:signal-regions}
+			\end{table}
 
 	\section{Datasets}\label{sec:datasets}
+		This analysis uses the full Run-2 ATLAS dataset collected between 2015 and 2018 corresponding to $139.0 \pm 2.4$ \ifb. The datasets used are required to be included in the ATLAS ``Good Run Lists'' (GRLs), meaning they have passed nominal data quality checks with all detector subsystems operating within normal conditions. Further event cleaning is applied that removes events in which a reconstructed jet originated from detector noise or non-collision backgrounds.
 
 		\subsection{Signal Modeling}\label{ssec:sig-modeling}
 
 	\section{Background Modeling}\label{sec:bkg-modeling}
+
+    \begin{table}
+      \centering{}
+      \resizebox{\textwidth}{!}{
+      \begin{tabular}{| l | l |}
+      \hline
+      Backgrounds w/ prompt hadronic $\tau$ & Backgrounds w/ fake $\tau$ \\
+      \hline \hline
+      $t\bar{t}$ estimated with MC       & Fake $j \rightarrow \tau$ estimated with data driven fake factor method \\ \hline
+      $V+jets$ estimated with MC         & Fake $\ell \rightarrow \tau$ estimated with MC, validated on $Z \rightarrow ee$\\ \hline
+      VV estimated with MC & \\
+      \hline
+      \end{tabular}}
+      \caption{Dominant backgrounds from prompt \tauhad and fake \tauhad candidates.}
+      \label{tab:backgrounds}
+    \end{table}
 
 	\section{Analysis Strategy}\label{sec:ana-strat}
 
