@@ -80,7 +80,7 @@
 			\begin{equation}\label{eqn:transverse-mass}
 			m_{T} = \sqrt{ 2 \pt^{\tau} \Etm (1 - cos \Delta \phi_{\tau,\Etm}) }
 			\end{equation}
-			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal control regions are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}.
+			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal control regions are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}.
 
 
 			\begin{table}
@@ -107,15 +107,68 @@
 				\label{tab:signal-regions}
 			\end{table}
 
+			\begin{figure}[!ht]
+				\centering
+				\subfloat[\label{fig:signal-acceptance_a}]{\includegraphics[width=0.5\textwidth]{chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAUJET.pdf}}
+				\subfloat[\label{fig:signal-acceptance_b}]{\includegraphics[width=0.5\textwidth]{chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAULEP.pdf}}
+				\caption{\label{fig:signal-acceptance} Signal acceptance as a function of the charged Higgs boson mass for both the \taujets (a) and \taulep subchannels (b).}
+			\end{figure}
+
 	\section{Datasets}\label{sec:datasets}
-		This analysis uses the full Run-2 ATLAS dataset collected between 2015 and 2018 corresponding to $139.0 \pm 2.4$ \ifb. The datasets used are required to be included in the ATLAS ``Good Run Lists'' (GRLs), meaning they have passed nominal data quality checks with all detector subsystems operating within normal conditions. Further event cleaning is applied that removes events in which a reconstructed jet originated from detector noise or non-collision backgrounds.
+		This analysis uses the full Run-2 ATLAS dataset collected between 2015 and 2018 corresponding to $139.0 \pm 2.4$ \ifb \cite{lumi-run2}. The datasets used are required to be included in the ATLAS ``Good Run Lists'' (GRLs), meaning they have passed nominal data quality checks with all detector subsystems operating within normal conditions. Further event cleaning is applied that removes events in which a reconstructed jet originated from detector noise or non-collision backgrounds. The collection of data throughout Run-2 can be seen in Figure \ref{fig:lhc-lumi}.
 
 		\subsection{Signal Modeling}\label{ssec:sig-modeling}
+		Monte Carlo (MC) simulations of \Hpm signal events are generated at varying orders dependent on \mHpm. In all cases, the 2HDM Type II model described in Section \ref{ssec:2HDM} is assumed. The lower mass range corresponding to $\mHpm < 140$ GeV where a \Hpm takes the place of a $W^{\pm}$ in a top decay is generated at LO. The intermediate mass range of $140 \leq \mHpm < 200 $ GeV is generated at LO, taking into account the non-resonant, single-top resonant and double-resonant diagrams and their interferences. In this mass range, the final state contains one \Hpm, one $W^{\pm}$, and two b quark. For charged Higgs masses of 200 GeV and above, the \Hpm is produced in association with a top quark and is generated at NLO. In all cases, the parton generator is interfaced with Pythia 8 using the A14 underlying event tuning parameters \cite{Pythia8-tunes}. Table \ref{tab:signal-generated} shows the cross section and raw number of events generated for each \mHpm point for both subchannels.
+
+		\begin{table}
+			\centering
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{| l | l | l | l |}
+			\hline
+			\mHpm [GeV] 	& $\sigma$ [pb] 	& \taulep Generated Events 	& \taujets Generated Events 	\\ \hline
+			80 				& 61.639 			& 220k 						& 110k							\\
+			90 				& 52.823 			& 220k 						& 110k							\\
+			100 			& 43.777 			& 220k 						& 110k							\\
+			110				& 34.770 			& 220k 						& 110k							\\
+			120 			& 26.092 			& 220k 						& 110k							\\
+			130 			& 18.069 			& 220k 						& 110k							\\ \hline
+			140 			& 15.023 			& 220k 						& 220k							\\
+			150 			& 7.681 			& 220k 						& 220k							\\
+			160 			& 2.665 			& 220k 						& 220k							\\
+			170 			& 0.63748 			& 220k 						& 220k							\\
+			180 			& 0.52979 			& 220k 						& 220k							\\
+			190 			& 0.47201 			& 220k 						& 220k							\\ \hline
+			200 			& 0.55632 			& 110k 						& 220k							\\
+			225 			& 0.44081 			& 110k 						& 220k							\\
+			250 			& 0.3573 			& 110k 						& 220k							\\
+			275 			& 0.28592 			& 110k 						& 220k							\\
+			300 			& 0.23373 			& 110k 						& 220k							\\
+			350 			& 0.15774 			& 110k 						& 220k							\\
+			400 			& 0.10818 			& 110k 						& 220k							\\
+			500 			& 0.054139 			& 110k 						& 220k							\\
+			600 			& 0.02847 			& 110k 						& 220k							\\
+			700 			& 0.015764 			& 110k 						& 220k							\\
+			800 			& 0.009067 			& 110k 						& 220k							\\
+			900 			& 0.005324 			& 110k 						& 220k							\\
+			1000 			& 0.003271 			& 110k 						& 220k							\\
+			1200 			& 0.001311 			& 110k 						& 220k							\\
+			1400 			& 0.000558 			& 110k 						& 220k							\\
+			1600 			& 0.000252 			& 110k 						& 220k							\\
+			1800 			& 0.000120 			& 110k 						& 220k							\\
+			2000 			& 0.0000587 		& 110k 						& 220k							\\
+			2500 			& 0.0000111			& 110k 						& 220k							\\
+			3000 			& 0.00000234		& 110k 						& 220k							\\ \hline
+			\end{tabular}}
+			\caption{For each \Hpm mass the generator xcross-section $(\sigma \times BR(\HpmLong))$ is given, as well as the number of generated events for both \taulep and \taujets subchannels.}
+			\label{tab:signal-generated}
+		\end{table}
+		\pagebreak
 
 	\section{Background Modeling}\label{sec:bkg-modeling}
+		The main sources of backgrounds are shown in Table \ref{tab:backgrounds}, separated between backgrounds with a prompt \tauhad in the hard scatter process and those that arise from the misidentification of other physics objects as a \tauhad.
 
     \begin{table}
-      \centering{}
+      \centering
       \resizebox{\textwidth}{!}{
       \begin{tabular}{| l | l |}
       \hline
@@ -129,6 +182,97 @@
       \caption{Dominant backgrounds from prompt \tauhad and fake \tauhad candidates.}
       \label{tab:backgrounds}
     \end{table}
+
+		\begin{table}
+			\begin{center}
+			\small
+			\begin{tabular}{|c||c|c|}
+			\hline
+			Background process & Generator \& & Cross section \\
+			  & parton shower & number(s) [pb] \\
+			\hline \hline
+			$\begin{array}{c}
+			$\ttbar$~\mbox{with at least one lepton $\ell$} \\ 
+			\end{array}$ &
+			$\begin{array}{c}
+			\mbox{{\textsc Powheg}}~\& \\
+			\mbox{{\textsc Pythia8}}
+			\end{array}$
+			& 729.77* \\
+			\hline
+			$\begin{array}{c}
+			\mbox{Single top-quark}\\ 
+			\mbox{$t$-channel}
+			\end{array}$ & & 59.17* \\
+			$\begin{array}{c}
+			\mbox{Single top-quark}\\ 
+			\mbox{$s$-channel}
+			\end{array}$ &
+			$\begin{array}{c}
+			\mbox{{\textsc Powheg}}~\& \\
+			\mbox{{\textsc Pythia8}}
+			\end{array}$ & 3.29* \\
+			$\begin{array}{c}
+			\mbox{Single top-quark}\\ 
+			\mbox{$Wt$-channel}
+			\end{array}$  & & 83.83  \\
+			\hline
+			$\begin{array}{c}
+			~ \\
+			W(\ell\nu) + \mbox{jets} \\ 
+			~ \\
+			\end{array}$ &
+			$\begin{array}{c}
+			~ \\
+			\mbox{Sherpa 2.2.1} \\ 
+			~ \\
+			\end{array}$ &
+			$\begin{array}{c}
+			2.0\times 10^4 \\
+			2.0\times 10^4 \\ 
+			2.0\times 10^4 \\
+			\end{array}$ \\
+			\hline
+			$\begin{array}{c}
+			Z/\gamma^{\ast}(\ell\ell,\nu\nu) + \mbox{jets} \\
+			\end{array}$ & 
+			$\begin{array}{c}
+			~ \\
+			\mbox{Sherpa 2.2.1} \\ 
+			~ \\
+			\end{array}$  &
+			$\begin{array}{c}
+			2.1 \times 10^3  \\
+			2.1 \times 10^3  \\ 
+			2.1 \times 10^3  \\
+			\end{array}$ \\
+
+			\hline
+			$WW$  &  & 54.81 \\
+			$WZ$  &  $\begin{array}{c}
+			\mbox{{\textsc Powheg}}~\& \\
+			\mbox{{\textsc Pythia8}}
+			\end{array}$ & 16.34 \\
+			$ZZ$  &  & 8.94 \\
+			\hline
+			\end{tabular}
+			\normalsize
+			\caption{\label{tab:xs}
+			Cross sections for the main SM 
+			background samples at \sqs. 
+			Here, $\ell$ refers to the three lepton families $e$, $\mu$ and 
+			$\tau$. All background cross sections are normalised to NNLO predictions, 
+			except for diboson events, where the NLO prediction is used. A '*' indicates
+			that the quoted cross section for the sample is neglecting leptonic/hadronic
+			branching ratios.
+			}
+			\end{center}
+		\end{table}
+
+
+
+
+
 
 	\section{Analysis Strategy}\label{sec:ana-strat}
 

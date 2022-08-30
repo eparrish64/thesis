@@ -84,7 +84,7 @@
 	\end{figure}
 
 	\section{Jets}\label{sec:reco-jets}
-	A jet is a reconstructed object of calorimeter energy that is meant to capture the energy of a hadronic shower, typically initiated from hard scatter quarks or hadrons. There are several algorithms available to perform a clustering of calorimeter topoclusters to form jets. This dissertation uses jets created from particle flow objects. The particle flow algorithm is described in detail in \cite{pflow}, a flow chart of the algorithm is shown in Figure \ref{fig:pflow-flowchart} and an idealized example of the algorithm performing the reconstruction of hadrons is shown in Figure \ref{fig:pflow-example}. 
+	A jet is a reconstructed object of calorimeter energy that is meant to capture the energy of a hadronic shower, typically initiated from hard scatter quarks or hadrons. There are several algorithms available to perform a clustering of calorimeter topoclusters to form jets. This dissertation uses jets created from particle flow objects. The particle flow algorithm is described in detail in \cite{pflow}, a flow chart of the algorithm is shown in Figure \ref{fig:pflow-flowchart} and an idealized example of the particle flow algorithm performing the reconstruction of hadrons is shown in Figure \ref{fig:pflow-example}. 
 
 	\begin{figure}[!ht]
 	\centering
@@ -109,7 +109,7 @@
 	\begin{equation}\label{eqn:anti-kt-delta}
 	\Delta{ij} = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
 	\end{equation}
-	The anti-kt algorithm first identifies the smallest $d_ij$ and clusters the particle flow objects if $d_{ij}>k_{t,i}^{-2}$. If $d_{ij}>k_{t,i}^{-2}$ then the particle flow object is discarded. This process continues iteratively until there are no more objects to consider. Objects with $\Delta>R$ are still considered, making the R input parameter an energy cut-off for clustering and not a direct radius value. Figure \ref{fig:anti-kt-comparison} shows the anti-kt algorithm's performance compared to other jet finding algorithms.
+	The anti-kt algorithm first identifies the smallest $d_ij$ and clusters the particle flow objects if $d_{ij}>k_{t,i}^{-2}$. If $d_{ij}>k_{t,i}^{-2}$ then the particle flow object is discarded. This process continues iteratively until there are no more objects to consider. Objects with $\Delta>R$ are still considered, making the R input parameter an energy cut-off for clustering and not a direct radius value. Figure \ref{fig:anti-kt-comparison} shows the anti-$k_{t}$ algorithm's performance compared to other jet finding algorithms. The anti-$k_{t}$ algorithm results in a more conical shape than other jet finding algorithms; better encapsulating the shower profile of jets.
 
 	\begin{figure}[!ht]
 	\centering
