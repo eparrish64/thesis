@@ -18,7 +18,7 @@
 	% \begin{itemize}
 	% 	\item Loose
 	% 	\begin{itemize}
-	% 		\item $p_{T} > 400$ MeV
+	% 		\item $\pt > 400$ MeV
 	% 		\item $|\eta|<2.5$
 	% 		\item $\geq 7$ silicon hits
 	% 		\item $\leq 1$ shared modules
@@ -123,10 +123,10 @@
 			\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
-			\caption{\label{fig:bjet} Schematic view of the tracks in a b-jet \cite{bjet-trigger}.}
+			\caption{\label{fig:bjet} Schematic view of the tracks in a \bjet \cite{bjet-trigger}.}
 			\end{figure}
 
-		There are several methods used to tag a jet as coming from a b quark; this analysis uses the DL1 high level tagger \cite{b-tagging} that is based on an Artificial Deep Neural Network. Neural networks are discussed in detail in Section \ref{ssec:mva}. DL1 not only tags \bjets, but also output the probability for a jet to be initiated from a charm or light flavor quark. The DL1 tagger has over 20 input variables, including the $p_{T}$ and $\eta$ of jets \cite{b-tagging-input-variables}. The analysis discussed in this dissertation uses a fixed cut working point that corresponds to an average efficiency of 70\% for \bjets in \ttbar events.
+		There are several methods used to tag a jet as coming from a b quark; this analysis uses the DL1 high level tagger \cite{b-tagging} that is based on an Artificial Deep Neural Network. Neural networks are discussed in detail in Section \ref{ssec:mva}. DL1 not only tags \bjets, but also output the probability for a jet to be initiated from a charm or light flavor quark. The DL1 tagger has over 20 input variables, including the $\pt$ and $\eta$ of jets \cite{b-tagging-input-variables}. The analysis discussed in this dissertation uses a fixed cut working point that corresponds to an average efficiency of 70\% for \bjets in \ttbar events.
 
 
 	\section{$\tau$ Identification}\label{ssec:reco-tau}
@@ -135,10 +135,10 @@
 	The \tauhad candidates start with an anti-$k_t$ jet seed with $E_T>10$ GeV in the calorimeter, tracks and topoclusters within $\Delta R = 0.2$ are added to the \tauhad candidate. The axis of the original jet seed is redefined in the direction of the \tauhad candidate and calibration is done at the \tauhad scale. An overlap removal is done to ensure the \tauhad is isolated from electrons and muons. Tracks are required to have $E_{T}>30$ GeV, $|\eta|<2.3$ and strictly either 1 or 3 tracks. A \tauhad candidate is referred to as 1-prong or 3-prong based on the associated number of tracks. To discern \tauhad objects from quark and gluon initiated jets a recurrent neural network (RNN) is used. The search described in this analysis uses a medium WP that corresponds to 75\% identification efficiency for 1-prong and 60\% for 3-prong in $\gamma \rightarrow \tau \tau$ collision events. Only the highest \pt \tauhad candidate in an event is considered in this analysis.
 
 	\section{\Etm}\label{sec:reco-etmiss}
-	The final SM particle in the reconstruction scheme is the neutrino\footnote{The W, Z and gluon do not have long enough lifetimes to leave signatures within the ATLAS detector volume. Instead, their presence is inferred through their decay products}. The presence of a neutrino, or another minimally interacting particle, can be inferred through the calculation of \Etm\footnote{The choice of \Etm to represent missing transverse momentum is a common nomenclature. Other choices include $p_{T}^{miss}$, MET, and et miss.}; which takes advantage of the initial collision having a small momentum in the transverse plane ($p_{T} \simeq 0$). The initial momentum in the z direction (along the beamline) cannot be known due to the composite nature of the colliding protons and the associated PDFs of their components.
+	The final SM particle in the reconstruction scheme is the neutrino\footnote{The W, Z and gluon do not have long enough lifetimes to leave signatures within the ATLAS detector volume. Instead, their presence is inferred through their decay products}. The presence of a neutrino, or another minimally interacting particle, can be inferred through the calculation of \Etm\footnote{The choice of \Etm to represent missing transverse momentum is a common nomenclature. Other choices include $\pt^{miss}$, MET, and et miss.}; which takes advantage of the initial collision having a small momentum in the transverse plane ($\pt \simeq 0$). The initial momentum in the z direction (along the beamline) cannot be known due to the composite nature of the colliding protons and the associated PDFs of their components.
 
 	The calculation of \Etm in the ATLAS detector is defined as
 	\begin{equation}\label{eqn:etmiss}
-	E_{T}^{miss} = - \sum E_{T} = \sum p_{T}^{\mu} + \sum p_{T}^{e} + \sum p_{T}^{\gamma} + \sum p_{T}^{\tau} + \sum p_{T}^{jets} + \sum p_{T}^{soft}
+	E_{T}^{miss} = - \sum E_{T} = \sum \pt^{\mu} + \sum \pt^{e} + \sum \pt^{\gamma} + \sum \pt^{\tau} + \sum \pt^{jets} + \sum \pt^{soft}
 	\end{equation}
-	where the $p_{T}^{soft}$ term comes from soft tracks that are not associated with any physics objects \cite{met-perf}. The analysis discussed in this dissertation uses \Etm triggers in one of the subchannels to select events and is described in chapter \ref{chap:hpana}.
+	where the $\pt^{soft}$ term comes from soft tracks that are not associated with any physics objects \cite{met-perf}. The analysis discussed in this dissertation uses \Etm triggers in one of the subchannels to select events and is described in chapter \ref{chap:hpana}.

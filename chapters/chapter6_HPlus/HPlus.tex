@@ -6,7 +6,7 @@
 	\section{Signature and Event Selection}\label{sec:signal}
 		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on the mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values with respect to the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), as well as the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{ssec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
 
-		\begin{table}
+		\begin{table}[!thp]
 			\centering
 			\resizebox{\textwidth}{!}{
 			\begin{tabular}{| c | c | c | c |}
@@ -27,17 +27,17 @@
 		\subsection{Object Definitions}\label{ssec:object-def}
 		Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, an overlap removal with electrons is also performed. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}.
 
-		\begin{table}
+		\begin{table}[!thp]
 			\centering
 			\resizebox{\textwidth}{!}{
 			\begin{tabular}{| c | l | l |}
 			\hline
 			Object & \textbf{\taujets} & \textbf{\taulep} \\
 			\hline \hline
-			\multicolumn{1}{|c|}{\multirow{3}{*}{\tauhad}} & \begin{tabular}[c]{@{}c@{}}Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 40$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} & \begin{tabular}[c]{@{}c@{}} Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} \\[4ex] \hline
-			\multicolumn{1}{|c|}{\multirow{3}{*}{$e$}} & \begin{tabular}[c]{@{}c@{}} LoseLLH, $p_{T} > 20$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Loose isolation, IP cuts \end{tabular} &  \begin{tabular}[c]{@{}c@{}} TightLLH, $p_{T} > 30$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline
-			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mu$}} & \begin{tabular}[c]{@{}c@{}} LooseID, $p_{T} > 20$ GeV, $\abs{\eta} < 2.5$, \\Loose isolation, IP cuts \end{tabular} & \begin{tabular}[c]{@{}c@{}} TightID, $p_{T} > 30$ GeV, $\abs{\eta} < 2.5$,\\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline 
-			\multicolumn{1}{|c|}{\multirow{3}{*}{jet}} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$, GeV $\abs{\eta} < 2.5$,\\ JVT$^{**}$  $> 0.59$, Btag=70\%, DL1r \end{tabular} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $p_{T} > 25$ GeV, $\abs{\eta} <2.5$, \\ JVT$^{**}$  $ > 0.59$ , Btag=70\%, DL1r \end{tabular} \\[4ex] \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{\tauhad}} & \begin{tabular}[c]{@{}c@{}}Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $\pt > 40$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} & \begin{tabular}[c]{@{}c@{}} Leading reconstructed $\tau$ (regardless of its ID), \\ mediumID$^{*}$, $\pt > 30$ GeV, $\abs{\eta}^{***} < 2.3$, $e$ OLR \end{tabular} \\[4ex] \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$e$}} & \begin{tabular}[c]{@{}c@{}} LoseLLH, $\pt > 20$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Loose isolation, IP cuts \end{tabular} &  \begin{tabular}[c]{@{}c@{}} TightLLH, $\pt > 30$ GeV, $\abs{\eta}^{***} < 2.47$, \\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mu$}} & \begin{tabular}[c]{@{}c@{}} LooseID, $\pt > 20$ GeV, $\abs{\eta} < 2.5$, \\Loose isolation, IP cuts \end{tabular} & \begin{tabular}[c]{@{}c@{}} TightID, $\pt > 30$ GeV, $\abs{\eta} < 2.5$,\\ Tight isolation, IP cuts \end{tabular} \\[4ex] \hline 
+			\multicolumn{1}{|c|}{\multirow{3}{*}{jet}} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $\pt > 25$, GeV $\abs{\eta} < 2.5$,\\ JVT$^{**}$  $> 0.59$, Btag=70\%, DL1r \end{tabular} & \begin{tabular}[c]{@{}c@{}} AntiKt4EMPFlow, $\pt > 25$ GeV, $\abs{\eta} <2.5$, \\ JVT$^{**}$  $ > 0.59$ , Btag=70\%, DL1r \end{tabular} \\[4ex] \hline
 			\end{tabular}}
 			\caption{Definitions of physics objects used in this analysis.}
 			\label{tab:object-defs}
@@ -60,7 +60,7 @@
 		%   \item JVT$^{**}$
 		%     \begin{itemize}
 		%       \tiny
-		%       \item $p_{T} < 60$ GeV
+		%       \item $\pt < 60$ GeV
 		%       \item $\abs{\eta}<2.4$
 		%   \end{itemize}
 		% \end{itemize}
@@ -83,24 +83,24 @@
 			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal control regions are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}.
 
 
-			\begin{table}
+			\begin{table}[!thp]
 				\centering
 				\resizebox{.75\textwidth}{!}{
 				\begin{tabular}{| c | c |}
 				\hline
 				\textbf{$\tau + jets$ SR } & \textbf{$\tau + \ell$ SR} \\
 				\hline \hline
-				$E^{miss}_{T}$ Trigger (mostly HLT\_xe110) & Single lepton trigger (e or $\mu$) \\[1.2ex] \hline
-				1 hadronic $\tau$ ; $p_{T}^{\tau} > 40$ GeV & 1 hadronic $\tau$ ; $p_{T}^{\tau} > 30$ GeV\\[1.2ex] \hline
-				% $p_{T}^{\tau} > 40$ GeV & $p_{T}^{\tau} > 30$ GeV \\ \hline
-				0 $\ell$ (e or $\mu$) ; $p_{T}^{\ell} > 20$ GeV  & 1 $\ell$ (e or $\mu$) ; $p_{T}^{\ell} > 30$ GeV \\[1.2ex] \hline
-				% $p_{T}^{\ell} > 20$ GeV & $p_{T}^{\ell} > 30$ GeV \\ \hline
-				$\geq$ 3 jets ; $p_{T}^{j} > 25$ GeV  & $\geq$ 1 jet ; $p_{T}^{j} > 25$ GeV \\[1.2ex] \hline
-				% $p_{T}^{j} > 25$ GeV & $p_{T}^{j} > 25$ GeV \\ \hline
-				$\geq$ 1 b-jets ; $p_{T}^{b-jet} > 25$ GeV & $\geq$ 1 b-jets ; $p_{T}^{b-jet} > 25$ GeV \\[1.2ex] \hline
-				% $p_{T}^{b-jet} > 25$ GeV & $p_{T}^{b-jet} > 25$ GeV \\ \hline
+				$\Etm$ Trigger (mostly HLT\_xe110) & Single lepton trigger (e or $\mu$) \\[1.2ex] \hline
+				1 \tauhad ; $\pt^{\tau} > 40$ GeV & 1 \tauhad ; $\pt^{\tau} > 30$ GeV\\[1.2ex] \hline
+				% $\pt^{\tau} > 40$ GeV & $\pt^{\tau} > 30$ GeV \\ \hline
+				0 $\ell$ (e or $\mu$) ; $\pt^{\ell} > 20$ GeV  & 1 $\ell$ (e or $\mu$) ; $\pt^{\ell} > 30$ GeV \\[1.2ex] \hline
+				% $\pt^{\ell} > 20$ GeV & $\pt^{\ell} > 30$ GeV \\ \hline
+				$\geq$ 3 jets ; $\pt^{j} > 25$ GeV  & $\geq$ 1 jet ; $\pt^{j} > 25$ GeV \\[1.2ex] \hline
+				% $\pt^{j} > 25$ GeV & $\pt^{j} > 25$ GeV \\ \hline
+				$\geq$ 1 \bjets ; $\pt^{\bjet} > 25$ GeV & $\geq$ 1 \bjets ; $\pt^{\bjet} > 25$ GeV \\[1.2ex] \hline
+				% $\pt^{\bjet} > 25$ GeV & $\pt^{\bjet} > 25$ GeV \\ \hline
 				\Etm$ > 150$ GeV & \Etm$ > 50$ GeV \\[1.2ex] \hline
-				$m_{T}(\tau,E^{miss}_{T}) > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\[1.2ex] 
+				$m_{T}(\tau,\Etm) > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\[1.2ex] 
 				\hline
 				\end{tabular}}
 				\caption{\taujets and \taulep signal region definitions.}
@@ -118,11 +118,11 @@
 		This analysis uses the full Run-2 ATLAS dataset collected between 2015 and 2018 corresponding to $139.0 \pm 2.4$ \ifb \cite{lumi-run2}. The datasets used are required to be included in the ATLAS ``Good Run Lists'' (GRLs), meaning they have passed nominal data quality checks with all detector subsystems operating within normal conditions. Further event cleaning is applied that removes events in which a reconstructed jet originated from detector noise or non-collision backgrounds. The collection of data throughout Run-2 can be seen in Figure \ref{fig:lhc-lumi}.
 
 		\subsection{Signal Modeling}\label{ssec:sig-modeling}
-		Monte Carlo (MC) simulations of \Hpm signal events are generated at varying orders dependent on \mHpm. In all cases, the 2HDM Type II model described in Section \ref{ssec:2HDM} is assumed. The lower mass range corresponding to $\mHpm < 140$ GeV where a \Hpm takes the place of a $W^{\pm}$ in a top decay is generated at LO. The intermediate mass range of $140 \leq \mHpm < 200 $ GeV is generated at LO, taking into account the non-resonant, single-top resonant and double-resonant diagrams and their interferences. In this mass range, the final state contains one \Hpm, one $W^{\pm}$, and two b quark. For charged Higgs masses of 200 GeV and above, the \Hpm is produced in association with a top quark and is generated at NLO. In all cases, the parton generator is interfaced with Pythia 8 using the A14 underlying event tuning parameters \cite{Pythia8-tunes}. Table \ref{tab:signal-generated} shows the cross section and raw number of events generated for each \mHpm point for both subchannels.
+		Monte Carlo (MC) simulations of \Hpm signal events are generated at varying orders dependent on \mHpm. In all cases, the 2HDM Type II model described in Section \ref{ssec:2HDM} is assumed and the generator MadGraph is used. The lower mass range corresponding to $\mHpm < 140$ GeV where a \Hpm takes the place of a $W^{\pm}$ in a top decay is generated at LO. The intermediate mass range of $140 \leq \mHpm < 200 $ GeV is generated at LO, taking into account the non-resonant, single-top resonant and double-resonant diagrams and their interferences. In this mass range, the final state contains one \Hpm, one $W^{\pm}$, and two b quark. For charged Higgs masses of 200 GeV and above, the \Hpm is produced in association with a top quark and is generated at NLO. In all cases, the parton generator is interfaced with Pythia 8 using the A14 underlying event tuning parameters \cite{Pythia8-tunes}. Table \ref{tab:signal-generated} shows the cross section and raw number of events generated for each \mHpm point for both subchannels.
 
-		\begin{table}
+		\begin{table}[!thp]
 			\centering
-			\resizebox{\textwidth}{!}{
+			\resizebox{.65\textwidth}{!}{
 			\begin{tabular}{| l | l | l | l |}
 			\hline
 			\mHpm [GeV] 	& $\sigma$ [pb] 	& \taulep Generated Events 	& \taujets Generated Events 	\\ \hline
@@ -140,7 +140,7 @@
 			190 			& 0.47201 			& 220k 						& 220k							\\ \hline
 			200 			& 0.55632 			& 110k 						& 220k							\\
 			225 			& 0.44081 			& 110k 						& 220k							\\
-			250 			& 0.3573 			& 110k 						& 220k							\\
+			250 			& 0.3573 				& 110k 						& 220k							\\
 			275 			& 0.28592 			& 110k 						& 220k							\\
 			300 			& 0.23373 			& 110k 						& 220k							\\
 			350 			& 0.15774 			& 110k 						& 220k							\\
@@ -162,30 +162,33 @@
 			\caption{For each \Hpm mass the generator xcross-section $(\sigma \times BR(\HpmLong))$ is given, as well as the number of generated events for both \taulep and \taujets subchannels.}
 			\label{tab:signal-generated}
 		\end{table}
-		\pagebreak
+		% \pagebreak
 
 	\section{Background Modeling}\label{sec:bkg-modeling}
-		The main sources of backgrounds are shown in Table \ref{tab:backgrounds}, separated between backgrounds with a prompt \tauhad in the hard scatter process and those that arise from the misidentification of other physics objects as a \tauhad.
+		The main sources of backgrounds are shown in Table \ref{tab:backgrounds}, separated between backgrounds with a prompt \tauhad in the hard scatter process and those that arise from the misidentification of other physics objects as a \tauhad. The cross section of all simulated background samples and the relevant generators can be seen in Table \ref{tab:bkg-xs}. Control regions that are designed to be orthogonal to the signal region are created for both subchannels in order to study the modeling of the backgrounds. These control regions are defined by the cuts in Table \ref{tab:taujet-control-regions} (\taujets) and Table \ref{tab:taulep-control-regions} (\taulep). For the \taulep subchannel the Same Sign and b-veto control regions are further split into two control regions, one that requires a $\mu$ in the event and another that requires an electron. The \Etm distributions in each of the control regions are plotted in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated MC events bin by bin to ensure proper modeling. More background modeling plots can be seen in Appendix \ref{app:valid-plots}.
 
-    \begin{table}
+		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \rightarrow \tau$ misidentification are well modeled in MC simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \rightarrow \tau$ modeling.
+
+    \begin{table}[!thp]
       \centering
       \resizebox{\textwidth}{!}{
       \begin{tabular}{| l | l |}
       \hline
-      Backgrounds w/ prompt hadronic $\tau$ & Backgrounds w/ fake $\tau$ \\
+      Backgrounds w/ prompt \tauhad & Backgrounds w/ fake $\tau$ \\
       \hline \hline
       $t\bar{t}$ estimated with MC       & Fake $j \rightarrow \tau$ estimated with data driven fake factor method \\ \hline
-      $V+jets$ estimated with MC         & Fake $\ell \rightarrow \tau$ estimated with MC, validated on $Z \rightarrow ee$\\ \hline
-      VV estimated with MC & \\
+      $W(Z)+jets$ estimated with MC         & Fake $\ell \rightarrow \tau$ estimated with MC, validated on $Z \rightarrow ee$\\ \hline
+      Diboson estimated with MC & \\
       \hline
       \end{tabular}}
       \caption{Dominant backgrounds from prompt \tauhad and fake \tauhad candidates.}
       \label{tab:backgrounds}
     \end{table}
 
-		\begin{table}
+		\begin{table}[!thp]
 			\begin{center}
 			\small
+			\resizebox{0.5\textwidth}{!}{
 			\begin{tabular}{|c||c|c|}
 			\hline
 			Background process & Generator \& & Cross section \\
@@ -255,9 +258,9 @@
 			\end{array}$ & 16.34 \\
 			$ZZ$  &  & 8.94 \\
 			\hline
-			\end{tabular}
+			\end{tabular}}
 			\normalsize
-			\caption{\label{tab:xs}
+			\caption{\label{tab:bkg-xs}
 			Cross sections for the main SM 
 			background samples at \sqs. 
 			Here, $\ell$ refers to the three lepton families $e$, $\mu$ and 
@@ -269,10 +272,193 @@
 			\end{center}
 		\end{table}
 
+		\begin{table}[!thp]
+			\begin{subtable}[c]{0.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+        	\textbf{\ttbar Control Region} \\ \hline \hline
+          1 \tauhad \\
+          $\pt^{\tau} > 40 $ GeV \\
+          $\geq 3 $ jets\\
+          $\geq 2 $ \bjets\\
+          $\Etm > 150 GeV$ \\
+          $m_{T}(\tau, \Etm) < 100 \: GeV$ \\
+          \hline
+				\end{tabular}
+				\subcaption{\ttbar modeling}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+					\textbf{b-veto Control Region} \\ \hline \hline
+					1 \tauhad \\
+					$\pt^{\tau} > 40 \: GeV $  \\
+					$\geq 3$ jets\\
+					% $n\_bjets > 2$ \\
+					$\pt^{jet} > 25 \: GeV$ \\
+					$\Etm > 150 GeV$ \\
+					$m_{T}(\tau, \Etm) > 50 \: GeV$ \\
+					b veto \\
+					$\ell$ veto \\
+					\hline
+				\end{tabular}
+				\subcaption{Close to signal region}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+					\textbf{W+Jets Control Region} \\ \hline \hline
+					1 \tauhad \\
+					$\pt^{\tau} > 40 \: GeV $  \\
+					$\geq 3$ jets \\
+					$\pt^{jet} > 25 \: GeV$ \\
+					$\Etm > 150 GeV$ \\
+					$m_{T}(\tau, \Etm) > 100 \: GeV$ \\ 
+					b veto \\
+					$\ell$ veto \\
+					\hline
+				\end{tabular}
+				\subcaption{W+Jets modeling}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+					\textbf{b-veto $m_{T}\geq100$ Control Region} \\ \hline \hline
+					1 \tauhad \\
+					$\pt^{\tau} > 40 \: GeV $  \\
+					$\geq 3$ jets \\
+					$\pt^{jet} > 25 \: GeV$ \\
+					$\Etm > 150 GeV$ \\
+					$m_{T}(\tau, \Etm) > 100 \: GeV$ \\
+					b veto \\
+					$\ell$ veto \\
+					\hline
+				\end{tabular}
+				\subcaption{Fake $j \rightarrow \tau$ enriched region}
+			\end{subtable}
 
+			\caption{Control region definitions for the \taujets subchannel.}
+			\label{tab:taujet-control-regions}
+		\end{table}
 
+		\begin{table}[!thp]
+			\begin{subtable}[c]{0.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+        	\textbf{Dilepton-btag CR} \\ \hline \hline
+          $\tau$ veto \\
+          $n\geq 1$ jets \\
+          $\pt^{jet} > 25 GeV$ \\
+          $\geq 1$ \bjets \\
+          $\Etm > 50 GeV$ \\
+          1 $e$ \\
+          1 $\mu$ \\
+          \hline
+				\end{tabular}
+				\subcaption{\ttbar and single top modeling}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+	        \textbf{b-veto CR} \\ \hline \hline
+          1 \tauhad \\
+          $\pt^{\tau} > 30 \: GeV $  \\
+          1 $e (\mu) $ \\
+          Veto $\mu \:(e)$ \\
+          Opposite sign $\tau$ $e \: (\mu)$ \\
+          $\geq 1$ jets  \\
+          $\pt^{jet} > 25 GeV$ \\
+          $\Etm > 50 GeV$ \\
+          1 tight $e \: (\mu)$ \\
+          \hline					
+				\end{tabular}
+				\subcaption{Close to signal region}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+        	\textbf{Zee CR} \\ \hline \hline
+          1 \tauhad \\
+          $\pt^{\tau} > 30 \: GeV $  \\
+          veto $\mu$ \\
+          Opposite sign $\tau$ $e$ \\
+          $\geq 1$ jets \\
+          $\pt^{jet} > 25 GeV$ \\
+          \bjet veto \\
+          $\Etm > 50 GeV$ \\
+          1 $e$\\
+          $40 < mass(\tau,e) < 140 GeV$ \\
+          \hline
+				\end{tabular}
+				\subcaption{Fake $\ell \rightarrow \tau$ enriched region}
+			\end{subtable}
+			\begin{subtable}[c]{.45\textwidth}
+				\centering
+				\begin{tabular}{| c |}
+					\hline
+	        \textbf{Same Sign CR} \\ \hline \hline
+          1 \tauhad \\
+          $\pt^{\tau} > 30 \: GeV $  \\
+          Same sign $\tau \: e(\mu)$ \\
+          Veto $\mu\:(e)$ \\
+          $\geq 1 jets$ \\
+          $\pt^{jet} > 25 GeV$ \\
+          $\Etm > 50 GeV$  \\
+          1 tight $e \: (\mu)$ \\
+          \hline
+				\end{tabular}
+				\subcaption{Fake $j \rightarrow \tau$ enriched region}
+			\end{subtable}
 
+			\caption{Control region definitions for the \taulep subchannel.}
+			\label{tab:taulep-control-regions}
+		\end{table}
 
+		\pagebreak
+		\begin{figure}[!thp]
+			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_TAUJET_PRESEL.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_WJETS.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_BVETO.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured \Etm distributions in various control regions defined for the \taujets channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-met-taujets}
+		\end{figure}
+
+		\pagebreak
+		\begin{figure}[!thp]
+			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUEL_BVETO.png} 
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUMU_BVETO.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png} 
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured \Etm distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-met-taulep}
+		\end{figure}
+
+		\begin{figure}[!thp]
+			\centering
+			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep/tau_0_lep_0_mass_ZEE.png}
+			\caption{Mass of $\tau$ - e system in the Zee control region.}
+			\label{fig:zee-mass}
+		\end{figure}
 
 	\section{Analysis Strategy}\label{sec:ana-strat}
 

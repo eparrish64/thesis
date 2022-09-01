@@ -20,6 +20,7 @@
 \bibliography{biblio}
 % \addbibressource{biblio}
 
+
 \usepackage[titletoc]{appendix} % Get appendix on own page
 \usepackage{xcolor}
 \usepackage{xspace}
@@ -47,7 +48,8 @@
 \endgroup}
 
 
-\usepackage{subfig}
+% \usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{multirow} % Table formatting
 \usepackage{tablefootnote}
 \usepackage{array,booktabs}
@@ -135,6 +137,7 @@
 \addappheadtotoc
 % \input{appendices/app_mva}			% file with Appendix A contents
 \input{appendices/app_tile}
+\input{appendices/app_validation_plots}
 
 \printglossary[title=Acronyms and Glossary of Terms,type=\acronymtype]
 \include{refs}		% file with references
