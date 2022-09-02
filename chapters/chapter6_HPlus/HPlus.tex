@@ -165,9 +165,9 @@
 		% \pagebreak
 
 	\section{Background Modeling}\label{sec:bkg-modeling}
-		The main sources of backgrounds are shown in Table \ref{tab:backgrounds}, separated between backgrounds with a prompt \tauhad in the hard scatter process and those that arise from the misidentification of other physics objects as a \tauhad. The cross section of all simulated background samples and the relevant generators can be seen in Table \ref{tab:bkg-xs}. Control regions that are designed to be orthogonal to the signal region are created for both subchannels in order to study the modeling of the backgrounds. These control regions are defined by the cuts in Table \ref{tab:taujet-control-regions} (\taujets) and Table \ref{tab:taulep-control-regions} (\taulep). For the \taulep subchannel the Same Sign and b-veto control regions are further split into two control regions, one that requires a $\mu$ in the event and another that requires an electron. The \Etm distributions in each of the control regions are plotted in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated MC events bin by bin to ensure proper modeling. More background modeling plots can be seen in Appendix \ref{app:valid-plots}.
+		The main sources of backgrounds are shown in Table \ref{tab:backgrounds}, separated between backgrounds with a prompt \tauhad in the hard scatter process and those that arise from the misidentification of other physics objects as a \tauhad. The cross section of all simulated background samples and the relevant generators can be seen in Table \ref{tab:bkg-xs}. Control regions that are designed to be orthogonal to the signal region are created for both subchannels in order to study the modeling of the backgrounds. These control regions are defined by the cuts in Table \ref{tab:taujet-control-regions} (\taujets) and Table \ref{tab:taulep-control-regions} (\taulep). For the \taulep subchannel the Same Sign and b-veto control regions are further split into two control regions, one that requires a $\mu$ in the event and another that requires an electron. 
 
-		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \rightarrow \tau$ misidentification are well modeled in MC simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \rightarrow \tau$ modeling.
+		
 
     \begin{table}[!thp]
       \centering
@@ -421,7 +421,172 @@
 			\label{tab:taulep-control-regions}
 		\end{table}
 
-		\pagebreak
+		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \rightarrow \tau$ misidentification are well modeled in MC simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \rightarrow \tau$ modeling. However, fakes due to $j \rightarrow \tau$ misidentification are not well modeled in MC simulations due to a poor misunderstanding of systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. Instead, a data driven method is used to extract a scaling constant referred to as a fake factor.
+
+		\begin{figure}[!thp]
+			\centering
+			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep/tau_0_lep_0_mass_ZEE.png}
+			\caption{Mass of $\tau$ - e system in the Zee control region.}
+			\label{fig:zee-mass}
+		\end{figure}
+
+		In the \taulep final state a significant portion of $j \rightarrow \tau$ fakes come from misidentifying \tauhad candidates in W+Jets events that contain a true $\ell$ in the W decay and have a misidentified jet as a \tauhad. Fakes of this manner also arise from QCD-like multi-jet interactions. The fake factor method used to estimate the amount of expected fake \tauhad objects that pass the \tauhad identification procedure described in Section \ref{ssec:reco-tau}. This method applies weights, or fake factors, to a subset of "anti-\tauhad" objects that have failed the selection and identification criteria in the signal region. A control region is defined to be rich in anti-\tauhad objects, where the \tauhad candidates fail the loose $\tau$ working point but have a $\tau$ identification RNN score of greater than 0.01. The fake factor and number of events with misidentified \tauhad objects $(N_{\tau})$ are defined as:
+		\begin{equation}\label{eqn:ff}\begin{split}
+		FF = \frac{ N^{\tau-id} }{N^{anti-\tau-id}} \\
+		N_{fakes}^{\tau} = N^{anti-\tau}_{fakes} \times FF
+		\end{split}\end{equation}
+		Both of these values are then corrected for \tauhad candidates matching a true hadronic $\tau$ at generator level:
+		\begin{equation}\label{eqn:ff-corrected}\begin{split}
+		N^{\tau-id} = N^{\tau-id}(Data) - N^{\tau-id}(MC) \\
+		N^{anti-\tau}_{fakes} = N^{anti-\tau}(Data) - N^{anti-\tau}_{true} (MC)
+		\end{split}\end{equation}
+		Two control regions are created, one to capture the multi-jet (MJ) fakes and the other to study the W+jets fakes. The MJ control region uses the \taujets signal region definition with an additional b-veto and an $\Etm < 80$ GeV cut. The W+jets control region uses the \taulep signal region definition with a b-veto, no \Etm cut, and a cut on the transverse mass of the $\ell$-\Etm system of $60 < m_{T}(\ell, \Etm)<160$ GeV. Figure \ref{fig:bkg-FF-CR} shows FF plotted in each control region for 1-prong and 3-prong \tauhad binned in $\pt{\tau}$.
+		\begin{figure}[!thp]
+			\begin{center}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_inclusive_tracks_pT_FFsCR.png}
+			\end{center}
+			\caption{ Fake factors parameterized as a function of $\pt^{\tau}$ and the number of charged $\tau$ decay products (1-prong and 3-prong) obtained in the multi-jet and W+jets CRs. The errors shown represent the statistical uncertainty. 
+			}
+			\label{fig:bkg-FF-CR}
+		\end{figure}
+		The FF in the signal region is defined as 
+		\begin{equation}\label{eqn:ff-sig}
+		FF_{sig} = \alpha_{MJ} \times FF_{MJ} + (1 - \alpha_{MJ}) \times FF_{W+jets}
+		\end{equation}
+		where $\alpha$ is taken from a template fit of the $\tau$-ID score distributions of the anti-$\tau$s using template shapes from the anti-$\tau$ distributions in the MJ and W+jets control regions.
+
+
+		\clearpage
+
+		\begin{figure}
+		\begin{center}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_45_50.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_50_60.png}
+
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for $\pt \leq 60 \GeV$ 
+		1-prong \tauhad candidates. Left: templates of discriminating variables for different \tauhad $\pt$ 
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted 
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a 
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at 
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+
+		\label{fig:mm:Fits:region3_1}
+		\end{figure}
+
+		\begin{figure}
+		\begin{center}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_60_80.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_80_3500.png}
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for $\pt \geq 60 \GeV$
+		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region3_2}
+		\end{figure}
+
+		\begin{figure}
+		\begin{center}
+		  \includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_40_60.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_60_80.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_80_3500.png}
+
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for
+		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region3_3}
+		\end{figure}
+
+		\begin{figure}
+		\begin{center}
+		 \includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_30_35.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_35_40.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_40_45.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_45_50.png}
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \leq 50 \GeV$
+		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region7_1}
+		\end{figure}
+
+
+		\begin{figure}
+		\begin{center}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_50_60.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_60_80.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_80_3500.png}
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \geq 50 \GeV$
+		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region7_2}
+		\end{figure}
+
+
+
+		\begin{figure}
+		\begin{center}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_30_35.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_35_40.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_40_60.png}
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \leq 60 \GeV$
+		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region7_3}
+		\end{figure}
+
+		\begin{figure}
+		\begin{center}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_60_80.png}
+		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_80_3500.png}
+		\end{center}
+		\caption{
+		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \geq 60 \GeV$
+		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
+		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
+		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
+		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
+		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		}
+		\label{fig:mm:Fits:region7_4}
+		\end{figure}
+
+		\clearpage
+
+
+		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated MC events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}.
+
 		\begin{figure}[!thp]
 			\begin{center}    
 			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_TAUJET_PRESEL.png} \\
@@ -436,7 +601,7 @@
 			\label{fig:bkg-met-taujets}
 		\end{figure}
 
-		\pagebreak
+
 		\begin{figure}[!thp]
 			\begin{center}    
 			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
@@ -451,13 +616,6 @@
 			Comparison between the predicted and the measured \Etm distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
 			}
 			\label{fig:bkg-met-taulep}
-		\end{figure}
-
-		\begin{figure}[!thp]
-			\centering
-			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep/tau_0_lep_0_mass_ZEE.png}
-			\caption{Mass of $\tau$ - e system in the Zee control region.}
-			\label{fig:zee-mass}
 		\end{figure}
 
 	\section{Analysis Strategy}\label{sec:ana-strat}
