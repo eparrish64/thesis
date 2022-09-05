@@ -1,7 +1,9 @@
 \chapter{Search for Charged Higgs Bosons}\label{chap:hpana}
 	This chapter details a search for a charged Higgs boson decaying to a hadronically decaying tau lepton and a neutrino; the phenomenology is discussed in Section \ref{sec:Hpm}. This search contains two subchannels, \taujets and \taulep based on the decay of the  associated top quark in the collision event. The \taujets subchannel ($t\rightarrow Wb, \, W \rightarrow q\bar{q}$)  has a higher branching fraction, leading to higher sensitivity at larger \mHpm values. The \taulep subchannel ($t\rightarrow Wb, \, W \rightarrow \ell \nu$)  has a much lower branching fraction, but takes advantage of single-lepton triggers which enhance background suppression of QCD $\mathrm{jet} \, \rightarrow \, \tau$ fakes. This leads to an increased sensitivity at lower \mHpm values. The extra neutrino in the \taulep decay mode creates extra difficulties in separating signal from background in this subchannel by adding a significant contribution to the \Etm calculation for the event. 
 
-	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modelling of backgrounds, analysis strategy, studies of systematic uncertainties, and results.
+	The search described by this dissertation uses a profile likelihood ratio as the test statistic in a simultaneous fit in two control regions and three signal regions. The discriminating variable is chosen to be the output score distribution of a multivariate analysis technique (MVA). In the previous publication described in Section \ref{ssec:Prev Hpm} several boosted decision trees (BDT) were used, binned in \mHpm; this analysis uses a parameterized neural network (PNN) to classify events as signal-like or background-like.
+
+	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modeling of backgrounds, training and evaluation of classifiers, studies of systematic uncertainties, and results.
 
 	\section{Signature and Event Selection}\label{sec:signal}
 		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on the mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values with respect to the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), as well as the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{ssec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
@@ -264,7 +266,7 @@
 			Cross sections for the main SM 
 			background samples at \sqs. 
 			Here, $\ell$ refers to the three lepton families $e$, $\mu$ and 
-			$\tau$. All background cross sections are normalised to NNLO predictions, 
+			$\tau$. All background cross sections are normalized to NNLO predictions, 
 			except for diboson events, where the NLO prediction is used. A '*' indicates
 			that the quoted cross section for the sample is neglecting leptonic/hadronic
 			branching ratios.
@@ -440,149 +442,26 @@
 		N^{\tau-id} = N^{\tau-id}(Data) - N^{\tau-id}(MC) \\
 		N^{anti-\tau}_{fakes} = N^{anti-\tau}(Data) - N^{anti-\tau}_{true} (MC)
 		\end{split}\end{equation}
-		Two control regions are created, one to capture the multi-jet (MJ) fakes and the other to study the W+jets fakes. The MJ control region uses the \taujets signal region definition with an additional b-veto and an $\Etm < 80$ GeV cut. The W+jets control region uses the \taulep signal region definition with a b-veto, no \Etm cut, and a cut on the transverse mass of the $\ell$-\Etm system of $60 < m_{T}(\ell, \Etm)<160$ GeV. Figure \ref{fig:bkg-FF-CR} shows FF plotted in each control region for 1-prong and 3-prong \tauhad binned in $\pt{\tau}$.
-		\begin{figure}[!thp]
-			\begin{center}
-			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_inclusive_tracks_pT_FFsCR.png}
-			\end{center}
-			\caption{ Fake factors parameterized as a function of $\pt^{\tau}$ and the number of charged $\tau$ decay products (1-prong and 3-prong) obtained in the multi-jet and W+jets CRs. The errors shown represent the statistical uncertainty. 
-			}
-			\label{fig:bkg-FF-CR}
-		\end{figure}
+		Two control regions are created, one to capture the multi-jet (MJ) fakes and the other to study the W+jets fakes. The MJ control region uses the \taujets signal region definition with an additional b-veto and an $\Etm < 80$ GeV cut. The W+jets control region uses the \taulep signal region definition with a b-veto, no \Etm cut, and a cut on the transverse mass of the $\ell$-\Etm system of $60 < m_{T}(\ell, \Etm)<160$ GeV.
 		The FF in the signal region is defined as 
 		\begin{equation}\label{eqn:ff-sig}
 		FF_{sig} = \alpha_{MJ} \times FF_{MJ} + (1 - \alpha_{MJ}) \times FF_{W+jets}
 		\end{equation}
-		where $\alpha$ is taken from a template fit of the $\tau$-ID score distributions of the anti-$\tau$s using template shapes from the anti-$\tau$ distributions in the MJ and W+jets control regions.
-
-
-		\clearpage
-
-		\begin{figure}
-		\begin{center}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_45_50.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_50_60.png}
-
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for $\pt \leq 60 \GeV$ 
-		1-prong \tauhad candidates. Left: templates of discriminating variables for different \tauhad $\pt$ 
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted 
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a 
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at 
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
+		where $\alpha$ is taken from a template fit of the $\tau$-ID score distributions of the anti-$\tau$s using template shapes from the anti-$\tau$ distributions in the MJ and W+jets control regions. In the signal regions, the number of events containing fake-\tauhad candidates is defined as
+		\begin{equation}\label{eqn:nfakethad}
+			N_{fake-\tau} = FF_{sig} \times N_{anti-\tau} 
+		\end{equation}
+		Figure \ref{fig:FF_COM} shows FF plotted in each control region for 1-prong and 3-prong \tauhad binned in $\pt{\tau}$; extracted $\alpha$ values and their fits can be seen in Appendix \ref{app:fake-factors}.
+		\begin{figure}[h!]
+		  \begin{center}
+		    \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taujet.png} \qquad
+		    \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taulep.png} 
+		  \end{center}
+		  \caption{
+		Combined fake factors for the \taujets b-veto $\mathrm{m_{T}}>$100 control region, \taujets signal region, $\tau$+electron(muon) with same-sign control region and the \taulep signal region. Error bars represent systematic uncertainties of the method. 
 		}
-
-		\label{fig:mm:Fits:region3_1}
+		  \label{fig:FF_COM}
 		\end{figure}
-
-		\begin{figure}
-		\begin{center}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_60_80.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_80_3500.png}
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for $\pt \geq 60 \GeV$
-		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region3_2}
-		\end{figure}
-
-		\begin{figure}
-		\begin{center}
-		  \includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_40_60.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_60_80.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_3_80_3500.png}
-
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+jets signal region for
-		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region3_3}
-		\end{figure}
-
-		\begin{figure}
-		\begin{center}
-		 \includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_30_35.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_35_40.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_40_45.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_45_50.png}
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \leq 50 \GeV$
-		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region7_1}
-		\end{figure}
-
-
-		\begin{figure}
-		\begin{center}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_50_60.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_60_80.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_1_80_3500.png}
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \geq 50 \GeV$
-		1-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region7_2}
-		\end{figure}
-
-
-
-		\begin{figure}
-		\begin{center}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_30_35.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_35_40.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_40_60.png}
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \leq 60 \GeV$
-		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region7_3}
-		\end{figure}
-
-		\begin{figure}
-		\begin{center}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_60_80.png}
-		\includegraphics[width=1\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAULEP_3_80_3500.png}
-		\end{center}
-		\caption{
-		Estimation of $\alpha_\mathrm{MJ}$ in the \tauhad+lepton signal region for $\pt \geq 60 \GeV$
-		3-prong \tauhad\ candidates. Left: templates of discriminating variables for different \tauhad\ $\pt$
-		and n-prong slices. Middle: shape of the discriminating variable obtained in the signal region and fitted
-		shape using the templates measured in the control regions. Right: $\chi^2/\mathrm{ndf}$ of the fit as a
-		function of $\alpha_\mathrm{MJ}$, the error on $\alpha_\mathrm{MJ}$ is defined by the band at
-		$\chi^2_\mathrm{min}/\mathrm{ndf}+\sqrt{\frac{2}{\mathrm{ndf}}}$.
-		}
-		\label{fig:mm:Fits:region7_4}
-		\end{figure}
-
-		\clearpage
 
 
 		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated MC events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}.
@@ -601,7 +480,6 @@
 			\label{fig:bkg-met-taujets}
 		\end{figure}
 
-
 		\begin{figure}[!thp]
 			\begin{center}    
 			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
@@ -618,11 +496,32 @@
 			\label{fig:bkg-met-taulep}
 		\end{figure}
 
-	\section{Analysis Strategy}\label{sec:ana-strat}
+	\clearpage
+	\section{Multivariate Analysis Techniques}\label{sec:mva}
+		Once variables distributions are properly scaled and data/MC agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), BDTs binned in \mHpm were used as the classifier, this publication use one PNN for the entire \mHpm spectrum. BDTs excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a PNN the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. PNNs offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}.
 
-		\subsection{Multivariate Analysis Techniques}\label{ssec:mva}
+		A neural network (NN) is a computing system loosely inspired by the human brain. A NN contains layers of nodes connected to each other with an associated weight and threshold. As long as a node has output greater than the given threshold value, data will flow through that node. Otherwise, that node is not activated and data are not sent to the next layer. The NN as a whole relies on a process called training where the node weights are varied, an accuracy is calculated based on a given loss function, the weights are then varied again and the process repeats. This is done until a preferred accuracy is reached; the final node weights are saved and new data can be evaluated. A diagram of a PNN can be seen in Figure \ref{fig:PNN-diagram}, where the parameterized input is labeled as $\theta$.
+
+		\begin{figure}	
+			\begin{center}
+				\includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/PNN_Diagram.png}
+			\end{center}
+			\caption{\textit{Left}, individual networks with input features $(x_{1},x_{2})$, each trained with examples with a single value of some parameter $\theta = \theta_{a}, \theta_{b}$. The individual networks are purely functions of the input features. Performance for intermediate values of $\theta$ is not optimal nor does it necessarily vary smoothly between the networks. \textit{Right}, a single network trained with input features $(x_{1},x_{2})$ as well as input parameter $\theta$; such a network is trained with examples at several values of the parameter $\theta$ \cite{PNN}.}
+			\label{fig:PNN-diagram}
+		\end{figure}	
+
+			This analysis uses four such PNNs, events with 1-prong $\tau$ and 3-prong $\tau$ are divided into separate datasets within both subchannels.
 
 		\subsection{Training}\label{ssec:training}
+			The training of the PNNs used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. $k=5$ is chosen in this analysis.
+
+			\begin{figure}	
+				\begin{center}
+					\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/kFoldDiagram_noValid.pdf}
+				\end{center}
+				\caption{The k-fold method for $k=5$ \cite{Burghgrave:2018uwq}.}
+				\label{fig:k-fold-diagram}
+			\end{figure}	
 
 		\subsection{Feature Selection}\label{ssec:features}
 
@@ -631,4 +530,3 @@
 	\section{Systematic Uncertainties}\label{sec:systs}
 
 	\section{Results}\label{sec:results}
-
