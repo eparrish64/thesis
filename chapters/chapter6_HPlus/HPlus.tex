@@ -506,7 +506,7 @@
 			\begin{center}
 				\includegraphics[width=.6\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/PNN_Diagram.png}
 			\end{center}
-			\caption{\textit{Left}, individual networks with input features $(x_{1},x_{2})$, each trained with examples with a single value of some parameter $\theta = \theta_{a}, \theta_{b}$. The individual networks are purely functions of the input features. Performance for intermediate values of $\theta$ is not optimal nor does it necessarily vary smoothly between the networks. \textit{Right}, a single network trained with input features $(x_{1},x_{2})$ as well as input parameter $\theta$; such a network is trained with examples at several values of the parameter $\theta$ \cite{PNN}.}
+			\caption{\textit{Left}, individual networks with input variables $(x_{1},x_{2})$, each trained with examples with a single value of some parameter $\theta = \theta_{a}, \theta_{b}$. The individual networks are purely functions of the input variables. Performance for intermediate values of $\theta$ is not optimal nor does it necessarily vary smoothly between the networks. \textit{Right}, a single network trained with input variables $(x_{1},x_{2})$ as well as input parameter $\theta$; such a network is trained with examples at several values of the parameter $\theta$ \cite{PNN}.}
 			\label{fig:PNN-diagram}
 		\end{figure}	
 
@@ -523,7 +523,112 @@
 				\label{fig:k-fold-diagram}
 			\end{figure}	
 
-		\subsection{Feature Selection}\label{ssec:features}
+			A single PNN training is performed on all \mHpm values at once, with the \mHpm value being taken as an input variable. For signal events, the \mHpm value from the MC generator is given; background events are replicated 32 times (the number of simulated \mHpm points is 32) and each \mHpm value is given for each set. To avoid biasing the training due to varying statistics at each \mHpm value, the background events are weighted by a factor of $w = N^{i}_{S}/N^{i}_{B}$ where $i$ corresponds to a given \mHpm value, $N^{i}_{S}$, and $N^{i}_{B}$ are the number of signal and background events respectively. When the PNN is evaluated, the \mHpm value is chosen and the output is used as the discriminant at that \mHpm.
+
+		\subsection{Input Variables Selection}\label{ssec:input-variables}
+			The choice of input variables to the PNNs is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. So called low level variables, consisting of the four vector components of the main physics objects in each event, were compared against high level variables; high level meaning they are calculated quantities from the low level variables. Tables of the low level and high level variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. 
+
+			The variable $\mHpm^{Truth}$ corresponds to the \mHpm value the training and evaluation is performed at. In both cases, the variable $\Upsilon$ is used. $\Upsilon$ is a measure of the \tauhad polarization, computed by taking the asymmetry of energies carried by the charged and neutron pions from the 1-prong $\tau$ decay measured in the laboratory frame. $\Upsilon$ is defined as
+			\begin{equation}\label{eqn:upsilon}
+			\Upsilon = \frac{ E^{\pi^{\pm}}_{T} - E^{\pi^{0}}_{T}}{E^{\tau}_{T}} \approx 2 \frac{\pt^{\tau-\mathrm{track}}}{\pt^{\tau}} -1
+			\end{equation}
+			where $\pt^{\tau-\mathrm{track}}$ is the transverse momentum of the track associated with the 1-prong \tauhad candidate. As such, $\Upsilon$ is only defined for 1-prong \tauhad candidates.
+
+			% \begin{table}[!ht]
+			% 	\begin{center}
+			% 	\caption{List of high level kinematic variables used as input to the PNN in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tauhad,\,\bjet,\,\ell$) and the direction of the missing transverse momentum.}
+			% 	\begin{tabular}{| l |}
+			% 	\hline
+			% 	\textbf{High Level Input Variables} \\
+			% 	\hline \hline
+			% 	$\Etm$  \\
+			% 	$\pt^{\tau}$  \\
+			% 	$\pt^{\bjet}$  \\
+			% 	$\pt^{\ell}$  \\
+			% 	$\Delta \phi_{\tauhad,\,\text{miss}}$  \\
+			% 	$\Delta \phi_{\bjet,\,\text{miss}}$  \\
+			% 	$\Delta \phi_{\ell,\,\text{miss}}$  \\
+			% 	$\Delta R_{\tauhad,\,\ell}$ \\
+			% 	$\Delta R_{\bjet,\,\ell}$ \\
+			% 	$\Delta R_{\bjet,\,\tauhad}$ \\
+			% 	$\Delta \phi_{\tauhad, \text{miss}} / \Delta \phi_{\text{jet}, \text{miss}}$  \\
+			% 	$\Upsilon$ \\
+			% 	$\mHpm^{Truth}$ \\ \hline
+			% 	\end{tabular}
+			% 	\label{tab:pnn-high-level-input-variables}
+			% 	\end{center}
+			% \end{table}
+
+		 %  \begin{table}[!ht]
+		 %  	\begin{center}
+		 %  	\caption{ List of low level kinematic variables used as input to the PNN in the \taulep subchannel.
+		 %  	}
+	  %     \begin{tabular}{| c | c | c | c |}
+	  %       \multicolumn{4}{c}{\textbf{Low Level Input Variables}} \\ \hline \hline
+	  %       $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
+	  %       $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$ & $E^{\ell}$ \\ \hline
+	  %       $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$ & $E^{\bjet}$ \\ \hline
+	  %       $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$ & $E^{jet}$ \\ \hline
+	  %       \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$ & $\Upsilon$  \\ \hline
+	  %       $\mHpm^{Truth}$ & & & \\ \hline 
+	  %       \hline
+	  %       \end{tabular}
+	  %       \label{tab:pnn-low-level-input-variables}
+	  %       \end{center}
+   %    \end{table}
+
+
+
+
+      \begin{table}[!thp]
+				\begin{subtable}[c]{0.25\textwidth}
+					\centering
+					\begin{tabular}{| c | c | c | c |}
+		        \multicolumn{4}{c}{\textbf{Low Level Input Variables}} \\ \hline \hline
+		        $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
+		        $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$ & $E^{\ell}$ \\ \hline
+		        $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$ & $E^{\bjet}$ \\ \hline
+		        $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$ & $E^{jet}$ \\ \hline
+		        \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$ & $\Upsilon$  \\ \hline
+		        $\mHpm^{Truth}$ & & & \\ \hline 
+	        \end{tabular}
+	        \subcaption{Low level variables}
+	      \end{subtable}
+
+				\begin{subtable}[c]{0.25\textwidth}
+					\centering
+					\begin{tabular}{| l |}
+						\hline
+						\textbf{High Level Input Variables} \\
+						\hline \hline
+						$\Etm$  \\
+						$\pt^{\tau}$  \\
+						$\pt^{\bjet}$  \\
+						$\pt^{\ell}$  \\
+						$\Delta \phi_{\tau,\,\text{miss}}$  \\
+						$\Delta \phi_{\bjet,\,\text{miss}}$  \\
+						$\Delta \phi_{\ell,\,\text{miss}}$  \\
+						$\Delta R_{\tau,\,\ell}$ \\
+						$\Delta R_{\bjet,\,\ell}$ \\
+						$\Delta R_{\bjet,\,\tau}$ \\
+						$\Delta \phi_{\tau, \text{miss}} / \Delta \phi_{\text{jet}, \text{miss}}$  \\
+						$\Upsilon$ \\
+						$\mHpm^{Truth}$ \\ \hline
+					\end{tabular}
+					\subcaption{High level variables}
+				\end{subtable}
+				\caption{List of low level (a) and high level (b) kinematic variables used as input to the PNN in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tau,\,\bjet,\,\ell$) and the direction of the missing transverse momentum.}
+				\label{tab:taulep-input-variables-high-v-low}
+			\end{table}
+
+      An estimate of the impact of low level vs high level variables on the expected limits on the \HpmLong is shown in \ref{fig:variable-comparison-limits}. The set of low level variables was chosen as performance was similar in low \mHpm and greater in high \mHpm. A optimization of the number of layers in the PNN and several other parameters of the PNN is discussed in detail in Section \ref{ssec:hpo}.
+			\begin{figure}	
+				\begin{center}
+					\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
+				\end{center}
+				\caption{Expected limits comparing a set of high level variables and low level variables with various depths in the PNN architecture. X layers refers to the number of layers in the PNN. }
+				\label{fig:variable-comparison-limits}
+			\end{figure}	
 
 		\subsection{Hyperparameter Optimization}\label{ssec:hpo}
 
