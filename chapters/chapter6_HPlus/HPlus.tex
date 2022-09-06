@@ -1,5 +1,5 @@
 \chapter{Search for Charged Higgs Bosons}\label{chap:hpana}
-	This chapter details a search for a charged Higgs boson decaying to a hadronically decaying tau lepton and a neutrino; the phenomenology is discussed in Section \ref{sec:Hpm}. This search contains two subchannels, \taujets and \taulep based on the decay of the  associated top quark in the collision event. The \taujets subchannel ($t\rightarrow Wb, \, W \rightarrow q\bar{q}$)  has a higher branching fraction, leading to higher sensitivity at larger \mHpm values. The \taulep subchannel ($t\rightarrow Wb, \, W \rightarrow \ell \nu$)  has a much lower branching fraction, but takes advantage of single-lepton triggers which enhance background suppression of QCD $\mathrm{jet} \, \rightarrow \, \tau$ fakes. This leads to an increased sensitivity at lower \mHpm values. The extra neutrino in the \taulep decay mode creates extra difficulties in separating signal from background in this subchannel by adding a significant contribution to the \Etm calculation for the event. 
+	This chapter details a search for a charged Higgs boson decaying to a hadronically decaying tau lepton and a neutrino; the phenomenology is discussed in Section \ref{sec:Hpm}. This search contains two subchannels, \taujets and \taulep based on the decay of the  associated top quark in the collision event. The \taujets subchannel ($t\to Wb, \, W \to q\bar{q}$)  has a higher branching fraction, leading to higher sensitivity at larger \mHpm values. The \taulep subchannel ($t\to Wb, \, W \to \ell \nu$)  has a much lower branching fraction, but takes advantage of single-lepton triggers which enhance background suppression of QCD $\mathrm{jet} \, \to \, \tau$ fakes. This leads to an increased sensitivity at lower \mHpm values. The extra neutrino in the \taulep decay mode creates extra difficulties in separating signal from background in this subchannel by adding a significant contribution to the \Etm calculation for the event. 
 
 	The search described by this dissertation uses a profile likelihood ratio as the test statistic in a simultaneous fit in two control regions and three signal regions. The discriminating variable is chosen to be the output score distribution of a multivariate analysis technique (MVA). In the previous publication described in Section \ref{ssec:Prev Hpm} several boosted decision trees (BDT) were used, binned in \mHpm; this analysis uses a parameterized neural network (PNN) to classify events as signal-like or background-like.
 
@@ -15,11 +15,11 @@
 			\hline
 			\textbf{\Hpm Mass} & \textbf{Production Mechanism} & \textbf{Decay}  & \textbf{Main Background}\\
 			\hline \hline
-			\multicolumn{1}{|c|}{\multirow{2}{*}{$\mHpm < m_{t}$}} 		& \begin{tabular}[c]{@{}c@{}} double-resonant $t \rightarrow H^\pm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/double_resonant_production_low_mass.png} \end{tabular} 											& \begin{tabular}[c]{@{}c@{}} \HpmLong \\ (low $\tanb \implies$ $\Hpm \rightarrow cs$ or $\Hpm \rightarrow cb$ ) \end{tabular} 																	& \ttbar, single-top \\ \hline
+			\multicolumn{1}{|c|}{\multirow{2}{*}{$\mHpm < m_{t}$}} 		& \begin{tabular}[c]{@{}c@{}} double-resonant $t \to H^\pm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/double_resonant_production_low_mass.png} \end{tabular} 											& \begin{tabular}[c]{@{}c@{}} \HpmLong \\ (low $\tanb \implies$ $\Hpm \to cs$ or $\Hpm \to cb$ ) \end{tabular} 																	& \ttbar, single-top \\ \hline
 
-			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm \simeq m_{t}$}} & \begin{tabular}[c]{@{}c@{}} non-resonant $t \rightarrow \Hpm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/non_resonant_production_intermediate_mass.png} \\ interferences taken into account \end{tabular} 	& $\Hpm \rightarrow \tau \nu$  																																									& \ttbar, single-top \\ \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm \simeq m_{t}$}} & \begin{tabular}[c]{@{}c@{}} non-resonant $t \to \Hpm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/non_resonant_production_intermediate_mass.png} \\ interferences taken into account \end{tabular} 	& $\Hpm \to \tau \nu$  																																									& \ttbar, single-top \\ \hline
 
-			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm > m_{t}$}}		& \begin{tabular}[c]{@{}c@{}} single-resonant $gg \rightarrow tbH^\pm$ (NLO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/single_resonant_production_large_mass.png} \end{tabular} 										& \begin{tabular}[c]{@{}c@{}} $\Hpm \rightarrow tb$ \\ ($cos(\beta-\alpha) \simeq 0$ and large $tan(\beta) \implies \Hpm \rightarrow \tau \nu$ \\ $BR(\HpmLong) \simeq 10-15\%$ ) \end{tabular} & multi-jet \\ \hline
+			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm > m_{t}$}}		& \begin{tabular}[c]{@{}c@{}} single-resonant $gg \to tbH^\pm$ (NLO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/single_resonant_production_large_mass.png} \end{tabular} 										& \begin{tabular}[c]{@{}c@{}} $\Hpm \to tb$ \\ ($cos(\beta-\alpha) \simeq 0$ and large $tan(\beta) \implies \Hpm \to \tau \nu$ \\ $BR(\HpmLong) \simeq 10-15\%$ ) \end{tabular} & multi-jet \\ \hline
 
 			\end{tabular}}
 			\caption{\Hpm production mechanisms based on \mHpm, dominant \Hpm decay mode, and the main background associated with the diagram.}
@@ -178,8 +178,8 @@
       \hline
       Backgrounds w/ prompt \tauhad & Backgrounds w/ fake $\tau$ \\
       \hline \hline
-      $t\bar{t}$ estimated with MC       & Fake $j \rightarrow \tau$ estimated with data driven fake factor method \\ \hline
-      $W(Z)+jets$ estimated with MC         & Fake $\ell \rightarrow \tau$ estimated with MC, validated on $Z \rightarrow ee$\\ \hline
+      $t\bar{t}$ estimated with MC       & Fake $j \to \tau$ estimated with data driven fake factor method \\ \hline
+      $W(Z)+jets$ estimated with MC         & Fake $\ell \to \tau$ estimated with MC, validated on $Z \to ee$\\ \hline
       Diboson estimated with MC & \\
       \hline
       \end{tabular}}
@@ -340,7 +340,7 @@
 					$\ell$ veto \\
 					\hline
 				\end{tabular}
-				\subcaption{Fake $j \rightarrow \tau$ enriched region}
+				\subcaption{Fake $j \to \tau$ enriched region}
 			\end{subtable}
 
 			\caption{Control region definitions for the \taujets subchannel.}
@@ -399,7 +399,7 @@
           $40 < mass(\tau,e) < 140 GeV$ \\
           \hline
 				\end{tabular}
-				\subcaption{Fake $\ell \rightarrow \tau$ enriched region}
+				\subcaption{Fake $\ell \to \tau$ enriched region}
 			\end{subtable}
 			\begin{subtable}[c]{.45\textwidth}
 				\centering
@@ -416,14 +416,14 @@
           1 tight $e \: (\mu)$ \\
           \hline
 				\end{tabular}
-				\subcaption{Fake $j \rightarrow \tau$ enriched region}
+				\subcaption{Fake $j \to \tau$ enriched region}
 			\end{subtable}
 
 			\caption{Control region definitions for the \taulep subchannel.}
 			\label{tab:taulep-control-regions}
 		\end{table}
 
-		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \rightarrow \tau$ misidentification are well modeled in MC simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \rightarrow \tau$ modeling. However, fakes due to $j \rightarrow \tau$ misidentification are not well modeled in MC simulations due to a poor misunderstanding of systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. Instead, a data driven method is used to extract a scaling constant referred to as a fake factor.
+		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \to \tau$ misidentification are well modeled in MC simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \to \tau$ modeling. However, fakes due to $j \to \tau$ misidentification are not well modeled in MC simulations due to a poor misunderstanding of systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. Instead, a data driven method is used to extract a scaling constant referred to as a fake factor.
 
 		\begin{figure}[!thp]
 			\centering
@@ -432,7 +432,7 @@
 			\label{fig:zee-mass}
 		\end{figure}
 
-		In the \taulep final state a significant portion of $j \rightarrow \tau$ fakes come from misidentifying \tauhad candidates in W+Jets events that contain a true $\ell$ in the W decay and have a misidentified jet as a \tauhad. Fakes of this manner also arise from QCD-like multi-jet interactions. The fake factor method used to estimate the amount of expected fake \tauhad objects that pass the \tauhad identification procedure described in Section \ref{ssec:reco-tau}. This method applies weights, or fake factors, to a subset of "anti-\tauhad" objects that have failed the selection and identification criteria in the signal region. A control region is defined to be rich in anti-\tauhad objects, where the \tauhad candidates fail the loose $\tau$ working point but have a $\tau$ identification RNN score of greater than 0.01. The fake factor and number of events with misidentified \tauhad objects $(N_{\tau})$ are defined as:
+		In the \taulep final state a significant portion of $j \to \tau$ fakes come from misidentifying \tauhad candidates in W+Jets events that contain a true $\ell$ in the W decay and have a misidentified jet as a \tauhad. Fakes of this manner also arise from QCD-like multi-jet interactions. The fake factor method used to estimate the amount of expected fake \tauhad objects that pass the \tauhad identification procedure described in Section \ref{ssec:reco-tau}. This method applies weights, or fake factors, to a subset of "anti-\tauhad" objects that have failed the selection and identification criteria in the signal region. A control region is defined to be rich in anti-\tauhad objects, where the \tauhad candidates fail the loose $\tau$ working point but have a $\tau$ identification RNN score of greater than 0.01. The fake factor and number of events with misidentified \tauhad objects $(N_{\tau})$ are defined as:
 		\begin{equation}\label{eqn:ff}\begin{split}
 		FF = \frac{ N^{\tau-id} }{N^{anti-\tau-id}} \\
 		N_{fakes}^{\tau} = N^{anti-\tau}_{fakes} \times FF
@@ -498,7 +498,14 @@
 
 	\clearpage
 	\section{Multivariate Analysis Techniques}\label{sec:mva}
-		Once variables distributions are properly scaled and data/MC agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), BDTs binned in \mHpm were used as the classifier, this publication use one PNN for the entire \mHpm spectrum. BDTs excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a PNN the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. PNNs offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}.
+		Once variables distributions are properly scaled and data/MC agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), BDTs binned in \mHpm were used as the classifier, this publication use one PNN for the entire \mHpm spectrum. BDTs excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a PNN the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. PNNs offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}. For illustrative purposes, expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ in both subchannels is shown comparing an optimized BDT and an unoptimized PNN in Figure \ref{fig:bdt-vs-pnn-expected-limits}. It is seen that the PNN performs similarly to the BDTs used in the previous analysis. A PNN was chosen as the discriminator. 
+
+		\begin{figure}
+		\subfloat[\label{fig:bdt-vs-pnn-expected-limits-a}]{\includegraphics[width=.5\textwidth]{chapters/chapter6_HPlus/images/Limits/exp_limit_log_taujet.pdf}}
+		\subfloat[\label{fig:bdt-vs-pnn-expected-limits-b}]{\includegraphics[width=.5\textwidth]{chapters/chapter6_HPlus/images/Limits/Exp_Limit_log_taulep.eps}}
+		\caption{Comparison of performance of an optimized BDT and an unopitmized PNN on expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ in the \taujets (a) and \taulep (b) signal regions. }
+		\label{fig:bdt-vs-pnn-expected-limits}
+		\end{figure}
 
 		A neural network (NN) is a computing system loosely inspired by the human brain. NNs combine adaptive nonlinear basis functions in an attempt to perform a task, classification in the context of this dissertation. A NN contains layers of nodes connected to each other with an associated weight and threshold. As long as a node has output greater than the given threshold value, data will flow through that node. Otherwise, that node is not activated and data are not sent to the next layer. The NN as a whole relies on a process called training where the node weights are varied, an accuracy is calculated based on a given loss function, the weights are then varied again and the process repeats. This is done until a preferred accuracy is reached; the final node weights are saved and new data can be evaluated. A diagram of a PNN can be seen in Figure \ref{fig:PNN-diagram}, where the parameterized input is labeled as $\theta$. The learned function of a NN can be written as:
 		\begin{equation}
@@ -625,7 +632,7 @@
 				\label{tab:taulep-input-variables-high-v-low}
 			\end{table}
 
-      An estimate of the impact of low level vs high level variables on the expected limits on the \HpmLong is shown in \ref{fig:variable-comparison-limits}. The set of low level variables was chosen as performance was similar in low \mHpm and greater in high \mHpm. A optimization of the number of layers in the PNN and several other parameters of the PNN is discussed in detail in Section \ref{ssec:hpo}.
+      An estimate of the impact of low level vs high level variables on the expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ is shown in \ref{fig:variable-comparison-limits}. The set of low level variables was chosen as performance was similar in low \mHpm and greater in high \mHpm. A optimization of the number of layers in the PNN and several other parameters of the PNN is discussed in detail in Section \ref{ssec:hpo}.
 			\begin{figure}	
 				\begin{center}
 					\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
@@ -824,31 +831,174 @@
 			\end{figure}
 
 	\section{Systematic Uncertainties}\label{sec:systs}
-		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. 
+		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}.
 
-		Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}.
+		\begin{table}[!htb]
+		  \begin{center}
+				\resizebox{\textwidth}{!}{
+		    \begin{tabular}{l|c|c||c|c||}
+		      &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
+		      \hline
+		      Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
+		      \hline\hline
+		      Fake factors: statistical uncertainties & 3.9$\%$ & \textcolor{red}{\checkmark} & 3.2$\%$ & \textcolor{red}{\checkmark}\\\hline
+		      Fake factors: True $\tauhad$ in the anti-$\tauhad$ CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\checkmark} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\checkmark}\\\hline
+		      Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\checkmark} & 2.7$\%$ & \textcolor{red}{\checkmark}\\\hline
+		      Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\checkmark} & 1.9\% & \textcolor{red}{\checkmark}\\\hline
+		      Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\checkmark} & 0$\%$ & \textcolor{red}{\checkmark}\\\hline          
+		      Fake factors: heavy flavor jet fraction & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark} & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark}\\
+		    \end{tabular}}
+		  \end{center}
+		  \caption{\label{tab:FF-syst-uncert}
+		    Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
+		    factor method, used to estimate the $j \to \tau$ background in the
+		   \taujets and \taulep channel.
+		    }
+		\end{table}
 
-	\begin{table}[!htb]
-	  \begin{center}
-			\resizebox{\textwidth}{!}{
-	    \begin{tabular}{l|c|c||c|c||}
-	      &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
-	      \hline
-	      Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
-	      \hline\hline
-	      Fake factors: statistical uncertainties & 3.9$\%$ & \textcolor{red}{\checkmark} & 3.2$\%$ & \textcolor{red}{\checkmark}\\\hline
-	      Fake factors: True $\tauhad$ in the anti-$\tauhad$ CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\checkmark} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\checkmark}\\\hline
-	      Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\checkmark} & 2.7$\%$ & \textcolor{red}{\checkmark}\\\hline
-	      Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\checkmark} & 1.9\% & \textcolor{red}{\checkmark}\\\hline
-	      Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\checkmark} & 0$\%$ & \textcolor{red}{\checkmark}\\\hline          
-	      Fake factors: heavy flavor jet fraction & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark} & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark}\\
-	    \end{tabular}}
-	  \end{center}
-	  \caption{\label{tab:FF-syst-uncert}
-	    Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
-	    factor method, used to estimate the $j \rightarrow \tau$ background in the
-	   \taujets and \taulep channel.
-	    }
-	\end{table}
+		Theoretical uncertainties for signal and \ttbar background were considered in the last publication; at the time of writing this dissertation the simulations are being produced and therefore are not included. 
+
+		\textcolor{red}{Systematic \% difference wrt nominal is being finalized. Add in when done.}
 
 	\section{Results}\label{sec:results}
+		The expected event yields for backgrounds and signal\footnote{At the time of writing, the analysis is still blinded so Data is not included.} are summarized in Table \ref{tab:event_yields_SR_taujets} (\taujets) and Table \ref{tab:event_yields_SR_taulep} (\taulep).
+
+		\begin{table}
+			\begin{center}
+			\caption{\label{tab:event_yields_SR_taujets} Expected event yields for the backgrounds and a hypothetical
+			\Hpm signal after applying all \taujets selection criteria, and comparison with \LUMI of data. All yields
+			are evaluated prior to using the multivariate discriminant and applying the statistical fitting procedure.
+			The values shown for the signal assume a charged Higgs boson mass of 170 GeV and 1000 GeV, 
+			with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ 
+			corresponding to $\tanb=40$ in the hMSSM benchmark scenario. 
+			Statistical 
+			%and  
+			uncertainties are quoted.
+			%, respectively.
+			\textcolor{red}{Systematic uncertainties to be added.}}
+
+			\resizebox{0.75\textwidth}{!}{
+			\begin{tabular}{l|l}
+			Sample & Event yields $\tauhad$+jets          \\
+			\hline
+			True $\tau_{\text{had}}$  & \\
+			\hspace*{5mm}\ttbar & $\phantom{}18369.33\phantom{.0}\pm\phantom{0}48.16\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$    \\
+			\hspace*{5mm}Single-top-quark  & $\phantom{0}2276.08\phantom{.0}\pm\phantom{0}16.69\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$ \\
+			\hspace*{5mm}$W \to \tau\nu$  & $\phantom{0}1972.76\phantom{.0}\pm\phantom{0}23.54\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$  \\
+			\hspace*{5mm}$Z \to \tau\tau$  & $\phantom{00}241.05\phantom{.0}\pm\phantom{00}5.47\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$   \\
+			\hspace*{5mm}Diboson ($WW, WZ, ZZ$) & $\phantom{00}133.30\phantom{.0}\pm\phantom{00}4.67\phantom{.0}\pm\phantom{0}XXX\phantom{0}$  \\
+			Misidentified $e,\,\mu \to \tauhad$   & $\phantom{00}327.51\phantom{.0}\pm\phantom{00}6.82\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$  \\
+			Misidentified $\mbox{jet} \to \tauhad$ & $\phantom{0}2490.58\phantom{.0}\pm\phantom{0}17.35\phantom{.0}\pm \phantom{0}XXX\phantom{.0}$ \\
+			\hline
+			All backgrounds   & $25810.61\phantom{.0}\pm\phantom{0}59.60\phantom{.0}\pm\phantom{0} XXX\phantom{.0}$  \\
+			\hline
+			\Hpm $\phantom{0}$(170 GeV), hMSSM $\tanb=40$ & $\phantom{0}4330.22\phantom{.0}\pm\phantom{0}36.75\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$  \\
+			\Hpm (1000 GeV), hMSSM $\tanb=40$ & $\phantom{000}31.15\phantom{0.}\pm\phantom{00}0.14\phantom{0.}\pm\phantom{0}XXX$  \\
+			\hline
+			Data         &  XXX   \\
+			\hline
+			\end{tabular}}
+			\end{center}
+		\end{table}
+
+		\begin{table}
+			\begin{center}
+			\caption{\label{tab:event_yields_SR_taulep} Expected event yields for the backgrounds and a hypothetical
+			\Hpm signal after applying all \taulep selection criteria, and comparison with \LUMI of data. All yields
+			are evaluated prior to using the multi-variate discriminant and applying the statistical fitting procedure. The
+			values shown for the signal assume a charged Higgs boson mass of 170 GeV and 1000 GeV, 
+			with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ 
+			corresponding to $\tanb=40$ in the hMSSM benchmark scenario. 
+			Statistical 
+			%and  
+			uncertainties are quoted.
+			%, respectively.
+			\textcolor{red}{Systematic uncertainties to be added.}}
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{l|l|l}
+			Sample &   Event yields \tauel  & Event yields \taumu \\
+			\hline
+			True $\tau_{\text{had}}$  & \\
+			\hspace*{5mm}$t\bar{t}$ & $43814.66\phantom{.0}\pm\phantom{0}76.84\phantom{.0}\pm\phantom{0} XXX$ & $44490.69\phantom{.0}\pm\phantom{0}75.96\phantom{.0}\pm\phantom{0} XXX$  \\
+			\hspace*{5mm}Single-top-quark  & $\phantom{0}3260.70\phantom{.0}\pm\phantom{0}20.81\phantom{.0}\pm\phantom{0}XXX$ & $\phantom{0}3874.57\phantom{.0}\pm\phantom{0}22.06\phantom{.0}\pm\phantom{0}XXX$  \\
+			\hspace*{5mm}$W \to \tau\nu$  & $\phantom{0000}2.41\phantom{.0}\pm\phantom{00}0.56\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$ & $\phantom{0000}0.07\phantom{.0}\pm\phantom{00}0.12\phantom{.0}\pm\phantom{0}XXX\phantom{.0}$  \\
+			\hspace*{5mm}$Z \to \tau\tau$  & $\phantom{00}913.61\phantom{.0}\pm\phantom{0}20.42\phantom{.0}\pm\phantom{0}XXX$  & $\phantom{00}845.89\phantom{.0}\pm\phantom{0}22.07\phantom{.0}\pm\phantom{0}XXX$ \\
+			\hspace*{5mm}Diboson ($WW, WZ, ZZ$) &  $\phantom{000}73.21\phantom{.0}\pm\phantom{00}1.53\phantom{.0}\pm\phantom{0}XXX$ & $\phantom{000}81.32\phantom{.0}\pm\phantom{00}1.53\phantom{.0}\pm\phantom{0}XXX$ \\
+			Misidentified $e,\,\mu \to \tauhad$   &   $\phantom{0}1096.64\phantom{.0}\pm\phantom{0}24.36\phantom{.0}\pm\phantom{0}XXX$ & $\phantom{0}1074.28\phantom{.0}\pm\phantom{0}15.90\phantom{.0}\pm\phantom{0}XXX$ \\
+			Misidentified $\mbox{jet} \to \tauhad$ &   $\phantom{0}8773.81\phantom{.0}\pm\phantom{0}37.64\phantom{.0}\pm\phantom{0}XXX$ & $\phantom{0}8558.21\phantom{.0}\pm\phantom{0}37.23\phantom{.0}\pm\phantom{0}XXX$ \\
+			\hline
+			All backgrounds   &  $57935.04\phantom{.0}\pm\phantom{0} 93.63\phantom{.0}\pm\phantom{0} XXX$ & $58925.03\phantom{.0}\pm\phantom{0} 91.57\phantom{.0}\pm\phantom{0} XXX$ \\
+			\hline
+			\Hpm $\phantom{0}$(170 GeV), hMSSM $\tanb=40$ & $\phantom{0}2543.83\phantom{.0}\pm\phantom{0}28.12\phantom{.0}\pm\phantom{0}XXX$ & $\phantom{0}2877.49\phantom{.0}\pm\phantom{0}28.41\phantom{.0}\pm\phantom{0}XXX$ \\
+			\Hpm (1000 GeV), hMSSM $\tanb=40$ &   $\phantom{0000}2.34\phantom{0.}\pm\phantom{00}0.03\phantom{0.}\pm\phantom{0}XXX$ & $\phantom{0000}2.46\phantom{0.}\pm\phantom{00}0.03\phantom{0.}\pm\phantom{0}XXX$ \\
+			\hline
+			Data         &     XXX &  XXX  \\
+			\hline
+			\end{tabular}}
+			\end{center}
+		\end{table}
+
+		The test statistic $\tilde{q}_{\mu}$ \cite{test-statistic} is used to test the agreement of the data with the background-only and signal+background hypotheses. The test statistic is based on a profile likelihood ratio where the binned likelihood function $\cal{L}(\mu,\theta)$ is constructed as the product of Poisson probability terms over all bins and regions. The likelihood ratio is the ratio between the conditional maximum-likelihood estimator of the nuisance parameters, $\theta$, for a given signal hypothesis $\mu$ and the unconditional maximum-likelihood estimator for $\mu$ and the nuisance parameters. $\tilde{q}_{\mu}$ is defined as:
+		\begin{equation}
+		\tilde{q}_{\mu} = \left\{
+		\begin{array}{ll}
+		-2\ln\frac{{\cal L}(\mu, \hat{\hat{\theta}}(\mu))}{{\cal L}(0, \hat{\hat{\theta}}(0))}, & \hat{\mu} < 0 \\
+		-2\ln\frac{{\cal L}(\mu, \hat{\hat{\theta}}(\mu))}{{\cal L}(\hat{\mu}, \hat{\theta})}, & 0 \leq \hat{\mu} \leq \mu \\
+		0 & \hat{\mu} > \mu 
+		\end{array}
+		\right.
+		\end{equation}
+
+		The fit is performed on the PNN score distributions in the three signal regions, \taujets, \tauel, \taumu, and the dilepton-btag control region which is enriched in the dominant \ttbar background. Pre-fit PNN score distributions are shown in Figures \ref{fig:taujets_SR_PNNscores_body}, \ref{fig:taulepPNNscoreSR1_body}, and \ref{fig:taulepPNNscoreSR2_body}. At the time of writing this dissertation, the analysis is still blinded. Assuming the fit agrees with the background-only hypothesis expected limits of $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ are calculated. Exclusion limits are set at the 95\% confidence level (CL) using the $\mathrm{CL}_s$ procedure \cite{CL-setting}. The expected exclusion limits on $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ can be seen in Figure \ref{fig:expected-limits}.
+
+		\begin{figure}
+		  \centering
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_80to80_SR_TAUJET.png}}
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_130to130_SR_TAUJET.png}} \\
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_160to160_SR_TAUJET.png}}
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_200to200_SR_TAUJET.png}} \\
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_500to500_SR_TAUJET.png}}
+		\subfloat[\label{fig:taujets_SR_PNNscores_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_3000to3000_SR_TAUJET.png}}
+		  \caption{\label{fig:taujets_SR_PNNscores_body} PNN score distributions in the
+		signal region of the \taujets channel, for the six charged Higgs boson mass parameters.
+		The lower panel of each plot shows the ratio of data to the SM background prediction. The uncertainty bands include all statistical and systematic uncertainties. 
+		The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+		\centering
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUEL.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUEL.png}} \\
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUEL.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUEL.png}} \\
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUEL.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR1_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUEL.png}}
+		\caption{\label{fig:taulepPNNscoreSR1_body} PNN score distributions in the
+		signal region of the \tauel sub-channel, for the six charged Higgs boson mass parameters.
+		The lower panel of each plot shows the ratio of data to the SM background prediction. The uncertainty bands include all statistical and systematic uncertainties.
+		The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+		\centering
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUMU.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUMU.png}} \\
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUMU.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUMU.png}} \\
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUMU.png}}
+		\subfloat[\label{fig:taulepPNNscoreSR2_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUMU.png}}
+		\caption{\label{fig:taulepPNNscoreSR2_body} PNN score distributions in the
+		signal region of the \taumu sub-channel, for the six charged Higgs boson mass parameters.
+		The lower panel of each plot shows the ratio of data to the SM background prediction. The uncertainty bands include all statistical and systematic uncertainties.
+		The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+		\centering
+		\subfloat[\label{fig:expected-limits-a}]{\includegraphics[width=.5\textwidth]{chapters/chapter6_HPlus/images/Limits/taujets_fullmass.eps}}
+		\subfloat[\label{fig:expected-limits-b}]{\includegraphics[width=.5\textwidth]{chapters/chapter6_HPlus/images/Limits/taulep_fullmass.eps}} \\
+		\subfloat[\label{fig:expected-limits-c}]{\includegraphics[width=\textwidth]{chapters/chapter6_HPlus/images/Limits/combined_fullmass.eps}}
+		\caption{\label{fig:expected-limits} 
+		Expected 95\% CL exclusion limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ as a function of the charged Higgs boson mass in \LUMI of \pp collision data at \sqs in the \taujets signal region (a), \taulep signal region (b), and the combination of the \taujets and \taulep signal regions (c). In the case of the expected limits, one- and two-standard-deviation uncertainty bands are also shown. As a comparison, the expected exclusion limits obtained with the dataset collected in 2015 and 2016~\cite{hpm-previous} are also shown.
+		 }
+		\end{figure}
