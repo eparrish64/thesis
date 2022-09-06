@@ -500,7 +500,11 @@
 	\section{Multivariate Analysis Techniques}\label{sec:mva}
 		Once variables distributions are properly scaled and data/MC agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), BDTs binned in \mHpm were used as the classifier, this publication use one PNN for the entire \mHpm spectrum. BDTs excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a PNN the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. PNNs offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}.
 
-		A neural network (NN) is a computing system loosely inspired by the human brain. A NN contains layers of nodes connected to each other with an associated weight and threshold. As long as a node has output greater than the given threshold value, data will flow through that node. Otherwise, that node is not activated and data are not sent to the next layer. The NN as a whole relies on a process called training where the node weights are varied, an accuracy is calculated based on a given loss function, the weights are then varied again and the process repeats. This is done until a preferred accuracy is reached; the final node weights are saved and new data can be evaluated. A diagram of a PNN can be seen in Figure \ref{fig:PNN-diagram}, where the parameterized input is labeled as $\theta$.
+		A neural network (NN) is a computing system loosely inspired by the human brain. NNs combine adaptive nonlinear basis functions in an attempt to perform a task, classification in the context of this dissertation. A NN contains layers of nodes connected to each other with an associated weight and threshold. As long as a node has output greater than the given threshold value, data will flow through that node. Otherwise, that node is not activated and data are not sent to the next layer. The NN as a whole relies on a process called training where the node weights are varied, an accuracy is calculated based on a given loss function, the weights are then varied again and the process repeats. This is done until a preferred accuracy is reached; the final node weights are saved and new data can be evaluated. A diagram of a PNN can be seen in Figure \ref{fig:PNN-diagram}, where the parameterized input is labeled as $\theta$. The learned function of a NN can be written as:
+		\begin{equation}
+		y(x) = w_{0}^{2} + \sum^{M}_{m=1}[ w^{2}_{m} \cdot h (w_{0m}^{1} + \sum^{D}_{k=1} w^{1}_{km} x_{k}  )]
+		\end{equation}
+		where $w$ is the neuron weights, $M$ is the number of basis functions being combined, $D$ is the number of inputs and $h$ is the activation function.
 
 		\begin{figure}	
 			\begin{center}
@@ -510,10 +514,10 @@
 			\label{fig:PNN-diagram}
 		\end{figure}	
 
-			This analysis uses four such PNNs, events with 1-prong $\tau$ and 3-prong $\tau$ are divided into separate datasets within both subchannels.
+			This analysis uses four PNNs, events with 1-prong $\tau$ and 3-prong $\tau$ are divided into separate datasets within both subchannels.
 
 		\subsection{Training}\label{ssec:training}
-			The training of the PNNs used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. $k=5$ is chosen in this analysis.
+			The training of the PNNs used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. To protect against this, dropout is used \cite{dropout}. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. $k=5$ is chosen in this analysis.
 
 			\begin{figure}	
 				\begin{center}
@@ -532,7 +536,7 @@
 			\begin{equation}\label{eqn:upsilon}
 			\Upsilon = \frac{ E^{\pi^{\pm}}_{T} - E^{\pi^{0}}_{T}}{E^{\tau}_{T}} \approx 2 \frac{\pt^{\tau-\mathrm{track}}}{\pt^{\tau}} -1
 			\end{equation}
-			where $\pt^{\tau-\mathrm{track}}$ is the transverse momentum of the track associated with the 1-prong \tauhad candidate. As such, $\Upsilon$ is only defined for 1-prong \tauhad candidates.
+			where $\pt^{\tau-\mathrm{track}}$ is the transverse momentum of the track associated with the 1-prong \tauhad candidate. As such, $\Upsilon$ is only defined for 1-prong \tauhad candidates. As demonstrated in the previous analysis, $\Upsilon$ provides a large contribution to signal-backgrounds separation at charged Higgs masses below 400 GeV \cite{hpm-previous}.
 
 			% \begin{table}[!ht]
 			% 	\begin{center}
@@ -563,19 +567,19 @@
 		 %  	\begin{center}
 		 %  	\caption{ List of low level kinematic variables used as input to the PNN in the \taulep subchannel.
 		 %  	}
-	  %     \begin{tabular}{| c | c | c | c |}
-	  %       \multicolumn{4}{c}{\textbf{Low Level Input Variables}} \\ \hline \hline
-	  %       $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
-	  %       $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$ & $E^{\ell}$ \\ \hline
-	  %       $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$ & $E^{\bjet}$ \\ \hline
-	  %       $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$ & $E^{jet}$ \\ \hline
-	  %       \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$ & $\Upsilon$  \\ \hline
-	  %       $\mHpm^{Truth}$ & & & \\ \hline 
-	  %       \hline
-	  %       \end{tabular}
-	  %       \label{tab:pnn-low-level-input-variables}
-	  %       \end{center}
-   %    \end{table}
+		  %     \begin{tabular}{| c | c | c | c |}
+		  %       \multicolumn{4}{c}{\textbf{Low Level Input Variables}} \\ \hline \hline
+		  %       $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
+		  %       $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$ & $E^{\ell}$ \\ \hline
+		  %       $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$ & $E^{\bjet}$ \\ \hline
+		  %       $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$ & $E^{jet}$ \\ \hline
+		  %       \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$ & $\Upsilon$  \\ \hline
+		  %       $\mHpm^{Truth}$ & & & \\ \hline 
+		  %       \hline
+		  %       \end{tabular}
+		  %       \label{tab:pnn-low-level-input-variables}
+		  %       \end{center}
+	   	%    \end{table}
 
 
 
@@ -632,6 +636,219 @@
 
 		\subsection{Hyperparameter Optimization}\label{ssec:hpo}
 
+				In order to optimize the PNN, a scan of hyperparameters and network architecture was done, referred to as hyperparameter optimization (HPO). A calculated area under the curve, (AUC), was used as the figure of merit. As in the normal training scheme, the $k$-fold method with $k=5$ was used to keep background modelling and classifier training statistically independent. To prevent overtraining, the early stopping method was used with $\Delta_{min}=0.00001$ and a patience of 10, with the best weights kept to calculate the AUC. To optimize for PNN performance in low \Hpm mass points, a separate average taking into account only \Hpm mass values between $80$ and $500$ GeV was used as the final figure of merit. In an effort to keep the computational needs low, several small grids of hyperparameters and architecture structures were scanned. Tables \ref{Tab:taulepHPOLoss} - \ref{Tab:taulepHPOWidthDepth} show the hyperparameter grids that were searched. Here, width refers to the number of neurons per layer and depth is the number of layers. The final hyperparameter from each grid search is highlighted in red. The results of the final grid search can be seen in Tables \ref{tab:pnn_hpo_aucs} and \ref{tab:pnn_hpo_aucs_short}; the quoted errors are taken from the different $k$-folds. The AUC values for each \mHpm point for the final chosen model are shown in Figure \ref{fig:final-auc}. 
+
+
+			\begin{table}[!htb]
+			  \begin{center}
+					\resizebox{.65\textwidth}{!}{
+			    \begin{tabular}{c | c | c | c}
+			    Parameter  \\
+			    \hline
+			    activation function & softsign & relu & LeakyReLU \\ \hline
+			    loss function & \fcolorbox{red}{white}{binary crossentropy} & mean squared error & mean absolute error \\ \hline
+			    width & 32 & & \\ \hline
+			    depth & 10 & & \\ \hline
+			    batch size & 1025 &  & \\ \hline
+			    \end{tabular}}
+			    \caption{
+			      First grid, scanning over activation function and loss function. Binary crossentropy was the chosen loss function, highlighted in red.
+			    }
+			    \label{Tab:taulepHPOLoss}
+			  \end{center}
+			\end{table}
+
+
+			\begin{table}[!htb]
+			  \begin{center}
+					\resizebox{.55\textwidth}{!}{
+			    \begin{tabular}{c | c | c | c}
+			    Parameter  \\
+			    \hline
+			    width & 8 & 16 & 32 \\ \hline
+			    depth & 3 & 5 & 10 \\ \hline
+			    dropout & \fcolorbox{red}{white}{0.1} & 0.3 & \\ \hline
+			    activation function & softsign & & \\ \hline
+			    loss function & binary crossentropy & & \\ \hline 
+			    batch size & 1024 &  & \\ \hline
+			    \end{tabular}}
+			    \caption{\label{Tab:taulepHPODropout}
+			      Second grid, scanning over width, depth, and dropout value. $0.1$ was chosen for the dropout value, highlighted in red.
+			    }
+			  \end{center}
+			\end{table}
+
+			\begin{table}[!htb]
+			  \begin{center}
+				\resizebox{.55\textwidth}{!}{
+			    \begin{tabular}{c | c | c | c}
+			    Parameter  \\
+			    \hline
+			    width & 32 & 64 & 128 \\ \hline
+			    depth & 2 & 3 & 4 \\ \hline
+			    activation function & softsign & relu & \fcolorbox{red}{white}{LeakyReLU} \\ \hline
+			    dropout & 0.1 & & \\ \hline
+			    batch size & 1024 &  & \\ \hline
+			    loss function & binary crossentropy  & & \\ \hline
+			    \end{tabular}}
+			    \caption{\label{Tab:taulepHPOActivation}
+			      Third grid, scanning over activation function. LeakyReLU was chosen, highlighted in red.
+			    }
+			    
+			  \end{center}
+			\end{table}
+
+
+			\begin{table}[!htb]
+			  \begin{center}
+				\resizebox{.55\textwidth}{!}{
+			  \begin{tabular}{c | c | c | c | c}
+			  Parameter  \\ 
+			  \hline
+			  width & 32 & 64 & 128 & \\ \hline
+			  depth & 2 & 3 & 4 &  \\ \hline
+			  $\alpha$ & 0.01 & \fcolorbox{red}{white}{0.05} & 0.001 & 0.005 \\ \hline
+			  batch size & 1024 & & & \\ \hline
+			  dropout & 0.1 & & & \\ \hline
+			  activation function & LeakyReLU &  &  &  \\ \hline
+			  loss function & binary crossentropy & & &  \\ \hline
+			  \end{tabular}}
+			    \caption{\label{Tab:taulepHPOAlpha}
+			      Fourth grid, scanning over LeakyReLU $\alpha$ value. $\alpha=0.05$ was chosen, highlighted in red.
+			    }
+			    
+			  \end{center}
+			\end{table}
+
+			\begin{table}[!htb]
+			  \begin{center}
+				\resizebox{.55\textwidth}{!}{
+			  \begin{tabular}{c | c | c | c | c}
+			  Parameter  \\ 
+			  \hline
+			  width & 32 & 64 & \fcolorbox{red}{white}{128} & 256 \\
+			  depth & 2 & \fcolorbox{red}{white}{3} & 4 & 5 \\
+			  batch size & 1024 &  & & \\ \hline
+			  dropout & 0.1 &  &  &  \\ \hline
+			  activation function & LeakyReLU &  &  &  \\ \hline
+			  batch size & 1024 & & & \\ \hline
+			  $\alpha$ & 0.05 &  &  &  \\ \hline
+			  loss function & binary crossentropy & & &  \\ \hline
+			  \end{tabular}}
+			    \caption{\label{Tab:taulepHPOWidthDepth}
+			      Fourth grid, scanning over network width and depth. $width=128$ and $depth=3$ was chosen, highlighted in red.
+			    }
+			    
+			  \end{center}
+			\end{table}
+
+			\begin{table}
+				\begin{center}
+				\small
+				\resizebox{\textwidth}{!}{
+				\begin{tabular}{llrrrrrrrrrrrr}
+				\toprule
+				width & depth &         80 &       150 &       250 &       500 &       Avg &   LowMassAvg \\
+				\midrule
+				128 &     3 &  0.666137 $\pm$  0.000000 &  0.814508 $\pm$  0.000000 &  0.903123 $\pm$  0.000000 &  0.963256 $\pm$  0.000000 &  0.887638 $\pm$ 0.000000 &  0.826145 $\pm$ 0.096754 \\
+				 128 &     5 &  0.649154 $\pm$  0.000000 &  0.804344 $\pm$  0.000000 &  0.907763 $\pm$  0.000000 &  0.962846 $\pm$  0.000000 &  0.886060 $\pm$ 0.000000 &  0.823542 $\pm$ 0.100037 \\
+				 128 &     4 &  0.659330 $\pm$  0.000000 &  0.811707 $\pm$  0.000000 &  0.901186 $\pm$  0.000000 &  0.963811 $\pm$  0.000000 &  0.885833 $\pm$ 0.000000 &  0.823208 $\pm$ 0.099379 \\
+				 128 &     2 &  0.644392 $\pm$  0.000000 &  0.807016 $\pm$  0.000000 &  0.907517 $\pm$  0.000000 &  0.963076 $\pm$  0.000000 &  0.885685 $\pm$ 0.000000 &  0.823139 $\pm$ 0.100649 \\
+				  64 &     4 &  0.657593 $\pm$  0.005023 &  0.807977 $\pm$  0.001327 &  0.905193 $\pm$  0.004490 &  0.965553 $\pm$  0.001622 &  0.885708 $\pm$ 0.000177 &  0.823001 $\pm$ 0.099420 \\
+				  64 &     2 &  0.652767 $\pm$  0.006639 &  0.805184 $\pm$  0.002345 &  0.905695 $\pm$  0.003172 &  0.965077 $\pm$  0.000726 &  0.885537 $\pm$ 0.000443 &  0.822775 $\pm$ 0.099628 \\
+				  64 &     5 &  0.653787 $\pm$  0.005006 &  0.804417 $\pm$  0.001933 &  0.905833 $\pm$  0.003671 &  0.965293 $\pm$  0.001398 &  0.885338 $\pm$ 0.000545 &  0.822360 $\pm$ 0.099660 \\
+				  64 &     3 &  0.652007 $\pm$  0.006721 &  0.805076 $\pm$  0.001760 &  0.904237 $\pm$  0.004398 &  0.964922 $\pm$  0.001898 &  0.885317 $\pm$ 0.001074 &  0.822335 $\pm$ 0.099360 \\
+				 256 &     5 &  0.653576 $\pm$  0.000963 &  0.804396 $\pm$  0.003342 &  0.903638 $\pm$  0.004193 &  0.964415 $\pm$  0.002172 &  0.884405 $\pm$ 0.000175 &  0.821347 $\pm$ 0.100307 \\
+				 256 &     4 &  0.643401 $\pm$  0.000000 &  0.801775 $\pm$  0.000000 &  0.901747 $\pm$  0.000000 &  0.961914 $\pm$  0.000000 &  0.882293 $\pm$ 0.000000 &  0.818097 $\pm$ 0.101322 \\
+				  32 &     3 &  0.636902 $\pm$  0.009356 &  0.794963 $\pm$  0.004126 &  0.897744 $\pm$  0.003173 &  0.963498 $\pm$  0.002178 &  0.879826 $\pm$ 0.001226 &  0.813868 $\pm$ 0.103095 \\
+				  32 &     4 &  0.638362 $\pm$  0.003653 &  0.793516 $\pm$  0.003269 &  0.898635 $\pm$  0.003664 &  0.963582 $\pm$  0.001635 &  0.879864 $\pm$ 0.000928 &  0.813853 $\pm$ 0.103071 \\
+				  32 &     2 &  0.639871 $\pm$  0.005791 &  0.792428 $\pm$  0.002366 &  0.898305 $\pm$  0.003283 &  0.962854 $\pm$  0.002313 &  0.879603 $\pm$ 0.000405 &  0.813528 $\pm$ 0.102342 \\
+				  32 &     5 &  0.634979 $\pm$  0.007666 &  0.793076 $\pm$  0.005599 &  0.898086 $\pm$  0.002238 &  0.962539 $\pm$  0.000514 &  0.879239 $\pm$ 0.001076 &  0.812845 $\pm$ 0.103520 \\
+				 256 &     2 &  0.632035 $\pm$  0.004384 &  0.797129 $\pm$  0.000014 &  0.893944 $\pm$  0.003417 &  0.958731 $\pm$  0.001777 &  0.878091 $\pm$ 0.000165 &  0.811994 $\pm$ 0.102326 \\
+				\bottomrule
+				\end{tabular}}
+				\caption{\label{tab:pnn_hpo_aucs}
+				AUCs of final HPO grid
+				  }
+				  \end{center}
+			\end{table}
+			% \clearpage
+
+			\begin{table}
+				\begin{center}
+				\small
+				\resizebox{.5\textwidth}{!}{
+				\begin{tabular}{llrrrrrrrrrrrr}
+				\toprule
+				width & depth &  Avg &   LowMassAvg \\
+				\midrule
+				128  &     3 &   0.887638 $\pm$ 0.000000 &  0.826145 $\pm$ 0.096754 \\
+				 128 &     5 &   0.886060 $\pm$ 0.000000 &  0.823542 $\pm$ 0.100037 \\
+				 128 &     4 &   0.885833 $\pm$ 0.000000 &  0.823208 $\pm$ 0.099379 \\
+				 128 &     2 &   0.885685 $\pm$ 0.000000 &  0.823139 $\pm$ 0.100649 \\
+				  64 &     4 &   0.885708 $\pm$ 0.000177 &  0.823001 $\pm$ 0.099420 \\
+				  64 &     2 &   0.885537 $\pm$ 0.000443 &  0.822775 $\pm$ 0.099628 \\
+				  64 &     5 &   0.885338 $\pm$ 0.000545 &  0.822360 $\pm$ 0.099660 \\
+				  64 &     3 &   0.885317 $\pm$ 0.001074 &  0.822335 $\pm$ 0.099360 \\
+				 256 &     5 &   0.884405 $\pm$ 0.000175 &  0.821347 $\pm$ 0.100307 \\
+				 256 &     4 &   0.882293 $\pm$ 0.000000 &  0.818097 $\pm$ 0.101322 \\
+				  32 &     3 &   0.879826 $\pm$ 0.001226 &  0.813868 $\pm$ 0.103095 \\
+				  32 &     4 &   0.879864 $\pm$ 0.000928 &  0.813853 $\pm$ 0.103071 \\
+				  32 &     2 &   0.879603 $\pm$ 0.000405 &  0.813528 $\pm$ 0.102342 \\
+				  32 &     5 &   0.879239 $\pm$ 0.001076 &  0.812845 $\pm$ 0.103520 \\
+				 256 &     2 &   0.878091 $\pm$ 0.000165 &  0.811994 $\pm$ 0.102326 \\
+				\bottomrule
+				\end{tabular}}
+				\caption{\label{tab:pnn_hpo_aucs_short}
+				Average AUCs of final HPO grid
+				  }
+			  \end{center}
+			\end{table}
+
+
+			\clearpage
+			\begin{figure}
+			  \centering
+			  \includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter6_Hplus/images/AUC_Plots/model_GB_1024_channel_taulep_mass_80to3000_ntracks_1_nfolds_5_fold_4_nvars_19_batch_size_1024_epochs_1000_dense_layer_size_128_activation_function_LeakyRelu_depth_3_loss_binary_crossentropy_dropout_0.1_alpha_0.05.eps}\\
+			  \caption{Final model AUC for each mass point. Individual points correspond to the AUC average over 5 kfolds. }
+			  \label{fig:final-auc}
+			\end{figure}
+
+			The final model was chosen to have 128 neurons per layer with 3 layers, with the binary crossentropy chosen as the loss function, a dropout of 0.1, LeakyReLU as the activation function with $\alpha=0.05$. The LeakyReLU activation function is depicted in Figure \ref{fig:leaky-relu}, where the $\alpha$ value is the slope of the negative portion. Allowing negative weight values prevents neurons from becoming deactivated prematurely.
+
+			\begin{figure}
+				\centering
+				\includegraphics[width=.4\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/Activation_prelu.svg.png}
+				\caption{LeakyReLU activation function. The associated hyperparameter $\alpha$ is the slope of the negative portion of the function.}
+				\label{fig:leaky-relu}
+			\end{figure}
+
 	\section{Systematic Uncertainties}\label{sec:systs}
+		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. 
+
+		Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}.
+
+	\begin{table}[!htb]
+	  \begin{center}
+			\resizebox{\textwidth}{!}{
+	    \begin{tabular}{l|c|c||c|c||}
+	      &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
+	      \hline
+	      Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
+	      \hline\hline
+	      Fake factors: statistical uncertainties & 3.9$\%$ & \textcolor{red}{\checkmark} & 3.2$\%$ & \textcolor{red}{\checkmark}\\\hline
+	      Fake factors: True $\tauhad$ in the anti-$\tauhad$ CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\checkmark} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\checkmark}\\\hline
+	      Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\checkmark} & 2.7$\%$ & \textcolor{red}{\checkmark}\\\hline
+	      Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\checkmark} & 1.9\% & \textcolor{red}{\checkmark}\\\hline
+	      Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\checkmark} & 0$\%$ & \textcolor{red}{\checkmark}\\\hline          
+	      Fake factors: heavy flavor jet fraction & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark} & \textcolor{red}{5$\%$} & \textcolor{red}{\checkmark}\\
+	    \end{tabular}}
+	  \end{center}
+	  \caption{\label{tab:FF-syst-uncert}
+	    Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
+	    factor method, used to estimate the $j \rightarrow \tau$ background in the
+	   \taujets and \taulep channel.
+	    }
+	\end{table}
 
 	\section{Results}\label{sec:results}
