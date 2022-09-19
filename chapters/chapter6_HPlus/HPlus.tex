@@ -1,7 +1,7 @@
 \chapter{Search for Charged Higgs Bosons}\label{chap:hpana}
 	This chapter details a search for a charged Higgs boson decaying to a hadronically decaying tau lepton and a neutrino; the phenomenology is discussed in Section \ref{sec:Hpm}. The search contains two subchannels, \taujets and \taulep based on the decay of the associated top quark in the collision event. The \taujets subchannel ($t\to Wb, \, W \to q\bar{q}$)  has a higher branching fraction, leading to higher sensitivity at larger \mHpm values. The \taulep subchannel ($t\to Wb, \, W \to \ell \nu$)  has a much lower branching fraction, but takes advantage of single-lepton triggers which enhance background suppression of \acrshort{QCD} $\mathrm{jet} \, \to \, \tau$ fakes. This leads to an increased sensitivity at lower \mHpm values. The extra neutrino in the \taulep decay mode creates extra difficulties in separating signal from background in this subchannel by adding a significant contribution to the \Etm calculation for the event. 
 
-	The search described by this dissertation uses a profile likelihood ratio as the test statistic in a simultaneous fit in two control regions and three signal regions. The discriminating variable is chosen to be the output score distribution of a \gls{MVA}. In the previous publication described in Section \ref{ssec:Prev Hpm} several \gls{BDT} were used, binned in \mHpm; this analysis uses a \gls{PNN} to classify events as signal-like or background-like.
+	The search described by this dissertation uses a profile likelihood ratio as the test statistic in a simultaneous fit in two \glspl{CR} and three \glspl{SR}. The discriminating variable is chosen to be the output score distribution of a \gls{MVA}. In the previous publication described in Section \ref{ssec:Prev Hpm} several \gls{BDT} were used, binned in \mHpm; this analysis uses a \gls{PNN} to classify events as signal-like or background-like.
 
 	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modeling of backgrounds, training and evaluation of classifiers, studies of systematic uncertainties, and results.
 
@@ -78,11 +78,11 @@
 			% \end{columns}
 
 		\subsection{Event Selections}\label{ssec:event-selection}
-			Each subchannel signal region has stricter requirements than those described in Section \ref{ssec:object-def}. Table \ref{tab:signal-regions} details these selections. The channels differ in the triggers used; the \taujets subchannel relies on \Etm triggers while the \taulep subchannel relies on single lepton triggers. Due to the difficulty of separating signal from background and the large amount of background, the \taujets subchannel has a higher \pt cut on the \tauhad of $40$ GeV as opposed to the \taulep value of $30$ GeV. In addition, a higher value of \Etm of $150$ GeV is required for the \taujets subchannel compared to $50$ GeV in the \taulep subchannel. In the \taujets subchannel a value of $50$ GeV is also required of the transverse mass $m_{T}$ defined as 
+			Each subchannel signal region has stricter requirements than the object definitions described in Section \ref{ssec:object-def}. Table \ref{tab:signal-regions} details these selections. The channels differ in the triggers used; the \taujets subchannel relies on \Etm triggers while the \taulep subchannel relies on single lepton triggers. Due to the difficulty of separating signal from background and the large amount of background, the \taujets subchannel has a higher \pt cut on the \tauhad of $40$ GeV as opposed to the \taulep value of $30$ GeV. In addition, a higher value of \Etm of $150$ GeV is required for the \taujets subchannel compared to $50$ GeV in the \taulep subchannel. In the \taujets subchannel a value of $50$ GeV is also required of the transverse mass $m_{T}$ defined as 
 			\begin{equation}\label{eqn:transverse-mass}
 			m_{T} = \sqrt{ 2 \pt^{\tau} \Etm (1 - cos \Delta \phi_{\tau,\Etm}) }
 			\end{equation}
-			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal control regions are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in Table \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}.
+			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal \glspl{CR} are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in Table \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}. Due to the larger branching fraction of $t \to W+b;  W \to q\bar{q}$ as opposed to $t \to W+b; W \to \ell + \nu$ the \taujets subchannel has a factor of 10 larger signal acceptance than the \taulep subchannel. In both channels, the signal acceptance decreases for \mHpm values $> 1000$ GeV. This is an artifact of objects becoming boosted, meaning their decay products are extremely collimated, resulting in lower efficiencies for object identification.
 
 			\begin{table}[!thp]
 				\centering
@@ -115,7 +115,7 @@
 		This analysis uses the full Run-2 ATLAS dataset collected between 2015 and 2018 corresponding to $139.0 \pm 2.4$ \ifb \cite{lumi-run2}. The datasets used are required to be included in the ATLAS ``Good Run Lists'' (GRLs), meaning they have passed nominal data quality checks with all detector subsystems operating within normal conditions. Further event cleaning is applied that removes events in which a reconstructed jet originated from detector noise or non-collision backgrounds. The collection of data throughout Run-2 can be seen in Figure \ref{fig:lhc-lumi}.
 
 		\subsection{Signal Modeling}\label{ssec:sig-modeling}
-		\gls{MC} simulations of \Hpm signal events are generated at varying orders dependent on \mHpm. In all cases, the 2HDM Type II model described in Section \ref{ssec:2HDM} is assumed and the generator MadGraph is used. The lower mass range corresponding to $\mHpm < 140$ GeV where a \Hpm takes the place of a $W^{\pm}$ in a top decay is generated at LO. The intermediate mass range of $140 \leq \mHpm < 200 $ GeV is generated at LO, taking into account the non-resonant, single-top resonant and double-resonant diagrams and their interferences. In this mass range, the final state contains one \Hpm, one $W^{\pm}$, and two b quark. For charged Higgs masses of 200 GeV and above, the \Hpm is produced in association with a top quark and is generated at NLO. In all cases, the parton generator is interfaced with Pythia 8 using the A14 underlying event tuning parameters \cite{Pythia8-tunes}. Table \ref{tab:signal-generated} shows the cross section and raw number of events generated for each \mHpm point for both subchannels.
+		\gls{MC} simulations of \Hpm signal events are generated at varying orders dependent on \mHpm. In all cases, the 2HDM Type II model described in Section \ref{ssec:2HDM} is assumed and the generator MadGraph is used. The lower mass range corresponding to $\mHpm < 140$ GeV where a \Hpm takes the place of a $W^{\pm}$ in a top decay is generated at LO. The intermediate mass range of $140 \leq \mHpm < 200 $ GeV is generated at LO, taking into account the non-resonant, single-top resonant and double-resonant diagrams and their interferences. In this mass range, the final state contains one \Hpm, one $W^{\pm}$, and two b quark. For charged Higgs masses of 200 GeV and above, the \Hpm is produced in association with a top quark and is generated at NLO. The Powheg-box v2 \cites{powheg-1}{powheg-2} generator is used with the NNPDF3.0 \gls{NLO} \gls{PDF} \cite{PDFs-2} set in the matrix element calculations to generate \ttbar and single top-quarks in the W t- and s-channels. In all cases, the parton generator is interfaced with Pythia v8.230 \cite{pythia} with the NNPDF2.3 \gls{LO} \gls{PDF} \cite{PDFs-1} using the A14 underlying event tuning parameters \cite{Pythia8-tunes}. Table \ref{tab:signal-generated} shows the cross section and raw number of events generated for each \mHpm point for both subchannels.
 
 		\begin{table}[!thp]
 			\centering
@@ -269,165 +269,202 @@
 			\end{center}
 		\end{table}
 
-		\begin{table}[!thp]
-			\begin{subtable}[c]{0.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-        	\textbf{\ttbar Control Region} \\ \hline \hline
-          1 \tauhad \\
-          $\pt^{\tau} > 40 $ GeV \\
-          $\geq 3 $ jets\\
-          $\geq 2 $ \bjets\\
-          $\Etm > 150 GeV$ \\
-          $m_{T}(\tau, \Etm) < 100 \: GeV$ \\
-          \hline
-				\end{tabular}
-				\subcaption{\ttbar modeling}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-					\textbf{b-veto Control Region} \\ \hline \hline
-					1 \tauhad \\
-					$\pt^{\tau} > 40 \: GeV $  \\
-					$\geq 3$ jets\\
-					% $n\_bjets > 2$ \\
-					$\pt^{jet} > 25 \: GeV$ \\
-					$\Etm > 150 GeV$ \\
-					$m_{T}(\tau, \Etm) > 50 \: GeV$ \\
-					b veto \\
-					$\ell$ veto \\
-					\hline
-				\end{tabular}
-				\subcaption{Close to signal region}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-					\textbf{W+Jets Control Region} \\ \hline \hline
-					1 \tauhad \\
-					$\pt^{\tau} > 40 \: GeV $  \\
-					$\geq 3$ jets \\
-					$\pt^{jet} > 25 \: GeV$ \\
-					$\Etm > 150 GeV$ \\
-					$m_{T}(\tau, \Etm) > 100 \: GeV$ \\ 
-					b veto \\
-					$\ell$ veto \\
-					\hline
-				\end{tabular}
-				\subcaption{W+Jets modeling}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-					\textbf{b-veto $m_{T}\geq100$ Control Region} \\ \hline \hline
-					1 \tauhad \\
-					$\pt^{\tau} > 40 \: GeV $  \\
-					$\geq 3$ jets \\
-					$\pt^{jet} > 25 \: GeV$ \\
-					$\Etm > 150 GeV$ \\
-					$m_{T}(\tau, \Etm) > 100 \: GeV$ \\
-					b veto \\
-					$\ell$ veto \\
-					\hline
-				\end{tabular}
-				\subcaption{Fake $j \to \tau$ enriched region}
-			\end{subtable}
+		% \begin{table}[!thp]
+		% 	\begin{subtable}[c]{0.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+  %       	\textbf{\ttbar Control Region} \\ \hline \hline
+  %         1 \tauhad \\
+  %         $\pt^{\tau} > 40 $ GeV \\
+  %         $\geq 3 $ jets\\
+  %         $\geq 2 $ \bjets\\
+  %         $\Etm > 150 GeV$ \\
+  %         $m_{T}(\tau, \Etm) < 100 \: GeV$ \\
+  %         \hline
+		% 		\end{tabular}
+		% 		\subcaption{\ttbar modeling}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+		% 			\textbf{b-veto Control Region} \\ \hline \hline
+		% 			1 \tauhad \\
+		% 			$\pt^{\tau} > 40 \: GeV $  \\
+		% 			$\geq 3$ jets\\
+		% 			% $n\_bjets > 2$ \\
+		% 			$\pt^{jet} > 25 \: GeV$ \\
+		% 			$\Etm > 150 GeV$ \\
+		% 			$m_{T}(\tau, \Etm) > 50 \: GeV$ \\
+		% 			b veto \\
+		% 			$\ell$ veto \\
+		% 			\hline
+		% 		\end{tabular}
+		% 		\subcaption{Close to signal region}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+		% 			\textbf{W+Jets Control Region} \\ \hline \hline
+		% 			1 \tauhad \\
+		% 			$\pt^{\tau} > 40 \: GeV $  \\
+		% 			$\geq 3$ jets \\
+		% 			$\pt^{jet} > 25 \: GeV$ \\
+		% 			$\Etm > 150 GeV$ \\
+		% 			$m_{T}(\tau, \Etm) > 100 \: GeV$ \\ 
+		% 			b veto \\
+		% 			$\ell$ veto \\
+		% 			\hline
+		% 		\end{tabular}
+		% 		\subcaption{W+Jets modeling}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+		% 			\textbf{b-veto $m_{T}\geq100$ Control Region} \\ \hline \hline
+		% 			1 \tauhad \\
+		% 			$\pt^{\tau} > 40 \: GeV $  \\
+		% 			$\geq 3$ jets \\
+		% 			$\pt^{jet} > 25 \: GeV$ \\
+		% 			$\Etm > 150 GeV$ \\
+		% 			$m_{T}(\tau, \Etm) > 100 \: GeV$ \\
+		% 			b veto \\
+		% 			$\ell$ veto \\
+		% 			\hline
+		% 		\end{tabular}
+		% 		\subcaption{Fake $j \to \tau$ enriched region}
+		% 	\end{subtable}
 
+		% 	\caption{Control region definitions for the \taujets subchannel.}
+		% 	\label{tab:taujet-control-regions}
+		% \end{table}
+
+		% \begin{table}[!thp]
+		% 	\begin{subtable}[c]{0.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+  %       	\textbf{Dilepton-btag CR} \\ \hline \hline
+  %         $\tau$ veto \\
+  %         $n\geq 1$ jets \\
+  %         $\pt^{jet} > 25 GeV$ \\
+  %         $\geq 1$ \bjets \\
+  %         $\Etm > 50 GeV$ \\
+  %         1 $e$ \\
+  %         1 $\mu$ \\
+  %         \hline
+		% 		\end{tabular}
+		% 		\subcaption{\ttbar and single top modeling}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+	 %        \textbf{b-veto CR} \\ \hline \hline
+  %         1 \tauhad \\
+  %         $\pt^{\tau} > 30 \: GeV $  \\
+  %         1 $e (\mu) $ \\
+  %         Veto $\mu \:(e)$ \\
+  %         Opposite sign $\tau$ $e \: (\mu)$ \\
+  %         $\geq 1$ jets  \\
+  %         $\pt^{jet} > 25 GeV$ \\
+  %         $\Etm > 50 GeV$ \\
+  %         1 tight $e \: (\mu)$ \\
+  %         \hline					
+		% 		\end{tabular}
+		% 		\subcaption{Close to signal region}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+  %       	\textbf{Zee CR} \\ \hline \hline
+  %         1 \tauhad \\
+  %         $\pt^{\tau} > 30 \: GeV $  \\
+  %         veto $\mu$ \\
+  %         Opposite sign $\tau$ $e$ \\
+  %         $\geq 1$ jets \\
+  %         $\pt^{jet} > 25 GeV$ \\
+  %         \bjet veto \\
+  %         $\Etm > 50 GeV$ \\
+  %         1 $e$\\
+  %         $40 < mass(\tau,e) < 140 GeV$ \\
+  %         \hline
+		% 		\end{tabular}
+		% 		\subcaption{Fake $\ell \to \tau$ enriched region}
+		% 	\end{subtable}
+		% 	\begin{subtable}[c]{.45\textwidth}
+		% 		\centering
+		% 		\begin{tabular}{| c |}
+		% 			\hline
+	 %        \textbf{Same Sign CR} \\ \hline \hline
+  %         1 \tauhad \\
+  %         $\pt^{\tau} > 30 \: GeV $  \\
+  %         Same sign $\tau \: e(\mu)$ \\
+  %         Veto $\mu\:(e)$ \\
+  %         $\geq 1 jets$ \\
+  %         $\pt^{jet} > 25 GeV$ \\
+  %         $\Etm > 50 GeV$  \\
+  %         1 tight $e \: (\mu)$ \\
+  %         \hline
+		% 		\end{tabular}
+		% 		\subcaption{Fake $j \to \tau$ enriched region}
+		% 	\end{subtable}
+
+		% 	\caption{Control region definitions for the \taulep subchannel.}
+		% 	\label{tab:taulep-control-regions}
+		% \end{table}
+
+		\begin{table}[!thp]
+			\begin{tabular}{| c | c | c | c | c |} \hline
+														& \ttbar CR 		& W+Jets CR 		& b-veto CR 		& b-veto $m_{T} > 100$ CR 						 	\\ \hline
+				Number of \tauhad 	& 1 						& 1 						& 0 						& 0 																		\\ \hline
+				$\pt^{\tau}$ 				& $ > 40$ GeV 	& $ > 40$ GeV 	& $ > 40$ GeV 	& $ > 40$ GeV 													\\ \hline
+				Number of jets 			& $\geq 3$ 			& $\geq 3$ 			& $\geq 3$ 			& $\geq 3$ 															\\ \hline
+				$\pt^{jet}$ 				& $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV 												\\ \hline
+				Number of \bjets		& $\geq 2$ 			& 0 						& 0 						& 0 																		\\ \hline
+				Number of $\ell$ 		& 0 						& 0 						& 0 						& 0 																		\\ \hline
+				\Etm 								& $> 150$ GeV 	& $> 150$ GeV 	& $> 150$ GeV 	& $> 150$ GeV 													\\ \hline
+				$m_{T}(\tau, \Etm)$	& $< 100$ GeV 	& $< 100$ GeV 	& $> 50 GeV$ 		& $> 100$ GeV 													\\ \hline
+				Type of modeling 		& \ttbar 				& W+Jets 				& Close to SR 	& Fake $j \to \tau$ enriched 						\\ \hline
+			\end{tabular}
 			\caption{Control region definitions for the \taujets subchannel.}
 			\label{tab:taujet-control-regions}
 		\end{table}
 
-		\begin{table}[!thp]
-			\begin{subtable}[c]{0.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-        	\textbf{Dilepton-btag CR} \\ \hline \hline
-          $\tau$ veto \\
-          $n\geq 1$ jets \\
-          $\pt^{jet} > 25 GeV$ \\
-          $\geq 1$ \bjets \\
-          $\Etm > 50 GeV$ \\
-          1 $e$ \\
-          1 $\mu$ \\
-          \hline
-				\end{tabular}
-				\subcaption{\ttbar and single top modeling}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-	        \textbf{b-veto CR} \\ \hline \hline
-          1 \tauhad \\
-          $\pt^{\tau} > 30 \: GeV $  \\
-          1 $e (\mu) $ \\
-          Veto $\mu \:(e)$ \\
-          Opposite sign $\tau$ $e \: (\mu)$ \\
-          $\geq 1$ jets  \\
-          $\pt^{jet} > 25 GeV$ \\
-          $\Etm > 50 GeV$ \\
-          1 tight $e \: (\mu)$ \\
-          \hline					
-				\end{tabular}
-				\subcaption{Close to signal region}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-        	\textbf{Zee CR} \\ \hline \hline
-          1 \tauhad \\
-          $\pt^{\tau} > 30 \: GeV $  \\
-          veto $\mu$ \\
-          Opposite sign $\tau$ $e$ \\
-          $\geq 1$ jets \\
-          $\pt^{jet} > 25 GeV$ \\
-          \bjet veto \\
-          $\Etm > 50 GeV$ \\
-          1 $e$\\
-          $40 < mass(\tau,e) < 140 GeV$ \\
-          \hline
-				\end{tabular}
-				\subcaption{Fake $\ell \to \tau$ enriched region}
-			\end{subtable}
-			\begin{subtable}[c]{.45\textwidth}
-				\centering
-				\begin{tabular}{| c |}
-					\hline
-	        \textbf{Same Sign CR} \\ \hline \hline
-          1 \tauhad \\
-          $\pt^{\tau} > 30 \: GeV $  \\
-          Same sign $\tau \: e(\mu)$ \\
-          Veto $\mu\:(e)$ \\
-          $\geq 1 jets$ \\
-          $\pt^{jet} > 25 GeV$ \\
-          $\Etm > 50 GeV$  \\
-          1 tight $e \: (\mu)$ \\
-          \hline
-				\end{tabular}
-				\subcaption{Fake $j \to \tau$ enriched region}
-			\end{subtable}
 
+		\begin{table}[!thp]
+			\begin{tabular}{| c | c | c | c | c |} \hline
+																& Dilepton-btag CR 				& Zee CR 												& b-veto CR 					& Same Sign CR 						 							\\ \hline
+				Number of \tauhad 			& 0 											& 1 														& 0 									& 0 																		\\ \hline
+				$\pt^{\tau}$ 						& $ > 30$ GeV 						& $ > 30$ GeV 									& $ > 30$ GeV 				& $ > 30$ GeV 													\\ \hline
+				Number of jets 					& $\geq 1$ 								& $\geq 1$ 											& $\geq 1$ 						& $\geq 1$ 															\\ \hline
+				$\pt^{jet}$ 						& $\geq 25$ GeV 					& $\geq 25$ GeV 								& $\geq 25$ GeV 			& $\geq 25$ GeV 												\\ \hline
+				Number of \bjets				& $\geq 1$ 								& 0 														& 0 									& $\geq 1$ 															\\ \hline
+				Number of $\ell$ 				& 2 (1 $e$, 1 $\mu$)			& 1 $e$													& 1 tight $e$ ($\mu$)	& 1 tight $e$ ($\mu$)										\\ \hline
+				\Etm 										& $> 50$ GeV 							& $> 50$ GeV 										& $> 50$ GeV 					& $> 50$ GeV 														\\ \hline
+				$\mathrm{mass}(\tau,e)$	& N/A 										& $> 40$; $< 140$ GeV 					& N/A 								& N/A 																	\\ \hline
+				Type of modeling 				& \ttbar and single-top 	& Fake $\ell \to \tau$ enriched	& Close to SR 				& Fake $j \to \tau$ enriched 						\\ \hline
+			\end{tabular}
 			\caption{Control region definitions for the \taulep subchannel.}
 			\label{tab:taulep-control-regions}
 		\end{table}
+
+
 
 		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \to \tau$ misidentification are well modeled in \gls{MC} simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \to \tau$ modeling. However, fakes due to $j \to \tau$ misidentification are not well modeled in \gls{MC} simulations due to a poor misunderstanding of systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. Instead, a data driven method is used to extract a scaling constant referred to as a fake factor.
 
 		\begin{figure}[!thp]
 			\centering
 			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep/tau_0_lep_0_mass_ZEE.png}
-			\caption{Mass of $\tau$ - e system in the Zee control region.}
+			\caption{Mass of $\tau$ - e system in the Zee control region. All systematics except for \ttbar theory uncertainties are included.}
 			\label{fig:zee-mass}
 		\end{figure}
 
-		In the \taulep final state a significant portion of $j \to \tau$ fakes come from misidentifying \tauhad candidates in W+Jets events that contain a true $\ell$ in the W decay and have a misidentified jet as a \tauhad. Fakes of this manner also arise from \acrshort{QCD}-like multi-jet interactions. The fake factor method used to estimate the amount of expected fake \tauhad objects that pass the \tauhad identification procedure described in Section \ref{ssec:reco-tau}. This method applies weights, or fake factors, to a subset of "anti-\tauhad" objects that have failed the selection and identification criteria in the signal region. A control region is defined to be rich in anti-\tauhad objects, where the \tauhad candidates fail the loose $\tau$ working point but have a $\tau$ identification RNN score of greater than 0.01. The fake factor and number of events with misidentified \tauhad objects $(N_{\tau})$ are defined as:
+		In the \taulep final state a significant portion of $j \to \tau$ fakes come from misidentifying \tauhad candidates in W+Jets events that contain a true $\ell$ in the W decay and have a misidentified jet as a \tauhad. Fakes of this manner also arise from \acrshort{QCD}-like multi-jet interactions. The \gls{FF} method used to estimate the amount of expected fake \tauhad objects that pass the \tauhad identification procedure is described in Section \ref{ssec:reco-tau}. This method applies weights, or fake factors, to a subset of "anti-\tauhad" objects that have failed the selection and identification criteria in the signal region. A control region is defined to be rich in anti-\tauhad objects, where the \tauhad candidates fail the loose $\tau$ working point but have a small, non-zero $\tau$ identification \gls{RNN} score. The \gls{FF} and number of events with misidentified \tauhad objects $(N^{\tau})$ are defined as:
 		\begin{equation}\label{eqn:ff}\begin{split}
 		FF = \frac{ N^{\tau-id} }{N^{anti-\tau-id}} \\
 		N_{fakes}^{\tau} = N^{anti-\tau}_{fakes} \times FF
@@ -437,8 +474,8 @@
 		N^{\tau-id} = N^{\tau-id}(Data) - N^{\tau-id}(MC) \\
 		N^{anti-\tau}_{fakes} = N^{anti-\tau}(Data) - N^{anti-\tau}_{true} (MC)
 		\end{split}\end{equation}
-		Two control regions are created, one to capture the multi-jet (MJ) fakes and the other to study the W+jets fakes. The MJ control region uses the \taujets signal region definition with an additional b-veto and an $\Etm < 80$ GeV cut. The W+jets control region uses the \taulep signal region definition with a b-veto, no \Etm cut, and a cut on the transverse mass of the $\ell$-\Etm system of $60 < m_{T}(\ell, \Etm)<160$ GeV.
-		The FF in the signal region is defined as 
+		Two \glspl{CR} are created, one to capture the multi-jet (MJ) fakes and the other to study the W+jets fakes. The MJ \gls{CR} uses the \taujets signal region definition with an additional b-veto and an $\Etm < 80$ GeV cut. The W+jets \gls{CR}\footnote{This W+Jets \gls{CR} is not the one defined in Table \ref{tab:taujet-control-regions}. This is a new region used to extract the fake factors.} uses the \taulep signal region definition with a b-veto, no \Etm cut, and a cut on the transverse mass of the $\ell$-\Etm system of $60 < m_{T}(\ell, \Etm)<160$ GeV.
+		The \gls{FF} in the signal region is defined as 
 		\begin{equation}\label{eqn:ff-sig}
 		FF_{sig} = \alpha_{MJ} \times FF_{MJ} + (1 - \alpha_{MJ}) \times FF_{W+jets}
 		\end{equation}
@@ -446,14 +483,14 @@
 		\begin{equation}\label{eqn:nfakethad}
 			N_{fake-\tau} = FF_{sig} \times N_{anti-\tau} 
 		\end{equation}
-		Figure \ref{fig:FF_COM} shows FF plotted in each control region for 1-prong and 3-prong \tauhad binned in $\pt{\tau}$; extracted $\alpha$ values and their fits can be seen in Appendix \ref{app:fake-factors}.
+		Figure \ref{fig:FF_COM} shows \gls{FF} plotted in each control region for 1-prong and 3-prong \tauhad binned in $\pt{\tau}$; extracted $\alpha$ values and their fits can be seen in Appendix \ref{app:fake-factors}.
 		\begin{figure}[h!]
 		  \begin{center}
 		    \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taujet.png} \qquad
 		    \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taulep.png} 
 		  \end{center}
 		  \caption{
-		Combined fake factors for the \taujets b-veto $\mathrm{m_{T}}>$100 control region, \taujets signal region, $\tau$+electron(muon) with same-sign control region and the \taulep signal region. Error bars represent systematic uncertainties of the method. 
+		Combined \gls{FF} for the \taujets b-veto $\mathrm{m_{T}}>$100 control region, \taujets signal region, $\tau$+electron(muon) with same-sign control region and the \taulep signal region. Error bars represent systematic uncertainties of the method. 
 		}
 		  \label{fig:FF_COM}
 		\end{figure}
@@ -529,7 +566,7 @@
 				\label{fig:k-fold-diagram}
 			\end{figure}	
 
-			A single \gls{PNN} training is performed on all \mHpm values at once, with the \mHpm value being taken as an input variable. For signal events, the \mHpm value from the \gls{MC} generator is given; background events are replicated 32 times (the number of simulated \mHpm points is 32) and each \mHpm value is given for each set. To avoid biasing the training due to varying statistics at each \mHpm value, the background events are weighted by a factor of $w = N^{i}_{S}/N^{i}_{B}$ where $i$ corresponds to a given \mHpm value, $N^{i}_{S}$, and $N^{i}_{B}$ are the number of signal and background events respectively. When the \gls{PNN} is evaluated, the \mHpm value is chosen and the output is used as the discriminant at that \mHpm.
+			A single \gls{PNN} training is performed on all \mHpm values at once, with the \mHpm value being taken as an input variable. For signal events, the \mHpm value from the \gls{MC} generator is given; background events are replicated 32 times (the number of simulated \mHpm points is 32) and each \mHpm value is given for each set. To avoid biasing the training due to varying statistics at each \mHpm value, the background events are weighted by a factor of $w = N^{i}_{S}/N^{i}_{B}$ where $i$ corresponds to a given \mHpm value and $N^{i}_{S}$ and $N^{i}_{B}$ are the number of signal and background events, respectively. When the \gls{PNN} is evaluated, the \mHpm value is assumed and the output is used as the discriminant at that \mHpm.
 
 		\subsection{Input Variables Selection}\label{ssec:input-variables}
 			The choice of input variables to the \glspl{PNN} is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. So called low level variables, consisting of the four vector components of the main physics objects in each event, were compared against high level variables; high level meaning they are calculated quantities from the low level variables. Tables of the low level and high level variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. 
@@ -648,13 +685,13 @@
 			    Parameter  \\
 			    \hline
 			    activation function & softsign & relu & LeakyReLU \\ \hline
-			    loss function & \fcolorbox{red}{white}{binary crossentropy} & mean squared error & mean absolute error \\ \hline
+			    loss function & \fcolorbox{red}{white}{binary cross-entropy} & mean squared error & mean absolute error \\ \hline
 			    width & 32 & & \\ \hline
 			    depth & 10 & & \\ \hline
 			    batch size & 1025 &  & \\ \hline
 			    \end{tabular}}
 			    \caption{
-			      First grid, scanning over activation function and loss function. Binary crossentropy was the chosen loss function, highlighted in red.
+			      First grid, scanning over activation function and loss function. Binary cross-entropy was the chosen loss function, highlighted in red.
 			    }
 			    \label{Tab:taulepHPOLoss}
 			  \end{center}
@@ -671,7 +708,7 @@
 			    depth & 3 & 5 & 10 \\ \hline
 			    dropout & \fcolorbox{red}{white}{0.1} & 0.3 & \\ \hline
 			    activation function & softsign & & \\ \hline
-			    loss function & binary crossentropy & & \\ \hline 
+			    loss function & binary cross-entropy & & \\ \hline 
 			    batch size & 1024 &  & \\ \hline
 			    \end{tabular}}
 			    \caption{\label{Tab:taulepHPODropout}
@@ -691,7 +728,7 @@
 			    activation function & softsign & relu & \fcolorbox{red}{white}{LeakyReLU} \\ \hline
 			    dropout & 0.1 & & \\ \hline
 			    batch size & 1024 &  & \\ \hline
-			    loss function & binary crossentropy  & & \\ \hline
+			    loss function & binary cross-entropy  & & \\ \hline
 			    \end{tabular}}
 			    \caption{\label{Tab:taulepHPOActivation}
 			      Third grid, scanning over activation function. LeakyReLU was chosen, highlighted in red.
@@ -713,7 +750,7 @@
 			  batch size & 1024 & & & \\ \hline
 			  dropout & 0.1 & & & \\ \hline
 			  activation function & LeakyReLU &  &  &  \\ \hline
-			  loss function & binary crossentropy & & &  \\ \hline
+			  loss function & binary cross-entropy & & &  \\ \hline
 			  \end{tabular}}
 			    \caption{\label{Tab:taulepHPOAlpha}
 			      Fourth grid, scanning over LeakyReLU $\alpha$ value. $\alpha=0.05$ was chosen, highlighted in red.
@@ -735,7 +772,7 @@
 			  activation function & LeakyReLU &  &  &  \\ \hline
 			  batch size & 1024 & & & \\ \hline
 			  $\alpha$ & 0.05 &  &  &  \\ \hline
-			  loss function & binary crossentropy & & &  \\ \hline
+			  loss function & binary cross-entropy & & &  \\ \hline
 			  \end{tabular}}
 			    \caption{\label{Tab:taulepHPOWidthDepth}
 			      Fifth grid, scanning over network width and depth. $width=128$ and $depth=3$ was chosen, highlighted in red.
@@ -772,7 +809,7 @@
 				\end{tabular}}
 				\npnoround
 				\caption{\label{tab:pnn_hpo_aucs}
-				\glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account differences in 
+				\glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account difference
 				  }
 				  \end{center}
 			\end{table}
@@ -819,7 +856,7 @@
 			  \label{fig:final-auc}
 			\end{figure}
 
-			The final model was chosen to have 128 neurons per layer with 3 layers, with the binary crossentropy chosen as the loss function, a dropout of 0.1, LeakyReLU as the activation function with $\alpha=0.05$. The LeakyReLU activation function is depicted in Figure \ref{fig:leaky-relu}, where the $\alpha$ value is the slope of the negative portion. Allowing negative weight values prevents neurons from becoming deactivated prematurely.
+			The final model was chosen to have 128 neurons per layer with 3 layers, with the binary cross-entropy chosen as the loss function, a dropout of 0.1, LeakyReLU as the activation function with $\alpha=0.05$. The LeakyReLU activation function is depicted in Figure \ref{fig:leaky-relu}, where the $\alpha$ value is the slope of the negative portion. Allowing negative weight values prevents neurons from becoming deactivated prematurely.
 
 			\begin{figure}
 				\centering
