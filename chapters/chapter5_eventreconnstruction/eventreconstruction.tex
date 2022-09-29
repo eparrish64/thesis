@@ -66,12 +66,12 @@
 		\begin{itemize}
 			\item Loose: Optimized for reconstruction of $H\to 4\mu$. Lowest purity and highest efficiency.
 			\item Medium: Efficiency and purity are suitable for a wide range of analyses with small systematic uncertainties.
-			\item Tight: High purity, slightly lower efficiency than medium WP. Significantly higher background rejection.
+			\item Tight: High purity, slightly lower efficiency than medium \gls{WP}. Significantly higher background rejection.
 		\end{itemize}
 
-		The analysis discussed in this dissertation uses the Loose WP for muons to allow for larger statistics in the signal region.
+		The analysis discussed in this dissertation uses the Loose \gls{WP} for muons to allow for larger statistics in the signal region.
 
-		\textcolor{red}{Talk about \pt measurement and isolation requirements}
+		To ensure muons originated at a hard-scatter and discriminate them from muons in hadronic decays an isolation requirement is applied. The isolation is defined as the transverse energy (momentum) inside a reconstructed cone around the muon divided by the muon \pt \cite{ATLAS-muon}. This isolation can be calculated either using calorimeter information (energy) or \gls{ID} information (momentum). As with identification, several isolation \glspl{WP} are defined. This dissertation uses a tight isolation requirement.
 
 
 	\section{e $\gamma$ Identification}\label{sec:reco-egamma}
@@ -119,7 +119,13 @@
 		\caption{\label{fig:anti-kt-comparison} Comparison between several jet finding algorithms \cite{anti-kt}.}
 		\end{figure}
 
-		\textcolor{red}{Talk about jet calibration}
+		After jets are reconstructed, they must be calibrated at the jet energy scale. This process is detailed in Ref \cite{jet-calibration}. A flow chart showing the process of calibrating a jet is shown in Figure \ref{fig:jet-calibration-diagram}.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/jet_calibration_diagram.png}
+			\caption{\label{fig:jet-calibration-diagram} Stages of jet energy scale calibrations. Each one is applied to the four-momentum of the jet. \cite{jet-calibration} }
+		\end{figure}
 
 		\subsection{\bjet Tagging}\label{ssec:flavor-tagging}
 			Jets originating from hard scatter b quarks are an important signature in high energy physics colliders, especially so in the analysis discussed in this dissertation. An initial state b quark hadronizes into B-hadrons which have a relatively long lifetime. Due to the relativistic speeds and long lifetime of the B-hadrons they travel a distance away from the \gls{IP} before decaying and creating a hadronic shower. This leads to a secondary vertex that can be measured. A pictorial representation is shown in Figure \ref{fig:bjet}. The impact parameter $d_0$ shown is the minimum distance between the tracks from the secondary vertex and \gls{IP}. 
@@ -130,11 +136,7 @@
 			\caption{\label{fig:bjet} Schematic view of the tracks in a \bjet \cite{bjet-trigger}.}
 			\end{figure}
 
-			There are several methods used to tag a jet as coming from a b quark; this analysis uses the DL1 high level tagger \cite{b-tagging} that is based on an artificial deep neural network. Neural networks are discussed in detail in Section \ref{sec:mva}. DL1 not only tags \bjets, but also outputs the probability for a jet to be initiated from a charm or light flavor quark. The DL1 tagger has over 20 input variables, including the $\pt$ and $\eta$ of jets  \cite{b-tagging-input-variables}. The analysis discussed in this dissertation uses a fixed cut working point that corresponds to an average efficiency of 70\% for \bjets in \ttbar events. 
-
-			\textcolor{red}{Quote light and c miss-tag rates.}
-
-			\textcolor{red}{Find reference about DL1 inputs.}
+			There are several methods used to tag a jet as coming from a b quark; this analysis uses the DL1 high level tagger \cite{b-tagging} that is based on an artificial deep neural network. Neural networks are discussed in detail in Section \ref{sec:mva}. DL1 not only tags \bjets, but also outputs the probability for a jet to be initiated from a charm or light flavor quark. The DL1 tagger has over 20 input variables, including the $\pt$ and $\eta$ of jets \cite{b-tagging-input-variables}. For a b-jet tagging efficiency of 10\% the DL1 tagger will mistag a charm/light-flavor jet at a rate of 0.02\% \cite{b-tagging}. The analysis discussed in this dissertation uses a fixed cut working point that corresponds to an average efficiency of 70\% for \bjets in \ttbar events. 
 
 	\section{$\tau$ Identification}\label{ssec:reco-tau}
 		One of the most important particles in the final state of the search discussed in this dissertation is the $\tau$ lepton. The decay channels of $\tau$ leptons make them difficult to reconstruct. A $\tau$ lepton can decay to hadrons, an electron, or a muon; in each decay mode, at least one neutrino is also present. The analysis discussed in this dissertation only considers $\tau$ leptons that have decayed hadronically. The hadronic decay mode consists of 1 or 3 charged hadrons ($\pi^{\pm}$), a neutrino, and possible neutral hadrons ($\pi^0$). A $\tau$ lepton decaying in this manner within the \gls{ATLAS} detector leaves 1 or 3 tracks in the \gls{ID} and collimated showers of energy in the calorimeters; the neutrino does not interact with the \gls{ATLAS} detector, therefore no direct signature is left behind. Reconstruction is done on the visible part of the hadronically decaying $\tau$ lepton, further referred to as \tauhad in the rest of this dissertation. 
