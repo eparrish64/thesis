@@ -1,85 +1,202 @@
+\defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {1}{1}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {2}{2}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {1}{2}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {1}{2}}
-\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {1}{Introduction }{3}{Introduction }{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {3}{3}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {1}{0}{2}{4/4}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {4}{4}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {3}{4}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {3}{4}}
-\headcommand {\sectionentry {2}{Theory}{5}{Theory}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {2}{Theory }{5}{Theory }{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {2}{0}{1}{5/5}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {5}{5}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{The Standard Model}}
-\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{6}{Supersymmetry}}
-\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{6}{Charged Higgs Bosons}}
-\headcommand {\beamer@sectionpages {5}{5}}
-\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\sectionentry {3}{Experimental Apparatus}{6}{Experimental Apparatus}{0}}
-\headcommand {\slideentry {3}{0}{1}{6/6}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{The Standard Model }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{1}{1}{6/6}{The Standard Model }{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {6}{6}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{7}{LHC}}
-\headcommand {\beamer@subsectionpages {7}{6}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{7}{The ATLAS Detector}}
-\headcommand {\beamer@sectionpages {6}{6}}
-\headcommand {\beamer@subsectionpages {7}{6}}
-\headcommand {\sectionentry {4}{Simulation}{7}{Simulation}{0}}
-\headcommand {\slideentry {4}{0}{1}{7/7}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{2}{7}{Higgs Mechanism}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{2}{1}{7/7}{Higgs Mechanism}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@sectionpages {7}{7}}
-\headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\sectionentry {5}{Event Reconstruction}{8}{Event Reconstruction}{0}}
-\headcommand {\slideentry {5}{0}{1}{8/8}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{2}{2}{8/8}{Higgs Mechanism}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@sectionpages {8}{8}}
-\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\sectionentry {6}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }{9}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }{0}}
-\headcommand {\slideentry {6}{0}{1}{9/9}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {7}{8}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{3}{9}{Supersymmetry }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{3}{1}{9/9}{Supersymmetry }{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {9}{9}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{1}{10}{Signature}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{4}{10}{Charged Higgs Bosons }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {5}{9}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{2}{10}{Event Selection}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{3}{10}{Datasets}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{4}{10}{Background Modeling}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{5}{10}{MVA}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{6}{10}{Systematic Uncertainties}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\beamer@subsectionentry {0}{6}{7}{10}{Results}}
-\headcommand {\beamer@sectionpages {9}{9}}
-\headcommand {\beamer@subsectionpages {10}{9}}
-\headcommand {\sectionentry {7}{Conclusion}{10}{Conclusion}{0}}
-\headcommand {\slideentry {7}{0}{1}{10/10}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {3}{Experimental Apparatus }{10}{Experimental Apparatus }{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{0}{1}{10/10}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {7}{0}{2}{11/11}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {10}{10}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{3}{1}{11}{LHC }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {11}{10}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{3}{2}{11}{The ATLAS Detector }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {10}{10}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {11}{10}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {4}{Simulation }{11}{Simulation }{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {4}{0}{1}{11/11}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\gdef \insertmainframenumber {11}}
-\headcommand {\partentry {\translate {Appendix}}{1}}
-\headcommand {\beamer@partpages {1}{11}}
-\headcommand {\beamer@sectionpages {10}{11}}
-\headcommand {\beamer@subsectionpages {10}{11}}
-\headcommand {\beamer@appendixpages {12}}
-\headcommand {\beamer@sectionpages {12}{11}}
-\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\sectionentry {8}{Backup }{12}{Backup }{1}}
-\headcommand {\slideentry {8}{0}{1}{12/12}{}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {11}{11}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {11}{11}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {5}{Event Reconstruction }{12}{Event Reconstruction }{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {5}{0}{1}{12/12}{}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@partpages {12}{12}}
-\headcommand {\beamer@subsectionpages {12}{12}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {12}{12}}
-\headcommand {\beamer@documentpages {12}}
-\headcommand {\gdef \inserttotalframenumber {1}}
-\headcommand {\gdef \inserttotalframenumber {11}}
-\headcommand {\gdef \appendixtotalframenumber {1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {12}{12}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {6}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }{13}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {6}{0}{1}{13/13}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {13}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {13}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{1}{14}{Signature }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{2}{14}{Event Selection }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{3}{14}{Datasets }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{4}{14}{Background Modeling }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{5}{14}{MVA }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{6}{14}{Systematic Uncertainties }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{6}{7}{14}{Results }}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {13}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {7}{Conclusion }{14}{Conclusion }{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{1}{14/14}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {14}{14}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{2}{15/15}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\gdef \insertmainframenumber {15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\partentry {\translate {Appendix}}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@partpages {1}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {14}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@appendixpages {16}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {16}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {16}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {8}{Bibliography }{16}{Bibliography }{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {8}{0}{1}{16/16}{}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {16}{16}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {16}{16}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {16}{16}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {9}{References}{17}{References}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {9}{0}{0}{17/17}{}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {17}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {16}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {16}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {10}{Backup }{18}{Backup }{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{0}{1}{18/18}{}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@partpages {16}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\beamer@sectionpages {18}{18}}
+\headcommand {\beamer@documentpages {18}}
+\headcommand {\gdef \inserttotalframenumber {3}}
+\headcommand {\gdef \inserttotalframenumber {15}}
+\headcommand {\gdef \appendixtotalframenumber {3}}
