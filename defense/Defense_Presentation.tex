@@ -77,6 +77,10 @@
 % \newcommand{\Etm}{\ensuremath{E_\text{T}^\text{miss}}\xspace}
 % \newcommand{\pt}{\ensuremath{p_\text{T}}\xspace}
 % \newcommand{\HpmLong}{\ensuremath{\Hp \rightarrow \tau \nu}\xspace}
+\def\boxit#1{%
+  \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+  \llap{\rlap{\fbox{\vphantom{0}\makebox[#1]{}}}~}}\ignorespaces
+}
 
 \begin{document}
 \frame{\titlepage}
@@ -159,7 +163,7 @@
 
   \begin{frame}[t]{The Higgs Mechanism}
     \begin{columns}
-    \column{.75\textwidth}
+    \column{.5\textwidth}
       \begin{itemize}
         \item Theorized by Higgs, Englert, and Brout in 1964
           \begin{itemize}
@@ -169,14 +173,15 @@
         \item Interactions with Higgs field give particles mass
         \item Discovered jointly by the ATLAS and CMS collaborations in 2012
       \end{itemize}
-    \column{.25\textwidth}
       \begin{figure}
-        \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/higgspotential.png}
+        \includegraphics[width=.35\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/higgspotential.png}
         \caption{\tiny Higgs potential \cite{Higgs-phys}}
       \end{figure}
-      \vspace{-.80cm}
+    \column{.5\textwidth}
+      % \vspace{-.80cm}
+      \centering
       \begin{figure}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.jpeg}
+        \includegraphics[height=.75\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.jpeg}
         \caption{\tiny Higgs discovery \cite{higgs-discovery-atlas}}
       \end{figure}
     \end{columns}
@@ -227,13 +232,13 @@
           \end{itemize}
           \item SUSY proposes a symmetry between fermions and bosons (spin)
           \begin{itemize}
-            \item $Q | Fermion \rangle = | Boson \rangle$ 
-            \item $Q | Boson \rangle = | Fermion \rangle$
+            \item $Fermion \Rightarrow Boson$ 
+            \item $Boson \Rightarrow Fermion$
           \end{itemize}
           \item SUSY is a large group of theories
           \begin{itemize}
             \item Minimal Supersymmetric Standard Model (MSSM) is the smallest SUSY extension to the SM
-            \item 2 Higgs Doublet Models have two complex doublet scalar fields
+            \item 2 Higgs Doublet Models have two complex doublet scalar fields \tiny{\cite{2HDM}}
             \begin{itemize}
               \item Two relevant free parameters, \tanb and \mHpm
               \item \tanb is the ratio of the vacuum expectation values of \Hpm
@@ -241,15 +246,21 @@
           \end{itemize}
         \end{itemize}
       \column{.2\textwidth}
+      \begin{centering}
+      \includegraphics[height=.3\textheight,keepaspectratio=true]{SUSY_Bubble.png}
+      \end{centering}
+      \centering
         \begin{table}[!thp]
           \centering
           \resizebox{\textwidth}{!}{
+          \rowcolors{1}{}{NIUgray}
           \begin{tabular}{| l | c |}
           \hline
           light neutral scalar  & $h^0$ \\ \hline
           heavy neutral scalar  & $H^0$ \\ \hline
           neutral pseudoscalar  & $A^0$ \\ \hline
           two charged scalars   & \Hpm \\ \hline
+          % \boxit{1.75in} 
           \end{tabular}}
           % \caption{\cite{2HDM}}
       \end{table}
@@ -262,18 +273,38 @@
       \begin{columns}
       \column{.75\textwidth}
       \begin{itemize}
-        \item Many extensions to the Higgs sector imply the existence of charged scalars (2HDM, NMSMM, Triplet, etc.)
-        \begin{itemize}
-          \item \HpmLong remains significant for high \tanb
+        % \item Many extensions to the Higgs sector imply the existence of charged scalars (2HDM, NMSMM, Triplet, etc.)
+        % \begin{itemize}
           % \begin{itemize}
           %   \item $\mathrm{tan} \beta$ defined as the ratio of the  vacuum expectation values of the two doublets
           % \end{itemize}
-        \end{itemize}
+        % \end{itemize}
         \item At the LHC, theoretical production mode of \mHpm is mainly in top-quark decays or in association with a top-quark ($t$)
         \begin{itemize}
           \item $H^{\pm}$ production mode is dependent on \mHpm
-          \item Analysis is sensitive for low mass $(\mHpm < m_{t})$, intermediate mass $(\mHpm \simeq m_{t})$, and high mass $(\mHpm > m_{t})$
+          % \item Analysis is sensitive for low mass $(\mHpm < m_{t})$, intermediate mass $(\mHpm \simeq m_{t})$, and high mass $(\mHpm > m_{t})$
         \end{itemize}
+        \begin{columns}
+          \column{.3\textwidth}
+            \begin{figure}
+              \tiny
+              \fcolorbox{black}{white}{\includegraphics[width=.72\textwidth,keepaspectratio=true]{double_resonant_production_low_mass.png}}
+              \caption{$\mHpm < m_{t}$}
+            \end{figure}
+          \column{.3\textwidth}
+            \begin{figure}
+              \tiny
+              \fcolorbox{black}{white}{\includegraphics[width=.72\textwidth,keepaspectratio=true]{non_resonant_production_intermediate_mass.png}}
+              \caption{$\mHpm \simeq m_{t}$}
+            \end{figure}
+          \column{.3\textwidth}
+            \begin{figure}
+              \tiny
+              \fcolorbox{black}{white}{\includegraphics[width=.72\textwidth,keepaspectratio=true]{SingleResonant.pdf}}
+              \caption{$\mHpm > m_{t}$}
+            \end{figure}
+        \end{columns}
+        \item \HpmLong decay channel remains significant for high \tanb
         \item Two sub-channels based on the decay mode of associated $t$ 
         % \begin{itemize}
         %   \item $t \rightarrow jets$ 
@@ -286,6 +317,7 @@
         %     \end{itemize}
         % \end{itemize}
       \end{itemize}
+
       \vspace{-.3cm}
       \centering
       \begin{table}
@@ -295,7 +327,7 @@
           \begin{tabular}{c | c}
           \textbf{$t \rightarrow jets$ } & $t \to \ell$ \\
           \hline \hline
-          Sensitive at high mass due to higher $W \to q\bar{q}$ BR & Sensitive at low mass due to single lepton triggers \\
+          Sensitive at high mass due to higher $W \to q\bar{q}$ BR & Sensitive at low mass due to easier triggering \\
           \end{tabular}}
         \end{table}
 
@@ -307,44 +339,27 @@
       % \includegraphics[width=.74\textwidth,keepaspectratio=true]{NonResonant.pdf}
       % \includegraphics[width=.74\textwidth,keepaspectratio=true]{single_resonant_production_large_mass.png}
       % \includegraphics[width=.74\textwidth,keepaspectratio=true]{DoubleResonant.pdf}
-      \includegraphics[width=1.15\linewidth,keepaspectratio=true]{Charged_Higgs_BR.png}
-      \includegraphics[width=1.15\linewidth,keepaspectratio=true]{HPlus_taunu_tanB.png}
+      % \includegraphics[width=1.15\linewidth,keepaspectratio=true]{Charged_Higgs_BR.png}
+      \begin{figure}
+      \begin{columns}
+      \column{.95\textwidth}
+      \includegraphics[width=1\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/XSBR_hmssm.pdf}
+      \column{.05\textwidth}
+      \caption{\tiny \cite{hpm-previous}}
+      \end{columns}
+      \end{figure}
+      \begin{figure}
+      \begin{columns}
+      \column{.95\textwidth}
+      \includegraphics[width=1\textwidth,keepaspectratio=true]{HPlus_taunu_tanB.png}
+      \column{.05\textwidth}
+      \caption{\tiny \cite{Higgs-Crosssections}}
+      \end{columns}
+      \end{figure}
       \end{columns}
     \end{frame} 
 
-
-\begin{frame}[t]{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{JHEP 09(2018)139} BDT Scores in Signal Regions}
-        \begin{columns}[t]
-          \column{.33\textwidth}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_90to120_2018.png}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_90to120_2018.png}
-          % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_90to120_2018.png}
-
-          % \column{.2\textwidth}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_130to160_2018.png}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_130to160_2018.png}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_130to160_2018.png}
-
-          \column{.33\textwidth}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_160to180_2018.png}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_160to180_2018.png}
-          % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_160to180_2018.png}
-
-
-          \column{.33\textwidth}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_200to400_2018.png}
-          \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_200to400_2018.png}
-          % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_200to400_2018.png}
-
-
-          % \column{.2\textwidth}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_500to2000_2018.png}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_500to2000_2018.png}
-          % \includegraphics[height=.26\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_500to2000_2018.png}
-        \end{columns}
-      \end{frame}
-
-    \begin{frame}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{\textcolor{blue}{JHEP 09(2018)139}} Limits}
+    \begin{frame}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{\textcolor{blue}{JHEP 09(2018)139}} Limits on }
       \begin{columns}
         \column{.5\textwidth}
         \centering
@@ -362,45 +377,131 @@
   \subsection{LHC }
 
     \begin{frame}[t]{Large Hadron Collider}
+      \begin{columns}
+        \column{.65\textwidth}
+          \begin{itemize}
+            \item Largest particle collider ever built
+            \item Highest energy particle collider
+              \begin{itemize}
+                \item Center of mass energy of 13 TeV
+              \end{itemize}
+            \item 27 km circular hadron collider located at CERN outside of Geneva, Switzerland
+          \end{itemize}
 
+        \column{.35\textwidth}
+          \centering
+          \begin{figure}
+          \includegraphics[width=.75\textwidth,keepaspectratio=true]{LHC.png}
+
+          \end{figure}
+          \begin{figure}
+          \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/CERN-complex.png}
+          \caption{\tiny \cite{CERN-complex}}
+          \end{figure}
+
+      \end{columns}
     \end{frame}
 
   \subsection{ATLAS }
 
     \begin{frame}[t]{The ATLAS Detector}
+      \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Inner Detector}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Calorimeters}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Tile Calorimeter}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Muon System}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Trigger System}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
     \end{frame}
 
 \section{Simulation }
   
   \begin{frame}[t]{Monte Carlo Simulation}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
   \end{frame}
 
 \section{Event Reconstruction }
   
   \begin{frame}[t]{Particle Identification}
+     \begin{columns}
+      \column{.75\textwidth}
+        \begin{itemize}
+          \item
+        \end{itemize}
 
+      \column{.25\textwidth}
+
+      \end{columns}
   \end{frame}
 
 \section{\HpmLong }
@@ -515,7 +616,7 @@
       \end{columns}
     \end{frame}
 
-  \subsection{$j \rightarrow \tau$ Fakes}
+  \subsection{ Fake Factors }
 
     \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
       \begin{columns}[t]
@@ -667,6 +768,10 @@
 
   \subsection{ MVA }
 
+    \begin{frame}[t]{Multivariate Analysis Techniques}
+
+    \end{frame}
+
     \begin{frame}[t]{Parameterized Neural Networks}
       \begin{columns}
       \column{.75\textwidth}
@@ -682,7 +787,7 @@
       \begin{itemize}
         \item Detailed information here: \href{https://arxiv.org/abs/1601.07913}{\textcolor{blue}{arXiv:1601.07913}}
       \end{itemize}
-      \item Trained using Tensorflow backend for Keras
+      % \item Trained using Tensorflow backend for Keras
       % \item \mHpm is used as an input feature of the model
       % \item Allows one model to be used across entire \mHpm mass range
       \item Separate models trained on 1 prong and 3 prong $\tau$
@@ -751,7 +856,18 @@
       \end{columns}
     \end{frame}
 
-    \begin{frame}[t]{Parameterized Neural Network vs Boosted Decision Tree}
+      \begin{frame}[c]{Boosted Decision Tree vs Parameterized Neural Network}
+        \begin{columns}[c]
+          \column{.45\textwidth}
+          % \includegraphics[height=.4\textheight,keepaspectratio=true]{taulep_SR_2018/taujet_SR_90to120_2018.png}
+          \includegraphics[height=.6\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_90to120_2018.png}
+          % \includegraphics[height=.8\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_90to120_2018.png}
+          \column{.45\textwidth}
+          \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SR_TAUEL.png}
+        \end{columns}
+      \end{frame}
+
+    \begin{frame}[t]{Boosted Decision Tree vs Parameterized Neural Network}
       \begin{itemize}
         \item One model for entire mass range makes analysis less computationally expensive
         \item PNN can be evaluated on mass points that are not simulated
@@ -769,6 +885,7 @@
 
     \begin{frame}[t]{PNN Input Variable Selection}
       \begin{table}[!thp]
+        \rowcolors{1}{}{NIUgray}
         \begin{subtable}[c]{0.15\textwidth}
           \centering
           % \begin{tabular}{| c | c | c | c |}
@@ -957,39 +1074,6 @@
       \end{columns}
     \end{frame}
 
-    \begin{frame}{PNN Hyperparameter Optimization Results}
-      \begin{table}
-        \begin{center}
-        \small
-        \resizebox{\textwidth}{!}{
-        \begin{tabular}{llrrrrrrrrrrrr}
-        \toprule
-        width & depth &         80 &       150 &       250 &       500 &       Avg &   LowMassAvg \\
-        \midrule
-          128 & 3 & 0.6661  $\pm$ 0.0000  & 0.8145  $\pm$ 0.0000  & 0.9031  $\pm$ 0.0000  & 0.9633  $\pm$ 0.0000  & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
-          128 & 5 & 0.6492  $\pm$ 0.0000  & 0.8043  $\pm$ 0.0000  & 0.9078  $\pm$ 0.0000  & 0.9628  $\pm$ 0.0000  & 0.8861  $\pm$ 0.0000  & 0.8235  $\pm$ 0.1000  \\
-          128 & 4 & 0.6593  $\pm$ 0.0000  & 0.8117  $\pm$ 0.0000  & 0.9012  $\pm$ 0.0000  & 0.9638  $\pm$ 0.0000  & 0.8858  $\pm$ 0.0000  & 0.8232  $\pm$ 0.0994  \\
-          128 & 2 & 0.6444  $\pm$ 0.0000  & 0.8070  $\pm$ 0.0000  & 0.9075  $\pm$ 0.0000  & 0.9631  $\pm$ 0.0000  & 0.8857  $\pm$ 0.0000  & 0.8231  $\pm$ 0.1006  \\
-          64 &  4 & 0.6576  $\pm$ 0.0050  & 0.8080  $\pm$ 0.0013  & 0.9052  $\pm$ 0.0045  & 0.9656  $\pm$ 0.0016  & 0.8857  $\pm$ 0.0002  & 0.8230  $\pm$ 0.0994  \\
-          64 &  2 & 0.6528  $\pm$ 0.0066  & 0.8052  $\pm$ 0.0023  & 0.9057  $\pm$ 0.0032  & 0.9651  $\pm$ 0.0007  & 0.8855  $\pm$ 0.0004  & 0.8228  $\pm$ 0.0996  \\
-          64 &  5 & 0.6538  $\pm$ 0.0050  & 0.8044  $\pm$ 0.0019  & 0.9058  $\pm$ 0.0037  & 0.9653  $\pm$ 0.0014  & 0.8853  $\pm$ 0.0005  & 0.8224  $\pm$ 0.0997  \\
-          64 &  3 & 0.6520  $\pm$ 0.0067  & 0.8051  $\pm$ 0.0018  & 0.9042  $\pm$ 0.0044  & 0.9649  $\pm$ 0.0019  & 0.8853  $\pm$ 0.0011  & 0.8223  $\pm$ 0.0994  \\
-          256 & 5 & 0.6536  $\pm$ 0.0010  & 0.8044  $\pm$ 0.0033  & 0.9036  $\pm$ 0.0042  & 0.9644  $\pm$ 0.0022  & 0.8844  $\pm$ 0.0002  & 0.8213  $\pm$ 0.1003  \\
-          256 & 4 & 0.6434  $\pm$ 0.0000  & 0.8018  $\pm$ 0.0000  & 0.9017  $\pm$ 0.0000  & 0.9619  $\pm$ 0.0000  & 0.8823  $\pm$ 0.0000  & 0.8181  $\pm$ 0.1013  \\
-          32 &  3 & 0.6369  $\pm$ 0.0094  & 0.7950  $\pm$ 0.0041  & 0.8977  $\pm$ 0.0032  & 0.9635  $\pm$ 0.0022  & 0.8798  $\pm$ 0.0012  & 0.8139  $\pm$ 0.1031  \\
-          32 &  4 & 0.6384  $\pm$ 0.0037  & 0.7935  $\pm$ 0.0033  & 0.8986  $\pm$ 0.0037  & 0.9636  $\pm$ 0.0016  & 0.8799  $\pm$ 0.0009  & 0.8139  $\pm$ 0.1031  \\
-          32 &  2 & 0.6399  $\pm$ 0.0058  & 0.7924  $\pm$ 0.0024  & 0.8983  $\pm$ 0.0033  & 0.9629  $\pm$ 0.0023  & 0.8796  $\pm$ 0.0004  & 0.8135  $\pm$ 0.1023  \\
-          32 &  5 & 0.6350  $\pm$ 0.0077  & 0.7931  $\pm$ 0.0056  & 0.8981  $\pm$ 0.0022  & 0.9625  $\pm$ 0.0005  & 0.8792  $\pm$ 0.0011  & 0.8128  $\pm$ 0.1035  \\
-          256 & 2 & 0.6320  $\pm$ 0.0044  & 0.7971  $\pm$ 0.0000  & 0.8939  $\pm$ 0.0034  & 0.9587  $\pm$ 0.0018  & 0.8781  $\pm$ 0.0002  & 0.8120  $\pm$ 0.1023  \\
-        \bottomrule
-        \end{tabular}}
-        % \caption{\label{tab:pnn_hpo_aucs}
-        % \glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account difference
-        %   }
-          \end{center}
-      \end{table}
-    \end{frame}
-
     \begin{frame}[c]{Final PNN Model Performance}
       \begin{columns}
       \column{.5\textwidth}
@@ -997,6 +1081,7 @@
         \begin{center}
         \small
         \resizebox{.75\textwidth}{!}{
+        \rowcolors{1}{}{NIUgray}
         \begin{tabular}{llrrrrrrrrrrrr}
         \toprule
         width & depth &  Avg &   LowMassAvg \\
@@ -1045,13 +1130,14 @@
         \item $\mathrm{\alpha_{MJ}}$ fitting procedure uncertainty
         \item Smirnov transformation
         \item Tau RNN Identification SF variation
-        \item Heavy flavour jet fraction
+        \item Heavy flavor jet fraction
         \end{multicols}
       \end{itemize}
 
       \begin{table}[!htb]
         \begin{center}
           \resizebox{.75\textwidth}{!}{
+          \rowcolors{1}{}{NIUgray}
           \begin{tabular}{l|c|c||c|c||}
             &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
             \hline
@@ -1083,49 +1169,20 @@
 
   \subsection{Results }
 
-    \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
-      \centering
-      % \includegraphics[height=.9\textheight,keepaspectratio=true]{taulep_fullmass.pdf}
-      \small
-      % \begin{itemize}
-      %   \item Limits with previous ntuples shown
-      % \end{itemize}
-      \begin{columns}
-        \column{.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauEl_logx.png} \\
-        \centering
-        $\tau+e$
-        \column{.5\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauMu_logx.png}\\
-        \centering
-        $\tau+\mu$
-      \end{columns}
+    \begin{frame}[t]{PNN Results}
+
+    \end{frame}
+
+    \begin{frame}[t]{Expected Yields}
+
     \end{frame}
 
     \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
-      \centering
-      % \includegraphics[height=.9\textheight,keepaspectratio=true]{taulep_fullmass.pdf}
-      \small
-      \begin{columns}
-        \column{.5\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauJets_logx.png} \\
-        \centering
-        $\tau+jets$
-        \column{.5\textwidth}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauLep_logx.png} \\
-        \centering
-        $\tau+\ell$
-      \end{columns}
-      \end{frame}
-
-      \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
       \centering
       \includegraphics[height=.75\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_Combined_logx.png} \\
       \centering
       Combined
     \end{frame}
-
 
 \section{Conclusion }
 
@@ -1158,5 +1215,106 @@
   \end{frame}
 
 \section{Backup }
+  
+  \begin{frame}[t]{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{JHEP 09(2018)139} BDT Scores in Signal Regions}
+    \begin{columns}[t]
+      \column{.33\textwidth}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_90to120_2018.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_90to120_2018.png}
+      % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_90to120_2018.png}
+
+      % \column{.2\textwidth}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_130to160_2018.png}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_130to160_2018.png}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_130to160_2018.png}
+
+      \column{.33\textwidth}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_160to180_2018.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_160to180_2018.png}
+      % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_160to180_2018.png}
+
+
+      \column{.33\textwidth}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_200to400_2018.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_200to400_2018.png}
+      % \includegraphics[height=.33\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_200to400_2018.png}
+
+
+      % \column{.2\textwidth}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_500to2000_2018.png}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_500to2000_2018.png}
+      % \includegraphics[height=.26\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_500to2000_2018.png}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}{PNN Hyperparameter Optimization Results}
+    \begin{table}
+      \begin{center}
+      \small
+      \resizebox{\textwidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{llrrrrrrrrrrrr}
+      \toprule
+      width & depth &         80 &       150 &       250 &       500 &       Avg &   LowMassAvg \\
+      \midrule
+        128 & 3 & 0.6661  $\pm$ 0.0000  & 0.8145  $\pm$ 0.0000  & 0.9031  $\pm$ 0.0000  & 0.9633  $\pm$ 0.0000  & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
+        128 & 5 & 0.6492  $\pm$ 0.0000  & 0.8043  $\pm$ 0.0000  & 0.9078  $\pm$ 0.0000  & 0.9628  $\pm$ 0.0000  & 0.8861  $\pm$ 0.0000  & 0.8235  $\pm$ 0.1000  \\
+        128 & 4 & 0.6593  $\pm$ 0.0000  & 0.8117  $\pm$ 0.0000  & 0.9012  $\pm$ 0.0000  & 0.9638  $\pm$ 0.0000  & 0.8858  $\pm$ 0.0000  & 0.8232  $\pm$ 0.0994  \\
+        128 & 2 & 0.6444  $\pm$ 0.0000  & 0.8070  $\pm$ 0.0000  & 0.9075  $\pm$ 0.0000  & 0.9631  $\pm$ 0.0000  & 0.8857  $\pm$ 0.0000  & 0.8231  $\pm$ 0.1006  \\
+        64 &  4 & 0.6576  $\pm$ 0.0050  & 0.8080  $\pm$ 0.0013  & 0.9052  $\pm$ 0.0045  & 0.9656  $\pm$ 0.0016  & 0.8857  $\pm$ 0.0002  & 0.8230  $\pm$ 0.0994  \\
+        64 &  2 & 0.6528  $\pm$ 0.0066  & 0.8052  $\pm$ 0.0023  & 0.9057  $\pm$ 0.0032  & 0.9651  $\pm$ 0.0007  & 0.8855  $\pm$ 0.0004  & 0.8228  $\pm$ 0.0996  \\
+        64 &  5 & 0.6538  $\pm$ 0.0050  & 0.8044  $\pm$ 0.0019  & 0.9058  $\pm$ 0.0037  & 0.9653  $\pm$ 0.0014  & 0.8853  $\pm$ 0.0005  & 0.8224  $\pm$ 0.0997  \\
+        64 &  3 & 0.6520  $\pm$ 0.0067  & 0.8051  $\pm$ 0.0018  & 0.9042  $\pm$ 0.0044  & 0.9649  $\pm$ 0.0019  & 0.8853  $\pm$ 0.0011  & 0.8223  $\pm$ 0.0994  \\
+        256 & 5 & 0.6536  $\pm$ 0.0010  & 0.8044  $\pm$ 0.0033  & 0.9036  $\pm$ 0.0042  & 0.9644  $\pm$ 0.0022  & 0.8844  $\pm$ 0.0002  & 0.8213  $\pm$ 0.1003  \\
+        256 & 4 & 0.6434  $\pm$ 0.0000  & 0.8018  $\pm$ 0.0000  & 0.9017  $\pm$ 0.0000  & 0.9619  $\pm$ 0.0000  & 0.8823  $\pm$ 0.0000  & 0.8181  $\pm$ 0.1013  \\
+        32 &  3 & 0.6369  $\pm$ 0.0094  & 0.7950  $\pm$ 0.0041  & 0.8977  $\pm$ 0.0032  & 0.9635  $\pm$ 0.0022  & 0.8798  $\pm$ 0.0012  & 0.8139  $\pm$ 0.1031  \\
+        32 &  4 & 0.6384  $\pm$ 0.0037  & 0.7935  $\pm$ 0.0033  & 0.8986  $\pm$ 0.0037  & 0.9636  $\pm$ 0.0016  & 0.8799  $\pm$ 0.0009  & 0.8139  $\pm$ 0.1031  \\
+        32 &  2 & 0.6399  $\pm$ 0.0058  & 0.7924  $\pm$ 0.0024  & 0.8983  $\pm$ 0.0033  & 0.9629  $\pm$ 0.0023  & 0.8796  $\pm$ 0.0004  & 0.8135  $\pm$ 0.1023  \\
+        32 &  5 & 0.6350  $\pm$ 0.0077  & 0.7931  $\pm$ 0.0056  & 0.8981  $\pm$ 0.0022  & 0.9625  $\pm$ 0.0005  & 0.8792  $\pm$ 0.0011  & 0.8128  $\pm$ 0.1035  \\
+        256 & 2 & 0.6320  $\pm$ 0.0044  & 0.7971  $\pm$ 0.0000  & 0.8939  $\pm$ 0.0034  & 0.9587  $\pm$ 0.0018  & 0.8781  $\pm$ 0.0002  & 0.8120  $\pm$ 0.1023  \\
+      \bottomrule
+      \end{tabular}}
+      % \caption{\label{tab:pnn_hpo_aucs}
+      % \glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account difference
+      %   }
+        \end{center}
+    \end{table}
+  \end{frame}
+
+  \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
+    \centering
+    % \includegraphics[height=.9\textheight,keepaspectratio=true]{taulep_fullmass.pdf}
+    \small
+    % \begin{itemize}
+    %   \item Limits with previous ntuples shown
+    % \end{itemize}
+    \begin{columns}
+      \column{.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauEl_logx.png} \\
+      \centering
+      $\tau+e$
+      \column{.5\textwidth}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauMu_logx.png}\\
+      \centering
+      $\tau+\mu$
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
+    \centering
+    % \includegraphics[height=.9\textheight,keepaspectratio=true]{taulep_fullmass.pdf}
+    \small
+    \begin{columns}
+      \column{.5\textwidth}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauJets_logx.png} \\
+      \centering
+      $\tau+jets$
+      \column{.5\textwidth}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_TauLep_logx.png} \\
+      \centering
+      $\tau+\ell$
+    \end{columns}
+  \end{frame}
 
 \end{document}
