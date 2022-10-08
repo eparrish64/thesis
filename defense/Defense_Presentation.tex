@@ -57,14 +57,14 @@
 
 % if you want to disable section, subsection title page display, uncomment accordingly 
 \AtBeginSection[]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
+  % \begin{frame}
+  % \vfill
+  % \centering
+  % \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+  %   \usebeamerfont{title}\insertsectionhead\par%
+  % \end{beamercolorbox}
+  % \vfill
+  % \end{frame}
 }
 \AtBeginSubsection{}
 
@@ -382,6 +382,33 @@
 
 \section{Experimental Apparatus }
 
+  \begin{frame}[t]{Particle Collisions}
+    \begin{columns}[t]
+      \column{.5\textwidth}
+        \begin{itemize}
+          \item Most particles we are interested in are not stable and do not exist in our environment
+          \item Collide particles to study them and potentially new particles
+            \begin{itemize}
+              \item $E^2 = m^2c^4 + p^2c^2$
+            \end{itemize}
+          \item Hadronization
+          \begin{itemize}
+            \item Quarks cannot exist on their own
+            \item Must combine to form bound states
+            \item Combine shower into a \textit{jet}
+          \end{itemize}
+        \end{itemize}
+
+      \column{.5\textwidth}
+        \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter4_simulation/images/tth_hadronization_gen.png}
+        \caption{\tiny \cite{Wanotayaroj:2242196}}
+        \end{figure}
+
+    \end{columns}
+  \end{frame}
+
   \subsection{LHC }
 
     \begin{frame}[t]{Large Hadron Collider}
@@ -616,7 +643,7 @@
           \item Scintillating tile with steel absorber
           % \item Hadronic sampling calorimeter, covering $\abs{\eta} < 1.7$
           % \item Covers $\abs{\eta} < 1.7$
-          \item Important in jet, $\tau$, \Etm \, and $\mu$ identification and triggering
+          % \item Important in jet, $\tau$, \Etm \, and $\mu$ identification and triggering
           \item I served as Data Quality Co-Coordinator for several years
           \begin{itemize}
             \item In Run-2 $99.65\%$ DQ efficiency \cite{DQ-Run2}
@@ -627,13 +654,13 @@
       \vspace{-.2cm}
       \begin{columns}
       \column{.6\textwidth}
-      \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
       \column{.5\textwidth}
         \begin{figure}
           \begin{columns}
             \column{.95\textwidth}
             \centering
-            \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/TileModuleCrossSection.png}
+            \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/TileModuleCrossSection.png}
             \column{.05\textwidth}  
             \vspace{1cm}
             \caption{\tiny \cite{ATLAS-tile}}
@@ -704,31 +731,49 @@
       \end{columns}
     \end{frame}
 
-    % \begin{frame}[t]{Trigger System}
-    %  \begin{columns}
-    %   \column{.75\textwidth}
-    %     \begin{itemize}
-    %       \item
-    %     \end{itemize}
+    \begin{frame}[t]{\Etm and \bjets}
+     \begin{columns}
+      \column{.5\textwidth}
+        \begin{itemize}
+          \item Particles like $\nu$ do not leave a signature within ATLAS
+        \end{itemize}
 
-    %   \column{.25\textwidth}
+      \column{.5\textwidth}
+      \begin{itemize}
+        \item b quark initiated hadronic showers are identified by a displaced vertex
+      \end{itemize}
+      \begin{figure}[!ht]
+      \centering
+      \includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
+      % \caption{\tiny \cite{bjet-trigger}}
+      \end{figure}
+      \end{columns}
+    \end{frame}
 
-    %   \end{columns}
-    % \end{frame}
-
-% \section{Simulation }
+\section{Simulation }
   
-%   \begin{frame}[t]{Monte Carlo Simulation}
-%      \begin{columns}
-%       \column{.75\textwidth}
-%         \begin{itemize}
-%           \item
-%         \end{itemize}
+  \begin{frame}[t]{Simulation}
+     \begin{columns}[t]
+      \column{.5\textwidth}
+        \begin{itemize}
+          \item Incredibly detailed simulations are used to create analysis strategy
+            \begin{itemize}
+              \item Entire data flow from collision to detector readout is simulated
+            %   \item Thoroughly verified by many experiments and dedicated test beams
+            \end{itemize}
+          \item Control regions are used to verify simulation agreement with data
+        \end{itemize}
+        % \centering
+        % \includegraphics[width=.45\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter4_simulation/images/tth_hadronization_gen.png}
 
-%       \column{.25\textwidth}
-
-%       \end{columns}
-%   \end{frame}
+      \column{.5\textwidth}
+        \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter4_simulation/images/Simulation_Chain.png}
+        \caption{\tiny \cite{Wanotayaroj:2242196}}
+        \end{figure}
+      \end{columns}
+  \end{frame}
 
 % \section{Event Reconstruction }
   
@@ -777,9 +822,9 @@
               \begin{tabular}{l | l}
               \textbf{Backgrounds w/ prompt hadronic $\tau$} & \textbf{Backgrounds w/ fake $\tau$} \\
               \hline \hline
-              $t\bar{t}$ estimated with MC       & Fake $j \rightarrow \tau$ estimated with data driven fake factor method \\
-              $V+jets$ estimated with MC         & Fake $\ell \rightarrow \tau$ estimated with MC, validated on $Z \rightarrow ee$\\
-              VV estimated with MC & \\
+              $t\bar{t}$ estimated with simulation       & Fake $j \rightarrow \tau$ estimated with data driven fake factor method \\
+              $V+jets$ estimated with simulation         & Fake $\ell \rightarrow \tau$ estimated with simulation, validated on $Z \rightarrow ee$\\
+              VV estimated with simulation & \\
               \end{tabular}}
             \end{table}
             \item MVA score is used as the final discriminant 
@@ -846,16 +891,56 @@
       \end{columns}
     \end{frame}
 
-    \begin{frame}[t]{Signal Acceptance}
-      \begin{columns}
-      \column{.5\textwidth}
+  \begin{frame}[t]{Background Estimation}
+    \begin{columns}
+      \column{.6\textwidth}
+        \begin{itemize}
+          \item Control regions defined to verify main sources of background
+        \end{itemize}
+    \begin{table}[!thp]
+      \resizebox{.75\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c | c |} \hline
+                            & \ttbar CR     & W+Jets CR     & b-veto CR     & b-veto $m_{T} > 100$ CR               \\ \hline
+        Number of \tauhad   & 1             & 1             & 0             & 0                                     \\ \hline
+        $\pt^{\tau}$        & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV                           \\ \hline
+        Number of jets      & $\geq 3$      & $\geq 3$      & $\geq 3$      & $\geq 3$                              \\ \hline
+        $\pt^{jet}$         & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV                         \\ \hline
+        Number of \bjets    & $\geq 2$      & 0             & 0             & 0                                     \\ \hline
+        Number of $\ell$    & 0             & 0             & 0             & 0                                     \\ \hline
+        \Etm                & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV                           \\ \hline
+        $m_{T}(\tau, \Etm)$ & $< 100$ GeV   & $< 100$ GeV   & $> 50 GeV$    & $> 100$ GeV                           \\ \hline
+        Type of modeling    & \ttbar        & W+Jets        & Close to SR   & Fake $j \to \tau$ enriched            \\ \hline
+      \end{tabular}}
+      % \caption{Control region definitions for the \taujets subchannel.}
+      % \label{tab:taujet-control-regions}
+    \end{table}
 
-      \column{.5\textwidth}
-        \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAUJET.pdf}
-        \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAULEP.pdf}
 
-      \end{columns}
-    \end{frame}
+    \begin{table}[!thp]
+      \resizebox{.75\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c | c |} \hline
+                                & Dilepton-btag CR        & Zee CR                        & b-veto CR           & Same Sign CR                          \\ \hline
+        Number of \tauhad       & 0                       & 1                             & 0                   & 0                                     \\ \hline
+        $\pt^{\tau}$            & $ > 30$ GeV             & $ > 30$ GeV                   & $ > 30$ GeV         & $ > 30$ GeV                           \\ \hline
+        Number of jets          & $\geq 1$                & $\geq 1$                      & $\geq 1$            & $\geq 1$                              \\ \hline
+        $\pt^{jet}$             & $\geq 25$ GeV           & $\geq 25$ GeV                 & $\geq 25$ GeV       & $\geq 25$ GeV                         \\ \hline
+        Number of \bjets        & $\geq 1$                & 0                             & 0                   & $\geq 1$                              \\ \hline
+        Number of $\ell$        & 2 (1 $e$, 1 $\mu$)      & 1 $e$                         & 1 tight $e$ ($\mu$) & 1 tight $e$ ($\mu$)                   \\ \hline
+        \Etm                    & $> 50$ GeV              & $> 50$ GeV                    & $> 50$ GeV          & $> 50$ GeV                            \\ \hline
+        $\mathrm{mass}(\tau,e)$ & N/A                     & $> 40$; $< 140$ GeV           & N/A                 & N/A                                   \\ \hline
+        Type of modeling        & \ttbar and single-top   & Fake $\ell \to \tau$ enriched & Close to SR         & Fake $j \to \tau$ enriched            \\ \hline
+      \end{tabular}}
+      % \caption{Control region definitions for the \taulep subchannel.}
+      % \label{tab:taulep-control-regions}
+    \end{table}
+      \column{.4\textwidth}
+      \centering
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
+    \end{columns}
+  \end{frame}
 
   \subsection{ Fake Factors }
 
@@ -1143,7 +1228,7 @@
 
     \begin{frame}[t]{PNN Input Variable Selection}
       \begin{columns}
-      \column{.5\textwidth}
+      \column{.4\textwidth}
       \centering
       \begin{table}[!thp]
         \resizebox{.5\textwidth}{!}{
@@ -1187,7 +1272,7 @@
         % \label{tab:taulep-input-variables-high-v-low}
       \end{table}
 
-    \column{.5\textwidth}
+    \column{.6\textwidth}
     \begin{itemize}
       \item Comparison between raw input variables and engineered variables
       \item Expected limits in the \taulep subchannel was used as figure of merit
@@ -1197,7 +1282,7 @@
       % \end{itemize}
     \end{itemize}
     \centering
-    \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
+    \includegraphics[width=.7\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
 
     \end{columns}
     \end{frame}
@@ -1510,6 +1595,15 @@
       % \includegraphics[height=.26\textheight,keepaspectratio=true]{taujet_SR_2018/taujet_SR_500to2000_2018.png}
       % \includegraphics[height=.26\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_500to2000_2018.png}
       % \includegraphics[height=.26\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_500to2000_2018.png}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[c]{Signal Acceptance}
+    \begin{columns}[c]
+    \column{.5\textwidth}
+      \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAUJET.pdf}
+    \column{.5\textwidth}
+      \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAULEP.pdf}
     \end{columns}
   \end{frame}
 
