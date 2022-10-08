@@ -40,7 +40,7 @@
 
 % Author
 \author[Elliot Parrish]
-{\texorpdfstring{\underline{Elliot Parrish}}{Elliot Parrish}}
+{\texorpdfstring{\underline{Elliot Parrish}}{Elliot Parrish}\inst{\dag}}
 \hypersetup{pdfauthor={Elliot Parrish}}
 
 % - Give the names in the same order as the appear in the paper.
@@ -132,7 +132,7 @@
         \item The scientific field of particle physics seeks to explain the building blocks of the universe
         \begin{itemize}
           \item How many fundamental particles are there?
-          \item How do they interact with each other
+          \item How do they interact with each other?
         \end{itemize}
         \item The Standard Model of Particle Physics (SM)
         \begin{itemize}
@@ -163,9 +163,9 @@
     \end{columns}
   \end{frame}
 
-  \subsection{Higgs Mechanism}
+  \subsection{Higgs Boson}
 
-  \begin{frame}[t]{The Higgs Mechanism}
+  \begin{frame}[t]{The Higgs Boson}
     \begin{columns}
     \column{.5\textwidth}
       \begin{itemize}
@@ -179,14 +179,14 @@
       \end{itemize}
       \begin{figure}
         \includegraphics[width=.35\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/higgspotential.png}
-        \caption{\tiny Higgs potential \cite{Higgs-phys}}
+        \caption{\tiny \cite{Higgs-phys}}
       \end{figure}
     \column{.5\textwidth}
       % \vspace{-.80cm}
       \centering
       \begin{figure}
-        \includegraphics[height=.75\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.jpeg}
-        \caption{\tiny Higgs discovery \cite{higgs-discovery-atlas}}
+        \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.jpeg}
+        \caption{\tiny \cite{higgs-discovery-atlas}}
       \end{figure}
     \end{columns}
   \end{frame}
@@ -221,10 +221,10 @@
     \end{columns}
   \end{frame}
 
-  \subsection{BSM }
+  \subsection{New Physics }
 
     \begin{frame}[t]{Beyond the Standard Model}
-      \begin{columns}
+      \begin{columns}[t]
       \column{.8\textwidth}
         \begin{itemize}
           \item Hierarchy problem, ``unnaturalness''
@@ -241,7 +241,7 @@
           % \end{itemize}
           \item 2 Higgs Doublet Models and Supersymmetry (SUSY) are large groups of theories
           \begin{itemize}
-            \item 2HDM have two complex doublet scalar fields \tiny{\cite{2HDM}}
+            \item 2HDM have two complex doublet scalar fields \cite{2HDM}
             \begin{itemize}
               \item Two relevant free parameters, \tanb and \mHpm
               \item \tanb is the ratio of the vacuum expectation values of \Hpm
@@ -255,7 +255,7 @@
         \end{itemize}
       \column{.2\textwidth}
       \begin{centering}
-      \includegraphics[height=.3\textheight,keepaspectratio=true]{SUSY_Bubble.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{SUSY_Bubble.png}
       \end{centering}
       \centering
         \begin{table}[!thp]
@@ -367,7 +367,7 @@
       \end{columns}
     \end{frame} 
 
-    \begin{frame}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{\textcolor{blue}{JHEP 09(2018)139}} Limits on }
+    \begin{frame}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{\textcolor{blue}{JHEP 09(2018)139}} Limits on charged Higgs bosons}
       \begin{columns}
         \column{.5\textwidth}
         \centering
@@ -732,20 +732,30 @@
     \end{frame}
 
     \begin{frame}[t]{\Etm and \bjets}
-     \begin{columns}
+     \begin{columns}[t]
       \column{.5\textwidth}
         \begin{itemize}
           \item Particles like $\nu$ do not leave a signature within ATLAS
+          \item Instead, infer their presence through energy conservation
+          \begin{itemize}
+            \item Negative vector sum of all objects in a collision event
+          \end{itemize}
         \end{itemize}
+        \centering
+        \includegraphics[width=.5\textwidth,keepaspectratio=true]{MET_Diagram.png}
 
       \column{.5\textwidth}
       \begin{itemize}
         \item b quark initiated hadronic showers are identified by a displaced vertex
+        \item Reconstructed as a jet, tagged as a \bjet
+        \begin{itemize}
+          \item Algorithms designed to identify \bjets called taggers \cite{b-tagging}
+        \end{itemize}
       \end{itemize}
       \begin{figure}[!ht]
       \centering
-      \includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
-      % \caption{\tiny \cite{bjet-trigger}}
+      \includegraphics[width=.7\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
+      \caption{\tiny \cite{bjet-trigger}}
       \end{figure}
       \end{columns}
     \end{frame}
@@ -942,67 +952,6 @@
     \end{columns}
   \end{frame}
 
-  \subsection{ Fake Factors }
-
-    \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
-      \begin{columns}[t]
-      \column[t]{.8\textwidth}
-        \vspace{-3.5cm}
-        \begin{itemize}
-          \item Extract Fake-Factors $FF = \frac{N^{CR}_{\tau_{had-vis}}}{N^{CR}_{\bar{\tau}_{had-vis}}}$ from two orthogonal control regions:
-            \begin{table}
-              \tiny
-              \resizebox{.42\linewidth}{!}{
-              \rowcolors{1}{}{NIUgray}
-              \begin{tabular}{l | l} 
-              \textbf{Multi-Jet (gluon enriched)} & \textbf{W+Jets (quark enriched)} \\ 
-              \hline \hline
-              $E^{miss}_{T}$ or Multi-Jet trigger & Single lepton triggers \\
-              $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV & $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV \\
-              $\geq 3$  jets &  $\geq 1 $ jet\\
-              0 b-jets & 0 b-jets \\
-              % 0 $\ell$ & 1 $\ell$, $p^{\ell}_{T}>30$ GeV \\
-              % $E^{miss}_{T} < 80$ GeV & 1 $\tau$ \\
-              % $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV &  $60 < m_{T}(\ell,E^{miss}_{T}) < 160$ GeV\\
-              \end{tabular}}
-            \end{table}
-          \item Combine the two Fake-Factors via the template fit method:
-          \begin{itemize}
-            % \item $FF^{comb}_{i}=\alpha^{Multi-Jet}_{i} FF^{Multi-Jet}_{i} + [1-\alpha^{Multi-Jet}_{i}]FF^{W+jets}_{i}$
-            \item Find two separate templates for anti-$\tau$ in each CR
-            \item Fit both templates to the shape of the anti-$\tau$ in the SR
-            \item Lowest $\chi^2$ of the fit defines $\alpha_{MJ}$ value and the corresponding error
-          \end{itemize}
-        \end{itemize}
-            \centering
-            \footnotesize
-            $FF^{comb}_{i}=\alpha^{MJ}_{i} FF^{MJ}_{i} + [1-\alpha^{MJ}_{i}]FF^{W+jets}_{i}$
-          \begin{itemize}
-          \item Number of events with fake $\tau$ in the signal region is given by:
-        \end{itemize}
-          \centering
-          \footnotesize
-          $N^{\tau_{had-vis}}_{fakes} = \sum\limits_{i} N^{SR_{i}}_{\bar{\tau}_{had-vis}} FF_{i}$
-      \column{.195\textwidth}
-      \centering
-      \includegraphics[trim={1.cm 0.cm 43.65cm 0.cm},clip,width=1.2\textwidth]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
-        \begin{itemize}
-          \tiny
-          \item $\bar{\tau_{0}}$ jet width used in $\alpha$ fitting of 1-prong and 3-prong $\bar{\tau}$
-        \end{itemize}
-         \begin{table}
-          %   \tiny
-            \resizebox{.65\textwidth}{!}{
-            \rowcolors{1}{}{NIUgray}
-            \begin{tabular}{l}
-            \textbf{$\bar{\tau} \: ID$} \\
-            \hline \hline
-            $RNN \: Score > 0.01$ \\
-            Not loose \\
-            \end{tabular}}
-          \end{table}
-      \end{columns}
-    \end{frame}
 
     % \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
     %   \begin{columns}
@@ -1043,51 +992,34 @@
     % \end{frame}
 
   \subsection{ Background Modeling }
-    \begin{frame}[t]{$\tau+jets$ Background Modeling}
-      % PLOTS FROM TAUJET
+    \begin{frame}[t]{Background Modeling}
         \begin{columns}[t]
 
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_TTBAR.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_WJETS.png}
-
-        \column{.25\textwidth}
+        \column{.24\textwidth}
         \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_WJETS.png}
-
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO_MT100.png}
-
-
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_BVETO_MT100.png}
-        % \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_bveto100.png}
-
-      \end{columns}
-    \end{frame}
-
-    \begin{frame}[t]{$\tau+\ell$ Background Modeling}
-      % PLOTS FROM TAULEP
-      \begin{columns}[t]
-
-        \column{.25\textwidth}
         \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUEL_BVETO.png}
 
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_DILEP_BTAG.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_TAUEL_BVETO.png}
+        \column{.24\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png}
 
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUEL.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUMU.png}
-
-
-        \column{.25\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUEL.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUMU.png}
+        \column{.5\textwidth}
+          % \vspace{-2cm}
+          \vspace{-.45\textheight}
+          \begin{itemize}
+            \item \Etm distributions in control regions
+            \item Simulation agrees with data within errors
+            % \item 
+          \end{itemize}
+          \vspace{.2\textheight}
+          \begin{columns}
+            \column{.45\textwidth}
+              \hfill
+              \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png}
+            \column{.45\textwidth}
+              \hfill
+              \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png}
+          \end{columns}
 
       \end{columns}
     \end{frame}
@@ -1095,11 +1027,13 @@
   \subsection{ MVA }
 
     \begin{frame}[t]{Multivariate Analysis Techniques}
-      \begin{columns}
+      \begin{columns}[t]
         \column{.5\textwidth}
         \begin{itemize}
           \item Boosted Decision Tree (BDT)
           \begin{itemize}
+            \item Cascading decisions bin parameter space to optimize accuracy
+            \item Deterministic approach
             \item Excel at exploiting linear correlations
             \item Often combined into a random forest
           \end{itemize}
@@ -1109,31 +1043,50 @@
         \begin{itemize}
           \item Neural Networks
           \begin{itemize}
+            \item Network of connected nodes of activation functions connected by weights
+            % \begin{itemize}
+            %   \item 
+            % \end{itemize}
+            \item Probabilistic approach
             \item Excel at exploiting non-linear correlations
           \end{itemize}
         \end{itemize}
       \end{columns}
+
+      \begin{figure}
+        \begin{columns}
+        \column{.95\textwidth}
+        \centering
+        \includegraphics[height=.35\textheight,keepaspectratio=true]{BDT_vs_PNN_Diagram.png}
+        \column{.05\textwidth}
+        \caption{\tiny \cite{BDT-vs-PNN}}
+        \end{columns}
+      \end{figure}
     \end{frame}
 
     \begin{frame}[t]{Parameterized Neural Networks}
-      \begin{columns}
+      \begin{columns}[t]
       \column{.75\textwidth}
       \begin{itemize}
       \small
-      \item Background modeling and classifier training kept statistically independent via the k-fold method
-      \begin{itemize}
-        \item For this analysis $k=5$
-      \end{itemize}
-      \item Trained using MC for backgrounds with true $\tau$
-      \item Data-driven $j \rightarrow \tau$ fakes included for $\geq$ 500 GeV 
-      \item Parameterized Neural Networks (PNNs) can be trained and evaluated on an entire mass range
+      \item Parameterized Neural Networks (PNNs) can be trained and evaluated on entire \mHpm range
       \begin{itemize}
         \item Detailed information here: \href{https://arxiv.org/abs/1601.07913}{\textcolor{blue}{arXiv:1601.07913}}
       \end{itemize}
+      \item Background modeling and classifier training kept statistically independent via the k-fold method $(k=5)$
+      % \begin{itemize}
+      %   \item For this analysis $k=5$
+      % \end{itemize}
+      \item Trained using simulation for backgrounds with true $\tau$
+      \item Data-driven $j \rightarrow \tau$ fakes included for $\geq$ 500 GeV
       % \item Trained using Tensorflow backend for Keras
       % \item \mHpm is used as an input feature of the model
       % \item Allows one model to be used across entire \mHpm mass range
       \item Separate models trained on 1 prong and 3 prong $\tau$
+      \begin{itemize}
+        \item $\tau$ polarization used to enhance low \mHpm performance
+        \item $\Upsilon = \frac{ E^{\pi^{\pm}}_{T} - E^{\pi^{0}}_{T}}{E^{\tau}_{T}} \approx 2 \frac{\pt^{\tau-\mathrm{track}}}{\pt^{\tau}} -1$
+      \end{itemize}
       \item \taulep channel is trained inclusive for \tauel and \taumu
       % \item Many ongoing studies
       %   \begin{itemize}
@@ -1151,15 +1104,15 @@
       \begin{figure}
         \centering
         \begin{columns}
-        \column{.90\textwidth}
+        \column{.95\textwidth}
         \includegraphics[width=.9\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/PNN_Diagram.png}  
-        \column{.10\textwidth}
+        \column{.05\textwidth}
         \caption{\tiny \cite{PNN}}
         \end{columns}
       \end{figure}
-      \includegraphics[width=0.75\linewidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/kFoldDiagram_noValid.pdf}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/kFoldDiagram_noValid.pdf}
       \begin{table}
-        \resizebox{.65\linewidth}{!}{
+        \resizebox{.5\textwidth}{!}{
         \rowcolors{1}{}{NIUgray}
         \begin{tabular}{c | c | c |}
           \toprule
@@ -1173,10 +1126,10 @@
           \bottomrule
           \end{tabular}}
         \end{table}
-
+        \vspace{-0.2cm}
         % \column{.5\textwidth}
         \begin{table}
-        \resizebox{.65\linewidth}{!}{
+        \resizebox{.5\textwidth}{!}{
         \rowcolors{1}{}{NIUgray}
         \begin{tabular}{c | c | c |}
           \toprule
@@ -1214,7 +1167,9 @@
       \begin{itemize}
         \item One model for entire mass range makes analysis less computationally expensive
         \item PNN can be evaluated on mass points that are not simulated
-        \item Limits are preliminary, many fixes and changes have been implemented since
+        % \item Limits are preliminary, many fixes and changes have been implemented since
+        \item These comparisons were done with an optimized BDT and an unoptimized PNN
+        \item PNN chosen as classifier
       \end{itemize}
       \begin{columns}
       \column{.5\textwidth}
@@ -1302,7 +1257,7 @@
             \item $\Delta_{min}=0.00001$ and a patience of 10
             \item Best weights were kept
           \end{itemize}
-        \item To make hyperparameter optimization (HPO) go quicker, ran multiple small grids of hparams
+        \item To speed up hyperparameter optimization (HPO), ran multiple small grids of hyperparameters
         \begin{itemize}
           \item Scan over activation functions and loss functions
           % \begin{itemize}
@@ -1333,7 +1288,7 @@
         \item LeakyReLU activation function has an $\alpha$ parameter
         \item Slope of negative portion
         \begin{itemize}
-          \item Prevents neurons from "dying" by allowing negative weight values
+          \item Prevents neurons from ``dying" by allowing negative weight values
         \end{itemize}
         \item Standard relu is where $\alpha=0$
       \end{itemize}
@@ -1464,85 +1419,42 @@
       \end{columns}
     \end{frame}
 
-    
-
-  \subsection{Systematic Uncertainties }
-
-   \begin{frame}{Fake-factor method uncertainties}
-
-      \begin{flushleft}
-      Sources of systematic uncertainties associated with the FF method:
-      \end{flushleft}
-
-      \begin{itemize}
-        \begin{multicols}{2}
-        \item Statistical uncertainties
-        \item True $\mathrm{\tau}$ contamination in the anti-$\mathrm{\tau}$ CR
-        \item $\mathrm{\alpha_{MJ}}$ fitting procedure uncertainty
-        \item Smirnov transformation
-        \item Tau RNN Identification SF variation
-        \item Heavy flavor jet fraction
-        \end{multicols}
-      \end{itemize}
-
-      \begin{table}[!htb]
-        \begin{center}
-          \resizebox{.75\textwidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-          \begin{tabular}{l|c|c||c|c||}
-            &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
-            \hline
-            Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
-            \hline\hline
-            Fake factors: statistical uncertainties & 3.9$\%$ & \textcolor{red}{\ding{55}} & 3.2$\%$ & \textcolor{red}{\ding{55}}\\\hline
-            Fake factors: True \tauhad in the anti-\tauhad CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\ding{55}} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\ding{55}}\\\hline
-            Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\ding{51}} & 2.7$\%$ & \textcolor{red}{\ding{51}}\\\hline
-            Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\ding{55}} & 1.9\% & \textcolor{red}{\ding{55}}\\\hline
-            Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\ding{51}} & 0$\%$ & \textcolor{red}{\ding{51}}\\\hline          
-            Fake factors: heavy flavor jet fraction & 6$\%$ & \textcolor{red}{\ding{51}} & 5.53$\%$ & \textcolor{red}{\ding{51}}\\
-          \end{tabular}}
-        \end{center}
-        % \caption{\label{tab:FF-syst-uncert}
-          % Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
-          % factor method, used to estimate the $j \to \tau$ background in the
-         % \taujets and \taulep channel.
-          % }
-      \end{table}
-
-      % \begin{flushleft}
-      % % Evaluation of actual effect on the new PNN discriminant shape variation and the yields for uncertainty from heavy flavor jet fraction is work in progress.
-      % \end{flushleft}
-    \end{frame}
-
-    \begin{frame}[t]{Sources of Systematic Uncertainty}
-      \textcolor{red}{Table with systs}
-    \end{frame}
-
   \subsection{Results }
 
     \begin{frame}[t]{PNN Results}
+      \begin{columns}[t]
+        \column{.3\textwidth}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_80to80_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAULEP.png}
 
-    \end{frame}
+        \column{.3\textwidth}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_170to170_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SR_TAULEP.png}
 
-    \begin{frame}[t]{Expected Yields}
-
+        \column{.3\textwidth}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1000to1000_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SR_TAULEP.png}
+      \end{columns}
     \end{frame}
 
     \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
       \centering
       \includegraphics[height=.75\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/139_vs_36_analysis_limits_PNN_vs_BDT_Combined_logx.png} \\
       \centering
-      Combined
+      Combined \taujets and \taulep signal regions
     \end{frame}
 
 \section{Conclusion }
 
   \begin{frame}[t]{Conclusions}
     \begin{itemize}
-      \item New analysis strategy outperforms previous analysis by a factor of \textcolor{red}{XX}
-      \item Analysis is still blinded
-      \item Paper will be published soon
+      \item A search for \HpmLong was improved upon
+      \item Investigated, optimized, and implemented modern machine learning techniques 
+      \item New analysis strategy outperforms previous analysis by $>3\times$
+      \item Analysis is still blinded and work is ongoing towards a publication
     \end{itemize}
+    \centering
+    \includegraphics[height=.5\textheight,keepaspectratio=true]{ATLAS_Tour.jpg}
   \end{frame}
 
   \begin{frame}{Thank You}
@@ -1550,6 +1462,7 @@
     \includegraphics[height=7.4cm, keepaspectratio=true]{CERN_globe.jpeg}
   \end{frame}
 
+  \subsection { }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1607,6 +1520,118 @@
     \end{columns}
   \end{frame}
 
+  \begin{frame}[t]{$\tau+jets$ Background Modeling}
+      % PLOTS FROM TAUJET
+        \begin{columns}[t]
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_TTBAR.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_WJETS.png}
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_WJETS.png}
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO_MT100.png}
+
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_BVETO_MT100.png}
+        % \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_bveto100.png}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{ Fake Factors }
+
+    \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
+      \begin{columns}[t]
+      \column[t]{.8\textwidth}
+        \vspace{-3.5cm}
+        \begin{itemize}
+          \item Extract Fake-Factors $FF = \frac{N^{CR}_{\tau_{had-vis}}}{N^{CR}_{\bar{\tau}_{had-vis}}}$ from two orthogonal control regions:
+            \begin{table}
+              \tiny
+              \resizebox{.42\linewidth}{!}{
+              \rowcolors{1}{}{NIUgray}
+              \begin{tabular}{l | l} 
+              \textbf{Multi-Jet (gluon enriched)} & \textbf{W+Jets (quark enriched)} \\ 
+              \hline \hline
+              $E^{miss}_{T}$ or Multi-Jet trigger & Single lepton triggers \\
+              $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV & $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV \\
+              $\geq 3$  jets &  $\geq 1 $ jet\\
+              0 b-jets & 0 b-jets \\
+              % 0 $\ell$ & 1 $\ell$, $p^{\ell}_{T}>30$ GeV \\
+              % $E^{miss}_{T} < 80$ GeV & 1 $\tau$ \\
+              % $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV &  $60 < m_{T}(\ell,E^{miss}_{T}) < 160$ GeV\\
+              \end{tabular}}
+            \end{table}
+          \item Combine the two Fake-Factors via the template fit method:
+          \begin{itemize}
+            % \item $FF^{comb}_{i}=\alpha^{Multi-Jet}_{i} FF^{Multi-Jet}_{i} + [1-\alpha^{Multi-Jet}_{i}]FF^{W+jets}_{i}$
+            \item Find two separate templates for anti-$\tau$ in each CR
+            \item Fit both templates to the shape of the anti-$\tau$ in the SR
+            \item Lowest $\chi^2$ of the fit defines $\alpha_{MJ}$ value and the corresponding error
+          \end{itemize}
+        \end{itemize}
+            \centering
+            \footnotesize
+            $FF^{comb}_{i}=\alpha^{MJ}_{i} FF^{MJ}_{i} + [1-\alpha^{MJ}_{i}]FF^{W+jets}_{i}$
+          \begin{itemize}
+          \item Number of events with fake $\tau$ in the signal region is given by:
+        \end{itemize}
+          \centering
+          \footnotesize
+          $N^{\tau_{had-vis}}_{fakes} = \sum\limits_{i} N^{SR_{i}}_{\bar{\tau}_{had-vis}} FF_{i}$
+      \column{.195\textwidth}
+      \centering
+      \includegraphics[trim={1.cm 0.cm 43.65cm 0.cm},clip,width=1.2\textwidth]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
+        \begin{itemize}
+          \tiny
+          \item $\bar{\tau_{0}}$ jet width used in $\alpha$ fitting of 1-prong and 3-prong $\bar{\tau}$
+        \end{itemize}
+         \begin{table}
+          %   \tiny
+            \resizebox{.65\textwidth}{!}{
+            \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{l}
+            \textbf{$\bar{\tau} \: ID$} \\
+            \hline \hline
+            $RNN \: Score > 0.01$ \\
+            Not loose \\
+            \end{tabular}}
+          \end{table}
+      \end{columns}
+    \end{frame}
+
+
+    \begin{frame}[t]{$\tau+\ell$ Background Modeling}
+      % PLOTS FROM TAULEP
+      \begin{columns}[t]
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_DILEP_BTAG.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUEL.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUMU.png}
+
+
+        \column{.25\textwidth}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUEL.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
   \begin{frame}{PNN Hyperparameter Optimization Results}
     \begin{table}
       \begin{center}
@@ -1640,6 +1665,133 @@
         \end{center}
     \end{table}
   \end{frame}
+
+
+ \subsection{Systematic Uncertainties }
+
+   \begin{frame}{Fake-factor method uncertainties}
+
+      \begin{flushleft}
+      Sources of systematic uncertainties associated with the FF method:
+      \end{flushleft}
+
+      \begin{itemize}
+        \begin{multicols}{2}
+        \item Statistical uncertainties
+        \item True $\mathrm{\tau}$ contamination in the anti-$\mathrm{\tau}$ CR
+        \item $\mathrm{\alpha_{MJ}}$ fitting procedure uncertainty
+        % \item Smirnov transformation
+        \item Tau RNN Identification SF variation
+        \item Heavy flavor jet fraction
+        \end{multicols}
+      \end{itemize}
+
+      \begin{table}[!htb]
+        \begin{center}
+          \resizebox{.75\textwidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{l|c|c||c|c||}
+            &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
+            \hline
+            Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
+            \hline\hline
+            Fake factors: statistical uncertainties & 3.9$\%$ & \textcolor{red}{\ding{55}} & 3.2$\%$ & \textcolor{red}{\ding{55}}\\\hline
+            Fake factors: True \tauhad in the anti-\tauhad CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\ding{55}} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\ding{55}}\\\hline
+            Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\ding{51}} & 2.7$\%$ & \textcolor{red}{\ding{51}}\\\hline
+            Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\ding{55}} & 1.9\% & \textcolor{red}{\ding{55}}\\\hline
+            % Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\ding{51}} & 0$\%$ & \textcolor{red}{\ding{51}}\\\hline          
+            Fake factors: heavy flavor jet fraction & 6$\%$ & \textcolor{red}{\ding{51}} & 5.53$\%$ & \textcolor{red}{\ding{51}}\\ \hline
+          \end{tabular}}
+        \end{center}
+        % \caption{\label{tab:FF-syst-uncert}
+          % Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
+          % factor method, used to estimate the $j \to \tau$ background in the
+         % \taujets and \taulep channel.
+          % }
+      \end{table}
+
+      % \begin{flushleft}
+      % % Evaluation of actual effect on the new PNN discriminant shape variation and the yields for uncertainty from heavy flavor jet fraction is work in progress.
+      % \end{flushleft}
+    \end{frame}
+
+
+  \begin{frame}[t]{Sources of Systematic Uncertainty}
+      \begin{table}
+      % \begin{center}
+      \resizebox{0.5\textwidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| l | c | c | c | c | c | c |}
+      \hline
+      Source                                  &   \multicolumn{6}{c|}{Impact on the expected event yield (\%)}  \\ \cline{2-7}
+                                              &   \multicolumn{2}{c|}{\taujets}                                                                       &   \multicolumn{2}{c|}{\tauel}                                                                       &   \multicolumn{2}{c|}{\taumu}     \\ \cline{2-7}
+                                              &   \ttbar                                          &  \Hpm 200 GeV                                     &   \ttbar                                        &   \Hpm 200 GeV                                    &   \ttbar                                          &   \Hpm 200 GeV                                      \\ \hline \hline
+      \tauhad reconstruction efficiency       &   $\pm$1.24                                       &  $\pm$1.22                                        &   $\pm$1.23                                     &   \begin{tabular}{c}+1.22 \\ -1.23 \end{tabular}  &   $\pm$1.23                                       &   $\pm$1.22                                         \\ \cline{2-7}
+      \tauhad-id                              &   $\pm$1.79                                       &  $\pm$0.52                                        &   $\pm$1.40                                     &   $\pm$0.50                                       &   $\pm$1.40                                       &   $\pm$0.48                                         \\ \cline{2-7}
+      \tauhad energy scale                    &   \begin{tabular}{c}+2.53 \\ -2.80 \end{tabular}  &   \begin{tabular}{c}+2.00 \\ -1.66 \end{tabular}  & \begin{tabular}{c}+1.60 \\ -1.44 \end{tabular}  &   \begin{tabular}{c}+1.28 \\ -1.66 \end{tabular}  &   \begin{tabular}{c}+1.53 \\ -1.39 \end{tabular}  &   \begin{tabular}{c}+1.72 \\ -1.46 \end{tabular}    \\ \hline
+      \tauhad energy scale (detector)         &   \begin{tabular}{c}+1.96 \\ -1.55 \end{tabular}  &   \begin{tabular}{c}+1.64 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.5 \end{tabular}     \\ \cline{2-7}
+      \tauhad energy scale (in-situ)          &   \begin{tabular}{c}+1.44 \\ -1.43 \end{tabular}  &   \begin{tabular}{c}+0.22 \\ -0.74 \end{tabular}  & \begin{tabular}{c}+1.17 \\ -1.20 \end{tabular}  &   \begin{tabular}{c}+0.74 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+1.14 \\ -1.15 \end{tabular}  &   \begin{tabular}{c}+0.54 \\ -0.37 \end{tabular}    \\ \cline{2-7}
+      \tauhad energy scale (model)            &   \begin{tabular}{c}+0.56 \\ -0.61 \end{tabular}  &   -0.06                                           & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.50 \end{tabular}    \\ \cline{2-7}
+      \tauhad energy scale (physics list)     &   \begin{tabular}{c}+1.27 \\ -1.26 \end{tabular}  &   -0.72                                           & \begin{tabular}{c}+0.74 \\ -0.65 \end{tabular}  &   \begin{tabular}{c}+0.67 \\ -0.25 \end{tabular}  &   \begin{tabular}{c}+0.72 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+0.83 \\ -0.60 \end{tabular}    \\ \hline
+      jet uncertainties                       &   \begin{tabular}{c}+7.38 \\ -8.39 \end{tabular}  &   \begin{tabular}{c}+6.51 \\ -9.06 \end{tabular}  & \begin{tabular}{c}+3.41 \\ -3.31 \end{tabular}  &   \begin{tabular}{c}+4.49 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+3.18 \\ -3.24 \end{tabular}  &   \begin{tabular}{c}+3.67 \\ -2.96 \end{tabular}    \\ 
+      \Etm soft term scale/resolution         &   \begin{tabular}{c}+1.31 \\ -1.12 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.29 \\ -0.24 \end{tabular}  &   \begin{tabular}{c}+0.88 \\ -0.34 \end{tabular}  &   \begin{tabular}{c}+0.30 \\ -0.23 \end{tabular}  &   \begin{tabular}{c}+0.21 \\ -0.11 \end{tabular}    \\  
+      trigger                                 &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   $\pm$0.03                                       & 0                                               &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$56                                           \\ \hline
+      $e$-id                                  &   0                                               &   0                                               & $\pm$0.71                                       &   $\pm$0.73                                       &   0                                               &   0                                                 \\ \hline
+      $\mu$-id/reconstruction/isolation       &   0                                               &   0                                               & \begin{tabular}{c}0 \\ -0.01 \end{tabular}  &   \begin{tabular}{c}0 \\ -0.11 \end{tabular}  &   \begin{tabular}{c}+0.97 \\ -1.40 \end{tabular}  &   \begin{tabular}{c}+1.00 \\ -2,94 \end{tabular}    \\
+      $\mu$ MS                                &   0                                               &   0                                               & 0                                               &   0                                               &   \begin{tabular}{c}+0.09 \\ -0.12 \end{tabular}  &   \begin{tabular}{c}+0.40 \\ -0.34 \end{tabular}        \\
+      \hline
+      \end{tabular}}
+      % \caption{\label{tab:sys_ttbar_signal}
+      % Effect of the main systematic uncertainties on the expected event yield for \ttbar and signal events ($\mHpm= 200$ GeV) passing the nominal event selection of the three \glspl{SR}. The three components of the \tauhad energy scale uncertainty are shown in the table. Impacts are shown in percent change with respect to the nominal \gls{SR} selections.
+      % }
+      % \end{center}
+    \end{table}
+    \end{frame}
+
+
+    \begin{frame}[t]{Expected Yields}
+      \begin{columns}
+      \column{.4\textwidth}
+
+        \begin{itemize}
+          \item Analysis is still blinded
+          \begin{itemize}
+            \item Ongoing work with the internal ATLAS review process
+          \end{itemize}
+          \item Expected number of events from each background source and two arbitrary \mHpm points
+          \item PNN is used to separate signal from background
+        \end{itemize}
+
+      \column{.6\textwidth}
+      \centering
+      \begin{table}
+        % \begin{center}
+        % \caption{\label{tab:event_yields_SR_taulep} Expected event yields for the backgrounds and a hypothetical \Hpm signal after applying all \taulep selection criteria, and comparison with \LUMI of data. The values shown for the signal assuming a charged Higgs boson mass of 170 GeV and 1000 GeV, with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ corresponding to $\tanb=40$ in the hMSSM benchmark scenario. Statistical and Systematic uncertainties are quoted, respectively.
+        % }
+        % \resizebox{\textwidth}{!}{
+        \resizebox{\textwidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l|r|r|r}
+        \textbf{Sample} &  \textbf{Event yields \taujets} & \textbf{Event yields \tauel}  & \textbf{Event yields \taumu} \\
+        \hline
+        % True \tauhad  & \\
+        $t\bar{t}$ & $\phantom{}18443.27\phantom{.0}\pm\phantom{0}48.35\phantom{.0}\phantom{0}\begin{tabular}{c}+1545.67 \\-1697.11\end{tabular}$ & $43813.50\phantom{.0}\pm\phantom{0}76.85\phantom{.0}\phantom{0}\begin{tabular}{c}+1749.82 \\-1833.87\end{tabular}$ & $44486.48\phantom{.0}\pm\phantom{0}75.33\phantom{.0}\phantom{0}\begin{tabular}{c}+1811.78 \\-1907.08\end{tabular}$  \\ \hline
+        Single-top-quark  & $\phantom{0}2284.34\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+184.69 \\-207.49\end{tabular}$ & $\phantom{0}3260.52\phantom{.0}\pm\phantom{0}20.81\phantom{.0}\phantom{0}\begin{tabular}{c}+124.27 \\-134.66\end{tabular}$ & $\phantom{0}3873.35\phantom{.0}\pm\phantom{0}22.06\phantom{.0}\phantom{0}\begin{tabular}{c}+158.03 \\-165.92\end{tabular}$  \\ \hline
+        $W \to \tau\nu$ & $\phantom{0}1979.17\phantom{.0}\pm\phantom{0}23.63\phantom{.0}\phantom{0}\begin{tabular}{c}+179.85 \\-229.80\end{tabular}$ & $\phantom{0000}2.41\phantom{.0}\pm\phantom{00}0.56\phantom{.0}\phantom{0}\begin{tabular}{c}+0.22 \\-2.15\end{tabular}$ & $\phantom{0000}0.07\phantom{.0}\pm\phantom{00}0.12\phantom{.0}\phantom{0}\begin{tabular}{c}+0.08 \\-0.16\end{tabular}$  \\ \hline
+        $Z \to \tau\tau$ & $\phantom{00}242.12\phantom{.0}\pm\phantom{00}5.50\phantom{.0}\phantom{0}\begin{tabular}{c}+24.27 \\-32.88\end{tabular}$  & $\phantom{00}913.55\phantom{.0}\pm\phantom{0}20.42\phantom{.0}\phantom{0}\begin{tabular}{c}+64.56 \\-149.42\end{tabular}$  & $\phantom{00}845.89\phantom{.0}\pm\phantom{0}22.07\phantom{.0}\phantom{0}\begin{tabular}{c}+88.71 \\-111.03\end{tabular}$ \\ \hline
+        Diboson ($WW, WZ, ZZ$) & $\phantom{00}133.76\phantom{.0}\pm\phantom{00}4.69\phantom{.0}\phantom{0}\begin{tabular}{c}+9.47 \\-12.61\end{tabular}$ &  $\phantom{000}72.64\phantom{.0}\pm\phantom{00}1.52\phantom{.0}\phantom{0}\begin{tabular}{c}+5.25 \\-3.91\end{tabular}$ & $\phantom{000}80.81\phantom{.0}\pm\phantom{00}1.53\phantom{.0}\phantom{0}\begin{tabular}{c}+5.40 \\-6.45\end{tabular}$ \\ \hline
+        Misidentified $e,\,\mu \to \tauhad$   & $\phantom{00}328.89\phantom{.0}\pm\phantom{00}6.85\phantom{.0}\phantom{0}\begin{tabular}{c}+25.60 \\-34.58\end{tabular}$ &   $\phantom{0}1083.97\phantom{.0}\pm\phantom{0}24.33\phantom{.0}\phantom{0}\begin{tabular}{c}+41.65 \\-73.42\end{tabular}$ & $\phantom{0}1060.30\phantom{.0}\pm\phantom{0}15.84\phantom{.0}\phantom{0}\begin{tabular}{c}+43.44 \\-70.69\end{tabular}$ \\ \hline
+        Misidentified $\mbox{jet} \to \tauhad$ & $\phantom{0}2506.28\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+130.53 \\-133.40\end{tabular}$ &   $\phantom{0}8662.43\phantom{.0}\pm\phantom{0}37.49\phantom{.0}\phantom{0}\begin{tabular}{c}+450.65 \\-470.53\end{tabular}$ & $\phantom{0}8426.64\phantom{.0}\pm\phantom{0}37.12\phantom{.0}\phantom{0}\begin{tabular}{c}+440.04 \\-459.88\end{tabular}$ \\ \hline
+        All backgrounds  & $25917.83\phantom{.0}\pm\phantom{0}59.82\phantom{.0}\phantom{0}\begin{tabular}{c}+1572.87 \\-1730.97\end{tabular}$ &  $57809.03\phantom{.0}\pm\phantom{0} 93.57\phantom{.0}\phantom{0}\begin{tabular}{c}+1812.82 \\-1846.46\end{tabular}$ & $58773.63\phantom{.0}\pm\phantom{0} 90.99\phantom{.0}\phantom{0}\begin{tabular}{c}+1873.75 \\-1970.06\end{tabular}$ \\ \hline
+        \hline
+        \Hpm $\phantom{0}$(170 GeV), hMSSM $\tanb=40$ & $\phantom{0}1075.81\phantom{.0}\pm\phantom{0}9.12\phantom{.0}\phantom{0}\begin{tabular}{c}+82.89 \\-79.19\end{tabular}$ & $\phantom{0}598.17\phantom{.0}\pm\phantom{0}6.60\phantom{.0}\phantom{0}\begin{tabular}{c}+20.84 \\-22.52\end{tabular}$ & $\phantom{0}702.21\phantom{.0}\pm\phantom{0}6.93\phantom{.0}\phantom{0}\begin{tabular}{c}+22.39 \\-16.12\end{tabular}$ \\
+        \Hpm (1000 GeV), hMSSM $\tanb=40$ & $\phantom{000}12910.36\phantom{0.}\pm\phantom{00}59.30\phantom{0.}\phantom{0}\begin{tabular}{c}+784.57 \\-720.17\end{tabular}$ &   $\phantom{0000}938.90\phantom{0.}\pm\phantom{00}13.25\phantom{0.}\phantom{0}\begin{tabular}{c}+48.99 \\-37.72\end{tabular}$ & $\phantom{0000}1024.06\phantom{0.}\pm\phantom{00}13.21\phantom{0.}\phantom{0}\begin{tabular}{c}+48.42 \\-57.01\end{tabular}$ \\
+        \hline
+        \end{tabular}}
+        % \end{center}
+      \end{table}
+      \end{columns}
+    \end{frame}
 
   \begin{frame}{$H^{\pm} \rightarrow \tau\nu$ Expected Limits}
     \centering
