@@ -23,6 +23,8 @@
 \addbibresource{biblio.bib}
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+\captionsetup[table]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+% \setbeamertemplate{caption}{\insertcaption}
 
 % \bibliography{biblio.bib}
 
@@ -136,12 +138,13 @@
         \begin{itemize}
           \item Matter is comprised of fermions
             \begin{itemize}
-              \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
+              % \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
+              \item Quarks combine to create hadrons (protons, neutrons, $\pi^{\pm,0}$, etc)
               \item Anti-matter is identical to matter except for opposite electromagnetic charge
             \end{itemize}
           \item Forces are carried by an exchange of bosons
             \begin{itemize}
-              \item Integer spin $(s=0,1,2,etc.)$
+              % \item Integer spin $(s=0,1,2,etc.)$
               \item Gluon (g) $\to$ Strong force
               \item Photon ($\gamma$) $\to$ Electromagnetism
               \item $W^{\pm},Z^{0}$ $\to$ Weak force
@@ -153,8 +156,9 @@
       \begin{figure}
         \centering
         \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Atom_to_Quark_Cartoon.png}
-        \caption{\tiny\cite{atom-to-quark}}
-        \includegraphics[width=\textwidth,keepaspectratio=true]{STDM higgs and field D.png}
+        \caption{\tiny\cite{atom-to-quark} \cite{SM-Diagram}}
+        % \includegraphics[width=\textwidth,keepaspectratio=true]{STDM higgs and field D.png}
+        \includegraphics[height=.4\textheight,keepaspectratio=true]{SM High Res.jpeg}
       \end{figure}
     \end{columns}
   \end{frame}
@@ -217,9 +221,9 @@
     \end{columns}
   \end{frame}
 
-  \subsection{Supersymmetry }
+  \subsection{BSM }
 
-    \begin{frame}[t]{Supersymmetry}
+    \begin{frame}[t]{Beyond the Standard Model}
       \begin{columns}
       \column{.8\textwidth}
         \begin{itemize}
@@ -228,21 +232,25 @@
             % \item Large Higgs mass terms cancel to give $\sim 125$ GeV
             \item Electroweak scale is $\sim 100$ GeV
             \item Planck scale is $\sim 2.4 \times 10^{18}$ GeV
-            \item Supersymmetry (SUSY) offers many new particles to occupy the intermediate range
+            % \item Supersymmetry (SUSY) offers many new particles to occupy the intermediate range
           \end{itemize}
-          \item SUSY proposes a symmetry between fermions and bosons (spin)
+          % \item SUSY proposes a symmetry between fermions and bosons (spin)
+          % \begin{itemize}
+          %   \item $Fermion \Rightarrow Boson$ 
+          %   \item $Boson \Rightarrow Fermion$
+          % \end{itemize}
+          \item 2 Higgs Doublet Models and Supersymmetry (SUSY) are large groups of theories
           \begin{itemize}
-            \item $Fermion \Rightarrow Boson$ 
-            \item $Boson \Rightarrow Fermion$
-          \end{itemize}
-          \item SUSY is a large group of theories
-          \begin{itemize}
-            \item Minimal Supersymmetric Standard Model (MSSM) is the smallest SUSY extension to the SM
-            \item 2 Higgs Doublet Models have two complex doublet scalar fields \tiny{\cite{2HDM}}
+            \item 2HDM have two complex doublet scalar fields \tiny{\cite{2HDM}}
             \begin{itemize}
               \item Two relevant free parameters, \tanb and \mHpm
               \item \tanb is the ratio of the vacuum expectation values of \Hpm
             \end{itemize}
+            \item SUSY proposes a symmetry between fermions and bosons
+              \begin{itemize}
+                \item Many new possible particles
+                \item Minimal Supersymmetric Standard Model (MSSM) is the smallest SUSY extension to the SM
+              \end{itemize}
           \end{itemize}
         \end{itemize}
       \column{.2\textwidth}
@@ -377,26 +385,60 @@
   \subsection{LHC }
 
     \begin{frame}[t]{Large Hadron Collider}
-      \begin{columns}
-        \column{.65\textwidth}
+      \begin{columns}[t]
+        \column{.5\textwidth}
           \begin{itemize}
             \item Largest particle collider ever built
             \item Highest energy particle collider
-              \begin{itemize}
-                \item Center of mass energy of 13 TeV
-              \end{itemize}
-            \item 27 km circular hadron collider located at CERN outside of Geneva, Switzerland
+              % \begin{itemize}
+              %   \item Center of mass energy of 13 TeV
+              % \end{itemize}
+            \item Located at CERN outside of Geneva, Switzerland
+            \item Four main collision points
+            \begin{itemize}
+              \item \textbf{ATLAS}, ALICE, CMS, LHCb
+            \end{itemize}
           \end{itemize}
-
-        \column{.35\textwidth}
           \centering
-          \begin{figure}
-          \includegraphics[width=.75\textwidth,keepaspectratio=true]{LHC.png}
 
-          \end{figure}
+          \begin{table}[!thp]
+            \begin{columns}
+            \column{.95\textwidth}
+            \centering
+            \resizebox{\textwidth}{!}{
+            \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{| l | l |}  
+            \hline
+            Circumference                   & $26,659$ m          \\  \hline
+            Magnet operating temperature    & $1.9$ K             \\  \hline
+            % Dipole magnets                & $1232$            \\  \hline
+            % Quadrapole magnets            & $392$             \\  \hline
+            % Radiofrequency cavities       & $16$ ($8$ per beam)       \\  \hline
+            Beam energy                     & $6.5$ TeV ($13$ CM TeV)     \\ \hline
+            Protons per bunch               & $1.2 \times 10^{11}$      \\ \hline
+            Bunches per beam                & $2808$            \\ \hline
+            % Revolutions per second        & $11245$             \\ \hline
+            % Speed of bunches                & $>1 \times 10^9$ km/hr ($\simeq99.999\% \, c$) \\ \hline
+            Speed of bunches                & $> 1,000,000,000$ km/hr ($\simeq99.999\% \, c$) \\ \hline
+            % Collisions per second           & $1,000,000,000$         \\ \hline
+            \end{tabular}}
+            \column{.05\textwidth}
+            \caption{\tiny \cite{lhc-facts}}
+            \end{columns}
+          \end{table}
+          
+        \column{.5\textwidth}
+          \centering
+          % \begin{figure}
+          % \includegraphics[width=.75\textwidth,keepaspectratio=true]{LHC.png}
+
+          % \end{figure}
+
           \begin{figure}
+          \begin{centering}
           \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/CERN-complex.png}
           \caption{\tiny \cite{CERN-complex}}
+          \end{centering}
           \end{figure}
 
       \end{columns}
@@ -405,104 +447,302 @@
   \subsection{ATLAS }
 
     \begin{frame}[t]{The ATLAS Detector}
-      \begin{columns}
-      \column{.75\textwidth}
+      \begin{columns}[t]
+      \column{.4\textwidth}
         \begin{itemize}
-          \item
+          \item General purpose particle detector
+            \begin{itemize}
+              \item Magnet System
+              \item Tracker
+              \item Calorimeters
+              \item Muon Spectrometer
+            \end{itemize}
+          \item Coordinate system origin at interaction point
+          \begin{itemize}
+            \item r is radial distance
+            \item $\eta \equiv - \mathrm{ln}(\mathrm{tan}(\frac{\theta}{2}))$
+            \item $\phi$ is azimuthal angle
+          \end{itemize}
+          \item Complex machine with $\sim3,000$ scientific authors
         \end{itemize}
 
-      \column{.25\textwidth}
-
+      \column{.6\textwidth}
+        % \includegraphics[width=.95\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_3d_run3.png}
+        % \vspace{1cm}
+        \begin{figure}
+        \begin{centering}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{ATLAS_Full_Diagram.jpg}
+        % \includegraphics[height=.35\textheight,keepaspectratio=true]{ATLASCrossSectionDiagram.png}
+        \end{centering}
+        \caption{\tiny \cite{atlas-schematics} \cite{pseudorapidity}}
+        \end{figure}
       \end{columns}
     \end{frame}
 
-    \begin{frame}[t]{Inner Detector}
-     \begin{columns}
-      \column{.75\textwidth}
+    % \begin{frame}[t]{Inner Detector}
+    %  \begin{columns}[t]
+    %   \column{.45\textwidth}
+    %     \begin{itemize}
+    %       \item Tracks trajectories of charged particles
+    %       \begin{itemize}
+    %           \item Measures momentum in the transverse plane (\pt)
+    %       \end{itemize}
+    %     \end{itemize}
+
+    %   \centering
+    %   \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+
+    %   \column{.55\textwidth}
+    %   % \hspace{2cm}
+    %   \begin{figure}
+    %     \begin{columns}
+    %       \column{.95\textwidth}
+    %         \centering
+    %         \includegraphics[height=.2\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Highlight_Run2}
+    %       \column{.05\textwidth}
+    %         \caption{\tiny \cite{atlas-schematics}}
+    %     \end{columns}
+    %   \end{figure}
+    %   \begin{figure}
+    %     \includegraphics[height=.47\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Run2}
+    %     \caption{\tiny \cite{atlas-schematics}}
+    %   \end{figure}
+    %   \end{columns}
+    % \end{frame}
+
+    \begin{frame}[t]{Magnet System and Inner Detector}
+     \begin{columns}[t]
+      \column{.5\textwidth}
+      \begin{itemize}
+        \item Central solenoid
         \begin{itemize}
-          \item
+          \item 2 T magnetic field
+          \item Bends charged particles in transverse plane
         \end{itemize}
+        \item Toroid system
+        \begin{itemize}
+          \item 3.9 T magnetic field
+          \item Bends charged particles ($\mu$) along beam axis
+        \end{itemize}
+      \end{itemize}
 
-      \column{.25\textwidth}
+      % \begin{columns}
+        % \column{.5\textwidth}
+        % \centering
+        % \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+        % \column{.5\textwidth}
+        \vspace{-.3cm}
+        \begin{figure}
+        \begin{columns}
+        \column{.95\textwidth}
+        \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/magnetSystems_3d.png}
+        \column{.05\textwidth}
+        \caption{\tiny \cite{atlas-schematics}}
+        \end{columns}
+        \end{figure}
 
+      % \end{columns}
+
+      \column{.5\textwidth}
+        \begin{itemize}
+          \item Tracks trajectories of charged particles
+          \begin{itemize}
+              \vspace{-.4cm}
+              \item Used to measure momentum in the transverse plane (\pt)
+          \end{itemize}
+        \end{itemize}
+        \begin{columns}
+        \column{.5\textwidth}
+        \includegraphics[height=.25\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+        \column{.5\textwidth}
+        % \begin{figure}
+          % \begin{columns}
+          %   \column{.95\textwidth}
+          %     \centering
+              \includegraphics[height=.25\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Highlight_Run2}
+        %     \column{.05\textwidth}
+        %       \caption{\tiny \cite{atlas-schematics}}
+        %   \end{columns}
+        % \end{figure}
+        \end{columns}
+        \centering
+
+        % \begin{figure}
+          \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Run2}
+          % \caption{\tiny \cite{atlas-schematics}}
+        % \end{figure}
       \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Calorimeters}
-     \begin{columns}
-      \column{.75\textwidth}
+     \begin{columns}[t]
+      \column{.45\textwidth}
         \begin{itemize}
-          \item
+          \item Measures energy of charged particles
+          \begin{itemize}
+              \item Fully absorb particles
+              \item Liquid argon electromagnetic calorimeter 
+              \item Scintillating tile hadronic calorimeter
+          \end{itemize}
         \end{itemize}
 
-      \column{.25\textwidth}
+      \centering
+      \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
 
+      \column{.55\textwidth}
+      % \hspace{2cm}
+      \begin{figure}
+        \begin{columns}
+          \column{.95\textwidth}
+            \centering
+            \includegraphics[height=.2\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_Calorimeters_Highlight_Run2}
+          \column{.05\textwidth}
+            \caption{\tiny \cite{atlas-schematics}}
+        \end{columns}
+      \end{figure}
+      \begin{figure}
+        \includegraphics[height=.47\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_Calorimeters_Run2}
+        \caption{\tiny \cite{atlas-schematics}}
+      \end{figure}
       \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Tile Calorimeter}
-     \begin{columns}
-      \column{.75\textwidth}
+     \begin{columns}[t]
+      \column{.55\textwidth}
         \begin{itemize}
-          \item
+          % \item Designed to measure hadron energy by fully absorbing particle showers
+          \item Scintillating tile with steel absorber
+          % \item Hadronic sampling calorimeter, covering $\abs{\eta} < 1.7$
+          % \item Covers $\abs{\eta} < 1.7$
+          \item Important in jet, $\tau$, \Etm \, and $\mu$ identification and triggering
+          \item I served as Data Quality Co-Coordinator for several years
+          \begin{itemize}
+            \item In Run-2 $99.65\%$ DQ efficiency \cite{DQ-Run2}
+          \end{itemize}
         \end{itemize}
 
-      \column{.25\textwidth}
+      \centering
+      \vspace{-.2cm}
+      \begin{columns}
+      \column{.6\textwidth}
+      \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+      \column{.5\textwidth}
+        \begin{figure}
+          \begin{columns}
+            \column{.95\textwidth}
+            \centering
+            \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/TileModuleCrossSection.png}
+            \column{.05\textwidth}  
+            \vspace{1cm}
+            \caption{\tiny \cite{ATLAS-tile}}
+          \end{columns}
+        \end{figure}
+      \end{columns}
+
+
+      \column{.4\textwidth}
+        \centering
+        \begin{columns}
+        \centering
+        \column{.5\textwidth}
+        \includegraphics[height=.33\textheight,keepaspectratio=true]{Hard_At_Work.jpg}
+        \includegraphics[height=.33\textheight,keepaspectratio=true]{TileTestBeamSetup_Michaela_Will_Me.jpg}
+        \column{.5\textwidth}
+        \centering
+        % \includegraphics[height=.33\textheight,keepaspectratio=true]{OnLBA14.jpg}
+        % \includegraphics[height=.33\textheight,keepaspectratio=true,angle=-90,origin=c]{WillAndMeAtATLAS.jpg}
+        \includegraphics[height=.33\textheight,keepaspectratio=true]{WillAndMeAtATLAS.jpeg}
+        \includegraphics[height=.33\textheight,keepaspectratio=true]{TileMaintenanceTeamJune2020.png}
+
+        \end{columns}
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{Muon System and Trigger}
+     \begin{columns}[t]
+      \column{.45\textwidth}
+        \begin{itemize}
+          \item Muon Spectrometers track trajectory of $\mu$
+          \begin{itemize}
+            \item Muons are minimally ionizing
+            \item $\mu$ reach the outermost region of the detector
+            \item Information combined with inner detector to reconstruct $\mu$
+          \end{itemize}
+          % \item Muon spectrometers track trajectory
+        \end{itemize}
+
+      \vspace{-.4cm}
+      \begin{columns}
+        \column{.5\textwidth}
+        \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+        \column{.5\textwidth}
+        \centering
+        \begin{figure}
+          \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_Muon_System_Run2.png}
+          \caption{\tiny \cite{atlas-schematics}}
+        \end{figure}
+      \end{columns}
+
+      \column{.55\textwidth}
+      \centering
+      \begin{itemize}
+        \item Trigger System
+        \begin{itemize}
+          \item Need to quickly sort through data and decide if a collision is interesting or not
+          \item Mix of hardware and software
+        \end{itemize}
+      \end{itemize}
+        \begin{figure}
+          \centering
+          \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/tdaq-run2-schematic2017.png}
+          \caption{\tiny \cite{TDAQ_Diagram}}
+        \end{figure}
 
       \end{columns}
     \end{frame}
 
-    \begin{frame}[t]{Muon System}
-     \begin{columns}
-      \column{.75\textwidth}
-        \begin{itemize}
-          \item
-        \end{itemize}
+    % \begin{frame}[t]{Trigger System}
+    %  \begin{columns}
+    %   \column{.75\textwidth}
+    %     \begin{itemize}
+    %       \item
+    %     \end{itemize}
 
-      \column{.25\textwidth}
+    %   \column{.25\textwidth}
 
-      \end{columns}
-    \end{frame}
+    %   \end{columns}
+    % \end{frame}
 
-    \begin{frame}[t]{Trigger System}
-     \begin{columns}
-      \column{.75\textwidth}
-        \begin{itemize}
-          \item
-        \end{itemize}
-
-      \column{.25\textwidth}
-
-      \end{columns}
-    \end{frame}
-
-\section{Simulation }
+% \section{Simulation }
   
-  \begin{frame}[t]{Monte Carlo Simulation}
-     \begin{columns}
-      \column{.75\textwidth}
-        \begin{itemize}
-          \item
-        \end{itemize}
+%   \begin{frame}[t]{Monte Carlo Simulation}
+%      \begin{columns}
+%       \column{.75\textwidth}
+%         \begin{itemize}
+%           \item
+%         \end{itemize}
 
-      \column{.25\textwidth}
+%       \column{.25\textwidth}
 
-      \end{columns}
-  \end{frame}
+%       \end{columns}
+%   \end{frame}
 
-\section{Event Reconstruction }
+% \section{Event Reconstruction }
   
-  \begin{frame}[t]{Particle Identification}
-     \begin{columns}
-      \column{.75\textwidth}
-        \begin{itemize}
-          \item
-        \end{itemize}
+%   \begin{frame}[t]{Particle Identification}
+%      \begin{columns}
+%       \column{.75\textwidth}
+%         \begin{itemize}
+%           \item
+%         \end{itemize}
 
-      \column{.25\textwidth}
+%       \column{.25\textwidth}
 
-      \end{columns}
-  \end{frame}
+%       \end{columns}
+%   \end{frame}
 
 \section{\HpmLong }
   
@@ -587,17 +827,18 @@
           \item Signal filtering applied in order to effectively increase the statistics in the signal regions
           \item New analysis framework centered around using modern Machine Learning tools
           \item Investigated new multivariate analysis techniques
-          \item Updated derivations
-          \vspace{-3.5mm}
-          \begin{multicols}{2}
-            \begin{itemize}
-              \tiny
-              \item RNN $\tau$ ID recommendations
-              \item Updated b-tagging recommendations
-              \item PFlow jets
-              \item Latest Combined Performance recommendations
-            \end{itemize}
-          \end{multicols}
+          \item Improved particle identification algorithms
+          \item Almost $4\times$ more data
+          % \vspace{-3.5mm}
+          % \begin{multicols}{2}
+          %   \begin{itemize}
+          %     \tiny
+          %     \item RNN $\tau$ ID recommendations
+          %     \item Updated b-tagging recommendations
+          %     \item PFlow jets
+          %     \item Latest Combined Performance recommendations
+          %   \end{itemize}
+          % \end{multicols}
         \end{itemize}
 
       \column{.4\linewidth}
@@ -769,7 +1010,24 @@
   \subsection{ MVA }
 
     \begin{frame}[t]{Multivariate Analysis Techniques}
+      \begin{columns}
+        \column{.5\textwidth}
+        \begin{itemize}
+          \item Boosted Decision Tree (BDT)
+          \begin{itemize}
+            \item Excel at exploiting linear correlations
+            \item Often combined into a random forest
+          \end{itemize}
+        \end{itemize}
 
+        \column{.5\textwidth}
+        \begin{itemize}
+          \item Neural Networks
+          \begin{itemize}
+            \item Excel at exploiting non-linear correlations
+          \end{itemize}
+        \end{itemize}
+      \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Parameterized Neural Networks}
@@ -884,10 +1142,12 @@
     \end{frame}
 
     \begin{frame}[t]{PNN Input Variable Selection}
+      \begin{columns}
+      \column{.5\textwidth}
+      \centering
       \begin{table}[!thp]
+        \resizebox{.5\textwidth}{!}{
         \rowcolors{1}{}{NIUgray}
-        \begin{subtable}[c]{0.15\textwidth}
-          \centering
           % \begin{tabular}{| c | c | c | c |}
        %      \multicolumn{4}{c}{\textbf{Set A Input Variables}} \\ \hline \hline
        %      $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
@@ -898,42 +1158,48 @@
        %      $\mHpm^{Truth}$ & & & \\ \hline 
       %     \end{tabular}
           \begin{tabular}{| c | c | c |}
-            \multicolumn{3}{c}{\textbf{Set A Input Variables}} \\ \hline \hline
+            \multicolumn{3}{c}{\textbf{Low Level Input Variables}} \\ \hline \hline
             $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$  \\ \hline
             $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$  \\ \hline
             $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$  \\ \hline
             $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$  \\ \hline
             \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$  \\ \hline
             $\Upsilon$ & $\mHpm^{Truth}$ &  \\ \hline 
-          \end{tabular}
-          \subcaption{Set A of input variables}
-        \end{subtable}
+          \end{tabular}}
+        \end{table}
 
-        \begin{subtable}[c]{0.25\textwidth}
-          \centering
-          \begin{tabular}{| l |}
+      % \column{.25\textwidth}
+        \centering
+        \begin{table}[!thp]
+        \resizebox{.75\textwidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{| c | c | c |}
             \hline
-            \textbf{Set B Input Variables} \\
+            \multicolumn{3}{c}{\textbf{High Level Input Variables}} \\
             \hline \hline
-            $\Etm$  \\
-            $\pt^{\tau}$  \\
-            $\pt^{\bjet}$  \\
-            $\pt^{\ell}$  \\
-            $\Delta \phi_{\tau,\,\text{miss}}$  \\
-            $\Delta \phi_{\bjet,\,\text{miss}}$  \\
-            $\Delta \phi_{\ell,\,\text{miss}}$  \\
-            $\Delta R_{\tau,\,\ell}$ \\
-            $\Delta R_{\bjet,\,\ell}$ \\
-            $\Delta R_{\bjet,\,\tau}$ \\
-            $\Delta \phi_{\tau, \text{miss}} / \Delta \phi_{\text{jet}, \text{miss}}$  \\
-            $\Upsilon$ \\
-            $\mHpm^{Truth}$ \\ \hline
-          \end{tabular}
-          \subcaption{Set B of input variables}
-        \end{subtable}
+            $\pt^{\tau}$  & $\pt^{\bjet}$  &        $\pt^{\ell}$  \\ \hline
+            $\Etm$  & $\Delta \phi_{\tau,\,\text{miss}}$  & $\Delta \phi_{\bjet,\,\text{miss}}$  \\ \hline
+            $\Delta \phi_{\ell,\,\text{miss}}$  & $\Delta R_{\tau,\,\ell}$ & $\Delta R_{\bjet,\,\ell}$ \\ \hline
+            $\Delta R_{\bjet,\,\tau}$ & $\Delta \phi_{\tau, \text{miss}} / \Delta \phi_{\text{jet}, \text{miss}}$  & $\Upsilon$ \\ \hline
+            $\mHpm^{Truth}$ & & \\ \hline
+          \end{tabular}}
         % \caption{Two sets of kinematic variables used as input to the \gls{PNN} in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tau,\,\bjet,\,\ell$) and the direction of the missing transverse momentum.}
         % \label{tab:taulep-input-variables-high-v-low}
       \end{table}
+
+    \column{.5\textwidth}
+    \begin{itemize}
+      \item Comparison between raw input variables and engineered variables
+      \item Expected limits in the \taulep subchannel was used as figure of merit
+      \item Low level variables best at high \mHpm
+      % \begin{itemize}
+      %   \item Outperforms high level variables at high \mHpm
+      % \end{itemize}
+    \end{itemize}
+    \centering
+    \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
+
+    \end{columns}
     \end{frame}
 
   \subsection{ PNN HPO }
