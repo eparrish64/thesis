@@ -110,7 +110,7 @@
       \item This defense will take $\sim 1$ hour
       \begin{itemize}
         \item I will walk you through the work that is contained in my PhD dissertation
-        \item After the presentation is complete, the committee and I will address comments privately
+        \item After the presentation is complete, there will be time for public questions, then the committee and I will address comments privately
         \item When we are done, I will return, the committee will discuss among themselves then return
       \end{itemize}
       \item General Guidelines
@@ -138,13 +138,13 @@
         \begin{itemize}
           \item Matter is comprised of fermions
             \begin{itemize}
-              % \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
+              \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
               \item Quarks combine to create hadrons (protons, neutrons, $\pi^{\pm,0}$, etc)
-              \item Anti-matter is identical to matter except for opposite electromagnetic charge
+              % \item Anti-matter is identical to matter except for opposite electromagnetic charge
             \end{itemize}
           \item Forces are carried by an exchange of bosons
             \begin{itemize}
-              % \item Integer spin $(s=0,1,2,etc.)$
+              \item Integer spin $(s=0,1,2,etc.)$
               \item Gluon (g) $\to$ Strong force
               \item Photon ($\gamma$) $\to$ Electromagnetism
               \item $W^{\pm},Z^{0}$ $\to$ Weak force
@@ -163,7 +163,7 @@
     \end{columns}
   \end{frame}
 
-  \subsection{Higgs Boson}
+  % \subsection{Higgs Boson}
 
   \begin{frame}[t]{The Higgs Boson}
     \begin{columns}
@@ -185,7 +185,7 @@
       % \vspace{-.80cm}
       \centering
       \begin{figure}
-        \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.jpeg}
+        \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.png}
         \caption{\tiny \cite{higgs-discovery-atlas}}
       \end{figure}
     \end{columns}
@@ -197,12 +197,12 @@
       \small
       \begin{itemize}
         % \item Quantum field theory that explains the fundamental forces, particles, and their interactions
-        \item Predicts the probabilities of particles decaying to others (among many other things)
+        \item Predicts the probabilities of creation and decay of particles (among many other things)
         \begin{itemize}
           \item Has been thoroughly tested
           \item Measurements agree to a high degree of accuracy
         \end{itemize}
-        \item Not a complete theory
+        \item Not a complete theory {\small Not a full list}
         \begin{itemize}
           \item Gravity
           \item Matter-antimatter asymmetry in the universe
@@ -210,6 +210,7 @@
           \begin{itemize}
             \item Observed neutrino mixing says otherwise
           \end{itemize}
+          % \item 
         \end{itemize}
       \end{itemize}
     \column{.55\textwidth}
@@ -239,12 +240,12 @@
           %   \item $Fermion \Rightarrow Boson$ 
           %   \item $Boson \Rightarrow Fermion$
           % \end{itemize}
-          \item 2 Higgs Doublet Models and Supersymmetry (SUSY) are large groups of theories
+          \item 2 Higgs Doublet Models and Supersymmetry (SUSY) are large groups of theories attempting to address these issues
           \begin{itemize}
             \item 2HDM have two complex doublet scalar fields \cite{2HDM}
             \begin{itemize}
               \item Two relevant free parameters, \tanb and \mHpm
-              \item \tanb is the ratio of the vacuum expectation values of \Hpm
+              \item \tanb is the ratio of the vacuum expectation values of the two doublets
             \end{itemize}
             \item SUSY proposes a symmetry between fermions and bosons
               \begin{itemize}
@@ -333,7 +334,7 @@
           \resizebox{.9\textwidth}{!}{
           \rowcolors{1}{}{NIUgray}
           \begin{tabular}{c | c}
-          \textbf{$t \rightarrow jets$ } & $t \to \ell$ \\
+          \textbf{$t \to Wb \to jets$ } & $t \to Wb \to \ell$ \\
           \hline \hline
           Sensitive at high mass due to higher $W \to q\bar{q}$ BR & Sensitive at low mass due to easier triggering \\
           \end{tabular}}
@@ -371,9 +372,12 @@
       \begin{columns}
         \column{.5\textwidth}
         \centering
-        \includegraphics[width=.65\textwidth,keepaspectratio=true]{Limits/Combined_low_NoLabel_2018.png}
+        \begin{itemize}
+          \item Previous limits on the production of \HpmLong and the free parameters \tanb and \mHpm
+        \end{itemize}
+        % \includegraphics[width=.65\textwidth,keepaspectratio=true]{Limits/Combined_low_NoLabel_2018.png}
         % \column{.25\textwidth}
-        \includegraphics[width=.65\textwidth,keepaspectratio=true]{Limits/Combined_CrossSection_2018.png}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{Limits/Combined_CrossSection_2018.png}
         \column{.5\textwidth}
         \centering
         \includegraphics[width=\textwidth,keepaspectratio=true]{Limits/tanB_Limit_2018.png}
@@ -386,8 +390,8 @@
     \begin{columns}[t]
       \column{.5\textwidth}
         \begin{itemize}
-          \item Most particles we are interested in are not stable and do not exist in our environment
-          \item Collide particles to study them and potentially new particles
+          \item Most particles we are interested in are not stable and cannot be observed in our environment
+          \item Collide known particles to study them and potentially new particles
             \begin{itemize}
               \item $E^2 = m^2c^4 + p^2c^2$
             \end{itemize}
@@ -435,7 +439,7 @@
             \resizebox{\textwidth}{!}{
             \rowcolors{1}{}{NIUgray}
             \begin{tabular}{| l | l |}  
-            \hline
+            \multicolumn{2}{c}{\textbf{Selected Run-2 LHC Parameters}} \\ \hline \hline
             Circumference                   & $26,659$ m          \\  \hline
             Magnet operating temperature    & $1.9$ K             \\  \hline
             % Dipole magnets                & $1232$            \\  \hline
@@ -490,7 +494,7 @@
             \item $\eta \equiv - \mathrm{ln}(\mathrm{tan}(\frac{\theta}{2}))$
             \item $\phi$ is azimuthal angle
           \end{itemize}
-          \item Complex machine with $\sim3,000$ scientific authors
+          % \item Complex machine with $\sim3,000$ scientific authors
         \end{itemize}
 
       \column{.6\textwidth}
@@ -606,11 +610,14 @@
      \begin{columns}[t]
       \column{.45\textwidth}
         \begin{itemize}
-          \item Measures energy of charged particles
+          \item Important in jet, $\tau$, \Etm \, and $\mu$ identification and triggering
+          \item Measure energy of charged particles
           \begin{itemize}
-              \item Fully absorb particles
-              \item Liquid argon electromagnetic calorimeter 
-              \item Scintillating tile hadronic calorimeter
+              \item Designed to fully absorb particles
+              % \item Liquid argon`1g tile hadronic calorimeter
+              % \begin{itemize}
+              %   \item Forward hadronic calorimeters are liquid argon
+              % \end{itemize}
           \end{itemize}
         \end{itemize}
 
@@ -691,7 +698,7 @@
      \begin{columns}[t]
       \column{.45\textwidth}
         \begin{itemize}
-          \item Muon Spectrometers track trajectory of $\mu$
+          \item Muon Spectrometers detect and measure $\mu$
           \begin{itemize}
             \item Muons are minimally ionizing
             \item $\mu$ reach the outermost region of the detector
@@ -731,6 +738,8 @@
       \end{columns}
     \end{frame}
 
+  \subsection{Object Reconstructions}
+
     \begin{frame}[t]{\Etm and \bjets}
      \begin{columns}[t]
       \column{.5\textwidth}
@@ -746,7 +755,7 @@
 
       \column{.5\textwidth}
       \begin{itemize}
-        \item b quark initiated hadronic showers are identified by a displaced vertex
+        \item b quark initiated hadronic showers are identified by a displaced vertex, etc.
         \item Reconstructed as a jet, tagged as a \bjet
         \begin{itemize}
           \item Algorithms designed to identify \bjets called taggers \cite{b-tagging}
@@ -760,6 +769,14 @@
       \end{columns}
     \end{frame}
 
+    \begin{frame}[t]{Reconstruction}
+
+    \end{frame}
+
+    \begin{frame}[t]{$\tau$ Reconstruction}
+
+    \end{frame}
+
 \section{Simulation }
   
   \begin{frame}[t]{Simulation}
@@ -769,7 +786,11 @@
           \item Incredibly detailed simulations are used to create analysis strategy
             \begin{itemize}
               \item Entire data flow from collision to detector readout is simulated
-            %   \item Thoroughly verified by many experiments and dedicated test beams
+              %   \item Thoroughly verified by many experiments and dedicated test beams
+              \item Many different options to generate simulations
+              \begin{itemize}
+                \item Some excel at specific tasks and not great at others
+              \end{itemize}
             \end{itemize}
           \item Control regions are used to verify simulation agreement with data
         \end{itemize}
@@ -897,7 +918,10 @@
         \end{itemize}
 
       \column{.4\linewidth}
+      \begin{figure}
       \includegraphics[width=1.1\textwidth,keepaspectratio=true]{intlumivstimeRun2.png}
+      \caption{\tiny \cite{luminositypublicresultsrun2}}
+      \end{figure}
       \end{columns}
     \end{frame}
 
@@ -905,46 +929,44 @@
     \begin{columns}
       \column{.6\textwidth}
         \begin{itemize}
+          \item Signal region \Etm distributions on right show background composition
           \item Control regions defined to verify main sources of background
         \end{itemize}
     \begin{table}[!thp]
       \resizebox{.75\linewidth}{!}{
       \rowcolors{1}{}{NIUgray}
-      \begin{tabular}{| c | c | c | c | c |} \hline
-                            & \ttbar CR     & W+Jets CR     & b-veto CR     & b-veto $m_{T} > 100$ CR               \\ \hline
-        Number of \tauhad   & 1             & 1             & 0             & 0                                     \\ \hline
-        $\pt^{\tau}$        & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV                           \\ \hline
-        Number of jets      & $\geq 3$      & $\geq 3$      & $\geq 3$      & $\geq 3$                              \\ \hline
-        $\pt^{jet}$         & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV                         \\ \hline
-        Number of \bjets    & $\geq 2$      & 0             & 0             & 0                                     \\ \hline
-        Number of $\ell$    & 0             & 0             & 0             & 0                                     \\ \hline
-        \Etm                & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV                           \\ \hline
-        $m_{T}(\tau, \Etm)$ & $< 100$ GeV   & $< 100$ GeV   & $> 50 GeV$    & $> 100$ GeV                           \\ \hline
-        Type of modeling    & \ttbar        & W+Jets        & Close to SR   & Fake $j \to \tau$ enriched            \\ \hline
+      \begin{tabular}{| c | c | c |} \hline
+        Background Modeling           & \taujets Control Regions      &  \taulep Control Regions \\ \hline \hline
+        \ttbar  + single top          & \ttbar                        &  Dilepton-btag \\ \hline
+        % b-veto                       &  Close to SR                 & Close to SR \\ \hline
+        Fake $j \to \tau$ enriched    & bveto $m_T(\tau, \Etm) > 100$ & Same Sign       \\ \hline
+        W+Jets                        & W+Jets                        &                             \\ \hline
+        Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
+
       \end{tabular}}
       % \caption{Control region definitions for the \taujets subchannel.}
       % \label{tab:taujet-control-regions}
     \end{table}
 
 
-    \begin{table}[!thp]
-      \resizebox{.75\linewidth}{!}{
-      \rowcolors{1}{}{NIUgray}
-      \begin{tabular}{| c | c | c | c | c |} \hline
-                                & Dilepton-btag CR        & Zee CR                        & b-veto CR           & Same Sign CR                          \\ \hline
-        Number of \tauhad       & 0                       & 1                             & 0                   & 0                                     \\ \hline
-        $\pt^{\tau}$            & $ > 30$ GeV             & $ > 30$ GeV                   & $ > 30$ GeV         & $ > 30$ GeV                           \\ \hline
-        Number of jets          & $\geq 1$                & $\geq 1$                      & $\geq 1$            & $\geq 1$                              \\ \hline
-        $\pt^{jet}$             & $\geq 25$ GeV           & $\geq 25$ GeV                 & $\geq 25$ GeV       & $\geq 25$ GeV                         \\ \hline
-        Number of \bjets        & $\geq 1$                & 0                             & 0                   & $\geq 1$                              \\ \hline
-        Number of $\ell$        & 2 (1 $e$, 1 $\mu$)      & 1 $e$                         & 1 tight $e$ ($\mu$) & 1 tight $e$ ($\mu$)                   \\ \hline
-        \Etm                    & $> 50$ GeV              & $> 50$ GeV                    & $> 50$ GeV          & $> 50$ GeV                            \\ \hline
-        $\mathrm{mass}(\tau,e)$ & N/A                     & $> 40$; $< 140$ GeV           & N/A                 & N/A                                   \\ \hline
-        Type of modeling        & \ttbar and single-top   & Fake $\ell \to \tau$ enriched & Close to SR         & Fake $j \to \tau$ enriched            \\ \hline
-      \end{tabular}}
-      % \caption{Control region definitions for the \taulep subchannel.}
-      % \label{tab:taulep-control-regions}
-    \end{table}
+    % \begin{table}[!thp]
+    %   \resizebox{.75\linewidth}{!}{
+    %   \rowcolors{1}{}{NIUgray}
+    %   \begin{tabular}{| c | c | c | c | c |} \hline
+    %                             & Dilepton-btag CR        & Zee CR                        & b-veto CR           & Same Sign CR                          \\ \hline
+    %     Number of \tauhad       & 0                       & 1                             & 0                   & 0                                     \\ \hline
+    %     $\pt^{\tau}$            & $ > 30$ GeV             & $ > 30$ GeV                   & $ > 30$ GeV         & $ > 30$ GeV                           \\ \hline
+    %     Number of jets          & $\geq 1$                & $\geq 1$                      & $\geq 1$            & $\geq 1$                              \\ \hline
+    %     $\pt^{jet}$             & $\geq 25$ GeV           & $\geq 25$ GeV                 & $\geq 25$ GeV       & $\geq 25$ GeV                         \\ \hline
+    %     Number of \bjets        & $\geq 1$                & 0                             & 0                   & $\geq 1$                              \\ \hline
+    %     Number of $\ell$        & 2 (1 $e$, 1 $\mu$)      & 1 $e$                         & 1 tight $e$ ($\mu$) & 1 tight $e$ ($\mu$)                   \\ \hline
+    %     \Etm                    & $> 50$ GeV              & $> 50$ GeV                    & $> 50$ GeV          & $> 50$ GeV                            \\ \hline
+    %     $\mathrm{mass}(\tau,e)$ & N/A                     & $> 40$; $< 140$ GeV           & N/A                 & N/A                                   \\ \hline
+    %     Type of modeling        & \ttbar and single-top   & Fake $\ell \to \tau$ enriched & Close to SR         & Fake $j \to \tau$ enriched            \\ \hline
+    %   \end{tabular}}
+    %   % \caption{Control region definitions for the \taulep subchannel.}
+    %   % \label{tab:taulep-control-regions}
+    % \end{table}
       \column{.4\textwidth}
       \centering
       \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
@@ -952,6 +974,67 @@
     \end{columns}
   \end{frame}
 
+\subsection{ $j \rightarrow \tau$ Fakes }
+
+    \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
+      \begin{columns}[t]
+      \column[t]{.8\textwidth}
+        \vspace{-3.5cm}
+        \begin{itemize}
+          \item Extract Fake-Factors $FF = \frac{N^{CR}_{\tau_{had-vis}}}{N^{CR}_{\bar{\tau}_{had-vis}}}$ from two orthogonal control regions:
+            \begin{table}
+              \tiny
+              \resizebox{.42\linewidth}{!}{
+              \rowcolors{1}{}{NIUgray}
+              \begin{tabular}{l | l} 
+              \textbf{Multi-Jet (gluon enriched)} & \textbf{W+Jets (quark enriched)} \\ 
+              \hline \hline
+              $E^{miss}_{T}$ or Multi-Jet trigger & Single lepton triggers \\
+              $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV & $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV \\
+              $\geq 3$  jets &  $\geq 1 $ jet\\
+              0 b-jets & 0 b-jets \\
+              % 0 $\ell$ & 1 $\ell$, $p^{\ell}_{T}>30$ GeV \\
+              % $E^{miss}_{T} < 80$ GeV & 1 $\tau$ \\
+              % $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV &  $60 < m_{T}(\ell,E^{miss}_{T}) < 160$ GeV\\
+              \end{tabular}}
+            \end{table}
+          \item Combine the two Fake-Factors via the template fit method:
+          \begin{itemize}
+            % \item $FF^{comb}_{i}=\alpha^{Multi-Jet}_{i} FF^{Multi-Jet}_{i} + [1-\alpha^{Multi-Jet}_{i}]FF^{W+jets}_{i}$
+            \item Find two separate templates for anti-$\tau$ in each CR
+            \item Fit both templates to the shape of the anti-$\tau$ in the SR
+            \item Lowest $\chi^2$ of the fit defines $\alpha_{MJ}$ value and the corresponding error
+          \end{itemize}
+        \end{itemize}
+            \centering
+            \footnotesize
+            $FF^{comb}_{i}=\alpha^{MJ}_{i} FF^{MJ}_{i} + [1-\alpha^{MJ}_{i}]FF^{W+jets}_{i}$
+          \begin{itemize}
+          \item Number of events with fake $\tau$ in the signal region is given by:
+        \end{itemize}
+          \centering
+          \footnotesize
+          $N^{\tau_{had-vis}}_{fakes} = \sum\limits_{i} N^{SR_{i}}_{\bar{\tau}_{had-vis}} FF_{i}$
+      \column{.195\textwidth}
+      \centering
+      \includegraphics[trim={1.cm 0.cm 43.65cm 0.cm},clip,width=1.2\textwidth]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
+        \begin{itemize}
+          \tiny
+          \item $\bar{\tau_{0}}$ jet width used in $\alpha$ fitting of 1-prong and 3-prong $\bar{\tau}$
+        \end{itemize}
+         \begin{table}
+          %   \tiny
+            \resizebox{.65\textwidth}{!}{
+            \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{l}
+            \textbf{$\bar{\tau} \: ID$} \\
+            \hline \hline
+            $RNN \: Score > 0.01$ \\
+            Not loose \\
+            \end{tabular}}
+          \end{table}
+      \end{columns}
+    \end{frame}
 
     % \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
     %   \begin{columns}
@@ -1078,7 +1161,7 @@
       %   \item For this analysis $k=5$
       % \end{itemize}
       \item Trained using simulation for backgrounds with true $\tau$
-      \item Data-driven $j \rightarrow \tau$ fakes included for $\geq$ 500 GeV
+      % \item Data-driven $j \rightarrow \tau$ fakes included for $\geq$ 500 GeV
       % \item Trained using Tensorflow backend for Keras
       % \item \mHpm is used as an input feature of the model
       % \item Allows one model to be used across entire \mHpm mass range
@@ -1517,6 +1600,57 @@
       \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAUJET.pdf}
     \column{.5\textwidth}
       \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAULEP.pdf}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Background Estimation}
+    \begin{columns}
+      \column{.6\textwidth}
+        \begin{itemize}
+          \item Control regions defined to verify main sources of background
+        \end{itemize}
+    \begin{table}[!thp]
+      \resizebox{.75\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c | c |} \hline
+                            & \ttbar CR     & W+Jets CR     & b-veto CR     & b-veto $m_{T} > 100$ CR               \\ \hline
+        Number of \tauhad   & 1             & 1             & 0             & 0                                     \\ \hline
+        $\pt^{\tau}$        & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV   & $ > 40$ GeV                           \\ \hline
+        Number of jets      & $\geq 3$      & $\geq 3$      & $\geq 3$      & $\geq 3$                              \\ \hline
+        $\pt^{jet}$         & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV & $\geq 25$ GeV                         \\ \hline
+        Number of \bjets    & $\geq 2$      & 0             & 0             & 0                                     \\ \hline
+        Number of $\ell$    & 0             & 0             & 0             & 0                                     \\ \hline
+        \Etm                & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV   & $> 150$ GeV                           \\ \hline
+        $m_{T}(\tau, \Etm)$ & $< 100$ GeV   & $< 100$ GeV   & $> 50 GeV$    & $> 100$ GeV                           \\ \hline
+        Type of modeling    & \ttbar        & W+Jets        & Close to SR   & Fake $j \to \tau$ enriched            \\ \hline
+      \end{tabular}}
+      % \caption{Control region definitions for the \taujets subchannel.}
+      % \label{tab:taujet-control-regions}
+    \end{table}
+
+
+    \begin{table}[!thp]
+      \resizebox{.75\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c | c |} \hline
+                                & Dilepton-btag CR        & Zee CR                        & b-veto CR           & Same Sign CR                          \\ \hline
+        Number of \tauhad       & 0                       & 1                             & 0                   & 0                                     \\ \hline
+        $\pt^{\tau}$            & $ > 30$ GeV             & $ > 30$ GeV                   & $ > 30$ GeV         & $ > 30$ GeV                           \\ \hline
+        Number of jets          & $\geq 1$                & $\geq 1$                      & $\geq 1$            & $\geq 1$                              \\ \hline
+        $\pt^{jet}$             & $\geq 25$ GeV           & $\geq 25$ GeV                 & $\geq 25$ GeV       & $\geq 25$ GeV                         \\ \hline
+        Number of \bjets        & $\geq 1$                & 0                             & 0                   & $\geq 1$                              \\ \hline
+        Number of $\ell$        & 2 (1 $e$, 1 $\mu$)      & 1 $e$                         & 1 tight $e$ ($\mu$) & 1 tight $e$ ($\mu$)                   \\ \hline
+        \Etm                    & $> 50$ GeV              & $> 50$ GeV                    & $> 50$ GeV          & $> 50$ GeV                            \\ \hline
+        $\mathrm{mass}(\tau,e)$ & N/A                     & $> 40$; $< 140$ GeV           & N/A                 & N/A                                   \\ \hline
+        Type of modeling        & \ttbar and single-top   & Fake $\ell \to \tau$ enriched & Close to SR         & Fake $j \to \tau$ enriched            \\ \hline
+      \end{tabular}}
+      % \caption{Control region definitions for the \taulep subchannel.}
+      % \label{tab:taulep-control-regions}
+    \end{table}
+      \column{.4\textwidth}
+      \centering
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
     \end{columns}
   \end{frame}
 
