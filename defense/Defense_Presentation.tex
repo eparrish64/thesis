@@ -980,8 +980,9 @@
 
       \column{.5\textwidth}
       \centering
-      \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
-      \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{met_et_SR_TAUJET.pdf}
+      % \includegraphics[height=.4\textheight,keepaspectratio=true]{met_et_SR_TAUJET.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{met_et_SR_TAULEP.png}
     \end{columns}
   \end{frame}
 
@@ -1248,10 +1249,10 @@
         \column{.3\textwidth}
         \begin{figure}
           \begin{columns}
-          \column{.90\textwidth}
+          \column{.95\textwidth}
           \centering
           \includegraphics[height=.35\textheight,keepaspectratio=true]{BDT_Example.png}
-          \column{.1\textwidth}
+          \column{.05\textwidth}
           \caption{\tiny \cite{scikit}}
           \end{columns}
         \end{figure}
@@ -1381,7 +1382,7 @@
           \includegraphics[height=.6\textheight,keepaspectratio=true]{tauel_SR_2018/tauel_SR_90to120_2018.png}
           % \includegraphics[height=.8\textheight,keepaspectratio=true]{taumu_SR_2018/taumu_SR_90to120_2018.png}
           \column{.45\textwidth}
-          \includegraphics[height=.6\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SR_TAUEL.png}
+          \includegraphics[height=.6\textheight,keepaspectratio=true]{clf_score_GB200_mass_120to120_SR_TAUEL.png}
         \end{columns}
       \end{frame}
 
@@ -1396,10 +1397,10 @@
       \begin{columns}
       \column{.5\textwidth}
       \centering
-      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/exp_limit_log_taujet.pdf}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/exp_limit_log_taujet.png}
       \column{.5\textwidth}
       \centering
-      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/Exp_Limit_log_taulep.eps}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/Limits/Exp_Limit_log_taulep.png}
       \end{columns}
     \end{frame}
 
@@ -1459,7 +1460,7 @@
       % \end{itemize}
     \end{itemize}
     \centering
-    \includegraphics[width=.7\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
+    \includegraphics[width=.7\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.png}
 
     \end{columns}
     \end{frame}
@@ -1508,136 +1509,72 @@
       \end{itemize}
     \end{frame}
 
-    \begin{frame}[t]{PNN Hyperparameter Optimization Search}
-      \begin{itemize}
-        \item LeakyReLU activation function has an $\alpha$ parameter
-        \item Slope of negative portion
-        \begin{itemize}
-          \item Prevents neurons from ``dying" by allowing negative weight values
-        \end{itemize}
-        \item Standard relu is where $\alpha=0$
-      \end{itemize}
-      \centering
-      \includegraphics[height=.4\textheight,keepaspectratio=true]{Activation_prelu.svg.png}
-    \end{frame}
-
-    \begin{frame}[t]{PNN Hyperparameter Optimization}
-      \begin{columns}
-        \column{.4\textwidth}
-
-        \begin{table}
-          \resizebox{\linewidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-            \begin{tabular}{c | c | c | c}
-            Parameter  \\
-            \hline
-            activation function & softsign & relu & LeakyReLU \\ \hline
-            loss function & \fcolorbox{red}{white}{binary crossentropy} & mean squared error & mean absolute error \\ \hline
-            width & 32 & & \\ \hline
-            depth & 10 & & \\ \hline
-            \end{tabular}}
-        \end{table}
-
-        \pause
-
-        \begin{table}
-          \resizebox{.75\linewidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-            \begin{tabular}{c | c | c | c}
-            Parameter  \\
-            \hline
-            width & 8 & 16 & 32 \\ \hline
-            depth & 3 & 5 & 10 \\ \hline
-            dropout & \fcolorbox{red}{white}{0.1} & 0.3 & \\ \hline
-            activation function & softsign & & \\ \hline
-            loss function & binary crossentropy & & \\ \hline 
-            \end{tabular}}
-        \end{table}
-
-        \pause
-
-        \begin{table}
-          \resizebox{.75\linewidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-            \begin{tabular}{c | c | c | c}
-            Parameter  \\
-            \hline
-            width & 32 & 64 & 128 \\ \hline
-            depth & 2 & 3 & 4 \\ \hline
-            dropout & 0.1 & & \\ \hline
-            activation function & softsign & relu & \fcolorbox{red}{white}{LeakyReLU} \\ \hline
-            batch size & 1025 &  & \\ \hline
-            loss function & binary crossentropy  & & \\
-            \end{tabular}}
-        \end{table}
-
-        \pause
-
-        \column{.6\textwidth}
-
-        \begin{table}
-          \resizebox{.75\linewidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-          \begin{tabular}{c | c | c | c | c}
-          Parameter  \\ 
-          \hline
-          width & 32 & 64 & 128 & \\ \hline
-          depth & 2 & 3 & 4 &  \\ \hline
-          $\alpha$ & 0.01 & \fcolorbox{red}{white}{0.05} & 0.001 & 0.005 \\ \hline
-          batch size & 1024 & & & \\ \hline
-          dropout & 0.1 & & & \\ \hline
-          activation function & LeakyReLU &  &  &  \\ \hline
-          loss function & binary crossentropy & & &  \\ \hline
-          \end{tabular}}
-        \end{table}
-
-        \pause
-
-        \begin{table}
-          \resizebox{.75\linewidth}{!}{
-          \rowcolors{1}{}{NIUgray}
-          \begin{tabular}{c | c | c | c | c}
-          Parameter  \\ 
-          \hline
-          width & 32 & 64 & \fcolorbox{red}{white}{128} & 256 \\
-          depth & 2 & \fcolorbox{red}{white}{3} & 4 & 5 \\
-          batch size & 1024 &  & & \\ \hline
-          dropout & 0.1 &  &  &  \\ \hline
-          activation function & LeakyReLU &  &  &  \\ \hline
-          $\alpha$ & 0.05 &  &  &  \\ \hline
-          loss function & binary crossentropy & & &  \\ \hline
-          \end{tabular}}
-        \end{table}
-      \end{columns}
-    \end{frame}
-
     \begin{frame}[c]{Final PNN Model Performance}
       \begin{columns}
       \column{.5\textwidth}
       \begin{table}
+            \begin{center}
+            \small
+            \resizebox{\textwidth}{!}{
+            \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{| c | c | c | c | c | c |}
+            \toprule
+            Layers  & Number of Neurons &  Loss Function          & Activation Function & LeakyReLu $\alpha$  & Dropout  \\ \hline
+            3       & 128               &   Binary Crossentropy   & LeakyReLu           & 0.1                 & 0.1       \\
+            % \midrule
+            \bottomrule
+            \end{tabular}}
+            % \caption{\label{tab:pnn_hpo_aucs_short}
+            % Average \glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits.
+              % }
+            \end{center}
+          \end{table}
+
+      \begin{table}
         \begin{center}
         \small
-        \resizebox{.75\textwidth}{!}{
+        \resizebox{.5\textwidth}{!}{
         \rowcolors{1}{}{NIUgray}
-        \begin{tabular}{llrrrrrrrrrrrr}
+        % \begin{tabular}{llrrrrrrrrrrrr}
+        % \toprule
+        % width & depth &  Avg &   LowMassAvg \\
+        % \midrule
+        %  \rowcolor{green} 128  &  3 & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
+        %   128 & 5 & 0.8861  $\pm$ 0.0000  & 0.8235  $\pm$ 0.1000  \\
+        %   128 & 4 & 0.8858  $\pm$ 0.0000  & 0.8232  $\pm$ 0.0994  \\
+        %   128 & 2 & 0.8857  $\pm$ 0.0000  & 0.8231  $\pm$ 0.1006  \\
+        %   64 &  4 & 0.8857  $\pm$ 0.0002  & 0.8230  $\pm$ 0.0994  \\
+        %   64 &  2 & 0.8855  $\pm$ 0.0004  & 0.8228  $\pm$ 0.0996  \\
+        %   64 &  5 & 0.8853  $\pm$ 0.0005  & 0.8224  $\pm$ 0.0997  \\
+        %   64 &  3 & 0.8853  $\pm$ 0.0011  & 0.8223  $\pm$ 0.0994  \\
+        %   256 & 5 & 0.8844  $\pm$ 0.0002  & 0.8213  $\pm$ 0.1003  \\
+        %   256 & 4 & 0.8823  $\pm$ 0.0000  & 0.8181  $\pm$ 0.1013  \\
+        %   32 &  3 & 0.8798  $\pm$ 0.0012  & 0.8139  $\pm$ 0.1031  \\
+        %   32 &  4 & 0.8799  $\pm$ 0.0009  & 0.8139  $\pm$ 0.1031  \\
+        %   32 &  2 & 0.8796  $\pm$ 0.0004  & 0.8135  $\pm$ 0.1023  \\
+        %   32 &  5 & 0.8792  $\pm$ 0.0011  & 0.8128  $\pm$ 0.1035  \\
+        %   256 & 2 & 0.8781  $\pm$ 0.0002  & 0.8120  $\pm$ 0.1023  \\
+        % \bottomrule
+        % \end{tabular}}        
+        \begin{tabular}{l l r}
         \toprule
-        width & depth &  Avg &   LowMassAvg \\
+        width & depth  &   LowMassAvg \\
         \midrule
-         \rowcolor{green} 128  &  3 & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
-          128 & 5 & 0.8861  $\pm$ 0.0000  & 0.8235  $\pm$ 0.1000  \\
-          128 & 4 & 0.8858  $\pm$ 0.0000  & 0.8232  $\pm$ 0.0994  \\
-          128 & 2 & 0.8857  $\pm$ 0.0000  & 0.8231  $\pm$ 0.1006  \\
-          64 &  4 & 0.8857  $\pm$ 0.0002  & 0.8230  $\pm$ 0.0994  \\
-          64 &  2 & 0.8855  $\pm$ 0.0004  & 0.8228  $\pm$ 0.0996  \\
-          64 &  5 & 0.8853  $\pm$ 0.0005  & 0.8224  $\pm$ 0.0997  \\
-          64 &  3 & 0.8853  $\pm$ 0.0011  & 0.8223  $\pm$ 0.0994  \\
-          256 & 5 & 0.8844  $\pm$ 0.0002  & 0.8213  $\pm$ 0.1003  \\
-          256 & 4 & 0.8823  $\pm$ 0.0000  & 0.8181  $\pm$ 0.1013  \\
-          32 &  3 & 0.8798  $\pm$ 0.0012  & 0.8139  $\pm$ 0.1031  \\
-          32 &  4 & 0.8799  $\pm$ 0.0009  & 0.8139  $\pm$ 0.1031  \\
-          32 &  2 & 0.8796  $\pm$ 0.0004  & 0.8135  $\pm$ 0.1023  \\
-          32 &  5 & 0.8792  $\pm$ 0.0011  & 0.8128  $\pm$ 0.1035  \\
-          256 & 2 & 0.8781  $\pm$ 0.0002  & 0.8120  $\pm$ 0.1023  \\
+         \rowcolor{green} 128  &  3  & 0.8261  $\pm$ 0.0968  \\
+          128 & 5  & 0.8235  $\pm$ 0.1000  \\
+          128 & 4  & 0.8232  $\pm$ 0.0994  \\
+          128 & 2  & 0.8231  $\pm$ 0.1006  \\
+          64 &  4  & 0.8230  $\pm$ 0.0994  \\
+          64 &  2  & 0.8228  $\pm$ 0.0996  \\
+          64 &  5  & 0.8224  $\pm$ 0.0997  \\
+          64 &  3  & 0.8223  $\pm$ 0.0994  \\
+          256 & 5  & 0.8213  $\pm$ 0.1003  \\
+          256 & 4  & 0.8181  $\pm$ 0.1013  \\
+          32 &  3  & 0.8139  $\pm$ 0.1031  \\
+          32 &  4  & 0.8139  $\pm$ 0.1031  \\
+          32 &  2  & 0.8135  $\pm$ 0.1023  \\
+          32 &  5  & 0.8128  $\pm$ 0.1035  \\
+          256 & 2  & 0.8120  $\pm$ 0.1023  \\
         \bottomrule
         \end{tabular}}
         % \caption{\label{tab:pnn_hpo_aucs_short}
@@ -1646,6 +1583,7 @@
         \end{center}
       \end{table}
       \column{.5\textwidth}
+
       \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_Hplus/images/AUC_Plots/model_GB_1024_channel_taulep_mass_80to3000_ntracks_1_nfolds_5_fold_4_nvars_19_batch_size_1024_epochs_1000_dense_layer_size_128_activation_function_LeakyRelu_depth_3_loss_binary_crossentropy_dropout_0.1_alpha_0.05.eps}
       \end{columns}
     \end{frame}
@@ -1655,16 +1593,16 @@
     \begin{frame}[t]{PNN Results}
       \begin{columns}[t]
         \column{.3\textwidth}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_80to80_SR_TAUJET.png}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAULEP.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_80to80_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_80to80_SR_TAULEP.png}
 
         \column{.3\textwidth}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_170to170_SR_TAUJET.png}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SR_TAULEP.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_170to170_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_170to170_SR_TAULEP.png}
 
         \column{.3\textwidth}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1000to1000_SR_TAUJET.png}
-        \includegraphics[height=.43\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SR_TAULEP.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_1000to1000_SR_TAUJET.png}
+        \includegraphics[height=.43\textheight,keepaspectratio=true]{clf_score_GB200_mass_1000to1000_SR_TAULEP.png}
       \end{columns}
     \end{frame}
 
@@ -1913,6 +1851,110 @@
 
       \end{columns}
     \end{frame}
+
+      \begin{frame}[t]{PNN Hyperparameter Optimization Search}
+      \begin{itemize}
+        \item LeakyReLU activation function has an $\alpha$ parameter
+        \item Slope of negative portion
+        \begin{itemize}
+          \item Prevents neurons from ``dying" by allowing negative weight values
+        \end{itemize}
+        \item Standard relu is where $\alpha=0$
+      \end{itemize}
+      \centering
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{Activation_prelu.svg.png}
+    \end{frame}
+
+    \begin{frame}[t]{PNN Hyperparameter Optimization}
+      \begin{columns}
+        \column{.4\textwidth}
+
+        \begin{table}
+          \resizebox{\linewidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{c | c | c | c}
+            Parameter  \\
+            \hline
+            activation function & softsign & relu & LeakyReLU \\ \hline
+            loss function & \fcolorbox{red}{white}{binary crossentropy} & mean squared error & mean absolute error \\ \hline
+            width & 32 & & \\ \hline
+            depth & 10 & & \\ \hline
+            \end{tabular}}
+        \end{table}
+
+        % \pause
+
+        \begin{table}
+          \resizebox{.75\linewidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{c | c | c | c}
+            Parameter  \\
+            \hline
+            width & 8 & 16 & 32 \\ \hline
+            depth & 3 & 5 & 10 \\ \hline
+            dropout & \fcolorbox{red}{white}{0.1} & 0.3 & \\ \hline
+            activation function & softsign & & \\ \hline
+            loss function & binary crossentropy & & \\ \hline 
+            \end{tabular}}
+        \end{table}
+
+        % \pause
+
+        \begin{table}
+          \resizebox{.75\linewidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+            \begin{tabular}{c | c | c | c}
+            Parameter  \\
+            \hline
+            width & 32 & 64 & 128 \\ \hline
+            depth & 2 & 3 & 4 \\ \hline
+            dropout & 0.1 & & \\ \hline
+            activation function & softsign & relu & \fcolorbox{red}{white}{LeakyReLU} \\ \hline
+            batch size & 1025 &  & \\ \hline
+            loss function & binary crossentropy  & & \\
+            \end{tabular}}
+        \end{table}
+
+        % \pause
+
+        \column{.6\textwidth}
+
+        \begin{table}
+          \resizebox{.75\linewidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{c | c | c | c | c}
+          Parameter  \\ 
+          \hline
+          width & 32 & 64 & 128 & \\ \hline
+          depth & 2 & 3 & 4 &  \\ \hline
+          $\alpha$ & 0.01 & \fcolorbox{red}{white}{0.05} & 0.001 & 0.005 \\ \hline
+          batch size & 1024 & & & \\ \hline
+          dropout & 0.1 & & & \\ \hline
+          activation function & LeakyReLU &  &  &  \\ \hline
+          loss function & binary crossentropy & & &  \\ \hline
+          \end{tabular}}
+        \end{table}
+
+        % \pause
+
+        \begin{table}
+          \resizebox{.75\linewidth}{!}{
+          \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{c | c | c | c | c}
+          Parameter  \\ 
+          \hline
+          width & 32 & 64 & \fcolorbox{red}{white}{128} & 256 \\
+          depth & 2 & \fcolorbox{red}{white}{3} & 4 & 5 \\
+          batch size & 1024 &  & & \\ \hline
+          dropout & 0.1 &  &  &  \\ \hline
+          activation function & LeakyReLU &  &  &  \\ \hline
+          $\alpha$ & 0.05 &  &  &  \\ \hline
+          loss function & binary crossentropy & & &  \\ \hline
+          \end{tabular}}
+        \end{table}
+      \end{columns}
+    \end{frame}
+
 
   \begin{frame}{PNN Hyperparameter Optimization Results}
     \begin{table}
