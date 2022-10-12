@@ -33,7 +33,7 @@
 
 % Title
 \title[Search for \HpmLong with ATLAS]
-{Search for Charged Higgs Bosons in the \taulep Final State with \LUMI of \pp Collision Data at \sqs with the ATLAS Experiment}
+{Search for Charged Higgs Bosons in the \taunu Final State with \LUMI of \pp Collision Data at \sqs with the ATLAS Experiment}
 
 % Sub Title
 \subtitle{Dissertation Defense}
@@ -138,17 +138,17 @@
         \begin{itemize}
           \item Matter is comprised of fermions
             \begin{itemize}
-              \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
+              % \item Half-integer spin $(s=\frac{1}{2},\frac{3}{2},\frac{5}{2},etc.)$
               \item Quarks combine to create hadrons (protons, neutrons, $\pi^{\pm,0}$, etc)
               % \item Anti-matter is identical to matter except for opposite electromagnetic charge
             \end{itemize}
           \item Forces are carried by an exchange of bosons
             \begin{itemize}
-              \item Integer spin $(s=0,1,2,etc.)$
+              % \item Integer spin $(s=0,1,2,etc.)$
               \item Gluon (g) $\to$ Strong force
               \item Photon ($\gamma$) $\to$ Electromagnetism
               \item $W^{\pm},Z^{0}$ $\to$ Weak force
-              % \item Higgs (H) $\to$ mass
+              \item No explicit mass terms
             \end{itemize}
         \end{itemize}
       \end{itemize}
@@ -166,26 +166,37 @@
   % \subsection{Higgs Boson}
 
   \begin{frame}[t]{The Higgs Boson}
-    \begin{columns}
-    \column{.5\textwidth}
+    \begin{columns}[t]
+    \column{.6\textwidth}
       \begin{itemize}
-        \item Theorized by Higgs, Englert, and Brout in 1964
-          \begin{itemize}
-            \item Complex scalar doublet ($s=0$)
-            \item Non-zero vacuum expectation value
-          \end{itemize}
-        \item Interactions with Higgs field give particles mass
+        % \item Interactions with Higgs field give particles mass
+        % \item Theorized by Higgs, Englert, and Brout in 1964
+          % \begin{itemize}
+            \item At high energies, electromagnetism and the weak forces are one ``electroweak'' force
+            \item Higgs field exists everywhere in space
+            \begin{itemize}
+              \item Non-zero vacuum expectation value
+              \begin{itemize}
+                \item This gives us electroweak symmetry breaking
+              \end{itemize}
+            \end{itemize}
+            \item Interaction with Higgs field gives mass
+            % \begin{itemize}
+            % \item Complex scalar doublet
+          % \end{itemize}
+          % \end{itemize}
         \item Discovered jointly by the ATLAS and CMS collaborations in 2012
+        % \item Why only one Higgs potential?
       \end{itemize}
-      \begin{figure}
-        \includegraphics[width=.35\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/higgspotential.png}
-        \caption{\tiny \cite{Higgs-phys}}
-      \end{figure}
-    \column{.5\textwidth}
+    \column{.4\textwidth}
       % \vspace{-.80cm}
       \centering
       \begin{figure}
-        \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.png}
+        \includegraphics[height=.2\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/higgspotential.png}
+        \caption{\tiny \cite{Higgs-phys}}
+      \end{figure}
+      \begin{figure}
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/Higgs_Discovery_gam_gam.png}
         \caption{\tiny \cite{higgs-discovery-atlas}}
       \end{figure}
     \end{columns}
@@ -202,14 +213,21 @@
           \item Has been thoroughly tested
           \item Measurements agree to a high degree of accuracy
         \end{itemize}
-        \item Not a complete theory {\small Not a full list}
+        \item Not a complete theory ({\footnotesize Not a full list})
         \begin{itemize}
           \item Gravity
           \item Matter-antimatter asymmetry in the universe
-          \item Predicted neutrino masses are 0
-          \begin{itemize}
-            \item Observed neutrino mixing says otherwise
-          \end{itemize}
+          \item Hierarchy problem
+            \begin{itemize}
+          %     % \item Large Higgs mass terms cancel to give $\sim 125$ GeV
+              \item EW scale is $\sim 100$ GeV
+              \item Planck scale is $\sim 10^{18}$ GeV
+          %     % \item Supersymmetry (SUSY) offers many new particles to occupy the intermediate range
+            \end{itemize}
+          % \item Predicted neutrino masses are 0
+          % \begin{itemize}
+          %   \item Observed neutrino mixing says otherwise
+          % \end{itemize}
           % \item 
         \end{itemize}
       \end{itemize}
@@ -228,13 +246,13 @@
       \begin{columns}[t]
       \column{.8\textwidth}
         \begin{itemize}
-          \item Hierarchy problem, ``unnaturalness''
-          \begin{itemize}
-            % \item Large Higgs mass terms cancel to give $\sim 125$ GeV
-            \item Electroweak scale is $\sim 100$ GeV
-            \item Planck scale is $\sim 2.4 \times 10^{18}$ GeV
-            % \item Supersymmetry (SUSY) offers many new particles to occupy the intermediate range
-          \end{itemize}
+        %   \item Hierarchy problem, ``unnaturalness''
+        %   \begin{itemize}
+        %     % \item Large Higgs mass terms cancel to give $\sim 125$ GeV
+        %     \item Electroweak scale is $\sim 100$ GeV
+        %     \item Planck scale is $\sim 2.4 \times 10^{18}$ GeV
+        %     % \item Supersymmetry (SUSY) offers many new particles to occupy the intermediate range
+        %   \end{itemize}
           % \item SUSY proposes a symmetry between fermions and bosons (spin)
           % \begin{itemize}
           %   \item $Fermion \Rightarrow Boson$ 
@@ -387,13 +405,15 @@
     \begin{frame}[t]{Other \Hpm Searches}
     \begin{columns}
     \column{.5\textwidth} 
+      \centering
       \begin{figure}
-      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_tb_Limits.png}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_tb_Limits.png}
       \caption{\tiny \cite{Hpm-to-tb} }
       \end{figure}
     \column{.5\textwidth} 
+      \centering
       \begin{figure}
-      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_cb_Limits.png}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_cb_Limits.png}
       \caption{\tiny \cite{Hpm-to-cb} }
       \end{figure}
     \end{columns}
@@ -564,14 +584,14 @@
         \begin{itemize}
           \item Inner detector (ID) 
           \begin{itemize}
-              \vspace{-.4cm}
+              % \vspace{-.4cm}
               \item Tracks trajectories of charged particles
               \item Used to measure momentum in the transverse plane (\pt)
           \end{itemize}
         \end{itemize}
         \begin{columns}
-        \column{.5\textwidth}
-        \includegraphics[height=.25\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+        % \column{.5\textwidth}
+        % \includegraphics[height=.25\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
         \column{.5\textwidth}
         % \begin{figure}
           % \begin{columns}
@@ -582,13 +602,15 @@
         %       \caption{\tiny \cite{atlas-schematics}}
         %   \end{columns}
         % \end{figure}
-        \end{columns}
+        % \end{columns}
+        \column{.5\textwidth}
         \centering
 
         % \begin{figure}
           \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Run2}
           % \caption{\tiny \cite{atlas-schematics}}
         % \end{figure}
+        \end{columns}
       \end{columns}
     \end{frame}
 
@@ -796,19 +818,28 @@
             \item 3 $\pi^{\pm}$ occurs 22\% of the time
             \item Of these decays, 68\% contain $> 1\, \pi^{0}$
           \end{itemize}
-          \item $\nu_{\tau}$ are also produced in these decays, only visible part of $\tau$ can be reconstructed
+          \item $\nu_{\tau}$ are also produced in these decays
+          \begin{itemize}
+            \item  Only visible part of $\tau$ can be reconstructed
+          \end{itemize}
         \end{itemize}
 
         \column{.5\textwidth}
         \centering
         \begin{figure}
-        \includegraphics[width=.6\textwidth,keepaspectratio=true]{tau_hadronic_decay.png}
+        \includegraphics[width=.45\textwidth,keepaspectratio=true]{tau_hadronic_decay.png}
         % \caption{\tiny }
         \end{figure}
         \begin{figure}
-        \includegraphics[width=.6\textwidth,keepaspectratio=true]{jet_particle.png}
+        \includegraphics[width=.45\textwidth,keepaspectratio=true]{jet_particle.png}
         \caption{\tiny \cite{tau-diagrams}}
         \end{figure}
+        \begin{itemize}
+          \item Reconstruction is imperfect
+          \begin{itemize}
+            \item Misidentification of particles is a large source of background
+          \end{itemize}
+        \end{itemize}
       \end{columns}
     \end{frame}
 
@@ -893,7 +924,7 @@
               VV estimated with simulation & \\
               \end{tabular}}
             \end{table}
-            \item MVA score is used as the final discriminant 
+            \item Classifier score is used as the final discriminant 
             % \item This talk will cover $36.1 \mathrm{fb}^{-1}$ and the current edition of this analysis
             \end{itemize}
 
@@ -904,8 +935,8 @@
               \rowcolors{1}{}{NIUgray}
               \begin{tabular}{l | l | l | l | l | l | l | l | l | l | l | l} 
                 \textbf{Sub-Channel} \\ \hline \hline
-                \textbf{$\tau + jets$ SR } & $E^{miss}_{T}$ Trigger & \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 40$ GeV} & \specialcell{0 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 20$ GeV} & \specialcell{$\geq$ 3 jets \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\ $p_{T}^{b-jet} > 25$ GeV}  & \Etm$ > 150$ GeV & $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV \\ \hline
-                \textbf{$\tau + \ell$ SR} & Single Lepton Trigger &   \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 30$ GeV} & \specialcell{1 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 30$ GeV} & \specialcell{$\geq$ 1 jet  \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\  $p_{T}^{b-jet} > 25$ GeV} & \Etm$ > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\ \hline
+                {\large\textbf{$\tau + jets$ SR }} & $E^{miss}_{T}$ Trigger & \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 40$ GeV} & \specialcell{0 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 20$ GeV} & \specialcell{$\geq$ 3 jets \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\ $p_{T}^{b-jet} > 25$ GeV}  & \Etm$ > 150$ GeV & $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV \\ \hline
+                {\large\textbf{$\tau + \ell$ SR}} & Single Lepton Trigger &   \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 30$ GeV} & \specialcell{1 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 30$ GeV} & \specialcell{$\geq$ 1 jet  \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\  $p_{T}^{b-jet} > 25$ GeV} & \Etm$ > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\ \hline
               \end{tabular}}
             \end{table}
 
@@ -1194,8 +1225,8 @@
           \begin{itemize}
             \item Cascading decisions bin parameter space to optimize accuracy
             \item Deterministic approach
-            \item Excel at exploiting linear correlations
-            \item Often combined into a random forest
+            % \item Excel at exploiting linear correlations
+            % \item Often combined into a random forest
           \end{itemize}
         \end{itemize}
 
@@ -1208,20 +1239,46 @@
             %   \item 
             % \end{itemize}
             \item Probabilistic approach
-            \item Excel at exploiting non-linear correlations
+            % \item Excel at exploiting non-linear correlations
           \end{itemize}
         \end{itemize}
       \end{columns}
 
+      \begin{columns}
+        \column{.3\textwidth}
+        \begin{figure}
+          \begin{columns}
+          \column{.90\textwidth}
+          \centering
+          \includegraphics[height=.35\textheight,keepaspectratio=true]{BDT_Example.png}
+          \column{.1\textwidth}
+          \caption{\tiny \cite{scikit}}
+          \end{columns}
+        \end{figure}
+
+      \column{.3\textwidth}
       \begin{figure}
         \begin{columns}
-        \column{.95\textwidth}
+        \column{.90\textwidth}
         \centering
-        \includegraphics[height=.35\textheight,keepaspectratio=true]{BDT_vs_PNN_Diagram.png}
-        \column{.05\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio=true]{BDT_vs_PNN_Diagram.png}
+        \column{.1\textwidth}
         \caption{\tiny \cite{BDT-vs-PNN}}
         \end{columns}
       \end{figure}
+
+      \column{.3\textwidth}
+        \begin{figure}
+          \begin{columns}
+          \column{.90\textwidth}
+          \centering
+          \includegraphics[height=.35\textheight,keepaspectratio=true]{PNN_Example.png}
+          \column{.1\textwidth}
+          \caption{\tiny \cite{scikit}}
+          \end{columns}
+        \end{figure}
+
+    \end{columns}
     \end{frame}
 
     \begin{frame}[t]{Parameterized Neural Networks}
