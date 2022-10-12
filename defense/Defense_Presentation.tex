@@ -107,7 +107,7 @@
   
   \begin{frame}[t]{Welcome}
     \begin{itemize}
-      \item This defense will take $\sim 1$ hour
+      \item This defense will take $\approx 1$ hour
       \begin{itemize}
         \item I will walk you through the work that is contained in my PhD dissertation
         \item After the presentation is complete, there will be time for public questions, then the committee and I will address comments privately
@@ -384,6 +384,21 @@
       \end{columns}
     \end{frame}
 
+    \begin{frame}[t]{Other \Hpm Searches}
+    \begin{columns}
+    \column{.5\textwidth} 
+      \begin{figure}
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_tb_Limits.png}
+      \caption{\tiny \cite{Hpm-to-tb} }
+      \end{figure}
+    \column{.5\textwidth} 
+      \begin{figure}
+      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter2_theory/images/HPlus_to_cb_Limits.png}
+      \caption{\tiny \cite{Hpm-to-cb} }
+      \end{figure}
+    \end{columns}
+    \end{frame}
+
 \section{Experimental Apparatus }
 
   \begin{frame}[t]{Particle Collisions}
@@ -510,36 +525,6 @@
       \end{columns}
     \end{frame}
 
-    % \begin{frame}[t]{Inner Detector}
-    %  \begin{columns}[t]
-    %   \column{.45\textwidth}
-    %     \begin{itemize}
-    %       \item Tracks trajectories of charged particles
-    %       \begin{itemize}
-    %           \item Measures momentum in the transverse plane (\pt)
-    %       \end{itemize}
-    %     \end{itemize}
-
-    %   \centering
-    %   \includegraphics[height=.35\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
-
-    %   \column{.55\textwidth}
-    %   % \hspace{2cm}
-    %   \begin{figure}
-    %     \begin{columns}
-    %       \column{.95\textwidth}
-    %         \centering
-    %         \includegraphics[height=.2\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Highlight_Run2}
-    %       \column{.05\textwidth}
-    %         \caption{\tiny \cite{atlas-schematics}}
-    %     \end{columns}
-    %   \end{figure}
-    %   \begin{figure}
-    %     \includegraphics[height=.47\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLAS_ID_Run2}
-    %     \caption{\tiny \cite{atlas-schematics}}
-    %   \end{figure}
-    %   \end{columns}
-    % \end{frame}
 
     \begin{frame}[t]{Magnet System and Inner Detector}
      \begin{columns}[t]
@@ -577,9 +562,10 @@
 
       \column{.5\textwidth}
         \begin{itemize}
-          \item Tracks trajectories of charged particles
+          \item Inner detector (ID) 
           \begin{itemize}
               \vspace{-.4cm}
+              \item Tracks trajectories of charged particles
               \item Used to measure momentum in the transverse plane (\pt)
           \end{itemize}
         \end{itemize}
@@ -698,7 +684,7 @@
      \begin{columns}[t]
       \column{.45\textwidth}
         \begin{itemize}
-          \item Muon Spectrometers detect and measure $\mu$
+          \item Muon Spectrometers (MS) detect and measure $\mu$
           \begin{itemize}
             \item Muons are minimally ionizing
             \item $\mu$ reach the outermost region of the detector
@@ -738,14 +724,14 @@
       \end{columns}
     \end{frame}
 
-  \subsection{Object Reconstructions}
+  \subsection{Object Reconstruction}
 
-    \begin{frame}[t]{\Etm and \bjets}
+    \begin{frame}[t]{Reconstruction: \Etm and \bjets}
      \begin{columns}[t]
       \column{.5\textwidth}
         \begin{itemize}
           \item Particles like $\nu$ do not leave a signature within ATLAS
-          \item Instead, infer their presence through energy conservation
+          \item Instead, infer their presence through momentum conservation
           \begin{itemize}
             \item Negative vector sum of all objects in a collision event
           \end{itemize}
@@ -769,12 +755,61 @@
       \end{columns}
     \end{frame}
 
-    \begin{frame}[t]{Reconstruction}
+    \begin{frame}[t]{Reconstruction: $e$ and $\mu$}
+      \begin{columns}[t]
+        \column{.5\textwidth}
+        \begin{itemize}
+          \item Electron identification
+          \begin{itemize}
+            \item Information from the ID and showers in the EM calorimeter are combined
+            \item This analysis uses tight ID and tight isolation requirements
+          \end{itemize}
+        \end{itemize}
 
+        \column{.5\textwidth}
+        \begin{itemize}
+          \item $\mu$ identification
+          \begin{itemize}
+            \item Information from the ID is combined with the MS
+            \item This analysis uses tight ID and tight isolation requirements
+          \end{itemize}
+        \end{itemize}
+      \end{columns}
+      \centering
+      \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter3_experiment/images/ATLASCrossSectionDiagram.png}
+      
     \end{frame}
 
-    \begin{frame}[t]{$\tau$ Reconstruction}
+    \begin{frame}[t]{Reconstruction: $\tau$ leptons}
+      \begin{columns}
+        \column{.5\textwidth}
+        \begin{itemize}
+          \item $\tau$ leptons typically decay before they interact with the detector
+          % \item $\tau$ lepton decays are messy and difficult to reconstruct
+          \item $\tau$ leptons decay hadronically $\approx 65\%$ of the time
+          \begin{itemize}
+            \item leptonic decays are not considered
+          \end{itemize}
+          \item Number of charged hadrons $(\pi^{\pm})$ in decays defines number of prongs
+          \begin{itemize}
+            \item 1 $\pi^{\pm}$ occurs 72\% of the time
+            \item 3 $\pi^{\pm}$ occurs 22\% of the time
+            \item Of these decays, 68\% contain $> 1\, \pi^{0}$
+          \end{itemize}
+          \item $\nu_{\tau}$ are also produced in these decays, only visible part of $\tau$ can be reconstructed
+        \end{itemize}
 
+        \column{.5\textwidth}
+        \centering
+        \begin{figure}
+        \includegraphics[width=.6\textwidth,keepaspectratio=true]{tau_hadronic_decay.png}
+        % \caption{\tiny }
+        \end{figure}
+        \begin{figure}
+        \includegraphics[width=.6\textwidth,keepaspectratio=true]{jet_particle.png}
+        \caption{\tiny \cite{tau-diagrams}}
+        \end{figure}
+      \end{columns}
     \end{frame}
 
 \section{Simulation }
@@ -889,7 +924,230 @@
         \end{columns}
       \end{frame}
 
-    \begin{frame}[t]{Updates to analysis since last publication}
+  \subsection{ Background Modeling }
+  \begin{frame}[t]{Background Estimation}
+    \begin{columns}[t]
+      \column{.5\textwidth}
+      \vspace{-3.5cm}
+        \begin{itemize}
+          \item Signal region \Etm distributions on right show background composition
+          \item Define control regions to verify main sources of background
+        \end{itemize}
+    % \begin{table}[!thp]
+      % \resizebox{.75\linewidth}{!}{
+      % \rowcolors{1}{}{NIUgray}
+      % \begin{tabular}{| c | c | c |} \hline
+        % Background Modeling           & \taujets Control Regions      &  \taulep Control Regions \\ \hline \hline
+        % \ttbar  + single top          & \ttbar                        &  Dilepton-btag \\ \hline
+        % % b-veto                       &  Close to SR                 & Close to SR \\ \hline
+        % Fake $j \to \tau$ enriched    & bveto $m_T(\tau, \Etm) > 100$ & Same Sign       \\ \hline
+        % W+Jets                        & W+Jets                        &                             \\ \hline
+        % Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
+
+      % \end{tabular}}
+    % \end{table}
+
+      \column{.5\textwidth}
+      \centering
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
+      \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Background Estimation}
+    \begin{columns}[t]
+      \column{.5\textwidth}
+        \vspace{-3.5cm}
+        \begin{itemize}
+          \item Signal region \Etm distributions on right show background composition
+          \item Define control regions to verify main sources of background
+        \end{itemize}
+    \begin{table}[!thp]
+      \resizebox{\textwidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c |} \hline
+        Background Modeling           & \taujets Control Regions      &  \taulep Control Regions & Data/Model Agreement \\ \hline \hline
+        \ttbar  + single top          & \ttbar                        &  Dilepton-btag           & \textcolor{red}{\ding{51}} \\ \hline
+        % % b-veto                       &  Close to SR                 & Close to SR \\ \hline
+        % Fake $j \to \tau$ enriched    & bveto $m_T(\tau, \Etm) > 100$ & Same Sign       \\ \hline
+        % W+Jets                        & W+Jets                        &                             \\ \hline
+        % Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
+
+      \end{tabular}}
+    \end{table}
+    \begin{itemize}
+      \item Estimated with simulation
+    \end{itemize}
+
+      \column{.5\textwidth}
+      \centering
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Background Estimation}
+    \begin{columns}[t]
+      \column{.5\textwidth}
+        \vspace{-3.5cm}
+        \begin{itemize}
+          \item Signal region \Etm distributions on right show background composition
+          \item Define control regions to verify main sources of background
+        \end{itemize}
+    \begin{table}[!thp]
+      \resizebox{\textwidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c |} \hline
+        Background Modeling           & \taujets Control Regions      &  \taulep Control Regions & Data/Model Agreement \\ \hline \hline
+        \ttbar  + single top          & \ttbar                        &  Dilepton-btag           & \textcolor{red}{\ding{51}} \\ \hline
+        % Validation Region             &  b-veto                     & b-veto \\ \hline
+        % Fake $j \to \tau$ enriched    & b veto $m_T(\tau, \Etm) > 100$ & Same Sign               & \textcolor{red}{\ding{51}}      \\ \hline
+        V+Jets                        & W+Jets                        &  Zee (Fake $\ell \to \tau$ enriched)                        & \textcolor{red}{\ding{51}}   \\ \hline
+        % Fake $\ell \to \tau$ enriched &                               & Zee                      & \textcolor{red}{\ding{51}} \\ \hline
+
+      \end{tabular}}
+    \end{table}
+    \begin{itemize}
+      \item Estimated with simulation
+    \end{itemize}
+
+      \column{.5\textwidth}
+      \centering
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_WJETS.png}
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
+    % \begin{columns}[t]
+    %   \column{.6\textwidth}
+        % \vspace{-3.5cm}
+        % \begin{itemize}
+        %   \item Signal region \Etm distributions on right show background composition
+        %   \item Define control regions to verify main sources of background
+        % \end{itemize}
+    % \begin{table}[!thp]
+    %   \resizebox{\textwidth}{!}{
+    %   \rowcolors{1}{}{NIUgray}
+    %   \begin{tabular}{| c | c | c | c |} \hline
+    %     Background Modeling           & \taujets Control Regions      &  \taulep Control Regions    & Data/Model Agreement \\ \hline \hline
+    %     \ttbar  + single top          & \ttbar                        &  Dilepton-btag              & \textcolor{red}{\ding{51}} \\ \hline
+    %     % Validation Region             &  b-veto                     & b-veto \\ \hline
+    %     W+Jets                        & W+Jets                        &                             & \textcolor{red}{\ding{51}} \\ \hline
+    %     Fake $j \to \tau$ enriched    & b veto $m_T(\tau, \Etm) > 100$ & Same Sign                  &      \\ \hline
+    %     % Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
+
+    %   \end{tabular}}
+    % \end{table}
+    \begin{itemize}
+      \item $j \rightarrow \tau$ fakes estimated with a data-driven fake factor (FF) method (from QCD-like Mulitjet and W+jets)
+      \begin{itemize}
+        \begin{multicols}{2}
+        % \item Fakes come from QCD-like multijet and W+jets processes
+        \item Anti-selection of $\tau$ that fail $\tau$ ID but pass looser selection
+        \item Define CRs to extract fake factors
+        \item Subtract SM contribution from simulation
+        \item $FF = \frac{N_{fake \tau}}{N_{anti-\tau}}$
+        \item In SR, measure fraction of fakes $(\alpha)$ using template fit of $\tau$ ID RNN score distributions using template shapes from $anti-\tau$ distributions in CRs 
+        \item {\footnotesize$FF_{sig} = \alpha_{MJ} \times FF_{MJ} + (1-\alpha_{MJ}) \times FF_{W+jets}$}
+        \item In SR, $N_{fake \tau} = FF_{sig} \times N_{anti-\tau}$
+        \end{multicols}
+      \end{itemize}
+    \end{itemize}
+
+    \begin{columns}
+      \column{.25\textwidth}
+      \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/ALPHA_inclusive__taujet.png}
+      \column{.25\textwidth}
+      \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/ALPHA_inclusive__taulep.png}
+      \column{.25\textwidth}
+      \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taujet.png}
+      \column{.25\textwidth}
+      \centering
+        \includegraphics[height=.3\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taulep.png}
+    \end{columns}
+  \end{frame}
+
+
+  \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
+    \begin{columns}[t]
+      \column{.5\textwidth}
+        \vspace{-3.5cm}
+        \begin{itemize}
+          \item Signal region \Etm distributions on right show background composition
+          \item Define control regions to verify main sources of background
+        \end{itemize}
+    \begin{table}[!thp]
+      \resizebox{\textwidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{| c | c | c | c |} \hline
+        Background Modeling           & \taujets Control Regions      &  \taulep Control Regions    & Data/Model Agreement \\ \hline \hline
+        \ttbar  + single top          & \ttbar                        &  Dilepton-btag              & \textcolor{red}{\ding{51}} \\ \hline
+        % Validation Region             &  b-veto                     & b-veto \\ \hline
+        Fake $j \to \tau$ enriched    & b veto $m_T(\tau, \Etm) > 100$ & Same Sign                  & \textcolor{red}{\ding{51}}      \\ \hline
+        % W+Jets                        & W+Jets                        &                             \\ \hline
+        % Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
+
+      \end{tabular}}
+    \end{table}
+    \begin{itemize}
+      \item Estimated with a data-driven fake factor method 
+      % \begin{itemize}
+      %   \item Fakes come from QCD-like multijet and W+jets processes
+      %   \item Define anti-selection of $\tau$ that fail $\tau$ identification but pass looser selection
+      %   \item Define control regions to extract fake factors
+      %   \item Subtract out SM contribution from simulation
+      %   \item Define fake factor as $FF = \frac{N_{fake \tau}}{N_{anti-\tau}}$
+      %   \item In SR, perform template fit of $\tau$ ID RNN score distributions using template shapes from $anti-\tau$ distributions in CRs
+      %   \item $FF_sig = \alpha_{MJ} \times FF_{MJ} + (1-\alpha_{MJ}) \times FF_(W+jets)$
+      %   \item In SR, $N_{fake \tau} = FF_{sig} \times N_{anti-\tau}$
+      % \end{itemize}
+    \end{itemize}
+
+      \column{.5\textwidth}
+      \centering
+        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png}
+        \includegraphics[width=.49\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png}
+        \includegraphics[width=.49\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png}
+    \end{columns}
+  \end{frame}
+
+    % \begin{frame}[t]{Background Modeling}
+    %     \begin{columns}[t]
+
+    %     \column{.24\textwidth}
+    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
+    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+
+    %     \column{.24\textwidth}
+    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png}
+    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png}
+
+    %     \column{.5\textwidth}
+    %       % \vspace{-2cm}
+    %       \vspace{-.45\textheight}
+    %       \begin{itemize}
+    %         \item \Etm distributions in control regions
+    %         \item Simulation agrees with data within errors
+    %         % \item 
+    %       \end{itemize}
+    %       \vspace{.2\textheight}
+    %       \begin{columns}
+    %         \column{.45\textwidth}
+    %           \hfill
+    %           \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png}
+    %         \column{.45\textwidth}
+    %           \hfill
+    %           \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png}
+    %       \end{columns}
+
+    %   \end{columns}
+    % \end{frame}
+
+  \begin{frame}[t]{Updates to analysis since last publication}
       \begin{columns}
       \column{.6\linewidth}
         \begin{itemize}
@@ -900,7 +1158,8 @@
             \item Previous: $90 \leq m_{H^{\pm}} \leq 2000$ GeV
             \item Current:  $80 \leq m_{H^{\pm}} \leq 3000$ GeV
           \end{itemize}
-          \item Signal filtering applied in order to effectively increase the statistics in the signal regions
+          % \item Signal filtering applied in order to effectively increase the statistics in the signal regions
+          \item Increased statistics of signal due to optimized simulation generation
           \item New analysis framework centered around using modern Machine Learning tools
           \item Investigated new multivariate analysis techniques
           \item Improved particle identification algorithms
@@ -922,188 +1181,6 @@
       \includegraphics[width=1.1\textwidth,keepaspectratio=true]{intlumivstimeRun2.png}
       \caption{\tiny \cite{luminositypublicresultsrun2}}
       \end{figure}
-      \end{columns}
-    \end{frame}
-
-  \begin{frame}[t]{Background Estimation}
-    \begin{columns}
-      \column{.6\textwidth}
-        \begin{itemize}
-          \item Signal region \Etm distributions on right show background composition
-          \item Control regions defined to verify main sources of background
-        \end{itemize}
-    \begin{table}[!thp]
-      \resizebox{.75\linewidth}{!}{
-      \rowcolors{1}{}{NIUgray}
-      \begin{tabular}{| c | c | c |} \hline
-        Background Modeling           & \taujets Control Regions      &  \taulep Control Regions \\ \hline \hline
-        \ttbar  + single top          & \ttbar                        &  Dilepton-btag \\ \hline
-        % b-veto                       &  Close to SR                 & Close to SR \\ \hline
-        Fake $j \to \tau$ enriched    & bveto $m_T(\tau, \Etm) > 100$ & Same Sign       \\ \hline
-        W+Jets                        & W+Jets                        &                             \\ \hline
-        Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
-
-      \end{tabular}}
-      % \caption{Control region definitions for the \taujets subchannel.}
-      % \label{tab:taujet-control-regions}
-    \end{table}
-
-
-    % \begin{table}[!thp]
-    %   \resizebox{.75\linewidth}{!}{
-    %   \rowcolors{1}{}{NIUgray}
-    %   \begin{tabular}{| c | c | c | c | c |} \hline
-    %                             & Dilepton-btag CR        & Zee CR                        & b-veto CR           & Same Sign CR                          \\ \hline
-    %     Number of \tauhad       & 0                       & 1                             & 0                   & 0                                     \\ \hline
-    %     $\pt^{\tau}$            & $ > 30$ GeV             & $ > 30$ GeV                   & $ > 30$ GeV         & $ > 30$ GeV                           \\ \hline
-    %     Number of jets          & $\geq 1$                & $\geq 1$                      & $\geq 1$            & $\geq 1$                              \\ \hline
-    %     $\pt^{jet}$             & $\geq 25$ GeV           & $\geq 25$ GeV                 & $\geq 25$ GeV       & $\geq 25$ GeV                         \\ \hline
-    %     Number of \bjets        & $\geq 1$                & 0                             & 0                   & $\geq 1$                              \\ \hline
-    %     Number of $\ell$        & 2 (1 $e$, 1 $\mu$)      & 1 $e$                         & 1 tight $e$ ($\mu$) & 1 tight $e$ ($\mu$)                   \\ \hline
-    %     \Etm                    & $> 50$ GeV              & $> 50$ GeV                    & $> 50$ GeV          & $> 50$ GeV                            \\ \hline
-    %     $\mathrm{mass}(\tau,e)$ & N/A                     & $> 40$; $< 140$ GeV           & N/A                 & N/A                                   \\ \hline
-    %     Type of modeling        & \ttbar and single-top   & Fake $\ell \to \tau$ enriched & Close to SR         & Fake $j \to \tau$ enriched            \\ \hline
-    %   \end{tabular}}
-    %   % \caption{Control region definitions for the \taulep subchannel.}
-    %   % \label{tab:taulep-control-regions}
-    % \end{table}
-      \column{.4\textwidth}
-      \centering
-      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
-      \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
-    \end{columns}
-  \end{frame}
-
-\subsection{ $j \rightarrow \tau$ Fakes }
-
-    \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
-      \begin{columns}[t]
-      \column[t]{.8\textwidth}
-        \vspace{-3.5cm}
-        \begin{itemize}
-          \item Extract Fake-Factors $FF = \frac{N^{CR}_{\tau_{had-vis}}}{N^{CR}_{\bar{\tau}_{had-vis}}}$ from two orthogonal control regions:
-            \begin{table}
-              \tiny
-              \resizebox{.42\linewidth}{!}{
-              \rowcolors{1}{}{NIUgray}
-              \begin{tabular}{l | l} 
-              \textbf{Multi-Jet (gluon enriched)} & \textbf{W+Jets (quark enriched)} \\ 
-              \hline \hline
-              $E^{miss}_{T}$ or Multi-Jet trigger & Single lepton triggers \\
-              $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV & $\geq 1 \tau_{had}, p_{T}^{\tau} > 30$ GeV \\
-              $\geq 3$  jets &  $\geq 1 $ jet\\
-              0 b-jets & 0 b-jets \\
-              % 0 $\ell$ & 1 $\ell$, $p^{\ell}_{T}>30$ GeV \\
-              % $E^{miss}_{T} < 80$ GeV & 1 $\tau$ \\
-              % $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV &  $60 < m_{T}(\ell,E^{miss}_{T}) < 160$ GeV\\
-              \end{tabular}}
-            \end{table}
-          \item Combine the two Fake-Factors via the template fit method:
-          \begin{itemize}
-            % \item $FF^{comb}_{i}=\alpha^{Multi-Jet}_{i} FF^{Multi-Jet}_{i} + [1-\alpha^{Multi-Jet}_{i}]FF^{W+jets}_{i}$
-            \item Find two separate templates for anti-$\tau$ in each CR
-            \item Fit both templates to the shape of the anti-$\tau$ in the SR
-            \item Lowest $\chi^2$ of the fit defines $\alpha_{MJ}$ value and the corresponding error
-          \end{itemize}
-        \end{itemize}
-            \centering
-            \footnotesize
-            $FF^{comb}_{i}=\alpha^{MJ}_{i} FF^{MJ}_{i} + [1-\alpha^{MJ}_{i}]FF^{W+jets}_{i}$
-          \begin{itemize}
-          \item Number of events with fake $\tau$ in the signal region is given by:
-        \end{itemize}
-          \centering
-          \footnotesize
-          $N^{\tau_{had-vis}}_{fakes} = \sum\limits_{i} N^{SR_{i}}_{\bar{\tau}_{had-vis}} FF_{i}$
-      \column{.195\textwidth}
-      \centering
-      \includegraphics[trim={1.cm 0.cm 43.65cm 0.cm},clip,width=1.2\textwidth]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_FIT_SR_TAUJET_1_40_45.png}
-        \begin{itemize}
-          \tiny
-          \item $\bar{\tau_{0}}$ jet width used in $\alpha$ fitting of 1-prong and 3-prong $\bar{\tau}$
-        \end{itemize}
-         \begin{table}
-          %   \tiny
-            \resizebox{.65\textwidth}{!}{
-            \rowcolors{1}{}{NIUgray}
-            \begin{tabular}{l}
-            \textbf{$\bar{\tau} \: ID$} \\
-            \hline \hline
-            $RNN \: Score > 0.01$ \\
-            Not loose \\
-            \end{tabular}}
-          \end{table}
-      \end{columns}
-    \end{frame}
-
-    % \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
-    %   \begin{columns}
-    %     \column[T]{.44\textwidth}
-    %       \centering
-    %       $\tau$+jets channel\\
-    %       \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/ALPHA_inclusive__taujet}\\
-    %       \vspace{-0.1em}
-    %       \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taujet}
-    %     \column[T]{.44\textwidth}
-    %       \centering
-    %       $\tau$+lepton channel\\
-    %       \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/ALPHA_inclusive__taulep}\\
-    %       \vspace{-0.1em}
-    %       \includegraphics[width=.75\textwidth,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/FFs/FFs_COM_inclusive__taulep}
-    %   \end{columns}
-    % \end{frame}
-
-    % \begin{frame}[t]{Background Estimation: $j \rightarrow \tau$ Fakes}
-    %     \begin{columns}
-    %     \column{.11\textwidth}
-    %     \begin{itemize}
-    %       \tiny
-    %       \item $\tau+jets$ w/ syst uncert.
-    %       \vspace{2cm}
-    %       \item $\tau+\ell$ w/ syst uncert.
-    %     \end{itemize}
-    %     \column{.25\textwidth}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO_MT100.png}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUEL.png}
-    %     \column{.25\textwidth}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_BVETO_MT100.png}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_met_mt_SS_TAUEL.png}
-    %     \column{.25\textwidth}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_BVETO_MT100.png}
-    %     \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SS_TAUEL.png}
-    %   \end{columns}
-    % \end{frame}
-
-  \subsection{ Background Modeling }
-    \begin{frame}[t]{Background Modeling}
-        \begin{columns}[t]
-
-        \column{.24\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
-
-        \column{.24\textwidth}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png}
-        \includegraphics[height=.45\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png}
-
-        \column{.5\textwidth}
-          % \vspace{-2cm}
-          \vspace{-.45\textheight}
-          \begin{itemize}
-            \item \Etm distributions in control regions
-            \item Simulation agrees with data within errors
-            % \item 
-          \end{itemize}
-          \vspace{.2\textheight}
-          \begin{columns}
-            \column{.45\textwidth}
-              \hfill
-              \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png}
-            \column{.45\textwidth}
-              \hfill
-              \includegraphics[height=.4\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png}
-          \end{columns}
-
       \end{columns}
     \end{frame}
 
@@ -1150,10 +1227,13 @@
     \begin{frame}[t]{Parameterized Neural Networks}
       \begin{columns}[t]
       \column{.75\textwidth}
+      \vspace{-0.5cm}
       \begin{itemize}
       \small
       \item Parameterized Neural Networks (PNNs) can be trained and evaluated on entire \mHpm range
       \begin{itemize}
+        \item One model for entire mass range makes analysis less computationally expensive
+        \item PNN can be evaluated on mass points that are not simulated
         \item Detailed information here: \href{https://arxiv.org/abs/1601.07913}{\textcolor{blue}{arXiv:1601.07913}}
       \end{itemize}
       \item Background modeling and classifier training kept statistically independent via the k-fold method $(k=5)$
@@ -1165,12 +1245,14 @@
       % \item Trained using Tensorflow backend for Keras
       % \item \mHpm is used as an input feature of the model
       % \item Allows one model to be used across entire \mHpm mass range
+      \begin{itemize}
       \item Separate models trained on 1 prong and 3 prong $\tau$
       \begin{itemize}
         \item $\tau$ polarization used to enhance low \mHpm performance
         \item $\Upsilon = \frac{ E^{\pi^{\pm}}_{T} - E^{\pi^{0}}_{T}}{E^{\tau}_{T}} \approx 2 \frac{\pt^{\tau-\mathrm{track}}}{\pt^{\tau}} -1$
       \end{itemize}
       \item \taulep channel is trained inclusive for \tauel and \taumu
+    \end{itemize}
       % \item Many ongoing studies
       %   \begin{itemize}
       %     \item High level vs low level input features
@@ -1248,8 +1330,8 @@
 
     \begin{frame}[t]{Boosted Decision Tree vs Parameterized Neural Network}
       \begin{itemize}
-        \item One model for entire mass range makes analysis less computationally expensive
-        \item PNN can be evaluated on mass points that are not simulated
+        % \item One model for entire mass range makes analysis less computationally expensive
+        % \item PNN can be evaluated on mass points that are not simulated
         % \item Limits are preliminary, many fixes and changes have been implemented since
         \item These comparisons were done with an optimized BDT and an unoptimized PNN
         \item PNN chosen as classifier
@@ -1328,11 +1410,13 @@
   \subsection{ PNN HPO }
 
     \begin{frame}[t]{PNN Hyperparameter Optimization}
+      % \vspace{-.2cm}
       \begin{itemize}
         \item Performed in the $\tau+\ell$ sub-channel
         \item Used area under curve (AUC) of scores as figure of merit
         \begin{itemize}
           \item Averaged over 5 kfolds, standard deviation is taken from kfolds
+          \item Average Area Under the Curve (AUC) from 80 GeV to 500 GeV to optimize for low mass
           % \item AUC from 80 GeV to 500 GeV to optimize for low mass
         \end{itemize}
           \item Used early stopping for training
@@ -1342,6 +1426,7 @@
           \end{itemize}
         \item To speed up hyperparameter optimization (HPO), ran multiple small grids of hyperparameters
         \begin{itemize}
+          \begin{multicols}{2}
           \item Scan over activation functions and loss functions
           % \begin{itemize}
           %   \item Binary crossentropy gave best result
@@ -1359,9 +1444,9 @@
           %   \item $\alpha=0.05$ gave best results
           % \end{itemize}
           \item Fixed alpha over more widths and depths
-          \begin{itemize}
-            \item AUC from 80 GeV to 500 GeV to optimize for low mass
-          \end{itemize}
+          % \begin{itemize}
+          % \end{itemize}
+          \end{multicols}
         \end{itemize}
       \end{itemize}
     \end{frame}
@@ -1396,6 +1481,7 @@
             \end{tabular}}
         \end{table}
 
+        \pause
 
         \begin{table}
           \resizebox{.75\linewidth}{!}{
@@ -1410,6 +1496,8 @@
             loss function & binary crossentropy & & \\ \hline 
             \end{tabular}}
         \end{table}
+
+        \pause
 
         \begin{table}
           \resizebox{.75\linewidth}{!}{
@@ -1426,6 +1514,7 @@
             \end{tabular}}
         \end{table}
 
+        \pause
 
         \column{.6\textwidth}
 
@@ -1444,6 +1533,8 @@
           loss function & binary crossentropy & & &  \\ \hline
           \end{tabular}}
         \end{table}
+
+        \pause
 
         \begin{table}
           \resizebox{.75\linewidth}{!}{
@@ -1475,7 +1566,7 @@
         \toprule
         width & depth &  Avg &   LowMassAvg \\
         \midrule
-          128  &  3 & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
+         \rowcolor{green} 128  &  3 & 0.8876  $\pm$ 0.0000  & 0.8261  $\pm$ 0.0968  \\
           128 & 5 & 0.8861  $\pm$ 0.0000  & 0.8235  $\pm$ 0.1000  \\
           128 & 4 & 0.8858  $\pm$ 0.0000  & 0.8232  $\pm$ 0.0994  \\
           128 & 2 & 0.8857  $\pm$ 0.0000  & 0.8231  $\pm$ 0.1006  \\
@@ -1533,7 +1624,7 @@
     \begin{itemize}
       \item A search for \HpmLong was improved upon
       \item Investigated, optimized, and implemented modern machine learning techniques 
-      \item New analysis strategy outperforms previous analysis by $>3\times$
+      \item New analysis strategy outperforms previous analysis by $\gtrsim 3\times$
       \item Analysis is still blinded and work is ongoing towards a publication
     \end{itemize}
     \centering
