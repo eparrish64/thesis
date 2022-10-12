@@ -1072,7 +1072,7 @@
     %   \end{tabular}}
     % \end{table}
     \begin{itemize}
-      \item $j \rightarrow \tau$ fakes estimated with a data-driven fake factor (FF) method (from QCD-like Mulitjet and W+jets)
+      \item $j \rightarrow \tau$ fakes estimated with a data-driven fake factor (FF) method (from Mulitjet and W+jets)
       \begin{itemize}
         \begin{multicols}{2}
         % \item Fakes come from QCD-like multijet and W+jets processes
@@ -1080,7 +1080,7 @@
         \item Define CRs to extract fake factors
         \item Subtract SM contribution from simulation
         \item $FF = \frac{N_{fake \tau}}{N_{anti-\tau}}$
-        \item In SR, measure fraction of fakes $(\alpha)$ using template fit of $\tau$ ID RNN score distributions using template shapes from $anti-\tau$ distributions in CRs 
+        \item In SR, measure fraction of fakes $(\alpha)$ using template fit of $\tau$ ID score distributions using template shapes from $anti-\tau$ distributions in CRs 
         \item {\footnotesize$FF_{sig} = \alpha_{MJ} \times FF_{MJ} + (1-\alpha_{MJ}) \times FF_{W+jets}$}
         \item In SR, $N_{fake \tau} = FF_{sig} \times N_{anti-\tau}$
         \end{multicols}
@@ -1290,8 +1290,11 @@
       \small
       \item Parameterized Neural Networks (PNNs) can be trained and evaluated on entire \mHpm range
       \begin{itemize}
-        \item One model for entire mass range makes analysis less computationally expensive
-        \item PNN can be evaluated on mass points that are not simulated
+        \item PNN learns more information with the same amount of data
+        \begin{itemize}
+          \item PNN can be evaluated on mass points that are not simulated
+        \end{itemize}
+        % \item One model for entire mass range makes analysis less computationally expensive
         \item Detailed information here: \href{https://arxiv.org/abs/1601.07913}{\textcolor{blue}{arXiv:1601.07913}}
       \end{itemize}
       \item Background modeling and classifier training kept statistically independent via the k-fold method $(k=5)$
@@ -1587,6 +1590,86 @@
       \includegraphics[height=.5\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_Hplus/images/AUC_Plots/model_GB_1024_channel_taulep_mass_80to3000_ntracks_1_nfolds_5_fold_4_nvars_19_batch_size_1024_epochs_1000_dense_layer_size_128_activation_function_LeakyRelu_depth_3_loss_binary_crossentropy_dropout_0.1_alpha_0.05.eps}
       \end{columns}
     \end{frame}
+
+   \subsection{Systematic Uncertainties }
+
+    \begin{frame}[t]{Sources of Systematic Uncertainty}
+      \begin{columns}[t]
+
+      \column{.45\textwidth}
+        \begin{itemize}
+          \item Errors shown in plots include systematic uncertainties
+          \begin{itemize}
+            % \item Object identification selections are varied by $\pm \, 1 \, \sigma$
+            \item Signal and \ttbar theory uncertainties are not included
+            \item Studies are being finalized
+            % \item 
+          \end{itemize} 
+        \end{itemize}
+
+        % \begin{table}[!htb]
+        %   \begin{center}
+        %     \resizebox{.75\textwidth}{!}{
+        %     \rowcolors{1}{}{NIUgray}
+        %     \begin{tabular}{l|c||c|}
+        %       & \multicolumn{2}{|c|}{Effect on expected event yield}  \\
+        %       \hline
+        %       Fake factor source of uncertainty & \taujets  & \taulep \\
+        %       \hline\hline
+        %       Statistical uncertainties & 3.9$\%$  & 3.2$\%$ \\\hline
+        %       True \tauhad in the anti-\tauhad CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular}  & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} \\ \hline
+        %       Tau RNN Identification SF & 2.7$\%$  & 2.7$\%$ \\\hline
+        %       $\alpha_\text{MJ}$ uncertainty & 3.6\%  & 1.9\% \\\hline
+        %       % Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\ding{51}} & 0$\%$ & \textcolor{red}{\ding{51}}\\\hline          
+        %       Heavy flavor jet fraction & 6$\%$  & 5.53$\%$ \\ \hline
+        %     \end{tabular}}
+        %   \end{center}
+        %   % \caption{\label{tab:FF-syst-uncert}
+        %     % Effect on the shape variation and the yields of systematic uncertainties associated with the data-driven fake
+        %     % factor method, used to estimate the $j \to \tau$ background in the
+        %    % \taujets and \taulep channel.
+        %     % }
+        % \end{table}
+
+        \column{.55\textwidth}
+        \begin{table}
+        % \begin{center}
+        \resizebox{\textwidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{| l | c | c | c | c | c | c |}
+        \hline
+        Source                                  &   \multicolumn{6}{|c|}{Impact on the expected event yield (\%)}  \\ \cline{2-7}
+                                                &   \multicolumn{2}{|c|}{\taujets}                                                                       &   \multicolumn{2}{c|}{\tauel}                                                                       &   \multicolumn{2}{c|}{\taumu}     \\ \cline{2-7}
+                                                &   \ttbar                                          &  \Hpm 200 GeV                                     &   \ttbar                                        &   \Hpm 200 GeV                                    &   \ttbar                                          &   \Hpm 200 GeV                                      \\ \hline \hline
+        % \tauhad reconstruction efficiency       &   $\pm$1.24                                       &  $\pm$1.22                                        &   $\pm$1.23                                     &   \begin{tabular}{c}+1.22 \\ -1.23 \end{tabular}  &   $\pm$1.23                                       &   $\pm$1.22                                         \\ \hline
+        % \tauhad-id                              &   $\pm$1.79                                       &  $\pm$0.52                                        &   $\pm$1.40                                     &   $\pm$0.50                                       &   $\pm$1.40                                       &   $\pm$0.48                                         \\ \hline
+        % \tauhad energy scale                    &   \begin{tabular}{c}+2.53 \\ -2.80 \end{tabular}  &   \begin{tabular}{c}+2.00 \\ -1.66 \end{tabular}  & \begin{tabular}{c}+1.60 \\ -1.44 \end{tabular}  &   \begin{tabular}{c}+1.28 \\ -1.66 \end{tabular}  &   \begin{tabular}{c}+1.53 \\ -1.39 \end{tabular}  &   \begin{tabular}{c}+1.72 \\ -1.46 \end{tabular}    \\ \hline
+        % \tauhad energy scale (detector)         &   \begin{tabular}{c}+1.96 \\ -1.55 \end{tabular}  &   \begin{tabular}{c}+1.64 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.5 \end{tabular}     \\ \hline
+        % \tauhad energy scale (in-situ)          &   \begin{tabular}{c}+1.44 \\ -1.43 \end{tabular}  &   \begin{tabular}{c}+0.22 \\ -0.74 \end{tabular}  & \begin{tabular}{c}+1.17 \\ -1.20 \end{tabular}  &   \begin{tabular}{c}+0.74 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+1.14 \\ -1.15 \end{tabular}  &   \begin{tabular}{c}+0.54 \\ -0.37 \end{tabular}    \\ \hline
+        % \tauhad energy scale (model)            &   \begin{tabular}{c}+0.56 \\ -0.61 \end{tabular}  &   -0.06                                           & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.50 \end{tabular}    \\ \hline
+        % \tauhad energy scale (physics list)     &   \begin{tabular}{c}+1.27 \\ -1.26 \end{tabular}  &   -0.72                                           & \begin{tabular}{c}+0.74 \\ -0.65 \end{tabular}  &   \begin{tabular}{c}+0.67 \\ -0.25 \end{tabular}  &   \begin{tabular}{c}+0.72 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+0.83 \\ -0.60 \end{tabular}    \\ \hline
+        Fake factor uncertainties               &   \begin{tabular}{c}+8.23 \\ -8.15 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.15 \end{tabular}  & \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}    \\ \hline
+        jet uncertainties                       &   \begin{tabular}{c}+7.38 \\ -8.39 \end{tabular}  &   \begin{tabular}{c}+6.51 \\ -9.06 \end{tabular}  & \begin{tabular}{c}+3.41 \\ -3.31 \end{tabular}  &   \begin{tabular}{c}+4.49 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+3.18 \\ -3.24 \end{tabular}  &   \begin{tabular}{c}+3.67 \\ -2.96 \end{tabular}    \\ \hline
+        $\tau$ uncertainties                    &   $\pm4.36$                                       &   \begin{tabular}{c}+2.91 \\ -2.80 \end{tabular}  & \begin{tabular}{c}+2.84 \\ -2.74 \end{tabular}  &   \begin{tabular}{c}+2.65 \\ -2.70 \end{tabular}  &   \begin{tabular}{c}+2.77 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+2.58 \\ -2.97 \end{tabular}    \\ \hline
+        \Etm uncertainties                      &   \begin{tabular}{c}+1.31 \\ -1.12 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.29 \\ -0.24 \end{tabular}  &   \begin{tabular}{c}+0.88 \\ -0.34 \end{tabular}  &   \begin{tabular}{c}+0.30 \\ -0.23 \end{tabular}  &   \begin{tabular}{c}+0.21 \\ -0.11 \end{tabular}    \\ \hline
+        trigger uncertainties                   &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   $\pm$0.03                                       & 0                                               &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$0.56                                           \\ \hline
+        $e$ uncertainties                       &   0                                               &   0                                               & $\pm$0.71                                       &   $\pm$0.73                                       &   0                                               &   0                                                 \\ \hline
+        $\mu$ uncertainties                     &   0                                               &   0                                               & -0.01                                           &   -0.11                                           &   \begin{tabular}{c}+0.97 \\ -1.41 \end{tabular}  &   \begin{tabular}{c}+1.08 \\ -2,96 \end{tabular}    \\ \hline
+        % $\mu$ MS                                &   0                                               &   0                                               & 0                                               &   0                                               &   \begin{tabular}{c}+0.09 \\ -0.12 \end{tabular}  &   \begin{tabular}{c}+0.40 \\ -0.34 \end{tabular}        \\
+        \hline
+        \end{tabular}}
+        % \caption{\label{tab:sys_ttbar_signal}
+        % Effect of the main systematic uncertainties on the expected event yield for \ttbar and signal events ($\mHpm= 200$ GeV) passing the nominal event selection of the three \glspl{SR}. The three components of the \tauhad energy scale uncertainty are shown in the table. Impacts are shown in percent change with respect to the nominal \gls{SR} selections.
+        % }
+        % \end{center}
+      \end{table}
+
+      
+      \end{columns}
+      \end{frame}
+
+
+
 
   \subsection{Results }
 
