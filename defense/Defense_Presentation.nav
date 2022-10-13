@@ -193,9 +193,9 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {28}{31}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionentry {0}{5}{4}{32}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{32}{Current Search}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {5}{4}{1}{32/32}{\ensuremath {\ensuremath {H^{\pm }}\xspace \to \tau ^{\pm } \nu _{\tau }}\xspace }{0}}
+\headcommand {\slideentry {5}{4}{1}{32/32}{Current Search}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {32}{32}}
 \defcounter {refsection}{0}\relax 
@@ -403,10 +403,418 @@
 \headcommand {\slideentry {9}{2}{5}{68/68}{Systematic Uncertainties }{1}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {68}{68}}
-\headcommand {\beamer@partpages {44}{68}}
-\headcommand {\beamer@subsectionpages {64}{68}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {54}{68}}
-\headcommand {\beamer@documentpages {68}}
-\headcommand {\gdef \inserttotalframenumber {25}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {64}{68}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {10}{$\tau +jets$ }{69}{$\tau +jets$ }{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {69}{68}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{1}{69}{Preselection}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{1}{1}{69/69}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {69}{69}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{1}{2}{70/70}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {70}{70}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{1}{3}{71/71}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {71}{71}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{1}{4}{72/72}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {72}{72}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {69}{72}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{2}{73}{$t\bar {t}$ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{2}{1}{73/73}{$t\bar {t}$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {73}{73}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{2}{2}{74/74}{$t\bar {t}$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {74}{74}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{2}{3}{75/75}{$t\bar {t}$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {75}{75}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{2}{4}{76/76}{$t\bar {t}$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {76}{76}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {73}{76}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{3}{77}{W+Jets CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{3}{1}{77/77}{W+Jets CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {77}{77}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{3}{2}{78/78}{W+Jets CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {78}{78}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{3}{3}{79/79}{W+Jets CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {79}{79}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{3}{4}{80/80}{W+Jets CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {80}{80}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {77}{80}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{4}{81}{b-veto CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{4}{1}{81/81}{b-veto CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {81}{81}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{4}{2}{82/82}{b-veto CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {82}{82}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{4}{3}{83/83}{b-veto CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {83}{83}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{4}{4}{84/84}{b-veto CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {84}{84}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {81}{84}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{5}{85}{b-veto $m_{T}>100$ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{5}{1}{85/85}{b-veto $m_{T}>100$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {85}{85}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{5}{2}{86/86}{b-veto $m_{T}>100$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {86}{86}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{5}{3}{87/87}{b-veto $m_{T}>100$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {87}{87}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{5}{4}{88/88}{b-veto $m_{T}>100$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {88}{88}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {85}{88}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{10}{6}{89}{$\tau +jets$ SR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{6}{1}{89/89}{$\tau +jets$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {89}{89}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{6}{2}{90/90}{$\tau +jets$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {90}{90}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {10}{6}{3}{91/91}{$\tau +jets$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {91}{91}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {69}{91}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {89}{91}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {11}{$\tau +\ell $ }{92}{$\tau +\ell $ }{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {92}{91}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{1}{92}{Preselection}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{1}{92/92}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {92}{92}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{2}{93/93}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {93}{93}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{3}{94/94}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {94}{94}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{4}{95/95}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {95}{95}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{5}{96/96}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {96}{96}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{1}{6}{97/97}{Preselection}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {97}{97}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {92}{97}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{2}{98}{Dilepton-btag CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{1}{98/98}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {98}{98}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{2}{99/99}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {99}{99}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{3}{100/100}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {100}{100}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{4}{101/101}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {101}{101}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{5}{102/102}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {102}{102}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{2}{6}{103/103}{Dilepton-btag CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {103}{103}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {98}{103}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{3}{104}{$Z \rightarrow ee$ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{1}{104/104}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {104}{104}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{2}{105/105}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {105}{105}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{3}{106/106}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {106}{106}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{4}{107/107}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {107}{107}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{5}{108/108}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {108}{108}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{3}{6}{109/109}{$Z \rightarrow ee$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {109}{109}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {104}{109}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{4}{110}{b-veto $\tau +e$ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{1}{110/110}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {110}{110}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{2}{111/111}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {111}{111}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{3}{112/112}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {112}{112}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{4}{113/113}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {113}{113}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{5}{114/114}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {114}{114}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{4}{6}{115/115}{b-veto $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {115}{115}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {110}{115}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{5}{116}{b-veto $\tau +\mu $ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{1}{116/116}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {116}{116}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{2}{117/117}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {117}{117}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{3}{118/118}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {118}{118}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{4}{119/119}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {119}{119}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{5}{120/120}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {120}{120}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{5}{6}{121/121}{b-veto $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {121}{121}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {116}{121}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{6}{122}{Same Sign $\tau +e$ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{1}{122/122}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {122}{122}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{2}{123/123}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {123}{123}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{3}{124/124}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {124}{124}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{4}{125/125}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {125}{125}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{5}{126/126}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {126}{126}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{6}{6}{127/127}{Same Sign $\tau +e$ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {127}{127}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {122}{127}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{7}{128}{Same Sign $\tau +\mu $ CR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{1}{128/128}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {128}{128}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{2}{129/129}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {129}{129}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{3}{130/130}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {130}{130}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{4}{131/131}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {131}{131}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{5}{132/132}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {132}{132}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{7}{6}{133/133}{Same Sign $\tau +\mu $ CR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {133}{133}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {128}{133}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{8}{134}{$\tau +e$ SR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{1}{134/134}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {134}{134}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{2}{135/135}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {135}{135}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{3}{136/136}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {136}{136}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{4}{137/137}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {137}{137}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{5}{138/138}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {138}{138}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{8}{6}{139/139}{$\tau +e$ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {139}{139}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {134}{139}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{9}{140}{$\tau +\mu $ SR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{1}{140/140}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {140}{140}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{2}{141/141}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {141}{141}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{3}{142/142}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {142}{142}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{4}{143/143}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {143}{143}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{5}{144/144}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {144}{144}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{9}{6}{145/145}{$\tau +\mu $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {145}{145}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {140}{145}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {1}{11}{10}{146}{$\tau +\ell $ SR}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{1}{146/146}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {146}{146}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{2}{147/147}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {147}{147}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{3}{148/148}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {148}{148}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{4}{149/149}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {149}{149}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{5}{150/150}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {150}{150}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {11}{10}{6}{151/151}{$\tau +\ell $ SR}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {151}{151}}
+\headcommand {\beamer@partpages {44}{151}}
+\headcommand {\beamer@subsectionpages {146}{151}}
+\headcommand {\beamer@sectionpages {92}{151}}
+\headcommand {\beamer@documentpages {151}}
+\headcommand {\gdef \inserttotalframenumber {108}}
 \headcommand {\gdef \inserttotalframenumber {43}}
-\headcommand {\gdef \appendixtotalframenumber {25}}
+\headcommand {\gdef \appendixtotalframenumber {108}}

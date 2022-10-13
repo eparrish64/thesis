@@ -33,7 +33,7 @@
 
 % Title
 \title[Search for \HpmLong with ATLAS]
-{Search for Charged Higgs Bosons in the \taunu Final State with \LUMI of \pp Collision Data at \sqs with the ATLAS Experiment}
+{Search for Charged Higgs Bosons in the \HpmLong Final State with \LUMI of \pp Collision Data at \sqs with the ATLAS Experiment}
 
 % Sub Title
 \subtitle{Dissertation Defense}
@@ -148,7 +148,10 @@
               \item Gluon (g) $\to$ Strong force
               \item Photon ($\gamma$) $\to$ Electromagnetism
               \item $W^{\pm},Z^{0}$ $\to$ Weak force
-              \item No explicit mass terms
+              \item At high energies, electromagnetism and the weak forces are one ``electroweak'' force
+              % \begin{itemize}
+                % \item From experiment we know they are massive
+              % \end{itemize}
             \end{itemize}
         \end{itemize}
       \end{itemize}
@@ -172,10 +175,12 @@
         % \item Interactions with Higgs field give particles mass
         % \item Theorized by Higgs, Englert, and Brout in 1964
           % \begin{itemize}
-            \item At high energies, electromagnetism and the weak forces are one ``electroweak'' force
+          % \item No explicit mass terms
+            % \item At high energies, electromagnetism and the weak forces are one ``electroweak'' force
+            \item Force carrier bosons have no explicit mass terms within the SM
             \begin{itemize}
-              \item At lower energies, two separate forces
-              \item $\gamma$ is massless while $W^{\pm}$ and $Z^{0}$ are massive
+              % \item At lower energies, two separate forces
+              \item Experiment shows that $\gamma$ is massless while $W^{\pm}$ and $Z^{0}$ are massive
             \end{itemize}
             \item In 1964 Brought, Englert and Higgs theorized a field that exists everywhere in space {\tiny\cite{Higgs-paper}}
             \begin{itemize}
@@ -264,9 +269,9 @@
           % \end{itemize}
           \item 2 Higgs Doublet Models and Supersymmetry (SUSY) are large groups of theories attempting to address these issues
           \begin{itemize}
-            \item 2HDM have two complex doublet scalar fields \cite{2HDM}
+            \item 2HDM have two complex doublet scalar fields which extend the Higgs sector \cite{2HDM}
             \begin{itemize}
-              \item Two relevant free parameters, \tanb and \mHpm
+              \item Two relevant free parameters, \mHpm and \tanb
               \item \tanb is the ratio of the vacuum expectation values of the two doublets
             \end{itemize}
             \item SUSY proposes a symmetry between fermions and bosons
@@ -744,35 +749,6 @@
 
   \subsection{Object Reconstruction}
 
-    \begin{frame}[t]{Reconstruction: \Etm and \bjets}
-     \begin{columns}[t]
-      \column{.5\textwidth}
-        \begin{itemize}
-          \item Particles like $\nu$ do not leave a signature within ATLAS
-          \item Instead, infer their presence through momentum conservation
-          \begin{itemize}
-            \item Negative vector sum of all objects in a collision event
-          \end{itemize}
-        \end{itemize}
-        \centering
-        \includegraphics[width=.5\textwidth,keepaspectratio=true]{MET_Diagram.png}
-
-      \column{.5\textwidth}
-      \begin{itemize}
-        \item b quark initiated hadronic showers are identified by a displaced vertex, etc.
-        \item Reconstructed as a jet, tagged as a \bjet
-        \begin{itemize}
-          \item Algorithms designed to identify \bjets called taggers \cite{b-tagging}
-        \end{itemize}
-      \end{itemize}
-      \begin{figure}[!ht]
-      \centering
-      \includegraphics[width=.7\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
-      \caption{\tiny \cite{bjet-trigger}}
-      \end{figure}
-      \end{columns}
-    \end{frame}
-
     \begin{frame}[t]{Reconstruction: $e$ and $\mu$}
       \begin{columns}[t]
         \column{.5\textwidth}
@@ -839,6 +815,35 @@
       \end{columns}
     \end{frame}
 
+  \begin{frame}[t]{Reconstruction: \bjets and \Etm}
+     \begin{columns}[t]
+      \column{.5\textwidth}
+      \begin{itemize}
+        \item b quark initiated hadronic showers are identified by a displaced vertex, etc.
+        \item Reconstructed as a jet, tagged as a \bjet
+        \begin{itemize}
+          \item Algorithms designed to identify \bjets called taggers \cite{b-tagging}
+        \end{itemize}
+      \end{itemize}
+      \begin{figure}[!ht]
+      \centering
+      \includegraphics[width=.7\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/b-jet-schetch.png}
+      \caption{\tiny \cite{bjet-trigger}}
+      \end{figure}
+
+      \column{.5\textwidth}
+        \begin{itemize}
+          \item Particles like $\nu$ do not leave a signature within ATLAS
+          \item Instead, infer their presence through momentum conservation
+          \begin{itemize}
+            \item Negative vector sum of all objects in a collision event
+          \end{itemize}
+        \end{itemize}
+        \centering
+        \includegraphics[width=.5\textwidth,keepaspectratio=true]{MET_Diagram.png}
+      \end{columns}
+    \end{frame}
+
 \section{Simulation }
   
   \begin{frame}[t]{Simulation}
@@ -892,7 +897,7 @@
         \begin{itemize}
           \item Search for singly charged \Hpm decaying to \taunu over a wide mass range
             \begin{itemize}
-              \item Low mass $ (\mHpm < m_{t})$:
+              \item Low mass $ (\mHpm < m_{t})$
               % \begin{itemize}
               %   \item $90 \leq m_{H^{\pm}} \leq 130$ GeV
               % \end{itemize}
@@ -1131,6 +1136,7 @@
           Background Modeling           & \taujets Control Regions      &  \taulep Control Regions    & Data/Model Agreement \\ \hline \hline
           \ttbar  + single top          & \ttbar                        &  Dilepton-btag              & \textcolor{red}{\ding{51}} \\ \hline
           % Validation Region             &  b-veto                     & b-veto \\ \hline
+          V+Jets                        & W+Jets                        &  Zee (Fake $\ell \to \tau$ enriched)                        & \textcolor{red}{\ding{51}}   \\ \hline
           Fake $j \to \tau$ enriched    & b veto $m_T(\tau, \Etm) > 100$ & Same Sign                  & \textcolor{red}{\ding{51}}      \\ \hline
           % W+Jets                        & W+Jets                        &                             \\ \hline
           % Fake $\ell \to \tau$ enriched &                               & Zee   \\ \hline
@@ -1237,7 +1243,7 @@
         \begin{itemize}
           \item 90-120, 130-160, 160-180, 200-400, 500-2000 GeV
           \item Trained separately on \taujets and \taulep
-          \item Independent trainings for 1 or 3 $\tau$ tracks
+          \item Independent trainings for 1 or 3 prong $\tau$
           \item \taulep trained inclusively, evaluated separately on \tauel and \taumu
         \end{itemize}
         \item At low $m_{H^{\pm}}$, $\tau$ polarization is important
@@ -1359,9 +1365,9 @@
       \end{columns}
     \end{frame}
 
-  \subsection{\HpmLong}
+  \subsection{Current Search}
 
-  \begin{frame}[t]{Updates to analysis since last publication}
+    \begin{frame}[t]{Updates to analysis since last publication}
       \begin{columns}
       \column{.6\linewidth}
         \begin{itemize}
@@ -1591,11 +1597,12 @@
     \begin{frame}[t]{PNN Hyperparameter Optimization}
       % \vspace{-.2cm}
       \begin{itemize}
+        \item Hyperparameters define the structure of the PNN
         \item Performed in the $\tau+\ell$ sub-channel
         \item Used area under curve (AUC) of scores as figure of merit
         \begin{itemize}
           \item Averaged over 5 kfolds, standard deviation is taken from kfolds
-          \item Average Area Under the Curve (AUC) from 80 GeV to 500 GeV to optimize for low mass
+          \item Average AUC from 80 GeV to 500 GeV to optimize for low mass
           % \item AUC from 80 GeV to 500 GeV to optimize for low mass
         \end{itemize}
           \item Used early stopping for training
@@ -1605,6 +1612,7 @@
           \end{itemize}
         \item To speed up hyperparameter optimization (HPO), ran multiple small grids of hyperparameters
         \begin{itemize}
+          \vspace{-.2cm}
           \begin{multicols}{2}
           \item Scan over activation functions and loss functions
           % \begin{itemize}
@@ -1614,7 +1622,7 @@
           % \begin{itemize}
           %   \item 0.1 gave best result
           % \end{itemize}
-          \item Scan over activation function
+          % \item Scan over activation function
           % \begin{itemize}
           %   \item LeakyReLU was best
           % \end{itemize}
@@ -1785,9 +1793,6 @@
       
       \end{columns}
       \end{frame}
-
-
-
 
   \subsection{Results }
 
@@ -2371,5 +2376,1954 @@
       $\tau+\ell$
     \end{columns}
   \end{frame}
+
+\section{$\tau+jets$ }
+
+  \subsection{Preselection}
+
+    \begin{frame}[c]{$\tau+jets$ Preselection}
+      \begin{table}
+        \footnotesize
+        \resizebox{.5\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+        \textbf{$\tau + jets$ Preselection } \\
+        \hline \hline
+        $E^{miss}_{T}$ Trigger (mostly HLT\_xe110) \\ \hline
+        1 hadronic $\tau$  \\ \hline
+        $p_{T}^{\tau} > 40$ GeV \\ \hline
+        $\geq$ 3 jets \\ \hline
+        $p_{T}^{j} > 25$ GeV \\ \hline
+        \Etm$ > 150$ GeV  \\ \hline
+        $\ell$ veto \\ \hline \hline
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{\taujets Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_80to80_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_90to90_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_100to100_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_110to110_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_120to120_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_130to130_TAUJET_PRESEL.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_140to140_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_150to150_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_160to160_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_170to170_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_180to180_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_190to190_TAUJET_PRESEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{\taujets Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_200to200_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_225to225_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_250to250_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_275to275_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_300to300_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_350to350_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_400to400_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_500to500_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_600to600_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_700to700_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_800to800_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_900to900_TAUJET_PRESEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{\taujets Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1000to1000_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1200to1200_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1400to1400_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1600to1600_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_1800to1800_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_2000to2000_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_2500to2500_TAUJET_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_3000to3000_TAUJET_PRESEL.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$t\bar{t}$ CR}
+
+    \begin{frame}[c]{$\tau+jets$ $t\bar{t}$ CR}
+      \begin{table}
+        \resizebox{.35\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{l}
+            \toprule
+            \textbf{$t\bar{t}$ CR} ($t\bar{t}$ modeling) \\ \hline \hline
+              1 hadronic $\tau$ \\ \hline
+              $p_{T}^{\tau} > 40 $ GeV \\ \hline
+              $\geq 3 $ jets\\ \hline
+              $\geq 2 $ b-jets\\ \hline
+              $\Etm > 150 GeV$ \\ \hline
+              $m_{T}(\tau, E^{miss}_{T}) > 100 \: GeV$ \\ \hline 
+              $\ell$ veto \\ \hline
+              \bottomrule
+          \end{tabular}} 
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+jets$ $t\bar{t}$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_eta_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_phi_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_charged_tracks_0_pt_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_jets_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_phi_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_bjets_DL1r_FixedCutBEff_70_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_pt_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_eta_TTBAR.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_phi_TTBAR.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+jets$ $t\bar{t}$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_pt_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_eta_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_phi_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_pt_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_eta_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_phi_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_pt_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_eta_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_phi_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/effm_tau_TTBAR.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/Pileup_Weight_TTBAR.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/mc_Weight_TTBAR.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+jets$ $t\bar{t}$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_dphi_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_jet_dphi_ratio_TTBAR.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_met_dphi_TTBAR.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_tau_0_dr_TTBAR.png}
+
+        \column{.25\textwidth}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+   
+  \subsection{W+Jets CR}
+
+    \begin{frame}[c]{$\tau+jets$ W+Jets CR}
+      \begin{table}
+        \resizebox{.35\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{l}
+            \toprule
+            \textbf{W+Jets CR} (W+Jets modeling) \\ \hline \hline
+              1 hadronic $\tau$ \\ \hline
+              $p_{T}^{\tau} > 40 \: GeV $  \\ \hline
+              $\geq 3$ jets \\ \hline
+              $p_{T}^{jet} > 25 \: GeV$ \\ \hline
+              $\Etm > 150 GeV$ \\ \hline 
+              $m_{T}(\tau, E^{miss}_{T}) > 100 \: GeV$ \\ \hline
+              b veto \\ \hline
+              $\ell$ veto \\ \hline
+              \bottomrule
+          \end{tabular}} 
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{W+Jets CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_eta_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_phi_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_charged_tracks_0_pt_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_jets_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_phi_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_bjets_DL1r_FixedCutBEff_70_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_pt_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_eta_WJETS.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_phi_WJETS.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{W+Jets CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_pt_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_eta_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_phi_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_pt_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_eta_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_phi_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_pt_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_eta_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_phi_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/effm_tau_WJETS.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/Pileup_Weight_WJETS.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/mc_Weight_WJETS.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{W+Jets CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_dphi_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_jet_dphi_ratio_WJETS.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_met_dphi_WJETS.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_tau_0_dr_WJETS.png}
+
+        \column{.25\textwidth}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{b-veto CR}
+
+    \begin{frame}[c]{$\tau+jets$ b-veto CR}
+      \begin{table}
+        \resizebox{.35\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{l}
+            \toprule
+            \textbf{b-veto CR} (Close to SR)\\ \hline \hline
+              1 hadronic $\tau$ \\ \hline
+              $p_{T}^{\tau} > 40 \: GeV $  \\ \hline
+              $\geq 3$ jets\\ \hline
+              % $n\_bjets > 2$ \\ \hline
+              $p_{T}^{jet} > 25 \: GeV$ \\ \hline
+              $\Etm > 150 GeV$ \\ \hline
+              $m_{T}(\tau, E^{miss}_{T}) > 50 \: GeV$ \\ \hline
+              b veto \\ \hline
+              $\ell$ veto \\ \hline
+              \bottomrule
+          \end{tabular}} 
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_eta_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_phi_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_charged_tracks_0_pt_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_jets_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_phi_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_bjets_DL1r_FixedCutBEff_70_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_pt_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_eta_BVETO.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_phi_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_pt_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_eta_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_phi_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_pt_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_eta_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_phi_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_pt_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_eta_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_phi_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/effm_tau_BVETO.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/Pileup_Weight_BVETO.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/mc_Weight_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_dphi_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_jet_dphi_ratio_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_met_dphi_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_tau_0_dr_BVETO.png}
+
+        \column{.25\textwidth}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{b-veto $m_{T}>100$ CR}
+
+    \begin{frame}[c]{$\tau+jets$ b-veto $m_{T}\geq100$ GeV}
+      \begin{table}
+        \resizebox{.35\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+          \begin{tabular}{l}
+            \toprule
+            \textbf{b-veto $m_{T}\geq100$ CR} (Fake enriched region) \\ \hline \hline
+              1 hadronic $\tau$ \\ \hline
+              $p_{T}^{\tau} > 40 \: GeV $  \\ \hline
+              $\geq 3$ jets \\ \hline
+              $p_{T}^{jet} > 25 \: GeV$ \\ \hline
+              $\Etm > 150 GeV$ \\ \hline
+              $m_{T}(\tau, E^{miss}_{T}) > 100 \: GeV$ \\ \hline
+              b veto \\ \hline
+              $\ell$ veto \\ \hline
+              \bottomrule
+          \end{tabular}} 
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto $m_{T}>100$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_eta_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_phi_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_charged_tracks_0_pt_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_jets_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_phi_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_bjets_DL1r_FixedCutBEff_70_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_pt_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_eta_BVETO_MT100.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_phi_BVETO_MT100.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto $m_{T}>100$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_pt_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_eta_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_phi_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_pt_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_eta_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_phi_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_pt_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_eta_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_phi_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/effm_tau_BVETO_MT100.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/Pileup_Weight_BVETO_MT100.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/mc_Weight_BVETO_MT100.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{b-veto $m_{T}>100$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_dphi_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_jet_dphi_ratio_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_met_dphi_BVETO_MT100.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_tau_0_dr_BVETO_MT100.png}
+
+        \column{.25\textwidth}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$\tau+jets$ SR}
+
+    \begin{frame}[t]{$\tau+jets$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_pt_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_eta_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_phi_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_upsilon_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_charged_tracks_0_pt_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_jets_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_et_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_phi_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/n_bjets_DL1r_FixedCutBEff_70_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_pt_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_eta_SR_TAUJET.png}
+          \includegraphics[height=.29\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_phi_SR_TAUJET.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+jets$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_pt_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_eta_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_0_phi_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_pt_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_eta_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_1_phi_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_pt_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_eta_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/jet_2_phi_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/effm_tau_SR_TAUJET.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/Pileup_Weight_SR_TAUJET.png}
+          % \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/mc_Weight_SR_TAUJET.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+jets$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_mt_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/tau_0_met_dphi_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/met_jet_dphi_ratio_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_met_dphi_SR_TAUJET.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taujets/bjet_0_tau_0_dr_SR_TAUJET.png}
+
+        \column{.25\textwidth}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+\section{$\tau+\ell$ }
+
+  \subsection{Preselection}
+
+    \begin{frame}[c]{$\tau+\ell$ Preselection}
+      \begin{table}
+      \resizebox{.3\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+      \begin{tabular}{l}
+      \textbf{$\tau + \ell$ Preselection} \\
+        \hline \hline
+        Single lepton trigger (e or $\mu$) \\ \hline
+        1 hadronic $\tau$ \\ \hline
+        $p_{T}^{\tau} > 30$ GeV \\ \hline
+        1 $\ell$ (e or $\mu$) \\ \hline
+        $p_{T}^{\ell} > 30$ GeV \\ \hline
+        $\Etm$ > 150$ GeV  \\ \hline
+        $\geq$ 1 jet \\ \hline
+        $p_{T}^{j} > 25$ GeV \\ \hline
+        Opposite sign $\tau$ and $\ell$ \\ \hline \hline
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Preselection Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_TAULEP_PRESEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Preselection Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_TAULEP_PRESEL.png}
+
+      \end{columns}
+      \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_TAULEP_PRESEL.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_TAULEP_PRESEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_TAULEP_PRESEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Preselection}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_TAULEP_PRESEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_TAULEP_PRESEL.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{Dilepton-btag CR}
+
+    \begin{frame}[c]{$\tau+\ell$ Dilepton-btag CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+          \toprule
+          \textbf{Dilepton-btag CR} ($t\bar{t}$ modeling, used in fit) \\ \hline \hline
+            $\tau$ veto \\ \hline
+            $\geq 1$ jets \\ \hline
+            $p_{T}^{jet} > 25 GeV$ \\ \hline
+            $\geq 1$ b-jets \\ \hline
+            $\Etm > 50 GeV$ \\ \hline
+            1 $e$ \\ \hline
+            1 $\mu$ \\ \hline
+            Opposite sign $\mu$ and $e$ \\ \hline
+            \bottomrule
+          
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Dilepton-btag CR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_DILEP_BTAG.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Dilepton-btag CR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_DILEP_BTAG.png}
+
+      \end{columns}
+      \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Dilepton-btag CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_DILEP_BTAG.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_DILEP_BTAG.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Dilepton-btag CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_DILEP_BTAG.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Dilepton-btag CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_DILEP_BTAG.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_DILEP_BTAG.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$Z \rightarrow ee$ CR}
+
+    \begin{frame}[c]{$\tau+\ell$ $Z \rightarrow ee$ CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+          \toprule
+          \textbf{$Z \rightarrow ee$ CR} (Fake enriched region) \\ \hline \hline
+            1 hadronic $\tau$ \\ \hline
+            $p_{T}^{\tau} > 30 \: GeV $  \\ \hline
+            veto $\mu$ \\ \hline
+            Opposite sign $\tau$ $e$ \\ \hline
+            $\geq 1$ jets \\ \hline
+            $p_{T}^{jet} > 25 GeV$ \\ \hline
+            bjet veto \\ \hline
+            $\Etm > 50 GeV$ \\ \hline
+            1 $e$\\ \hline
+            $40 < mass(\tau,e) < 140 GeV$ \\ \hline
+            \bottomrule
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ $Z \rightarrow ee$ CR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_ZEE.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ $Z \rightarrow ee$ CR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_ZEE.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ $Z \rightarrow ee$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_ZEE.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_ZEE.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ $Z \rightarrow ee$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_ZEE.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ $Z \rightarrow ee$ CR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_ZEE.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_ZEE.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_ZEE.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{b-veto $\tau+e$ CR}
+
+    \begin{frame}[c]{$\tau+\ell$ b-veto $\tau+e$ CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+          \toprule
+          \textbf{b-veto $\tau+e$ CR} (Close to SR)  \\ \hline \hline
+            1 hadronic $\tau$ \\ \hline
+            $p_{T}^{\tau} > 30 \: GeV $  \\ \hline
+            1 $e $ \\ \hline
+            Veto $\mu $ \\ \hline
+            Opposite sign $\tau$ $e $ \\ \hline
+            $\geq 1$ jets  \\ \hline
+            $p_{T}^{jet} > 25 GeV$ \\ \hline
+            $\Etm > 50 GeV$ \\ \hline
+            1 tight $e$ \\ \hline
+            \bottomrule
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+e$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_TAUEL_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+e$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_TAUEL_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_TAUEL_BVETO.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_TAUEL_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_TAUEL_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_TAUEL_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_TAUEL_BVETO.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{b-veto $\tau+\mu$ CR}
+
+    \begin{frame}[c]{$\tau+\ell$ b-veto $\tau+\mu$ CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+          \toprule
+          \textbf{b-veto $\tau+\mu$ CR} (Close to SR)  \\ \hline \hline
+            1 hadronic $\tau$ \\ \hline
+            $p_{T}^{\tau} > 30 \: GeV $  \\ \hline
+            1 $\mu$ \\ \hline
+            Veto $e$ \\ \hline
+            Opposite sign $\tau$ $\mu$ \\ \hline
+            $\geq 1$ jets  \\ \hline
+            $p_{T}^{jet} > 25 GeV$ \\ \hline
+            $\Etm > 50 GeV$ \\ \hline
+            1 tight $\mu$ \\ \hline
+            \bottomrule
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+\mu$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_TAUMU_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+\mu$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_TAUMU_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_TAUMU_BVETO.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_TAUMU_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_TAUMU_BVETO.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ b-veto $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_TAUMU_BVETO.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_TAUMU_BVETO.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{Same Sign $\tau+e$ CR}
+
+    \begin{frame}[c]{$\tau+\ell$ Same Sign $\tau+e$ CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l | l}
+          \toprule
+          \textbf{Same Sign $\tau+e$ CR} (Fake enriched region) \\ \hline \hline
+            1 hadronic $\tau$ \\ \hline
+            $p_{T}^{\tau} > 30 \: GeV $  \\ \hline
+            Same sign $\tau \: e$ \\ \hline
+            Veto $\mu$ \\ \hline
+            $n\_jets \geq 1$ \\ \hline
+            $p_{T}(jet) > 25 GeV$ \\ \hline
+            $\Etm > 50 GeV$  \\ \hline
+            1 tight $e$ \\ \hline
+            \bottomrule
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+e$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_SS_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+e$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_SS_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SS_TAUEL.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_SS_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_SS_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+e$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_SS_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SS_TAUEL.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{Same Sign $\tau+\mu$ CR}
+
+    \begin{frame}[c]{$\tau+\ell$ Same Sign $\tau+\mu$ CR}
+      \begin{table}
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l | l}
+          \toprule
+          \textbf{Same Sign $\tau+e$ CR} (Fake enriched region) \\ \hline \hline
+            1 hadronic $\tau$ \\ \hline
+            $p_{T}^{\tau} > 30 \: GeV $  \\ \hline
+            Same sign $\tau \: \mu$ \\ \hline
+            Veto $e$ \\ \hline
+            $n\_jets \geq 1$ \\ \hline
+            $p_{T}(jet) > 25 GeV$ \\ \hline
+            $\Etm > 50 GeV$  \\ \hline
+            1 tight $\mu$ \\ \hline
+            \bottomrule
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+\mu$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_SS_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+\mu$ Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_SS_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SS_TAUMU.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_SS_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_SS_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ Same Sign $\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_SS_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SS_TAUMU.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$\tau+e$ SR}
+
+    \begin{frame}[c]{$\tau+e$ SR}
+    \begin{table}
+      \resizebox{.3\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+       \begin{tabular}{l}
+        \textbf{$\tau + e$ SR} \\
+          \hline \hline
+          Single lepton trigger ($e$) \\ \hline
+          1 hadronic $\tau$ \\ \hline
+          $p_{T}^{\tau} > 30$ GeV \\ \hline
+          1 $e$ \\ \hline
+          $p_{T}^{e} > 30$ GeV \\ \hline
+          $\geq$ 1 jet \\ \hline
+          $p_{T}^{j} > 25$ GeV \\ \hline
+          $\geq$ 1 b-jets \\ \hline
+          $p_{T}^{b-jet} > 25$ GeV \\ \hline
+          \Etm$ > 50$ GeV \\ \hline
+          Opposite sign $\tau$ and $e$ \\ \hline
+          $\mu$ veto \\ \hline \hline
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+e$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_SR_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+e$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_SR_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+e$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUEL.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_SR_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+e$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_SR_TAUEL.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+e$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_SR_TAUEL.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUEL.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$\tau+\mu$ SR}
+
+    \begin{frame}[c]{$\tau+\mu$ SR}
+    \begin{table}
+      \resizebox{.3\linewidth}{!}{
+      \rowcolors{1}{}{NIUgray}
+       \begin{tabular}{l}
+        \textbf{$\tau + \mu$ SR} \\
+          \hline \hline
+          Single lepton trigger ($\mu$) \\ \hline
+          1 hadronic $\tau$ \\ \hline
+          $p_{T}^{\tau} > 30$ GeV \\ \hline
+          1 $\mu$ \\ \hline
+          $p_{T}^{\mu} > 30$ GeV \\ \hline
+          $\geq$ 1 jet \\ \hline
+          $p_{T}^{j} > 25$ GeV \\ \hline
+          $\geq$ 1 b-jets \\ \hline
+          $p_{T}^{b-jet} > 25$ GeV \\ \hline
+          \Etm$ > 50$ GeV \\ \hline
+          Opposite sign $\tau$ and $\mu$ \\ \hline
+          $e$ veto \\ \hline \hline
+        \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\mu$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_SR_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\mu$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_SR_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUMU.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_SR_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_SR_TAUMU.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\mu$}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_SR_TAUMU.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUMU.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
+
+  \subsection{$\tau+\ell$ SR}
+
+    \begin{frame}[c]{$\tau+\ell$ SR}
+      \begin{table}
+        \footnotesize
+        \resizebox{.3\linewidth}{!}{
+        \rowcolors{1}{}{NIUgray}
+        \begin{tabular}{l}
+              \textbf{$\tau + \ell$ SR} \\
+              \hline \hline
+              Single lepton trigger (e or $\mu$) \\ \hline
+              1 hadronic $\tau$ \\ \hline
+              $p_{T}^{\tau} > 30$ GeV \\ \hline
+              1 $\ell$ (e or $\mu$) \\ \hline
+              $p_{T}^{\ell} > 30$ GeV \\ \hline
+              $\geq$ 1 jet \\ \hline
+              $p_{T}^{j} > 25$ GeV \\ \hline
+              $\geq$ 1 b-jets \\ \hline
+              $p_{T}^{b-jet} > 25$ GeV \\ \hline
+              \Etm$ > 50$ GeV \\ \hline
+              Opposite sign $\tau$ and $\ell$ \\ \hline \hline
+          \end{tabular}}
+      \end{table}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_phi_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_et_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/met_phi_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_1_pt_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/bjet_0_phi_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_upsilon_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/tau_0_charged_tracks_0_pt_SR_TAULEP.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ SR Input Variables}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/jet_0_phi_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/lep_0_phi_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/el_0_phi_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_pt_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_eta_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/mu_0_phi_SR_TAULEP.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_90to90_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_100to100_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_110to110_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_120to120_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAULEP.png}
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_140to140_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_150to150_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_170to170_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_180to180_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_190to190_SR_TAULEP.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_225to225_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_250to250_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_275to275_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_300to300_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_350to350_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_400to400_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_600to600_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_700to700_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_800to800_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_900to900_SR_TAULEP.png}
+
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}[t]{$\tau+\ell$ SR}
+      \begin{columns}[t]
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1000to1000_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1200to1200_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1400to1400_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1600to1600_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_1800to1800_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2000to2000_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_2500to2500_SR_TAULEP.png}
+          \includegraphics[height=.27\textheight,keepaspectratio=true]{/Users/eparrish/Work/thesis/chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAULEP.png}
+
+        \column{.25\textwidth}
+
+      \end{columns}
+    \end{frame}
 
 \end{document}
