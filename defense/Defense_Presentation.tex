@@ -111,7 +111,7 @@
       \begin{itemize}
         \item I will walk you through the work that is contained in my PhD dissertation
         \item After the presentation is complete, there will be time for public questions, then the committee and I will address comments privately
-        \item When we are done, I will return, the committee will discuss among themselves then return
+        \item When we are done, I will return, the committee will discuss privately then return
       \end{itemize}
       \item General Guidelines
       \begin{itemize}
@@ -173,7 +173,11 @@
         % \item Theorized by Higgs, Englert, and Brout in 1964
           % \begin{itemize}
             \item At high energies, electromagnetism and the weak forces are one ``electroweak'' force
-            \item Higgs field exists everywhere in space
+            \begin{itemize}
+              \item At lower energies, two separate forces
+              \item $\gamma$ is massless while $W^{\pm}$ and $Z^{0}$ are massive
+            \end{itemize}
+            \item In 1964 Brought, Englert and Higgs theorized a field that exists everywhere in space {\tiny\cite{Higgs-paper}}
             \begin{itemize}
               \item Non-zero vacuum expectation value
               \begin{itemize}
@@ -235,7 +239,7 @@
       \begin{figure}
         \centering
         \includegraphics[width=\textwidth,keepaspectratio=true]{ATLAS_d_SMSummary_FiducialXsect_rotated.png}
-        % \caption{\tiny}
+        \caption{\tiny \cite{ATLAS-SM-xsec}}
       \end{figure}
     \end{columns}
   \end{frame}
@@ -883,27 +887,44 @@
   \begin{frame}[t]{Analysis Overview}
       \begin{columns}[t]
 
-        \column{.75\textwidth}
-            \vspace{-20mm}
+      \column{.75\textwidth}
+        \vspace{-20mm}
+        \begin{itemize}
+          \item Search for singly charged \Hpm decaying to \taunu over a wide mass range
             \begin{itemize}
-              \item Search for singly charged \Hpm decaying to \taunu over a wide mass range
-                \begin{itemize}
-                  \item Low mass $ (\mHpm < m_{t})$:
-                  % \begin{itemize}
-                  %   \item $90 \leq m_{H^{\pm}} \leq 130$ GeV
-                  % \end{itemize}
-                  \item Intermediate mass*  $(\mHpm \simeq m_{t})$
-                  % \begin{itemize}
-                  %   \item $140 \leq m_{H^{\pm}} \leq 190$ GeV
-                  % \end{itemize}
-                  \item High mass $(\mHpm > m_{t})$
-                  % \begin{itemize}
-                  %   \item $200 \leq m_{H^{\pm}} \leq 2000$ GeV
-                  % \end{itemize}
-                \end{itemize}
-              % \item Associated $\tau$ is required to decay hadronically
-              \item Dominant backgrounds
-              \vspace{-3mm}
+              \item Low mass $ (\mHpm < m_{t})$:
+              % \begin{itemize}
+              %   \item $90 \leq m_{H^{\pm}} \leq 130$ GeV
+              % \end{itemize}
+              \item Intermediate mass*  $(\mHpm \simeq m_{t})$
+              % \begin{itemize}
+              %   \item $140 \leq m_{H^{\pm}} \leq 190$ GeV
+              % \end{itemize}
+              \item High mass $(\mHpm > m_{t})$
+              % \begin{itemize}
+              %   \item $200 \leq m_{H^{\pm}} \leq 2000$ GeV
+              % \end{itemize}
+            \end{itemize}
+          % \item Associated $\tau$ is required to decay hadronically
+
+          \item Two sub-channels based on the decay mode of associated $t$ 
+          \vspace{-.25cm}
+          % \centering
+          \begin{table}
+              % \small
+              \resizebox{.9\textwidth}{!}{
+              \rowcolors{1}{}{NIUgray}
+              \begin{tabular}{c | c}
+              \textbf{$t \to Wb \to jets$ } & $t \to Wb \to \ell$ \\
+              \hline \hline
+              Sensitive at high mass due to higher $W \to q\bar{q}$ BR & Sensitive at low mass due to easier triggering \\
+              \end{tabular}}
+            \end{table}
+          
+          \item Classifier score is used as the final discriminant 
+          % \item This talk will cover $36.1 \mathrm{fb}^{-1}$ and the current edition of this analysis
+          \item Dominant backgrounds
+            \vspace{-3mm}
             \begin{table}
               \tiny
               \resizebox{\linewidth}{!}{
@@ -916,40 +937,25 @@
               VV estimated with simulation & \\
               \end{tabular}}
             \end{table}
-            \item Classifier score is used as the final discriminant 
-            % \item This talk will cover $36.1 \mathrm{fb}^{-1}$ and the current edition of this analysis
-            \item Two sub-channels based on the decay mode of associated $t$ 
-            \end{itemize}
+          \end{itemize}
 
-            \vspace{-.45cm}    
+          % \vspace{-.45cm}    
 
-            \vspace{-.3cm}
-            \centering
-            \begin{table}
-                % \small
-                \resizebox{.9\textwidth}{!}{
-                \rowcolors{1}{}{NIUgray}
-                \begin{tabular}{c | c}
-                \textbf{$t \to Wb \to jets$ } & $t \to Wb \to \ell$ \\
-                \hline \hline
-                Sensitive at high mass due to higher $W \to q\bar{q}$ BR & Sensitive at low mass due to easier triggering \\
-                \end{tabular}}
-              \end{table}
-                  % \begin{table}
-                  %   \footnotesize
-                  %   \resizebox{\linewidth}{!}{
-                  %   \rowcolors{1}{}{NIUgray}
-                  %   \begin{tabular}{l | l | l | l | l | l | l | l | l | l | l | l} 
-                  %     \textbf{Sub-Channel} \\ \hline \hline
-                  %     {\large\textbf{$\tau + jets$ SR }} & $E^{miss}_{T}$ Trigger & \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 40$ GeV} & \specialcell{0 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 20$ GeV} & \specialcell{$\geq$ 3 jets \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\ $p_{T}^{b-jet} > 25$ GeV}  & \Etm$ > 150$ GeV & $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV \\ \hline
-                  %     {\large\textbf{$\tau + \ell$ SR}} & Single Lepton Trigger &   \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 30$ GeV} & \specialcell{1 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 30$ GeV} & \specialcell{$\geq$ 1 jet  \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\  $p_{T}^{b-jet} > 25$ GeV} & \Etm$ > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\ \hline
-                  %   \end{tabular}}
-                  % \end{table}
+                % \begin{table}
+                %   \footnotesize
+                %   \resizebox{\linewidth}{!}{
+                %   \rowcolors{1}{}{NIUgray}
+                %   \begin{tabular}{l | l | l | l | l | l | l | l | l | l | l | l} 
+                %     \textbf{Sub-Channel} \\ \hline \hline
+                %     {\large\textbf{$\tau + jets$ SR }} & $E^{miss}_{T}$ Trigger & \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 40$ GeV} & \specialcell{0 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 20$ GeV} & \specialcell{$\geq$ 3 jets \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\ $p_{T}^{b-jet} > 25$ GeV}  & \Etm$ > 150$ GeV & $m_{T}(\tau,E^{miss}_{T}) > 50$ GeV \\ \hline
+                %     {\large\textbf{$\tau + \ell$ SR}} & Single Lepton Trigger &   \specialcell{1 hadronic $\tau$ \\ $p_{T}^{\tau} > 30$ GeV} & \specialcell{1 $\ell$ (e or $\mu$) \\ $p_{T}^{\ell} > 30$ GeV} & \specialcell{$\geq$ 1 jet  \\ $p_{T}^{j} > 25$ GeV} & \specialcell{$\geq$ 1 b-jets \\  $p_{T}^{b-jet} > 25$ GeV} & \Etm$ > 50$ GeV & Opposite sign $\tau$ and $\ell$ \\ \hline
+                %   \end{tabular}}
+                % \end{table}
 
-            % \vspace{.3cm}
-            \tiny *: First time probed experimentally \textcolor{blue}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{JHEP 09(2018)139}}
+          % \vspace{.3cm}
+          \tiny *: First time probed experimentally \textcolor{blue}{\href{https://link.springer.com/article/10.1007/JHEP09(2018)139}{JHEP 09(2018)139}}
 
-          \column{.25\textwidth}
+        \column{.25\textwidth}
           \centering
           \tiny
           \fcolorbox{black}{white}{\includegraphics[width=.72\textwidth,keepaspectratio=true]{double_resonant_production_low_mass.png}}
@@ -958,8 +964,8 @@
           $m_{H^{\pm}} \simeq m_{t}$
           \fcolorbox{black}{white}{\includegraphics[width=.72\textwidth,keepaspectratio=true]{SingleResonant.pdf}}
           $m_{H^{\pm}} > m_{t}$
-        \end{columns}
-      \end{frame}
+    \end{columns}
+  \end{frame}
 
   \subsection{ Background Modeling }
     \begin{frame}[t]{Background Estimation}
@@ -1760,11 +1766,11 @@
         % \tauhad energy scale (in-situ)          &   \begin{tabular}{c}+1.44 \\ -1.43 \end{tabular}  &   \begin{tabular}{c}+0.22 \\ -0.74 \end{tabular}  & \begin{tabular}{c}+1.17 \\ -1.20 \end{tabular}  &   \begin{tabular}{c}+0.74 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+1.14 \\ -1.15 \end{tabular}  &   \begin{tabular}{c}+0.54 \\ -0.37 \end{tabular}    \\ \hline
         % \tauhad energy scale (model)            &   \begin{tabular}{c}+0.56 \\ -0.61 \end{tabular}  &   -0.06                                           & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.50 \end{tabular}    \\ \hline
         % \tauhad energy scale (physics list)     &   \begin{tabular}{c}+1.27 \\ -1.26 \end{tabular}  &   -0.72                                           & \begin{tabular}{c}+0.74 \\ -0.65 \end{tabular}  &   \begin{tabular}{c}+0.67 \\ -0.25 \end{tabular}  &   \begin{tabular}{c}+0.72 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+0.83 \\ -0.60 \end{tabular}    \\ \hline
-        Fake factor uncertainties               &   \begin{tabular}{c}+8.23 \\ -8.15 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.15 \end{tabular}  & \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}  &   \begin{tabular}{c}+7.58 \\ -7.74 \end{tabular}    \\ \hline
+        Fake factor uncertainties               &   \begin{tabular}{c}+9.11 \\ -9.04 \end{tabular}  &   \begin{tabular}{c}+9.11 \\ -9.04 \end{tabular}  & \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34\end{tabular}    \\ \hline
         jet uncertainties                       &   \begin{tabular}{c}+7.38 \\ -8.39 \end{tabular}  &   \begin{tabular}{c}+6.51 \\ -9.06 \end{tabular}  & \begin{tabular}{c}+3.41 \\ -3.31 \end{tabular}  &   \begin{tabular}{c}+4.49 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+3.18 \\ -3.24 \end{tabular}  &   \begin{tabular}{c}+3.67 \\ -2.96 \end{tabular}    \\ \hline
         $\tau$ uncertainties                    &   $\pm4.36$                                       &   \begin{tabular}{c}+2.91 \\ -2.80 \end{tabular}  & \begin{tabular}{c}+2.84 \\ -2.74 \end{tabular}  &   \begin{tabular}{c}+2.65 \\ -2.70 \end{tabular}  &   \begin{tabular}{c}+2.77 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+2.58 \\ -2.97 \end{tabular}    \\ \hline
         \Etm uncertainties                      &   \begin{tabular}{c}+1.31 \\ -1.12 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.29 \\ -0.24 \end{tabular}  &   \begin{tabular}{c}+0.88 \\ -0.34 \end{tabular}  &   \begin{tabular}{c}+0.30 \\ -0.23 \end{tabular}  &   \begin{tabular}{c}+0.21 \\ -0.11 \end{tabular}    \\ \hline
-        trigger uncertainties                   &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   $\pm$0.03                                       & 0                                               &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$0.56                                           \\ \hline
+        trigger uncertainties                   &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   0                                               & $\pm$0.03                                       &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$0.56                                           \\ \hline
         $e$ uncertainties                       &   0                                               &   0                                               & $\pm$0.71                                       &   $\pm$0.73                                       &   0                                               &   0                                                 \\ \hline
         $\mu$ uncertainties                     &   0                                               &   0                                               & -0.01                                           &   -0.11                                           &   \begin{tabular}{c}+0.97 \\ -1.41 \end{tabular}  &   \begin{tabular}{c}+1.08 \\ -2,96 \end{tabular}    \\ \hline
         % $\mu$ MS                                &   0                                               &   0                                               & 0                                               &   0                                               &   \begin{tabular}{c}+0.09 \\ -0.12 \end{tabular}  &   \begin{tabular}{c}+0.40 \\ -0.34 \end{tabular}        \\
