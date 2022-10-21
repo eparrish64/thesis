@@ -7,10 +7,9 @@
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter2_theory/images/Atom_to_Quark_Cartoon.png}
-		\caption{Quarks are fundamental particles that combine to create protons or neutrons\protect\footnotemark \cite{atom-to-quark}.}
+		\caption{Quarks are fundamental particles that combine to create hadrons (protons, neutrons, $\pi^{0,\pm}$, etc.) \cite{atom-to-quark}.}
 		\label{fig:atom-to-quarks}
 	\end{figure}
-	\footnotetext{As well as other objects all called hadrons.}
 
 	\subsection{Particles}\label{ssec:Particles}
 		The particles that make up the \gls{SM} are defined by their properties, or quantum numbers. These quantum numbers are used to categorize particles into various types. Intrinsic angular momentum charge, or spin, is the first quantum number that separates particles into fermions or bosons. Fermions are those that carry half-integer spin, and thus obey Fermi-Dirac statistics, while bosons carry full integer spin values and obey Bose-Einstein statistics.
@@ -46,7 +45,8 @@
 			\hline
 			\multicolumn{1}{|c|}{Field Theory}							& Boson 				& Spin 	& \begin{tabular}[c]{@{}c@{}} EM \\ Charge \end{tabular} 	& Color 		& Mass 	\\[1ex] \hline 
 			\multicolumn{1}{|c|}{\acrfull{QCD}}			& Gluon (g)				& 1 	& 0 														& \scalecheck 	& 0		\\[1ex] \hline
- 			\multicolumn{1}{|c|}{\acrfull{QED}} 		& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& $< 1 \, \mathrm{x} \, 10^{-18}$ eV  	\\[1ex] \hline
+ 			% \multicolumn{1}{|c|}{\acrfull{QED}} 		& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& $< 1 \, \mathrm{x} \, 10^{-18}$ eV  	\\[1ex] \hline
+ 			\multicolumn{1}{|c|}{\acrfull{QED}} 		& Photon ($\gamma$) 	& 1 	& 0 													 	& X 			& 0  	\\[1ex] \hline
 			\multicolumn{1}{|c|}{\multirow{2}{*}{Electroweak Theory}} 	& $W^{\pm}$ 			& 1 	& $\pm 1$													& X 			& $80.379 \pm 0.012$ GeV	\\[1ex] \cline{2-6}
 			\multicolumn{1}{|c|}{} 										& $Z^{0}$				& 1 	& 0 													 	& X 			& $91.1876 \pm 0.0021$ GeV  	\\[1ex] \hline
 			\end{tabular}}
@@ -63,7 +63,7 @@
 			The electromagnetic force is governed by the \gls{QFT} known as \acrfull{QED}. This force is mediated by the photon, $\gamma$, a massless boson with \gls{EM} charge 0. The \gls{EM} force only affects, meaning the photon only interacts with charged particles including all quarks and the $e$, $\mu$, and $\tau$ leptons.
 
 		\subsubsection{Electroweak Interaction}\label{sssec:Electroweak}
-			The weak force is most often seen in nuclear decays and is mediated by the $W^{\pm}$ and $Z^0$ bosons. Due to the relatively large mass of these bosons, the weak force has a very limited range. The weak force interacts via the quantum number called isospin ($T$). The $W^{\pm}$ affects the third component of isospin ($T_3$), thus only coupling to so called left-handed fermions. In this way, $T_{3}$ defines the ``handedness'', or chirality of a particle. At energies $> 100 $ GeV the electromagnetic and weak forces combine into the electroweak force. Isospin and another quantum number hypercharge combine to give \gls{EM} charge. $Q_{EM} = T_3 + \frac{1}{2} Y_W$. Table \ref{tab:weak} contains the allowed values for isospin and hypercharge ($Y_W$). 
+			The weak force is most often seen in nuclear decays and is mediated by the $W^{\pm}$ and $Z^0$ bosons. Due to the relatively large mass of these bosons, the weak force has a very limited range. The weak force interacts via the quantum number called weak isospin ($T$). The $W^{\pm}$ affects the third component of weak isospin ($T_3$), thus only coupling to so called left-handed fermions. In this way, $T_{3}$ defines the ``handedness'', or chirality of a particle. At energies $> 100 $ GeV the electromagnetic and weak forces combine into the electroweak force. Isospin and another quantum number hypercharge combine to give \gls{EM} charge. $Q_{EM} = T_3 + \frac{1}{2} Y_W$. Table \ref{tab:weak} contains the allowed values for weak isospin and hypercharge ($Y_W$). 
 
 			\begin{table}[!thp]
 					\centering
@@ -81,7 +81,7 @@
 					\label{tab:weak}
 				\end{table}
 
-			The $W^\pm$ bosons have a $T_3$ component of isospin and act as raising or lowering operators on the $T_3$ component of left handed fermions. The Z does not have a $T_3$ component, and thus does not act on isospin of fermions. The Z boson instead transfers momentum, energy, and spin on all fermions irregardless of their chirality. 
+			The $W^\pm$ bosons have a $T_3$ component of weak isospin and act as raising or lowering operators on the $T_3$ component of left handed fermions. The $Z$ boson does not have a $T_3$ component, and thus does not act on weak isospin of fermions. The Z boson instead transfers momentum, energy, and spin on all fermions irregardless of their chirality. 
 
 			% \begin{table}[!thp]
 			% 	\centering
@@ -117,7 +117,7 @@
 
 	\subsection{The Higgs Mechanism}\label{ssec:Higgs}
 
-		The Higgs field is the mass generator of the \gls{SM} and was first theorized by Peter Higgs \cite{Higgs-paper}, François Englert, and Robert Brout \cite{Englert-Brout} in 1964.  The \gls{SM} itself has four massless bosons, B and $\vec{W}$ $(W_{1,2,3})$, that do not correspond to the observed bosons. Instead, the Higgs mechanism couples to them via a complex scalar doublet. 
+		The Higgs field is the mass generator of the \gls{SM} and was first theorized by Peter Higgs \cite{Higgs-paper}, François Englert, and Robert Brout \cite{Englert-Brout} in 1964.  The \gls{SM} itself has four massless bosons, $B$ and $\vec{W}$ $(W_{1,2,3})$, that do not correspond to the observed bosons. Instead, the Higgs mechanism couples to them via a complex scalar doublet. 
 		\begin{equation}\label{eqn:scal doub} \phi = \binom{\phi^+}{\phi^0}\end{equation}
 		The scalar potential that gives rise to this phenomena can be written as 
 		\begin{equation}\label{eqn:higgs potential} V(\phi) = \mu^2 |\phi^{\dagger}\phi| + \lambda (|\phi^{\dagger}\phi|)^2\end{equation}
@@ -133,8 +133,8 @@
 		\begin{equation}\label{eqn:phi-h} \phi(x) = \phi^0 + h(x) \end{equation}
 		Substituting the definition of $\phi^0$ yields
 		\begin{equation}\label{eqn:phi-h-vec} \phi = \frac{1}{\sqrt{2}} \binom{0}{\nu+h(x)} \end{equation}
-		which couples to the \gls{SM} bosons via 
-		\begin{equation}\label{eqn:coupling} (\frac{1}{2} g \vec{\sigma} \cdot \vec{W} + \frac{1}{2} g^\prime B ) \phi^0  \end{equation}, where $\vec{\sigma}$ are the Pauli matrices, $g$ is the weak coupling constant, and $g\prime$ is the hypercharge coupling constant. From this coupling, there are four eigenstates which correspond to the observed bosons
+		which couples to the \gls{SM} bosons via
+		\begin{equation}\label{eqn:coupling} (\frac{1}{2} g \vec{\sigma} \cdot \vec{W} + \frac{1}{2} g^\prime B ) \phi^0  \end{equation} where $\vec{\sigma}$ are the Pauli matrices, $g$ is the weak coupling constant, and $g^{\prime}$ is the hypercharge coupling constant. From this coupling, there are four eigenstates which correspond to the observed bosons
 		\begin{equation}\label{eqn:mass-eigenstates} \begin{split}
 		W^\pm = \frac{1}{\sqrt{2}} ( W^1_\mu \mp i W^2_\mu ) \\
 		Z^\mu = \frac{ - g\prime B_\mu + g W^3_\mu }{ \sqrt{g^2+g\prime^2} } \\
@@ -148,7 +148,7 @@
 		M^2_A = 0
 		\end{split}
 		\end{equation}
-		The eigenstate labeled here as $A$ is the photon. The Higgs boson was discovered in 2012 by the \gls{ATLAS} and \gls{CMS} collaborations at \gls{CERN} with a mass of $125$ GeV \cite{higgs-discovery-atlas}. The \gls{ATLAS} result in the $H \to \gamma \gamma$ can be seen in Figure \ref{fig:higgs-discovery}. The scalar boson that was found appears to be the \gls{SM} Higgs Boson with the properties shown in Table \ref{tab:higgs-properties}.
+		The eigenstate labeled here as $A$ is the photon. The Higgs boson was discovered in 2012 by the \gls{ATLAS} and \gls{CMS} collaborations at \gls{CERN} with a mass of $125$ GeV \cites{higgs-discovery-atlas}{CMS-Higgs-Discovery}. The \gls{ATLAS} result in the $H \to \gamma \gamma$ can be seen in Figure \ref{fig:higgs-discovery}. The scalar boson that was found appears to be the \gls{SM} Higgs Boson with the properties shown in Table \ref{tab:higgs-properties}.
 
 		\begin{table}[!thp]
 			\centering
@@ -188,32 +188,32 @@
 
 	The hierarchy problem arises from the difference in electroweak ($M_W\sim100$ GeV)  and Planck ($M_P\sim2.4\, \mathrm{x} \, 10^{18}$ GeV) mass scales. For the Higgs mass to be on the scale of $M_H \sim 125$ GeV incredibly large and small mass terms must cancel perfectly, leading to a feeling of ``unnaturalness''. \gls{SUSY} brings many new particles into the picture, theorized to occupy the intermediate mass range leading to a more natural theory.
 
-	\subsection{MSMM Particles}\label{ssec:MSMM}
+	\subsection{\acrlong{MSSM} Particles}\label{ssec:MSMM}
 		\gls{SUSY} is a large group of theories that include theories with various numbers of additional superpartner particles. The \gls{MSSM} is the smallest extension of the \gls{SM} that introduces \gls{SUSY}. In the \gls{MSSM}, each \gls{SM} particle is part of a supermultiplet with it's superpartner where both particles have the same quantum numbers, except spin. If this supersymmetry is unbroken, then the superpartner and the \gls{SM} particle would have the same mass as well. However, \gls{SUSY} has not been observed, so the supersymmetry must be broken putting the mass scale on the TeV scale. Table \ref{tab:MSSM} lists the \gls{MSSM} supermultiplets and the associated naming conventions.
 
 			\begin{table}[!thp]
 				\centering
-				\caption{SM particles and their \gls{MSSM} partners \cite{pdg}}
+				\caption{\gls{SM} particles and their \gls{MSSM} partners \cite{pdg}}
 				\begin{tabular}{| l | c | c |}
 				\hline
 				Name 				& \gls{SM} 	& \gls{MSSM} \\[1ex] \hline
 				\multicolumn{3}{|c|}{Spin-$\frac{1}{2}$ quarks and spin-$0$ squarks} \\[1ex] \hline
-				(s)up 				& u 	& $\tilde{u}$ \\[1ex] \hline
-				(s)down 			& d 	& $\tilde{d}$ \\[1ex] \hline
-				(s)charm 			& c 	& $\tilde{c}$ \\[1ex] \hline
-				(s)strange 			& s		& $\tilde{s}$ \\[1ex] \hline
-				(s)top 				& t 	& $\tilde{t}$ \\[1ex] \hline
-				(s)bottom 			& b 	& $\tilde{b}$ \\[1ex] \hline
+				(s)up 				& $u$ 	& $\tilde{u}$ \\[1ex] \hline
+				(s)down 			& $d$ 	& $\tilde{d}$ \\[1ex] \hline
+				(s)charm 			& $c$ 	& $\tilde{c}$ \\[1ex] \hline
+				(s)strange 			& $s$		& $\tilde{s}$ \\[1ex] \hline
+				(s)top 				& $t$ 	& $\tilde{t}$ \\[1ex] \hline
+				(s)bottom 			& $b$ 	& $\tilde{b}$ \\[1ex] \hline
 				\multicolumn{3}{|c|}{Spin-$\frac{1}{2}$ leptons and spin-$0$ sleptons} \\[1ex] \hline
-				(s)electron 		& e 	& $\tilde{e}$ \\[1ex] \hline
+				(s)electron 		& $e$ 	& $\tilde{e}$ \\[1ex] \hline
 				(s)electron (s)neutrino 	& $\nu_e$ 	& $\widetilde{\nu_e}$ \\[1ex] \hline
 				(s)muon 			& $\mu$ 	& $\tilde{\mu}$ \\[1ex] \hline
 				(s)muon (s)neutrino & $\nu_\mu$ 	& $\widetilde{\nu_\mu}$ \\[1ex] \hline
 				(s)tau 				& $\tau$ 	& $\tilde{\tau}$ \\[1ex] \hline
 				(s)tau (s)neutrino 	& $\nu_\tau$ 	& $\widetilde{\nu_\tau}$ \\[1ex] \hline
 				\multicolumn{3}{|c|}{Spin-$0$ Higgs and spin-$\frac{1}{2}$ Higgsinos} \\[1ex] \hline
-				Higgs(ino)			& H 	& $\tilde{H}$ \\[1ex] \hline
-				gluon (gluino) 		& g 	& $\tilde{g}$ \\[1ex] \hline
+				Higgs(ino)			& $H$ 	& $\tilde{H}$ \\[1ex] \hline
+				gluon (gluino) 		& $g$ 	& $\tilde{g}$ \\[1ex] \hline
 				W (Wino) 			& $W^{\pm}$, $W^0$ & $\widetilde{W^\pm}, \widetilde{W^0}$ \\[1ex] \hline
 				B (Bino) 			& $B^0$ & $\widetilde{B^0}$ \\[1ex] \hline
 
@@ -222,7 +222,7 @@
 			\end{table}
 
 	\subsection{2 Higgs Doublet Model}\label{ssec:2HDM}
-		Having only one Higgs chiral supermultiplet with hypercharge $Y_W=\pm \frac{1}{2}$ leads to a gauge anomaly. This can be resolved by introducing two Higgs doublets with hypercharge $Y_W=\frac{1}{2}$ and $Y_W=-\frac{1}{2}$. Such is the case in the \gls{MSSM} which requires two complex doublet scalar fields where one couples to the up-type quarks and the other couples to down-type quarks and charged leptons. The \gls{MSSM} has 8 degrees of freedom. Following the same type of mechanism described in subsection \ref{ssec:Higgs} three of these degrees of freedom give the observed $W^\pm$ and $Z^0$ bosons. 
+		Having only one Higgs chiral supermultiplet with hypercharge $Y_W=\pm \frac{1}{2}$ leads to a gauge anomaly. This can be resolved by introducing two Higgs doublets with hypercharge $Y_W=\frac{1}{2}$ and $Y_W=-\frac{1}{2}$. Such is the case in the \gls{MSSM} which requires two complex doublet scalar fields where one couples to the up-type quarks and the other couples to down-type quarks and charged leptons. The \gls{MSSM} Higgs sector has 8 degrees of freedom. Following the same type of mechanism described in subsection \ref{ssec:Higgs} three of these degrees of freedom give the observed $W^\pm$ and $Z^0$ bosons. 
 		\begin{table}[!thp]
 				\centering
 				\caption{\gls{2HDM} extended Higgs sector \cite{2HDM}}
@@ -235,31 +235,31 @@
  				\end{tabular}
 				\label{tab:2HDM}
 		\end{table}
-		This leaves the extended Higgs sector shown in table \ref{tab:2HDM}, where the $h^0$ is the SM-like Higgs that was discovered by \gls{ATLAS} and \gls{CMS} in 2012. When referring to the charged Higgs bosons, we often refer to them using one symbol \Hpm. In the \gls{2HDM} there are two free parameters\footnote{Only regarding the charged Higgs bosons}, the masses of the \Hpm and the ratio of their vacuum expectation values which is defined as \tanb. These types of models are referred to as Type II \gls{2HDM}. At the time of writing, the extended Higgs sector is an active area of research with many new searches actively being performed \cite{pdg}.
+		This leaves the extended Higgs sector shown in table \ref{tab:2HDM}, where the $h^0$ is a SM-like Higgs. The boson discovered by the \gls{ATLAS} and \gls{CMS} collaborations in 2012 is consistent with the $h^{0}$. When referring to the charged Higgs bosons, we often refer to them using one symbol \Hpm. In the \gls{2HDM} there are two free parameters\footnote{Only regarding the charged Higgs bosons}, the masses of the \Hpm and the ratio of their vacuum expectation values which is defined as \tanb. These types of models are referred to as Type II \gls{2HDM} \cite{2HDM}. At the time of writing, the extended Higgs sector is an active area of research with many new searches actively being performed \cite{pdg}. The most recent results from ATLAS can be seen in Reference \cite{ATLAS-HBSM-Summary}.
 
 
 \section{Charged Higgs Bosons}\label{sec:Hpm}
-	Since the \Hpm couplings are proportional to the fermion masses, the main production modes at the LHC are through \ttbar and $Wt$ diagrams where the W is replaced by a \Hpm.
+	Since the \Hpm couplings are proportional to the fermion masses, the main production modes at the LHC are through \ttbar and $Wt$ diagrams where the $W^{\pm}$ boson is replaced by a \Hpm.
 	\begin{figure}[!ht]
 		\centering
-		\subfloat[\label{fig:hpm-diagrams_a}]{\includegraphics[width=0.3\linewidth]{chapters/chapter2_theory/images/NonResonant.pdf}}
-		\subfloat[\label{fig:hpm-diagrams_b}]{\includegraphics[width=0.3\linewidth]{chapters/chapter2_theory/images/SingleResonant.pdf}}
-		\subfloat[\label{fig:hpm-diagrams_c}]{\includegraphics[width=0.3\linewidth]{chapters/chapter2_theory/images/DoubleResonant.pdf}}
+		\subfloat[\label{fig:hpm-diagrams_a}]{\includegraphics[width=0.3\textwidth]{chapters/chapter2_theory/images/NonResonant.pdf}}
+		\subfloat[\label{fig:hpm-diagrams_b}]{\includegraphics[width=0.3\textwidth]{chapters/chapter2_theory/images/SingleResonant.pdf}}
+		\subfloat[\label{fig:hpm-diagrams_c}]{\includegraphics[width=0.3\textwidth]{chapters/chapter2_theory/images/DoubleResonant.pdf}}
 		\caption{\label{fig:hpm-diagrams} Examples of leading-order Feynman diagrams contributing to the production of charged Higgs bosons in $pp$ collisions: (a) non-resonant top-quark production prevalent in the intermediate-mass range, (b) single-resonant top-quark production that dominates at large \Hpm masses, (c) double-resonant top-quark production that dominates at low \Hpm masses. The interference between these three diagrams becomes most relevant in the intermediate-mass region.}
 	\end{figure}
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.75\linewidth]{chapters/chapter2_theory/images/XSBR_hmssm.pdf}
+		\includegraphics[width=0.75\textwidth]{chapters/chapter2_theory/images/XSBR_hmssm.pdf}
 		\caption{\label{fig:hpm-xsec} Variation of $\sigma(\pp \to tb\Hpm) \times B(\HpmLong)$ with the charged Higgs boson mass in \pp collisions at \sqs, for \tanb values of 7, 20, and 40 in the hMSSM scenario. Dashed lines correspond to $B(\HpmLong)$ set to 1, hence they show the dependence of $\sigma(\pp \to tb\Hpm)$ with \mHpm. \cite{hpm-previous} }
 	\end{figure}
-	The production diagrams considered in this dissertation can be seen in figure \ref{fig:hpm-diagrams}. The cross section at various \tanb values can be seen as a function of \mHpm in figure \ref{fig:hpm-xsec}. The cross section scales with \tanb and at very small values the top Yukawa couplings become non-perturbative, meaning they are highly unlikely to occur. In this dissertation the decay channel considered is \HpmLong. 
+	The production diagrams considered in this dissertation can be seen in figure \ref{fig:hpm-diagrams}. The cross section at various \tanb values can be seen as a function of \mHpm in figure \ref{fig:hpm-xsec}. The cross section scales with \tanb and at very small values the top Yukawa couplings become non-perturbative, meaning they are very difficult to predict. In this dissertation the decay channel considered is \HpmLong. 
 	\begin{figure}[!ht]
 		\centering
-		\subfloat[\label{fig:hpm-br_a}]{\includegraphics[width=0.5\linewidth]{chapters/chapter2_theory/images/YRHXS3_BR_fig33.eps}}
-		\subfloat[\label{fig:hpm-br_b}]{\includegraphics[width=0.5\linewidth]{chapters/chapter2_theory/images/YRHXS3_BR_fig34.eps}}
+		\subfloat[\label{fig:hpm-br_a}]{\includegraphics[width=0.5\textwidth]{chapters/chapter2_theory/images/YRHXS3_BR_fig33.eps}}
+		\subfloat[\label{fig:hpm-br_b}]{\includegraphics[width=0.5\textwidth]{chapters/chapter2_theory/images/YRHXS3_BR_fig34.eps}}
 		\caption{\label{fig:hpm-br} Branching fractions of \Hpm as a function of \mHpm for (a) $\tanb = 10$ and (b) $\tanb = 50$ in the $m^{mod+}_{h}$ scenario of the \gls{MSSM} \cite{Higgs-Crosssections}. }
 	\end{figure}
-	As can be seen in figure \ref{fig:hpm-br}, the \HpmLong decay channel is especially relevant at low \mHpm and high \tanb. The search described in this dissertation consists of two sub-channels, \taujets and \taulep, where the associated top decays either hadronically or leptonically respectively. 
+	As can be seen in Figure \ref{fig:hpm-br}, the \HpmLong decay channel is especially relevant at low \mHpm and high \tanb. This dissertation describes a search for charged Higgs bosons produced in association with a top quark, where only the \HpmLong decay channel is considered. The search consists of two sub-channels, \taujets and \taulep, where the associated top quark decays either hadronically or leptonically respectively. 
 
 	Within the \gls{MSSM}, several benchmarks are defined taking into account higher-order corrections and keeping the number of free parameters in the model low \cite{MSSM-benchmarks}. Figure \ref{fig:hpm-xsec} is made assuming the hMSSM model, where $h^0$ is taken as the observed 125 GeV Higgs and the absence of observed \gls{SUSY} at the LHC is taken into account by setting the \gls{SUSY} scale to $M_{SUSY}>1$ TeV \cite{hMSSM}. While Figure \ref{fig:hpm-br} shows the branching ratios of \Hpm for various \tanb values in the $m^{mod+}_{h}$ model where the benchmark scenario $m^{max}_{h}$\footnote{The $m^{max}_{h}$ scenario is constructed to yield the highest possible mass for h at any given \tanb.} has been modified to interpret $h$ as the observed boson \cite{MSSM-benchmarks}.
 
@@ -267,16 +267,39 @@
 		To add context to this dissertation, it is important to reference the results of the previous iteration of the search discussed in this dissertation. The \gls{ATLAS} collaboration published a paper in 2018 covering the data taking years of 2015 and 2016 \cite{hpm-previous}, whereas this dissertation covers the full Run-2 (2015-2018) dataset. 
 		\begin{figure}[!ht]
 			\centering
-			\subfloat[\label{fig:hpm-prev-limits_a}]{\includegraphics[width=0.5\linewidth]{chapters/chapter2_theory/images/Previous_Limits_Taujets.png}}
-			\subfloat[\label{fig:hpm-prev-limits_b}]{\includegraphics[width=0.5\linewidth]{chapters/chapter2_theory/images/Previous_Limits_Taulep.png}} \\
-			\subfloat[\label{fig:hpm-prev-limits_c}]{\includegraphics[width=0.75\linewidth]{chapters/chapter2_theory/images/Previous_Limits_Combined.png}}
+			\subfloat[\label{fig:hpm-prev-limits_a}]{\includegraphics[width=0.5\textwidth]{chapters/chapter2_theory/images/Previous_Limits_Taujets.png}}
+			\subfloat[\label{fig:hpm-prev-limits_b}]{\includegraphics[width=0.5\textwidth]{chapters/chapter2_theory/images/Previous_Limits_Taulep.png}} \\
+			\subfloat[\label{fig:hpm-prev-limits_c}]{\includegraphics[width=0.75\textwidth]{chapters/chapter2_theory/images/Previous_Limits_Combined.png}}
 			\caption{\label{fig:hpm-prev-limits} Exclusion limits at 95\% CL on $\sigma(pp \to tbH^{\pm} \times B(H^{\pm} \to \tau^\pm \nu)) [pb]$. (a) is for the \taujets subchannel (b) corresponds to the \taulep subchannel and (c) is the combination of the two subchannels. \cite{hpm-previous} }
 		\end{figure}
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=0.75\linewidth]{chapters/chapter2_theory/images/Previous_Limits_Combined_tanb.png}
+			\includegraphics[width=0.75\textwidth]{chapters/chapter2_theory/images/Previous_Limits_Combined_tanb.png}
 			\caption{\label{fig:hpm-prev-limits-tanb} Exclusion limits at 95\% CL on \tanb as a function of \mHpm \cite{hpm-previous}. }
 		\end{figure}
 		Figure \ref{fig:hpm-prev-limits} shows the limits on the cross section and figure \ref{fig:hpm-prev-limits-tanb} shows the limits on \tanb as a function of \mHpm. 
+
+		There are many other searches for charged Higgs bosons that have been performed by several experiments in many different decay channels. Figure \ref{fig:hpm-taunu-cms-limits} shows the results from CMS in the same \HpmLong decay channel \cite{CMS-taunu}. Figure \ref{fig:hpm-tb-limits} shows the ATLAS results for a charged Higgs search in the $\Hpm \to tb$ decay channel and Figure \ref{fig:hpm-tb-tanb-limits} shows the previous \HpmLong search results overlayed on the $\Hpm \to tb$ results in two theoretical models \cite{Hpm-to-tb}.
+
+		\begin{figure}[!ht]
+			\centering
+			\subfloat[\label{fig:hpm-taunu-cms-limits_a}]{\includegraphics[width=0.5\textwidth,keepaspectratio=true]{chapters/chapter2_theory/images/CMS_taunu_xsec_limits.png}}
+			\subfloat[\label{fig:hpm-taunu-cms-limits_b}]{\includegraphics[width=0.5\textwidth,keepaspectratio=true]{chapters/chapter2_theory/images/CMS_taunu_tanb_limits.png}}
+			\caption{\label{fig:hpm-taunu-cms-limits} (a) Exclusion limits at 95\% CL on $\sigma_{\Hpm} B(\Hpm \to \tau^\pm \nu_{\tau}) [pb]$ from the CMS collaboration \cite{CMS-taunu}. (b) Exclusion limits at 95\% CL on \tanb and \mHpm \cite{CMS-taunu}. }
+		\end{figure}
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.75\textwidth]{chapters/chapter2_theory/images/HPlus_to_tb_Limits.png}
+			\caption{\label{fig:hpm-tb-limits} Exclusion limits at 95\% CL on $\sigma (pp \to tb\Hpm) \times B(\Hpm \to tb)$ as a function of \mHpm \cite{Hpm-to-tb}. }
+		\end{figure}
+
+		\begin{figure}[!ht]
+			\centering
+			\subfloat[\label{fig:hpm-tb-tanb-limits_a}]{\includegraphics[width=0.5\textwidth,keepaspectratio=true]{defense/HPlus_taunu_tb_tanb_Limits_hMSSM.png}}
+			\subfloat[\label{fig:hpm-tb-tanb-limits_b}]{\includegraphics[width=0.5\textwidth,keepaspectratio=true]{defense/HPlus_taunu_tb_tanb_Limits_hMod.png}}
+			\caption{\label{fig:hpm-tb-tanb-limits} Exclusion limits at 95\% CL on \tanb as a function of \mHpm in the (a) \gls{MSSM} and (b) $m^{mod+}_{h}$ scenario of the \gls{MSSM} \cite{Hpm-to-tb}. }
+		\end{figure}
+
 
 		The previous iteration of this analysis used boosted decision trees (BDT) binned in \mHpm, using five separate classifiers to cover the mass range of $90 - 2000$ GeV. The mass bins can be seen as the blue dotted lines in Figure \ref{fig:hpm-prev-limits_c}. It is important to note the inclusion of the mass range $90 - 200$ GeV, as \cite{hpm-previous} was the first search to include this mass region below the top quark mass of $175$ GeV.
