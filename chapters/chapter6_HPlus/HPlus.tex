@@ -6,7 +6,7 @@
 	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modeling of backgrounds, training and evaluation of classifiers, studies of systematic uncertainties, and results.
 
 	\section{Signature and Event Selection}\label{sec:signal}
-		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on its mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values in bins of the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), and the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard-scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{ssec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
+		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on its mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values in bins of the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), and the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard-scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{sec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
 
 		\begin{table}[!thp]
 			\centering
@@ -27,7 +27,7 @@
 		\end{table}
 
 		\subsection{Object Definitions}\label{ssec:object-def}
-			Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, and an overlap removal with electrons. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}.
+			After physics objects are reconstructed additional kinematic and identification cuts are applied to allow for high identification efficiency while keeping significant statistics \cites{tau-id-rnn}{jet-calibration}{b-tagging}{electron-perf}{muon-id}. Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, and an overlap removal with electrons. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. The \pt cut of 24 GeV ensures that no jet is consistent with having originated from instrumental effects or non-collision backgrounds. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}.
 
 			\begin{table}[!thp]
 				\centering
@@ -108,7 +108,7 @@
 				\centering
 				\subfloat[\label{fig:signal-acceptance_a}]{\includegraphics[width=0.5\textwidth]{chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAUJET.pdf}}
 				\subfloat[\label{fig:signal-acceptance_b}]{\includegraphics[width=0.5\textwidth]{chapters/chapter6_HPlus/images/Signal_Acceptance_Efficiency_SR_TAULEP.pdf}}
-				\caption{\label{fig:signal-acceptance} Signal acceptance as a function of the charged Higgs boson mass for both the \taujets (a) and \taulep subchannels (b).}
+				\caption{\label{fig:signal-acceptance} Signal acceptance as a function of the charged Higgs boson mass for both the \taujets (a) and \taulep subchannels (b). Statistical errors are shown but are negligible.}
 			\end{figure}
 
 	\section{Datasets}\label{sec:datasets}
@@ -496,7 +496,7 @@
 		\end{figure}
 
 
-		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated \gls{MC} events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}.
+		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated \gls{MC} events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}. Tables \ref{tab:expected_yields_taujets} \ref{tab:expected_yields_taue} and \ref{tab:expected_yields_taumu} show the expected event yields and the effect of each selection cut on the background sources as well as selected \mHpm values of 110, 170, and 1000 GeV. At the time of writing, the analysis is still blinded so Data yields are not known.
 
 		\begin{figure}[!thp]
 			\begin{center}    
@@ -528,6 +528,155 @@
 			\label{fig:bkg-met-taulep}
 		\end{figure}
 
+		\begin{table}[!thp]
+			 \begin{center}
+			 \small
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{|l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|}
+			\hline
+			Selection                                   & \multicolumn{2}{c|}{$t\bar{t}$} & \multicolumn{2}{c|}{Single-top-quark}               & \multicolumn{2}{c|}{$W \to \tau\nu$} & \multicolumn{2}{c|}{$Z \to \tau\tau$}  \\ 
+			\hline
+			Trigger and skim                            & 342315.32 & 205.10 & 38154.55 & 66.40 & 296087.10 & 539.63 & 52976.26 & 148.89 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>40$ GeV   & 231610.69 & 169.16 (68\%) & 26454.25 & 55.97 (69\%) & 197122.72 & 436.12 (67\%) & 37617.08 & 119.38 (71\%) \\
+			Medium tau             & 133237.32 & 127.99 (58\%) & 16879.04 & 44.91 (64\%) & 142441.76 & 319.72 (72\%) & 27017.86 & 101.54 (72\%) \\
+			Lepton veto  & 114888.70 & 118.99 (86\%) & 15450.09 & 42.79 (92\%) & 142390.47 & 319.70 (100\%) & 23911.34 & 97.78 (89\%) \\
+			$\ge 1$ b-jet                    & 93242.48 & 106.97 (81\%) & 11711.18 & 37.03 (76\%) & 11788.34 & 62.30 (8\%) & 2923.99 & 23.68 (12\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>150$ GeV\       & 48457.24 & 78.37 (52\%) & 7129.31 & 29.82 (61\%) & 7160.34 & 43.20 (61\%) & 1194.29 & 11.05 (41\%) \\
+			$m_\mathrm{T}>50 GeV$ (SR)                          & 18369.33 & 48.16 (38\%) & 2276.08 & 16.69 (32\%) & 1972.76 & 23.54 (28\%) & 241.05 & 5.47 (20\%) \\
+			\hline
+			Selection                                   &   \multicolumn{2}{c|}{Diboson ($WW, WZ, ZZ$)}     & \multicolumn{2}{c|}{Misidentified $e,\,\mu \to \tauhad$}  & \multicolumn{2}{c|}{Misidentified $\mbox{jet} \to \tauhad$} & \multicolumn{2}{c|}{All backgrounds}  \\ 
+			\hline
+			Trigger and skim                            & 13094.19 & 53.23 & 708734.11 & 890.75 & 3195982.69 & 560.82 & 4647344.22 & 1212.70 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>40$ GeV   & 9387.33 & 45.05 (72\%) & 375566.87 & 328.44 (53\%) & 1645126.81 & 354.50 (51\%) & 2522885.75 & 686.86 (54\%) \\
+			Medium tau             & 6591.35 & 37.96 (70\%) & 2924.49 & 84.42 (1\%) & 198869.55 & 137.33 (12\%) & 527961.36 & 397.94 (21\%) \\
+			Lepton veto  & 5976.46 & 37.70 (91\%) & 2247.49 & 83.45 (77\%) & 191880.62 & 134.54 (96\%) & 496745.16 & 392.74 (94\%) \\
+			$\ge 1$ b-jet                    & 625.84 & 10.33 (10\%) & 1194.29 & 40.93 (53\%) & 38868.36 & 61.73 (20\%) & 160354.47 & 151.16 (32\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>150$ GeV\       & 414.89 & 8.66 (66\%) & 428.96 & 7.80 (36\%) & 3009.41 & 21.14 (8\%) & 67794.44 & 97.99 (42\%) \\
+			$m_\mathrm{T}>50 GeV$ (SR)                          & 133.30 & 4.67 (32\%) & 327.51 & 6.82 (76\%) & 2490.58 & 17.35 (83\%) & 25810.61 &59.60 (38\%) \\
+			\hline\
+			Selection                                        & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(110~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(170~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(1000~GeV)} & \multicolumn{2}{c|}{Data (\LUMI )}  \\ 
+			\hline
+			Trigger and skim                            & 1951.47 & 11.05 & 4992.07 & 19.02 & 34812.84 & 94.47 & XXX & XXX \\
+			Loose tau, $p_\mathrm{T}^{\tau}>40$ GeV   & 1554.18 & 9.87 (80\%) & 4047.73 & 17.14 (81\%) & 27900.09 & 84.24 (80\%) & XXX & XXX\\
+			Medium tau             & 1016.12 & 7.99 (65\%) & 2890.75 & 14.52 (71\%) & 19994.71 & 72.07 (72\%) & XXX  & XXX\\
+			Lepton veto  & 901.33 & 7.53 (89\%) & 2694.19 & 14.02 (93\%) & 18343.94 & 68.93 (92\%) & XXX & XXX\\
+			$\ge 1$ b-jet                    & 729.40 & 6.76 (81\%) & 2075.45 & 12.29 (77\%) & 13611.31 & 60.35 (74\%) & XXX & XXX \\
+			$E_\mathrm{T}^\mathrm{miss}>150$ GeV\       & 425.52 & 5.25 (58\%) & 1333.74 & 10.03 (64\%) & 12797.45 & 58.63 (94\%) & XXX & XXX \\
+			$m_\mathrm{T}>50 GeV$ (SR)                          & 264.68 & 4.13 (62\%) & 1044.07 & 8.86 (78\%) & 12728.36 & 58.47 (99\%) & XXX & XXX \\
+			\hline
+			\end{tabular}}
+			 \caption{\label{tab:expected_yields_taujets}
+			     Expected event yields and efficiencies after cumulative selection cuts and comparison with \LUMI of 
+			     data for \taujets sub-channel.
+			     The values shown for the signal correspond to $\sigma(\pp \to [b]t\Hpm) \times Br(\HpmLong)=1$~pb.
+			     Statistical uncertainties are shown.}
+			%     \textcolor{red}{
+			%     Both the statistical and systematic uncertainties (Section~\ref{sec:systematic_uncertainties}) are shown for the final selection cut in 
+			%the last row.
+			%     } % end textcolor{red}
+			 \end{center}
+	   \end{table}
+
+		\begin{table}[!thp]
+			\begin{center}
+			\small
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{|l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|}
+			\hline
+			Selection                                   & \multicolumn{2}{c|}{$t\bar{t}$} & \multicolumn{2}{c|}{Single-top-quark}               & \multicolumn{2}{c|}{$W \to \tau\nu$} & \multicolumn{2}{c|}{$Z \to \tau\tau$}  \\ 
+			\hline
+			Trigger and skim                            & 410886.20 & 232.60 & 40098.96 & 68.91 & 1504.99 & 67.50 & 214323.27 & 1518.06 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV   & 355267.50 & 216.28 (86\%) & 34634.86 & 64.10 (86\%) & 1280.89 & 61.15 (85\%) & 184446.15 & 1411.31 (86\%) \\
+			Medium tau             & 179348.02 & 154.01 (50\%) & 17098.32 & 46.93 (49\%) & 426.20 & 44.28 (33\%) & 128420.09 & 1199.81 (70\%) \\
+			Tight electron, $p_\mathrm{T}^{e}>30$ GeV  & 80461.17 & 104.31 (45\%) & 6920.81 & 30.31 (40\%) & 112.68 & 16.71 (26\%) & 39581.52 & 621.39 (31\%) \\
+			Electron and tau with OS                    & 79604.45 & 103.76 (99\%) & 6837.95 & 30.14 (99\%) & 83.19 & 15.00 (74\%) & 39164.25 & 618.78 (99\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\       & 53813.81 & 85.27 (68\%) & 4547.93 & 24.61 (67\%) & 38.97 & 6.28 (47\%) & 12448.80 & 218.27 (32\%) \\
+			$\ge$1 b-jet (SR)                          & 43814.66 & 76.84 (81\%) & 3260.70 & 20.81 (72\%) & 2.41 & 0.56 (6\%) & 913.61 & 20.42 (7\%) \\
+			\hline
+			Selection                                   &   \multicolumn{2}{c|}{Diboson ($WW, WZ, ZZ$)}     & \multicolumn{2}{c|}{Misidentified $e,\,\mu \to \tauhad$}  & \multicolumn{2}{c|}{Misidentified $\mbox{jet} \to \tauhad$} & \multicolumn{2}{c|}{All backgrounds}  \\ 
+			\hline
+			Trigger and skim                            & 18533.34 & 23.85 & 3537419.24 & 4942.14 & 2403411.34 & 714.76 & 6626177.34 & 5225.34 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV   & 16060.23 & 22.20 (87\%) & 1939418.21 & 2933.87 (55\%) & 2027356.60 & 588.57 (84\%) & 4558464.44 & 3316.76 (69\%) \\
+			Medium tau                    & 10957.22 & 17.56 (68\%) & 56819.79 & 851.44 (3\%) & 443714.51 & 304.58 (22\%) & 836784.15 & 1511.77 (18\%) \\
+			Tight electron, $p_\mathrm{T}^{e}>30$ GeV           & 3619.35 & 10.40 (33\%) & 20011.76 & 495.63 (35\%) & 152485.84 & 182.97 (34\%) & 303193.13 & 823.07 (36\%) \\
+			Electron and tau with OS                         & 3122.54 & 9.91 (86\%) & 17202.16 & 452.06 (86\%) & 95723.92 & 147.37 (63\%) & 241738.46 & 788.01 (80\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\       & 1903.40 & 7.70 (61\%) & 3616.05 & 157.27 (21\%) & 31529.78 & 79.00 (33\%) & 107898.73 & 294.27 (45\%) \\
+			$\ge$1 b-jet (SR)                          & 73.21 & 1.53 (4\%) &  1096.64 & 24.36 (30\%) & 8773.81 & 37.64 (28\%) & 57935.04 & 93.63 (54\%) \\
+			\hline\
+			Selection                                        & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(110~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(170~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(1000~GeV)} & \multicolumn{2}{c|}{Data (\LUMI )}  \\ 
+			\hline
+			Trigger and skim                            & 3202.25 & 13.97 & 4116.46 & 17.10 & 5268.21 & 30.05 & XXX & XXX \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV & 2793.23 & 13.05 (87\%) & 3600.92 & 15.99 (87\%) & 4313.45 & 27.22 (82\%) & XXX & XXX \\
+			Medium tau   & 1915.08 & 10.81 (69\%) & 2592.01 & 13.58 (72\%) & 3132.37 & 23.23 (73\%) & XXX & XXX \\
+			Tight electron, $p_\mathrm{T}^{e}>30$ GeV\  & 852.54 & 7.40 (45\%) & 1107.30 & 9.12 (43\%) & 1356.64 & 15.63 (43\%) & XXX & XXX \\
+			Electron and tau with OS                    & 845.17 & 7.37 (99\%) & 1094.53 & 9.06 (99\%) & 1330.08 & 15.48 (98\%) & XXX & XXX  \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\          & 547.00 & 5.94 (65\%) & 837.08 & 7.93 (76\%) & 1302.14 & 15.29 (98\%) & XXX & XXX \\
+			$\ge$1 b-jet (SR)                            & 440.11 & 5.33 (80\%) & 613.35 & 6.78 (73\%) & 956.26 & 13.50 (73\%) & XXX & XXX \\
+			\hline
+			\end{tabular}}
+			\caption{\label{tab:expected_yields_taue}
+			  Expected event yields and efficiencies after cumulative selection cuts and comparison with \LUMI of
+			 data for \tauel channel. 
+			 The values shown for the signal correspond to $\sigma(\pp \to [b]t\Hpm) \times Br(\HpmLong)=1$~pb.
+			 Statistical uncertainties are shown.}
+			 % The values shown for the signal correspond to the cross sections predicted at $\tan\beta = 40$ in the hMSSM benchmark scenario.
+			%     \textcolor{red}{
+			%     Both the statistical and systematic uncertainties (Section~\ref{sec:systematic_uncertainties}) are shown for the final selection cut in 
+			%the last row.
+			%    } % end textcolor{red}
+			%\textcolor{red}{This table needs to be updated!}
+			\end{center}
+		\end{table}
+
+		\begin{table}[!thp]
+			 \begin{center}
+			 \small
+			\resizebox{\textwidth}{!}{
+			\begin{tabular}{|l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l|}
+			\hline
+			Selection                                   & \multicolumn{2}{c|}{$t\bar{t}$} & \multicolumn{2}{c|}{Single-top-quark}               & \multicolumn{2}{c|}{$W \to \tau\nu$} & \multicolumn{2}{c|}{$Z \to \tau\tau$}  \\ 
+			\hline
+			Trigger and skim                            & 410886.20 & 232.60 & 40098.96 & 68.91 & 1504.99 & 67.50 & 214323.26 & 1518.06 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV   & 355267.50 & 216.28 (86\%) & 34634.86 & 64.10 (86\%) & 1280.89 & 61.15 (85\%) & 184446.15 & 1411.31 (86\%) \\
+			Medium tau             & 179348.02 & 154.01 (50\%) & 17098.32 & 46.93 (49\%) & 426.20 & 44.28 (33\%) & 128420.09 & 1199.81 (70\%) \\
+			Tight muon, $p_\mathrm{T}^{e}>30$ GeV  & 83293.59 & 103.84 (46\%) & 8704.78 & 33.09 (51\%) & 44.56 & 12.50 (10\%) & 57089.24 & 811.41 (44\%) \\
+			Muon and tau with OS                    & 82852.63 & 103.57 (99\%) & 8653.92 & 33.01 (99\%) & 42.72 & 12.17 (96\%) & 56860.99 & 810.34 (100\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\       & 55250.05 & 84.70 (67\%) & 5516.70 & 26.38 (64\%) & 7.66 & 2.72 (18\%) & 13803.33 & 220.41 (24\%) \\
+			$\ge$1 b-jet (SR)                          & 44490.69 & 75.96 (81\%) & 3874.57 & 22.06 (70\%) & 0.07 & 0.12 (1\%) & 845.89 & 22.07 (6\%) \\
+			\hline
+			Selection                                   &   \multicolumn{2}{c|}{Diboson ($WW, WZ, ZZ$)}     & \multicolumn{2}{c|}{Misidentified $e,\,\mu \to \tauhad$}  & \multicolumn{2}{c|}{Misidentified $\mbox{jet} \to \tauhad$} & \multicolumn{2}{c|}{All backgrounds}  \\ 
+			\hline
+			Trigger and skim                            & 18533.34 & 23.85 & 3537419.44 & 4942.14 & 2403411.34 & 714.76 & 6626177.54 & 5225.34 \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV   & 16060.23 & 22.20 (87\%) & 1939418.20 & 2933.87 (55\%) & 2027356.60 & 588.57 (84\%) & 4558464.43 & 3316.76 (69\%) \\
+			Medium tau                    & 10957.22 & 17.56 (68\%) & 56819.79 & 851.44 (3\%) & 443714.51 & 304.58 (22\%) & 836784.15 & 1511.77 (18\%) \\
+			Tight muon, $p_\mathrm{T}^{e}>30$ GeV           & 5709.54 & 12.47 (52\%) & 30268.99 & 623.62 (53\%) & 199706.03 & 205.19 (45\%) & 384816.73 & 1049.56 (46\%) \\
+			Muon and tau with OS                         & 4960.17 & 11.89 (87\%) & 27996.60 & 611.93 (92\%) & 131414.33 & 171.52 (66\%) & 312781.35 & 1035.68 (81\%) \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\       & 2799.13 & 8.89 (56\%) & 3766.50 & 161.20 (13\%) & 42513.90 & 90.25 (32\%) & 123657.27 & 301.10 (40\%) \\
+			$\ge$1 b-jet (SR)                          & 81.32 & 1.53 (3\%) & 1074.28 & 15.90 (29\%) & 8558.21 & 37.23 (20\%) & 58925.03 & 91.57 (48\%) \\
+			\hline\
+			Selection                                        & \multicolumn{2}{c|}{$\Hpm$ $\phantom{c|}$(110~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(170~GeV)} & \multicolumn{2}{c|}{$\Hpm$ $\phantom{0}$(1000~GeV)} & \multicolumn{2}{c|}{Data (\LUMI )}  \\ 
+			\hline
+			Trigger and skim                            & 3202.25 & 13.97 & 4116.46 & 17.10 & 5268.21 & 30.05 & XXX & XXX \\
+			Loose tau, $p_\mathrm{T}^{\tau}>30$ GeV & 2793.23 & 13.05 (87\%) & 3600.92 & 15.99 (87\%) & 4313.45 & 27.22 (82\%) & XXX & XXX \\
+			Medium tau   & 1915.08 & 10.81 (69\%) & 2592.01 & 13.58 (72\%) & 3132.37 & 23.23 (73\%) & XXX & XXX \\
+			Tight muon, $p_\mathrm{T}^{e}>30$ GeV\  & 889.27 & 7.17 (46\%) & 1264.26 & 9.25 (49\%) & 1499.58 & 15.93 (48\%) & XXX & XXX \\
+			Muon and tau with OS                    & 884.48 & 7.15 (99\%) & 1258.52 & 9.22 (100\%) & 1485.25 & 15.88 (99\%) & XXX & XXX \\
+			$E_\mathrm{T}^\mathrm{miss}>50$ GeV\          & 563.90 & 5.71 (64\%) & 946.69 & 8.01 (75\%) & 1447.52 & 15.62 (97\%) & XXX & XXX \\
+			$\ge$1 b-jet (SR)                            & 447.73 & 5.07 (79\%) & 693.80 & 6.85 (73\%) & 1004.35 & 12.95 (69\%) & XXX & XXX \\
+			\hline
+			\end{tabular}}
+			 \caption{\label{tab:expected_yields_taumu}
+			     Expected event yields and efficiencies after cumulative selection cuts and comparison with \LUMI of
+			     data for \taumu channel. 
+			     The values shown for the signal correspond to $\sigma(\pp \to [b]t\Hpm) \times Br(\HpmLong)=1$~pb.
+			     % The values shown for the signal correspond to the cross sections predicted at $\tan\beta = 40$ in the hMSSM benchmark scenario.
+			     Statistical uncertainties are shown.}
+			     %Both the statistical and systematic uncertainties (Section~\ref{sec:systematic_uncertainties}) are shown for the final selection cut in the last row.
+			    %\textcolor{red}{This table needs to be updated!}
+			 \end{center}
+	   \end{table}
+
+
 	\clearpage
 	\section{Multivariate Analysis Techniques}\label{sec:mva}
 		Once variables distributions are properly scaled and data/\gls{MC} agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), \glspl{BDT} binned in \mHpm were used as the classifier, this publication use one \gls{PNN} for the entire \mHpm spectrum. \glspl{BDT} excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a \gls{PNN} the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. \gls{PNN}s offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}. For illustrative purposes, expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ in both subchannels is shown comparing an optimized \gls{BDT} and an unoptimized \gls{PNN} in Figure \ref{fig:bdt-vs-pnn-expected-limits}. It is seen that the \gls{PNN} performs similarly to the \glspl{BDT} used in the previous analysis. A \gls{PNN} was chosen as the discriminator. 
@@ -556,7 +705,7 @@
 			This analysis uses four \gls{PNN}s, events with 1-prong $\tau$ and 3-prong $\tau$ are divided into separate datasets within both subchannels.
 
 		\subsection{Training}\label{ssec:training}
-			The training of the \gls{PNN}s used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. To protect against this, dropout is used \cite{dropout}. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. $k=5$ is chosen in this analysis.
+			The training of the \gls{PNN}s used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. To protect against this, dropout is used \cite{dropout}. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. The standard choice of $k=5$ is used in this analysis.
 
 			\begin{figure}	
 				\begin{center}
@@ -569,7 +718,7 @@
 			A single \gls{PNN} training is performed on all \mHpm values at once, with the \mHpm value being taken as an input variable. For signal events, the \mHpm value from the \gls{MC} generator is given; background events are replicated 32 times (the number of simulated \mHpm points is 32) and each \mHpm value is given for each set. To avoid biasing the training due to varying statistics at each \mHpm value, the background events are weighted by a factor of $w = N^{i}_{S}/N^{i}_{B}$ where $i$ corresponds to a given \mHpm value and $N^{i}_{S}$ and $N^{i}_{B}$ are the number of signal and background events, respectively. When the \gls{PNN} is evaluated, the \mHpm value is assumed and the output is used as the discriminant at that \mHpm.
 
 		\subsection{Input Variables Selection}\label{ssec:input-variables}
-			The choice of input variables to the \glspl{PNN} is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. So called input variables set A, consisting of the four vector components of the main physics objects in each event, were compared against another set of input variables B. Tables of the two sets of input variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. 
+			The choice of input variables to the \glspl{PNN} is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. One such study investigated the discriminating power of two sets of input variables. Input variables set A, consisting of the four vector components of the main physics objects in each event, were compared against another set of input variables B. Tables of the two sets of input variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. 
 
 			The variable $\mHpm^{Truth}$ corresponds to the \mHpm value the training and evaluation is performed at. In both cases, the variable $\Upsilon$ is used. $\Upsilon$ is a measure of the \tauhad polarization, computed by taking the asymmetry of energies carried by the charged and neutron pions from the 1-prong $\tau$ decay measured in the laboratory frame. $\Upsilon$ is defined as
 			\begin{equation}\label{eqn:upsilon}
@@ -683,7 +832,7 @@
 
 		\subsection{Hyperparameter Optimization}\label{ssec:hpo}
 
-				In order to optimize the \gls{PNN}, a scan of hyperparameters and network architecture was done, referred to as \gls{HPO}. A calculated \gls{AUC} was used as the figure of merit. As in the normal training scheme, the $k$-fold method with $k=5$ was used to keep background modelling and classifier training statistically independent. To prevent overtraining, the early stopping method was used and the best weights kept to calculate the \gls{AUC}. The early stopping method has two parameters, $\Delta_{min}$ and patience. $\Delta_{min}$ is the minimum allowed difference in \gls{AUC} between training epochs. Once the $\Delta_{min}$ value is lower than the user defined threshold several more epochs are trained to ensure a global minima is found. The number of extra training epochs is the previously mentioned patience value. For this dissertation $\Delta_{min}=0.00001$ and a patience of 10 were used. Due to the low signal acceptance and the increased difficulty of separating signal from background at lower \mHpm values, the \gls{PNN} was optimized for low \mHpm values.  To optimize for \gls{PNN} performance in low \Hpm mass points, a separate average taking into account only \Hpm mass values between $80$ and $500$ GeV was used as the final figure of merit. In an effort to keep the computational needs low, several small grids of hyperparameters and architecture structures were scanned. Tables \ref{Tab:taulepHPOLoss} - \ref{Tab:taulepHPOWidthDepth} show the hyperparameter grids that were searched. Here, width refers to the number of neurons per layer and depth is the number of layers. The final hyperparameter from each grid search is highlighted in red. The results of the final grid search can be seen in Tables \ref{tab:pnn_hpo_aucs} and \ref{tab:pnn_hpo_aucs_short}; the quoted errors are taken from the different $k$-folds. The \gls{AUC} values for each \mHpm point for the final chosen model are shown in Figure \ref{fig:final-auc}. 
+				In order to optimize the \gls{PNN}, a scan of hyperparameters and network architecture was done, referred to as \gls{HPO}. A calculated \acrfull{AUC} was used as the figure of merit. As in the normal training scheme, the $k$-fold method with $k=5$ was used to keep background modelling and classifier training statistically independent. To prevent overtraining, the early stopping method was used and the best weights kept to calculate the \gls{AUC}. The early stopping method has two parameters, $\Delta_{min}$ and patience. $\Delta_{min}$ is the minimum allowed difference in \gls{AUC} between training epochs. Once the $\Delta_{min}$ value is lower than the user defined threshold several more epochs are trained to ensure a global minima is found. The number of extra training epochs is the previously mentioned patience value. For this dissertation $\Delta_{min}=0.00001$ and a patience of 10 were used. Due to the low signal acceptance and the increased difficulty of separating signal from background at lower \mHpm values, the \gls{PNN} was optimized for low \mHpm values.  To optimize for \gls{PNN} performance in low \Hpm mass points, a separate average taking into account only \Hpm mass values between $80$ and $500$ GeV was used as the final figure of merit. In an effort to keep the computational needs low, several small grids of hyperparameters and architecture structures were scanned. Tables \ref{Tab:taulepHPOLoss} - \ref{Tab:taulepHPOWidthDepth} show the hyperparameter grids that were searched. Here, width refers to the number of neurons per layer and depth is the number of layers. The final hyperparameter from each grid search is highlighted in red. The results of the final grid search can be seen in Tables \ref{tab:pnn_hpo_aucs} and \ref{tab:pnn_hpo_aucs_short}; the quoted errors are taken from the difference in $k$-folds. The \gls{AUC} values for each \mHpm point for the final chosen model are shown in Figure \ref{fig:final-auc}. 
 
 
 			\begin{table}[!htb]
@@ -816,7 +965,7 @@
 				\end{tabular}}
 				\npnoround
 				\caption{\label{tab:pnn_hpo_aucs}
-				\glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account difference
+				\glspl{AUC} of final \gls{HPO} grid. An error of 0 corresponds to only one job k-fold finishing training due to computational limits. The LowMassAvg error takes into account difference between k-folds and the associated error from the averaging calculation.
 				  }
 				  \end{center}
 			\end{table}
@@ -863,7 +1012,7 @@
 			  \label{fig:final-auc}
 			\end{figure}
 
-			The final model was chosen to have 128 neurons per layer with 3 layers, with the binary cross-entropy chosen as the loss function, a dropout of 0.1, LeakyReLU as the activation function with $\alpha=0.05$. The LeakyReLU activation function is depicted in Figure \ref{fig:leaky-relu}, where the $\alpha$ value is the slope of the negative portion. Allowing negative weight values prevents neurons from becoming deactivated prematurely.
+			The final model was chosen to have 128 neurons per layer with three layers, with the binary cross-entropy chosen as the loss function, a dropout of 0.1, LeakyReLU as the activation function with $\alpha=0.05$. The LeakyReLU activation function is depicted in Figure \ref{fig:leaky-relu}, where the $\alpha$ value is the slope of the negative portion. Allowing negative weight values prevents neurons from becoming deactivated prematurely.
 
 			\begin{figure}
 				\centering
@@ -873,7 +1022,7 @@
 			\end{figure}
 
 	\section{Systematic Uncertainties}\label{sec:systs}
-		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects \cite{tau-calibration}, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects \cites{tau-calibration}{jet-calibration}{egamma-calibration}{met-perf}{muon-calibration} are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. Systematic errors resulting in an upward fluctuation are kept separate from downward fluctuations. The effect of the main sources of uncertainties on the event yield for \ttbar and an arbitrary mass point of $\mHpm=200$ GeV are shown in Table \ref{tab:sys_ttbar_signal} for all \glspl{SR}. Jet systematic uncertainties arising from reconstruction, identification, flavor composition, resolution account for the largest contribution. Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}. Theoretical uncertainties for signal and \ttbar background were considered in the last publication; at the time of writing this dissertation the simulations are being produced and therefore are not included. 
+		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects \cite{tau-calibration}, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects \cites{tau-calibration}{jet-calibration}{egamma-calibration}{met-perf}{muon-calibration} are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. Systematic errors resulting in an upward fluctuation are kept separate from downward fluctuations. The effect of the main sources of uncertainties on the event yield for \ttbar and an arbitrary mass point of $\mHpm=200$ GeV are shown in Table \ref{tab:sys_ttbar_signal} for all \glspl{SR}. Jet systematic uncertainties arising from reconstruction, identification, flavor composition, resolution account for the largest contribution. Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}. The uncertainty listed as ``Fake factors: True \tauhad in the anti-\tauhad CR'' is a conservative uncertainty of 50\% applied to account for amount of \tauhad candidates that are subtracted when computing $N^{anti-\tau}_{fakes}$. Table \ref{tab:sys_combined_ttbar_signal} shows systematic uncertainties combined by their source. The combined fake factor systematic uncertainty is the largest contributor, followed by the jet systematics listed above. Theoretical uncertainties for signal and \ttbar background were considered in the last publication; at the time of writing this dissertation the simulations are being produced and therefore are not included. 
 		
 		\begin{table}
 			\begin{center}
@@ -892,8 +1041,8 @@
 			\tauhad energy scale (physics list)			&  	\begin{tabular}{c}+1.27 \\ -1.26 \end{tabular} 	&   -0.72																						& \begin{tabular}{c}+0.74 \\ -0.65 \end{tabular} 	&   \begin{tabular}{c}+0.67 \\ -0.25 \end{tabular}  &  	\begin{tabular}{c}+0.72 \\ -0.63 \end{tabular} 	& 	\begin{tabular}{c}+0.83 \\ -0.60 \end{tabular}		\\ \hline
 			jet uncertainties												&  	\begin{tabular}{c}+7.38 \\ -8.39 \end{tabular}	&   \begin{tabular}{c}+6.51 \\ -9.06 \end{tabular} 	& \begin{tabular}{c}+3.41 \\ -3.31 \end{tabular} 	&   \begin{tabular}{c}+4.49 \\ -2.78 \end{tabular} 	&  	\begin{tabular}{c}+3.18 \\ -3.24 \end{tabular} 	& 	\begin{tabular}{c}+3.67 \\ -2.96 \end{tabular}		\\ 
 			\Etm soft term scale/resolution 				&  	\begin{tabular}{c}+1.31 \\ -1.12 \end{tabular} 	&   \begin{tabular}{c}+1.15 \\ -1.49 \end{tabular}	& \begin{tabular}{c}+0.29 \\ -0.24 \end{tabular} 	&   \begin{tabular}{c}+0.88 \\ -0.34 \end{tabular} 	&  	\begin{tabular}{c}+0.30 \\ -0.23 \end{tabular} 	& 	\begin{tabular}{c}+0.21 \\ -0.11 \end{tabular}		\\  
-			trigger 																&  	\begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}	&   $\pm$0.03 																			& 0																								&   0 																							&  	\begin{tabular}{c}+0.55 \\ -0.56 \end{tabular} 	& 	$\pm$56																						\\ \hline
-			$e$-id  																&  	0 																							&   0 																							& $\pm$0.71 																			&   $\pm$0.73 																			&  	0 																							& 	0																									\\ \hline
+			trigger                   &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   0                                               & $\pm$0.03                                       &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$0.56                                           \\ \hline
+	        $e$-id  																&  	0 																							&   0 																							& $\pm$0.71 																			&   $\pm$0.73 																			&  	0 																							& 	0																									\\ \hline
 			$\mu$-id/reconstruction/isolation  			&  	0 																							&   0 																							& \begin{tabular}{c}0 \\ -0.01 \end{tabular} 	&   \begin{tabular}{c}0 \\ -0.11 \end{tabular} 	&  	\begin{tabular}{c}+0.97 \\ -1.40 \end{tabular} 	& 	\begin{tabular}{c}+1.00 \\ -2,94 \end{tabular}		\\
 			$\mu$ MS 																&  	0 																							&   0 																							& 0 																							&   0 																							&  	\begin{tabular}{c}+0.09 \\ -0.12 \end{tabular} 	& 	\begin{tabular}{c}+0.40 \\ -0.34 \end{tabular}				\\
 			\hline
@@ -926,6 +1075,37 @@
 		   \taujets and \taulep channel.
 		    }
 		\end{table}
+
+		\begin{table}[!htb]
+        \begin{center}
+        \resizebox{\textwidth}{!}{
+        \begin{tabular}{| l | c | c | c | c | c | c |}
+        \hline
+        Source                                  &   \multicolumn{6}{|c|}{Impact on the expected event yield (\%)}  \\ \cline{2-7}
+                                                &   \multicolumn{2}{|c|}{\taujets}                                                                       &   \multicolumn{2}{c|}{\tauel}                                                                       &   \multicolumn{2}{c|}{\taumu}     \\ \cline{2-7}
+                                                &   \ttbar                                          &  \Hpm 200 GeV                                     &   \ttbar                                        &   \Hpm 200 GeV                                    &   \ttbar                                          &   \Hpm 200 GeV                                      \\ \hline \hline
+        % \tauhad reconstruction efficiency       &   $\pm$1.24                                       &  $\pm$1.22                                        &   $\pm$1.23                                     &   \begin{tabular}{c}+1.22 \\ -1.23 \end{tabular}  &   $\pm$1.23                                       &   $\pm$1.22                                         \\ \hline
+        % \tauhad-id                              &   $\pm$1.79                                       &  $\pm$0.52                                        &   $\pm$1.40                                     &   $\pm$0.50                                       &   $\pm$1.40                                       &   $\pm$0.48                                         \\ \hline
+        % \tauhad energy scale                    &   \begin{tabular}{c}+2.53 \\ -2.80 \end{tabular}  &   \begin{tabular}{c}+2.00 \\ -1.66 \end{tabular}  & \begin{tabular}{c}+1.60 \\ -1.44 \end{tabular}  &   \begin{tabular}{c}+1.28 \\ -1.66 \end{tabular}  &   \begin{tabular}{c}+1.53 \\ -1.39 \end{tabular}  &   \begin{tabular}{c}+1.72 \\ -1.46 \end{tabular}    \\ \hline
+        % \tauhad energy scale (detector)         &   \begin{tabular}{c}+1.96 \\ -1.55 \end{tabular}  &   \begin{tabular}{c}+1.64 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.5 \end{tabular}     \\ \hline
+        % \tauhad energy scale (in-situ)          &   \begin{tabular}{c}+1.44 \\ -1.43 \end{tabular}  &   \begin{tabular}{c}+0.22 \\ -0.74 \end{tabular}  & \begin{tabular}{c}+1.17 \\ -1.20 \end{tabular}  &   \begin{tabular}{c}+0.74 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+1.14 \\ -1.15 \end{tabular}  &   \begin{tabular}{c}+0.54 \\ -0.37 \end{tabular}    \\ \hline
+        % \tauhad energy scale (model)            &   \begin{tabular}{c}+0.56 \\ -0.61 \end{tabular}  &   -0.06                                           & \begin{tabular}{c}+0.23 \\ -0.21 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.08 \end{tabular}  &   \begin{tabular}{c}+0.16 \\ -0.55 \end{tabular}  &   \begin{tabular}{c}+0.49 \\ -1.50 \end{tabular}    \\ \hline
+        % \tauhad energy scale (physics list)     &   \begin{tabular}{c}+1.27 \\ -1.26 \end{tabular}  &   -0.72                                           & \begin{tabular}{c}+0.74 \\ -0.65 \end{tabular}  &   \begin{tabular}{c}+0.67 \\ -0.25 \end{tabular}  &   \begin{tabular}{c}+0.72 \\ -0.63 \end{tabular}  &   \begin{tabular}{c}+0.83 \\ -0.60 \end{tabular}    \\ \hline
+        Fake factor uncertainties               &   \begin{tabular}{c}+9.11 \\ -9.04 \end{tabular}  &   \begin{tabular}{c}+9.11 \\ -9.04 \end{tabular}  & \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34 \end{tabular}  &   \begin{tabular}{c}+8.23 \\ -8.34\end{tabular}    \\ \hline
+        jet uncertainties                       &   \begin{tabular}{c}+7.38 \\ -8.39 \end{tabular}  &   \begin{tabular}{c}+6.51 \\ -9.06 \end{tabular}  & \begin{tabular}{c}+3.41 \\ -3.31 \end{tabular}  &   \begin{tabular}{c}+4.49 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+3.18 \\ -3.24 \end{tabular}  &   \begin{tabular}{c}+3.67 \\ -2.96 \end{tabular}    \\ \hline
+        $\tau$ uncertainties                    &   $\pm4.36$                                       &   \begin{tabular}{c}+2.91 \\ -2.80 \end{tabular}  & \begin{tabular}{c}+2.84 \\ -2.74 \end{tabular}  &   \begin{tabular}{c}+2.65 \\ -2.70 \end{tabular}  &   \begin{tabular}{c}+2.77 \\ -2.78 \end{tabular}  &   \begin{tabular}{c}+2.58 \\ -2.97 \end{tabular}    \\ \hline
+        \Etm uncertainties                      &   \begin{tabular}{c}+1.31 \\ -1.12 \end{tabular}  &   \begin{tabular}{c}+1.15 \\ -1.49 \end{tabular}  & \begin{tabular}{c}+0.29 \\ -0.24 \end{tabular}  &   \begin{tabular}{c}+0.88 \\ -0.34 \end{tabular}  &   \begin{tabular}{c}+0.30 \\ -0.23 \end{tabular}  &   \begin{tabular}{c}+0.21 \\ -0.11 \end{tabular}    \\ \hline
+        trigger uncertainties                   &   \begin{tabular}{c}+1.23 \\ -1.61 \end{tabular}  &   0                                               & $\pm$0.03                                       &   0                                               &   \begin{tabular}{c}+0.55 \\ -0.56 \end{tabular}  &   $\pm$0.56                                           \\ \hline
+        $e$ uncertainties                       &   0                                               &   0                                               & $\pm$0.71                                       &   $\pm$0.73                                       &   0                                               &   0                                                 \\ \hline
+        $\mu$ uncertainties                     &   0                                               &   0                                               & -0.01                                           &   -0.11                                           &   \begin{tabular}{c}+0.97 \\ -1.41 \end{tabular}  &   \begin{tabular}{c}+1.08 \\ -2,96 \end{tabular}    \\ \hline
+        % $\mu$ MS                                &   0                                               &   0                                               & 0                                               &   0                                               &   \begin{tabular}{c}+0.09 \\ -0.12 \end{tabular}  &   \begin{tabular}{c}+0.40 \\ -0.34 \end{tabular}        \\
+        \hline
+        \end{tabular}}
+        \caption{\label{tab:sys_combined_ttbar_signal}
+        Effect of the combined main systematic uncertainties on the expected event yield for \ttbar and signal events ($\mHpm= 200$ GeV) passing the nominal event selection of the three \glspl{SR}. The three components of the \tauhad energy scale uncertainty are shown in the table. Impacts are shown in percent change with respect to the nominal \gls{SR} selections.
+        }
+        \end{center}
+      \end{table}
 
 	\section{Results}\label{sec:results}
 		The expected event yields for backgrounds and signal\footnote{At the time of writing, the analysis is still blinded so Data is not included.} are summarized in Table \ref{tab:event_yields_SR_taujets} (\taujets) and Table \ref{tab:event_yields_SR_taulep} (\taulep).
