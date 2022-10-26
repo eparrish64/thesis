@@ -1,5 +1,5 @@
 \chapter{Simulation}\label{chap:sim}
-	The data collected by the \gls{ATLAS} experiment must be compared to a well understood dataset. This dataset is most often a dataset of simulation particle collisions that approximate to great precision physics processes and particle interaction with detector material, as well as the detector's response. Figure \ref{fig:simulation} shows the chain of simulations by which these datasets are produced.
+	The data collected by the \gls{ATLAS} experiment must be compared to a well understood dataset. This dataset is most often a dataset of simulation particle collisions that aim to mimic physics processes and particle interaction with detector material, as well as the detector's response. Figure \ref{fig:simulation} shows the chain of simulations by which these datasets are produced.
 	\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.95\textwidth,keepaspectratio=true]{chapters/chapter4_simulation/images/Simulation_Chain.png}
@@ -13,7 +13,33 @@
 
 		The next step in the simulation chain is the parton showering and hadronization. This can be done with a different set of \gls{MC} simulations. Parton showering and hadronization are complex, computationally expensive steps to simulate and are done iteratively. An example of a parton shower generator output can be seen in Figure \ref{fig:hadronization}.
 
-		The \gls{MC} generators used in this dissertation are Pythia \cite{pythia}, Powheg-Box \cites{powheg-1}{powheg-2}, and Sherpa \cite{sherpa}.
+		The \gls{MC} generators used in this dissertation for background simulations are Pythia \cite{pythia}, Powheg-Box \cites{powheg-1}{powheg-2}, and Sherpa \cite{sherpa}. For signal, MadGraph is used \cite{MadGraph}. For all processes, Pythia8 is used to simulate the parton shower, fragmentation, and underlying event. Table \ref{tab:bkg-generators} shows which \gls{MC} generator is used for each background process.
+
+				\begin{table}[!thp]
+			\begin{center}
+			\small
+			\resizebox{0.5\textwidth}{!}{
+			\begin{tabular}{|c||c|}
+			\hline
+			Background process & Generator \& parton shower  \\
+			\hline \hline
+			\ttbar with at least one lepton $\ell$ 	& 	Powheg \& Pythia8 	\\ \hline
+			Single top-quark 						& 	Powheg \& Pythia8 	\\ \hline
+			W ($\ell \nu$) + jets 					& 	Sherpa 				\\ \hline
+			Z/$\gamma^{*}(\ell \ell , \nu \nu)$ + jets &Sherpa 				\\ \hline
+			$WW$ 									& 	Powheg \& Pythua8 	\\ \hline
+			$WZ$ 									& 	Powheg \& Pythua8 	\\ \hline
+			$ZZ$ 									& 	Powheg \& Pythua8 	\\ \hline
+
+			\end{tabular}}
+			\normalsize
+			\caption{\label{tab:bkg-generators}
+			\gls{MC} generators for the main \acrshort{SM} background samples at \sqs. 
+			Here, $\ell$ refers to the three lepton families $e$, $\mu$ and 
+			$\tau$.
+			}
+			\end{center}
+		\end{table}
 
 		\begin{figure}[!ht]
 		\centering
@@ -22,6 +48,6 @@
 		\end{figure}	
 
 	\section{Detector Simulation}\label{sec:detector-sim}
-		The final step in the simulation chain is simulating the particle's interaction with the detector material and the detector's response. Up until this point, the \gls{MC} generators used are generic non-experiment dependent simulations. The \gls{ATLAS} collaboration uses a GEANT4 based generator suite to simulate these interactions \cite{GEANT4}. These detailed simulations include all support structure, material densities, readout electronics, and digitization in order to fully simulate the path of a real particle through the \gls{ATLAS} detector. In fact, these simulations are often too detailed to produce enough statistics for physics analyses. In the full simulation, around $80\%$ of the simulation time is spent on particles traversing the calorimeters and $75\%$ is spent on electromagnetic particles alone \cite{ATLAS-simulation}. Instead, several methods were developed to speed up the simulation known as FAST simulations. A detailed description of the \gls{ATLAS} simulation chain and options can be seen in \cite{ATLAS-simulation}. The final simulated dataset is output into a raw data format identical to real data coming off of the \gls{ATLAS} detector. 
+		The final step in the simulation chain is simulating the particle's interaction with the detector material and the detector's response. Up until this point, the \gls{MC} generators used are generic non-experiment dependent simulations. The \gls{ATLAS} collaboration uses a GEANT4 based generator suite to simulate these interactions \cite{GEANT4}. These detailed simulations include all support structure, material densities, readout electronics, and digitization in order to fully simulate the path of a real particle through the \gls{ATLAS} detector. These simulations are often too slow to produce enough statistics for physics analyses. In the full simulation, around $80\%$ of the simulation time is spent on particles traversing the calorimeters and $75\%$ is spent on electromagnetic particles alone \cite{ATLAS-simulation}. Instead, several methods were developed to speed up the simulation known as FAST simulations. A detailed description of the \gls{ATLAS} simulation chain and options can be seen in Reference \cite{ATLAS-simulation}. The final simulated dataset is output into a raw data format identical to real data coming off of the \gls{ATLAS} detector. 
 
 		
