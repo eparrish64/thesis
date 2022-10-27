@@ -6,14 +6,14 @@
 	This chapter discusses in detail the entire analysis, including the signal signatures, event selections, analyzed datasets, modeling of backgrounds, training and evaluation of classifiers, studies of systematic uncertainties, and results.
 
 	\section{Signature and Event Selection}\label{sec:signal}
-		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on its mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values in bins of the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), and the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV.  The two subchannels have similar signal signatures with a hard-scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{sec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
+		As shown in Figure \ref{fig:hpm-diagrams}, the production of the \Hpm is dependent on its mass \mHpm. Table \ref{tab:hplus-production} shows the production mechanisms for \mHpm values in bins of the top quark mass $m_t$ as well as the main decay mode (and theoretical constraints), and the main source of background. Three mass ranges are defined, low mass $80 \leq \mHpm \leq 130 $ GeV, intermediate mass $140 \leq \mHpm \leq 190$, and high mass $200 \leq \mHpm \leq 3000$ GeV. In the low mass bin the \Hpm takes the place of the $W^{\pm}$ in the top quark decay. Results of searches for other non-standard decays of top quarks limits on the branching ratio can be seen in Reference \cite{pdg}. The two subchannels of this analysis have similar signal signatures with a hard-scatter source of \Etm, one \tauhad, and at least 1 \bjet from the associated top decay. In the \taulep subchannel there is an extra requirement of a lepton (e or $\mu$). Due to the variable amount of energy available to the final state products based on \mHpm the event topology changes as a function of \mHpm. As described in Section \ref{sec:mva}, classifiers are trained and evaluated in \mHpm bins to account for the varying event topology.
 
 		\begin{table}[!thp]
 			\centering
 			\resizebox{\textwidth}{!}{
 			\begin{tabular}{| c | c | c | c |}
 			\hline
-			\textbf{\Hpm Mass} & \textbf{Production Mechanism} & \textbf{Decay}  & \textbf{Main Background}\\
+			\textbf{\Hpm Mass} & \textbf{Production Mechanism} & \textbf{Decay}  & \textbf{Main Backgrounds}\\
 			\hline \hline
 			\multicolumn{1}{|c|}{\multirow{2}{*}{$\mHpm < m_{t}$}} 		& \begin{tabular}[c]{@{}c@{}} double-resonant $t \to H^\pm b$ (LO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/double_resonant_production_low_mass.png} \end{tabular} 											& \begin{tabular}[c]{@{}c@{}} \HpmLong \\ (low $\tanb \implies$ $\Hpm \to cs$ or $\Hpm \to cb$ ) \end{tabular} 																	& \ttbar, single-top \\ \hline
 
@@ -22,12 +22,12 @@
 			\multicolumn{1}{|c|}{\multirow{3}{*}{$\mHpm > m_{t}$}}		& \begin{tabular}[c]{@{}c@{}} single-resonant $gg \to tbH^\pm$ (NLO) \\ \includegraphics[width=.19\textwidth]{chapters/chapter6_HPlus/images/single_resonant_production_large_mass.png} \end{tabular} 										& \begin{tabular}[c]{@{}c@{}} $\Hpm \to tb$ \\ ($cos(\beta-\alpha) \simeq 0$ and large $tan(\beta) \implies \Hpm \to \tau \nu$ \\ $BR(\HpmLong) \simeq 10-15\%$ ) \end{tabular} & multi-jet \\ \hline
 
 			\end{tabular}}
-			\caption{\Hpm production mechanisms based on \mHpm, dominant \Hpm decay mode, and the main background associated with the diagram.}
+			\caption{\Hpm production mechanisms based on \mHpm, dominant \Hpm decay mode, and the main backgrounds associated with the diagram.}
 			\label{tab:hplus-production}
 		\end{table}
 
 		\subsection{Object Definitions}\label{ssec:object-def}
-			After physics objects are reconstructed additional kinematic and identification cuts are applied to allow for high identification efficiency while keeping significant statistics \cites{tau-id-rnn}{jet-calibration}{b-tagging}{electron-perf}{muon-id}. Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, and an overlap removal with electrons. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. The \pt cut of 24 GeV ensures that no jet is consistent with having originated from instrumental effects or non-collision backgrounds. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}.
+			After physics objects are reconstructed additional kinematic and identification cuts are applied to allow for high identification efficiency while keeping significant statistics \cites{tau-id-rnn}{jet-calibration}{b-tagging}{electron-perf}{muon-id}. Table \ref{tab:object-defs} shows the identification requirements on all objects used in the analysis. In both subchannels \tauhad candidates are required to fit the medium working point described in Section \ref{ssec:reco-tau} that corresponds to a 75\% efficiency for 1-prong and 60\% efficiency for 3-prong \tauhad identification, an $\abs{\eta}$ cut of $< 2.3$ that also excludes the gap and crack region of the ATLAS calorimeters at $1.37 < \abs{\eta} < 1.52$, and an overlap removal with electrons. For the \taujets subchannel, the \tauhad \pt is required to be greater than 40 GeV and greater than 30 GeV for the \taulep subchannel. Although muons and electrons are not part of the \taujets signal final state, a loose identification and isolation requirement is used to veto events; while the \taulep subchannel requires there to be either an electron or a muon that passes the tight identification and isolation requirements as well as a \pt above 30 GeV. The jets in candidate events are required to have greater than 25 GeV in \pt and are made with the anti-$k_t$ algorithm with R=0.4. Any event that contains a jet with $\pt > 25$ GeV and fails quality cuts is discarded. This ensures that no jet is consistent with having originated from instrumental effects or non-collision backgrounds. Jets tagged as \bjets are done so at a 70\% efficient working point using the DL1r tagger described in Section \ref{ssec:flavor-tagging}. The \pt requirements listed above for each physics object were chosen to maximize identification efficiency of each object. An example of identification efficiency can be seen for electrons in Figure \ref{fig:electron-efficiency}. The chosen cut of $\pt^{e}>30$ GeV corresponds to an identification efficiency of $\approx 70\%$. Similar choices for $\tau$ leptons \cite{tau-id-rnn}, jets \cite{jet-calibration}, \bjets \cite{b-tagging}, \Etm \cite{met-perf}, and muons \cite{muon-calibration} were made. 
 
 			\begin{table}[!thp]
 				\centering
@@ -44,6 +44,13 @@
 				\caption{Definitions of physics objects used in this analysis.}
 				\label{tab:object-defs}
 			\end{table}
+
+			\begin{figure}
+			\centering
+			\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/Electron_ID_Efficiency.png}
+			\caption{The electron identification efficiency in $Z\to ee$ events in data as a function of $E_{T}$ for the Loose, Medium, and Tight operating points. The efficiencies are obtained by applying data-to-simulation efficiency ratios measured in $J/\Psi \to ee$ and $Z \to ee$ events to $Z \to ee$ simulation. The inner uncertainties are statistical and the total uncertainties are the statistical and systematic uncertainties in the data-to-simulation efficiency ratio added in quadrature. The bottom panel shows the data-to-simulation ratio. Taken from Reference \cite{electron-perf}. }
+			\label{fig:electron-efficiency}
+			\end{figure}
 
 			% \begin{columns}
 			% \column{.3\textwidth}
@@ -78,11 +85,11 @@
 			% \end{columns}
 
 		\subsection{Event Selections}\label{ssec:event-selection}
-			Each subchannel signal region has stricter requirements than the object definitions described in Section \ref{ssec:object-def}. Table \ref{tab:signal-regions} details these selections. The channels differ in the triggers used; the \taujets subchannel relies on \Etm triggers while the \taulep subchannel relies on single lepton triggers. Due to the difficulty of separating signal from background and the large amount of background, the \taujets subchannel has a higher \pt cut on the \tauhad of $40$ GeV as opposed to the \taulep value of $30$ GeV. In addition, a higher value of \Etm of $150$ GeV is required for the \taujets subchannel compared to $50$ GeV in the \taulep subchannel. In the \taujets subchannel a value of $50$ GeV is also required of the transverse mass $m_{T}$ defined as 
+			Each subchannel signal region has stricter requirements than the object definitions described in Section \ref{ssec:object-def}. Table \ref{tab:signal-regions} details these selections. The channels differ in the triggers used; the \taujets subchannel relies on \Etm triggers while the \taulep subchannel relies on single lepton triggers. Detailed information on the triggers and the efficiencies of the trigger options can be found in References \cite{MET-Trigger} (\Etm), \cite{Electron-Trigger} ($e$), and \cite{Muon-Trigger} ($\mu$).  Due to the difficulty of separating signal from background and the large amount of background, the \taujets subchannel has a higher \pt cut on the \tauhad of $40$ GeV as opposed to the \taulep value of $30$ GeV. In addition, a higher value of \Etm of $150$ GeV is required for the \taujets subchannel compared to $50$ GeV in the \taulep subchannel. In the \taujets subchannel a value of $50$ GeV is also required of the transverse mass $m_{T}$ defined as 
 			\begin{equation}\label{eqn:transverse-mass}
 			m_{T} = \sqrt{ 2 \pt^{\tau} \Etm (1 - cos \Delta \phi_{\tau,\Etm}) }
 			\end{equation}
-			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal \glspl{CR} are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in Table \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}. Due to the larger branching fraction of $t \to W+b;  W \to q\bar{q}$ as opposed to $t \to W+b; W \to \ell + \nu$ the \taujets subchannel has a factor of 10 larger signal acceptance than the \taulep subchannel. In both channels, the signal acceptance decreases for \mHpm values $> 1000$ GeV. This is an artifact of objects becoming boosted, meaning their decay products are extremely collimated, resulting in lower efficiencies for object identification.
+			The \taulep has no such requirement, but does require the \tauhad and lepton to have opposite electromagnetic charge. A set of orthogonal \glspl{CR} are defined for each subchannel to verify proper background modelling and are described in Section \ref{sec:bkg-modeling}. The acceptance of signal in the signal regions defined in Table \ref{tab:signal-regions} is shown in Figure \ref{fig:signal-acceptance}. The instability of the data points is due to the boundaries of the \Hpm production diagrams.  Due to the larger branching fraction of $t \to W+b;  W \to q\bar{q}$ as opposed to $t \to W+b; W \to \ell + \nu$ the \taujets subchannel has a factor of 10 larger signal acceptance than the \taulep subchannel. In both channels, the signal acceptance decreases for \mHpm values $> 1000$ GeV. This is an artifact of objects becoming boosted, meaning their decay products are extremely collimated, resulting in lower efficiencies for object identification.
 
 			\begin{table}[!thp]
 				\centering
@@ -438,7 +445,7 @@
 
 		\begin{table}[!thp]
 			\begin{tabular}{| c | c | c | c | c |} \hline
-																& Dilepton-btag CR 				& Zee CR 												& b-veto CR 					& Same Sign CR 						 							\\ \hline
+																& Dilepton-btag CR 				& Zee CR 												& b-veto CR 					& Same Sign $(\tau,\ell)$ CR 						 							\\ \hline
 				Number of \tauhad 			& 0 											& 1 														& 0 									& 0 																		\\ \hline
 				$\pt^{\tau}$ 						& $ > 30$ GeV 						& $ > 30$ GeV 									& $ > 30$ GeV 				& $ > 30$ GeV 													\\ \hline
 				Number of jets 					& $\geq 1$ 								& $\geq 1$ 											& $\geq 1$ 						& $\geq 1$ 															\\ \hline
@@ -455,7 +462,7 @@
 
 
 
-		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \to \tau$ misidentification are well modeled in \gls{MC} simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \to \tau$ modeling. However, fakes due to $j \to \tau$ misidentification are not well modeled in \gls{MC} simulations due to a poor misunderstanding of systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. Instead, a data driven method is used to extract a scaling constant referred to as a fake factor.
+		As seen in Table \ref{tab:backgrounds} misidentified objects appearing as \tauhad candidates comprise a significant portion of the total background. Fakes arising from $\ell \to \tau$ misidentification are well modeled in \gls{MC} simulations and are reweighted with scale factors provided by the ATLAS $\tau$ combined performance group. The mass of the \tauhad electron system can be seen in Figure \ref{fig:zee-mass} as verification of fake $\ell \to \tau$ modeling. Fakes due to $j \to \tau$ misidentification have poorly misunderstood systematic uncertainties associated with the fake \tauhad object and limited statistics of simulated events. To combat this, a data driven method is used to extract a scaling constant referred to as a fake factor.
 
 		\begin{figure}[!thp]
 			\centering
@@ -496,7 +503,7 @@
 		\end{figure}
 
 
-		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figure \ref{fig:bkg-met-taulep} (\taulep). These plots include a ratio of reconstructed data events and simulated \gls{MC} events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}. Tables \ref{tab:expected_yields_taujets} \ref{tab:expected_yields_taue} and \ref{tab:expected_yields_taumu} show the expected event yields and the effect of each selection cut on the background sources as well as selected \mHpm values of 110, 170, and 1000 GeV. At the time of writing, the analysis is still blinded so Data yields are not known.
+		To verify background modeling, the \Etm distributions in each of the control regions are plotted with final scale factors including fake factors in Figure \ref{fig:bkg-met-taujets} (\taujets) and Figures \ref{fig:bkg-met-taulep-1} - \ref{fig:bkg-met-taulep-2} (\taulep). Similar distributions of the $\tau$ \pt can be seen in Figure \ref{fig:bkg-tau-pt-taujets} (\taujets) and Figures \ref{fig:bkg-tau-pt-taulep-1} - \ref{fig:bkg-tau-pt-taulep-2}. These plots include a ratio of reconstructed data events and simulated \gls{MC} events bin by bin to ensure proper modeling across variable shapes. More background modeling plots can be seen in Appendix \ref{app:valid-plots}. Tables \ref{tab:expected_yields_taujets}, \ref{tab:expected_yields_taue} and \ref{tab:expected_yields_taumu} show the expected event yields and the effect of each selection cut on the background sources as well as selected \mHpm values of 110, 170, and 1000 GeV. At the time of writing, the analysis is still blinded so data yields are not known.
 
 		\begin{figure}[!thp]
 			\begin{center}    
@@ -514,9 +521,23 @@
 
 		\begin{figure}[!thp]
 			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/met_et_TAUJET_PRESEL.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/tau_0_pt_TTBAR.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/tau_0_pt_WJETS.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taujets/tau_0_pt_BVETO_MT100.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured $\tau$ \pt distributions in various control regions defined for the \taujets channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-tau-pt-taujets}
+		\end{figure}
+
+		\begin{figure}[!thp]
+			\begin{center}    
 			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
-			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
-			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png} \\
 			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUEL_BVETO.png} 
 			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUMU_BVETO.png} \\
 			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png} 
@@ -525,7 +546,55 @@
 			\caption{
 			Comparison between the predicted and the measured \Etm distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
 			}
-			\label{fig:bkg-met-taulep}
+			\label{fig:bkg-met-taulep-1}
+		\end{figure}
+
+		\begin{figure}[!thp]
+			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUEL_BVETO.png} 
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUMU_BVETO.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png} 
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured \Etm distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-met-taulep-2}
+		\end{figure}
+
+		\begin{figure}[!thp]
+			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_DILEP_BTAG.png}
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_ZEE.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUEL_BVETO.png} 
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_TAUMU_BVETO.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUEL.png} 
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_SS_TAUMU.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured $\tau$ \pt distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-tau-pt-taulep-1}
+		\end{figure}
+
+		\begin{figure}[!thp]
+			\begin{center}    
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAULEP_PRESEL.png} \\
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_DILEP_BTAG.png}
+			\includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/tau_0_pt_ZEE.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUEL_BVETO.png} 
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_TAUMU_BVETO.png} \\
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUEL.png} 
+			% \includegraphics[width=0.45\textwidth]{chapters/chapter6_HPlus/images/taulep/met_et_SS_TAUMU.png} \\
+			\end{center}
+			\caption{
+			Comparison between the predicted and the measured $\tau$ \pt distributions in various control regions defined for the \taulep channel. The uncertainty band includes both statistical and systematic uncertainties on the background prediction. 
+			}
+			\label{fig:bkg-tau-pt-taulep-2}
 		\end{figure}
 
 		\begin{table}[!thp]
@@ -679,7 +748,7 @@
 
 	\clearpage
 	\section{Multivariate Analysis Techniques}\label{sec:mva}
-		Once variables distributions are properly scaled and data/\gls{MC} agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), \glspl{BDT} binned in \mHpm were used as the classifier, this publication use one \gls{PNN} for the entire \mHpm spectrum. \glspl{BDT} excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a \gls{PNN} the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. \gls{PNN}s offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}. For illustrative purposes, expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ in both subchannels is shown comparing an optimized \gls{BDT} and an unoptimized \gls{PNN} in Figure \ref{fig:bdt-vs-pnn-expected-limits}. It is seen that the \gls{PNN} performs similarly to the \glspl{BDT} used in the previous analysis. A \gls{PNN} was chosen as the discriminator. 
+		Once variables distributions are properly scaled and data/\gls{MC} agreement is verified, multivariate analysis techniques are employed to separate signal-like events from background-like events in the signal regions. In the previous publication (described in Section \ref{ssec:Prev Hpm}), \glspl{BDT} binned in \mHpm were used as the classifier, whereas this publication uses one \gls{PNN} for the entire \mHpm spectrum. \glspl{BDT} excel at separating linear correlations, whereas neural networks take advantage of nonlinear correlations. In the case of a \gls{PNN} the parameterized variable, here \mHpm, is taken as an input to the network in addition with other input variables. \gls{PNN}s offer the advantage of having one classifier model that can evaluate at any \mHpm value by learning how the signal event topology changes as \mHpm varies \cite{PNN}. For illustrative purposes, expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ in both subchannels is shown comparing an optimized \gls{BDT} and an unoptimized \gls{PNN} in Figure \ref{fig:bdt-vs-pnn-expected-limits}. It is seen that the \gls{PNN} performs similarly to the \glspl{BDT} used in the previous analysis. A \gls{PNN} was chosen as the discriminator. 
 
 		\begin{figure}
 		\subfloat[\label{fig:bdt-vs-pnn-expected-limits-a}]{\includegraphics[width=.5\textwidth]{chapters/chapter6_HPlus/images/Limits/exp_limit_log_taujet.pdf}}
@@ -702,10 +771,10 @@
 			\label{fig:PNN-diagram}
 		\end{figure}	
 
-			This analysis uses four \gls{PNN}s, events with 1-prong $\tau$ and 3-prong $\tau$ are divided into separate datasets within both subchannels.
+			This analysis uses four \gls{PNN}s; the two subchannels each have separate networks for 1-prong $\tau$ and 3-prong $\tau$ events.
 
 		\subsection{Training}\label{ssec:training}
-			The training of the \gls{PNN}s used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. To protect against this, dropout is used \cite{dropout}. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. The standard choice of $k=5$ is used in this analysis.
+			The training of the \gls{PNN}s used in this dissertation are done with the Keras \cite{keras} library using the TensorFlow \cite{tensorflow2015-whitepaper} library as backend. In order to increase the significance of training statistics and protect from overtraining, the $k$-fold method is used. Overtraining occurs when a NN has been fine tuned to have a high accuracy with a specific dataset and does not generalize to other datasets. To protect against this, dropout is used \cite{dropout}. The $k$-fold method divides input training samples into $k$ equally populated subsets. The $k$-th subset is trained on the other $k-1$ subsets and evaluated on the $k$-th subset. Figure \ref{fig:k-fold-diagram} shows a pictorial representation of the $k$-fold method. The standard choice of $k=5$ is used in this analysis; this ensures statistical independence of training and evaluation of the \glspl{PNN} and retaining a reasonable computational demand.
 
 			\begin{figure}	
 				\begin{center}
@@ -718,13 +787,13 @@
 			A single \gls{PNN} training is performed on all \mHpm values at once, with the \mHpm value being taken as an input variable. For signal events, the \mHpm value from the \gls{MC} generator is given; background events are replicated 32 times (the number of simulated \mHpm points is 32) and each \mHpm value is given for each set. To avoid biasing the training due to varying statistics at each \mHpm value, the background events are weighted by a factor of $w = N^{i}_{S}/N^{i}_{B}$ where $i$ corresponds to a given \mHpm value and $N^{i}_{S}$ and $N^{i}_{B}$ are the number of signal and background events, respectively. When the \gls{PNN} is evaluated, the \mHpm value is assumed and the output is used as the discriminant at that \mHpm.
 
 		\subsection{Input Variables Selection}\label{ssec:input-variables}
-			The choice of input variables to the \glspl{PNN} is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. One such study investigated the discriminating power of two sets of input variables. Input variables set A, consisting of the four vector components of the main physics objects in each event, were compared against another set of input variables B. Tables of the two sets of input variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. 
+			The choice of input variables to the \glspl{PNN} is critical to the performance of the analysis. Several sets of variables were compared using expected limits as the figure of merit. All studies were performed in the \taulep signal region, as this region proves the most difficult challenge to separate signal-like events from background-like events. One such study investigated the discriminating power of two sets of input variables. Input variables set A, consisting of the four vector components of the main physics objects in each event, were compared against another set of input variables B. Tables of the two sets of input variables are shown in Table \ref{tab:taulep-input-variables-high-v-low}. These two sets of variables were chosen to investigate the difference in signal-background separation between a \gls{PNN} trained with engineered variables (Set B) and lower level kinematic information (Set A). Plots of all variables used in this study can be seen in Appendix \ref{app:valid-plots}.
 
 			The variable $\mHpm^{Truth}$ corresponds to the \mHpm value the training and evaluation is performed at. In both cases, the variable $\Upsilon$ is used. $\Upsilon$ is a measure of the \tauhad polarization, computed by taking the asymmetry of energies carried by the charged and neutron pions from the 1-prong $\tau$ decay measured in the laboratory frame. $\Upsilon$ is defined as
 			\begin{equation}\label{eqn:upsilon}
 			\Upsilon = \frac{ E^{\pi^{\pm}}_{T} - E^{\pi^{0}}_{T}}{E^{\tau}_{T}} \approx 2 \frac{\pt^{\tau-\mathrm{track}}}{\pt^{\tau}} -1
 			\end{equation}
-			where $\pt^{\tau-\mathrm{track}}$ is the transverse momentum of the track associated with the 1-prong \tauhad candidate. As such, $\Upsilon$ is only defined for 1-prong \tauhad candidates. As demonstrated in the previous analysis, $\Upsilon$ provides a large contribution to signal-backgrounds separation at charged Higgs masses below 400 GeV \cite{hpm-previous}. This is due to $W^{-}$ bosons coupling exclusively to left-handed $\tau^{-}$ leptons in $W \to \tau \nu$ decays and $W^{+}$ bosons coupling exclusively to $\tau^{+}$ leptons. In such a case, $\Upsilon$ is expected to have a value of $-1$. Whereas in the \gls{MSSM}, a charged scalar Higgs boson would lead to an $\Upsilon$ value of $+1$ \cite{tau-polarization}.
+			where $\pt^{\tau-\mathrm{track}}$ is the transverse momentum of the track associated with the 1-prong \tauhad candidate. As such, $\Upsilon$ is only defined for 1-prong \tauhad candidates. As demonstrated in the previous analysis, $\Upsilon$ provides a large contribution to signal-backgrounds separation at charged Higgs masses below 400 GeV \cite{hpm-previous}. This is due to $W^{-}$ bosons coupling exclusively to left-handed $\tau^{-}$ leptons in $W \to \tau \nu$ decays and $W^{+}$ bosons coupling exclusively to $\tau^{+}$ leptons. In such a case, $\Upsilon$ is expected to have a value of $-1$. Whereas in the \gls{MSSM}, a charged scalar Higgs boson would lead to an $\Upsilon$ value of $+1$ \cite{tau-polarization}. A detailed explanation and dedicated measurement of $\tau$ polarization can be seen in Reference \cite{tau-polarization}.
 			% \begin{table}[!ht]
 			% 	\begin{center}
 			% 	\caption{List of high level kinematic variables used as input to the \gls{PNN} in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tauhad,\,\bjet,\,\ell$) and the direction of the missing transverse momentum.}
@@ -774,15 +843,6 @@
       \begin{table}[!thp]
 				\begin{subtable}[c]{0.15\textwidth}
 					\centering
-					% \begin{tabular}{| c | c | c | c |}
-		   %      \multicolumn{4}{c}{\textbf{Set A Input Variables}} \\ \hline \hline
-		   %      $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$ & $E^{\tau}$ \\ \hline
-		   %      $\pt^{\ell}$ & $\eta^{\ell}$ & $\phi^{\ell}$ & $E^{\ell}$ \\ \hline
-		   %      $\pt^{\bjet}$ & $\eta^{\bjet}$ & $\phi^{\bjet}$ & $E^{\bjet}$ \\ \hline
-		   %      $\pt^{jet}$ & $\eta^{jet}$ & $\phi^{jet}$ & $E^{jet}$ \\ \hline
-		   %      \Etm & $\phi^{\Etm}$ & $\pt^{j_{1}}$ & $\Upsilon$  \\ \hline
-		   %      $\mHpm^{Truth}$ & & & \\ \hline 
-	    %     \end{tabular}
 					\begin{tabular}{| c | c | c |}
 		        \multicolumn{3}{c}{\textbf{Set A Input Variables}} \\ \hline \hline
 		        $\pt^{\tau}$ & $\eta^{\tau}$ & $\phi^{\tau}$  \\ \hline
@@ -817,11 +877,11 @@
 					\end{tabular}
 					\subcaption{Set B of input variables}
 				\end{subtable}
-				\caption{Two sets of kinematic variables used as input to the \gls{PNN} in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tau,\,\bjet,\,\ell$) and the direction of the missing transverse momentum.}
+				\caption{Two sets of kinematic variables used as input to the \gls{PNN} in the \taulep subchannel. $\Delta \phi_{X,\,\text{miss}}$ denotes the difference in azimuthal angle between a reconstructed object $X$ ($X = \tau,\,\bjet,\,\ell$) and the direction of the missing transverse momentum. Distributions of all variables can be seen in Appendix \ref{app:valid-plots}.}
 				\label{tab:taulep-input-variables-high-v-low}
 			\end{table}
 
-      An estimate of the impact of two sets of input variables on the expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ is shown in \ref{fig:variable-comparison-limits}. Input variables set A was chosen as performance was similar at low \mHpm and greater at high \mHpm. A optimization of the number of layers in the \gls{PNN} and several other parameters of the \gls{PNN} is discussed in detail in Section \ref{ssec:hpo}.
+      An estimate of the impact of two sets of input variables on the expected limits on $\sigma(\pp\to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ is shown in \ref{fig:variable-comparison-limits}. Input variables set A was chosen as performance was similar at low \mHpm and greater at high \mHpm. An optimization of the number of layers in the \gls{PNN} and several other parameters of the \gls{PNN} is discussed in detail in Section \ref{ssec:hpo}.
 			\begin{figure}	
 				\begin{center}
 					\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter6_HPlus/images/taulep_limits_PNN_low_lv_vs_high_lv.eps}
@@ -832,7 +892,7 @@
 
 		\subsection{Hyperparameter Optimization}\label{ssec:hpo}
 
-				In order to optimize the \gls{PNN}, a scan of hyperparameters and network architecture was done, referred to as \gls{HPO}. A calculated \acrfull{AUC} was used as the figure of merit. As in the normal training scheme, the $k$-fold method with $k=5$ was used to keep background modelling and classifier training statistically independent. To prevent overtraining, the early stopping method was used and the best weights kept to calculate the \gls{AUC}. The early stopping method has two parameters, $\Delta_{min}$ and patience. $\Delta_{min}$ is the minimum allowed difference in \gls{AUC} between training epochs. Once the $\Delta_{min}$ value is lower than the user defined threshold several more epochs are trained to ensure a global minima is found. The number of extra training epochs is the previously mentioned patience value. For this dissertation $\Delta_{min}=0.00001$ and a patience of 10 were used. Due to the low signal acceptance and the increased difficulty of separating signal from background at lower \mHpm values, the \gls{PNN} was optimized for low \mHpm values.  To optimize for \gls{PNN} performance in low \Hpm mass points, a separate average taking into account only \Hpm mass values between $80$ and $500$ GeV was used as the final figure of merit. In an effort to keep the computational needs low, several small grids of hyperparameters and architecture structures were scanned. Tables \ref{Tab:taulepHPOLoss} - \ref{Tab:taulepHPOWidthDepth} show the hyperparameter grids that were searched. Here, width refers to the number of neurons per layer and depth is the number of layers. The final hyperparameter from each grid search is highlighted in red. The results of the final grid search can be seen in Tables \ref{tab:pnn_hpo_aucs} and \ref{tab:pnn_hpo_aucs_short}; the quoted errors are taken from the difference in $k$-folds. The \gls{AUC} values for each \mHpm point for the final chosen model are shown in Figure \ref{fig:final-auc}. 
+				In order to optimize the \gls{PNN}, a scan of hyperparameters and network architecture was done, referred to as \gls{HPO}. A calculated \acrfull{AUC} was used as the figure of merit. As in the normal training scheme, the $k$-fold method with $k=5$ was used to keep background modelling and classifier training statistically independent. To prevent overtraining, the early stopping method was used and the best weights kept to calculate the \gls{AUC}. The early stopping method has two parameters, $\Delta_{min}$ and patience. $\Delta_{min}$ is the minimum allowed difference in \gls{AUC} between training epochs. Once the $\Delta_{min}$ value is lower than the user defined threshold several more epochs are trained to ensure a global minima is found. The patience is this number of extra training epochs. For this dissertation $\Delta_{min}=0.00001$ and a patience of 10 were used. Due to the low signal acceptance and the increased difficulty of separating signal from background at lower \mHpm values, the \gls{PNN} was optimized for low \mHpm values.  To optimize for \gls{PNN} performance in low \Hpm mass points, a separate average taking into account only \Hpm mass values between $80$ and $500$ GeV was used as the final figure of merit. In an effort to keep the computational needs low, several small grids of hyperparameters and architecture structures were scanned. Tables \ref{Tab:taulepHPOLoss} - \ref{Tab:taulepHPOWidthDepth} show the hyperparameter grids that were searched. Here, width refers to the number of neurons per layer and depth is the number of layers. The final hyperparameter from each grid search is highlighted in red. The results of the final grid search can be seen in Tables \ref{tab:pnn_hpo_aucs} and \ref{tab:pnn_hpo_aucs_short}; the quoted errors are taken from the standard deviation across all $k$-folds. The \gls{AUC} values for each \mHpm point for the final chosen model are shown in Figure \ref{fig:final-auc}. 
 
 
 			\begin{table}[!htb]
@@ -1022,7 +1082,7 @@
 			\end{figure}
 
 	\section{Systematic Uncertainties}\label{sec:systs}
-		Systematic uncertainties have a variety of sources and are discussed in detail here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects \cite{tau-calibration}, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects \cites{tau-calibration}{jet-calibration}{egamma-calibration}{met-perf}{muon-calibration} are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. Systematic errors resulting in an upward fluctuation are kept separate from downward fluctuations. The effect of the main sources of uncertainties on the event yield for \ttbar and an arbitrary mass point of $\mHpm=200$ GeV are shown in Table \ref{tab:sys_ttbar_signal} for all \glspl{SR}. Jet systematic uncertainties arising from reconstruction, identification, flavor composition, resolution account for the largest contribution. Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}. The uncertainty listed as ``Fake factors: True \tauhad in the anti-\tauhad CR'' is a conservative uncertainty of 50\% applied to account for amount of \tauhad candidates that are subtracted when computing $N^{anti-\tau}_{fakes}$. Table \ref{tab:sys_combined_ttbar_signal} shows systematic uncertainties combined by their source. The combined fake factor systematic uncertainty is the largest contributor, followed by the jet systematics listed above. Theoretical uncertainties for signal and \ttbar background were considered in the last publication; at the time of writing this dissertation the simulations are being produced and therefore are not included. 
+		Systematic uncertainties have a variety of sources and are discussed here. Detector-related systematic uncertainties from the reconstruction and identification of leptons and \tauhad objects \cite{tau-calibration}, simulation of the electron and muon triggers, reconstruction of \Etm, and energy/momentum scale and resolution of all physics objects such as $\tau$ leptons \cite{tau-calibration}, jets \cite{jet-calibration}, electrons \cite{egamma-calibration}, \Etm \cite{met-perf}, and muons \cite{muon-calibration} are studied by varying selection cuts by $\pm 1$ standard deviation. The difference in event yields is then taken as a systematic error and summed in quadrature with all other sources of error to give the final quoted errors. Systematic errors resulting in an upward fluctuation are kept separate from downward fluctuations. The effect of the main sources of uncertainties on the event yield for \ttbar and an arbitrary mass point of $\mHpm=200$ GeV are shown in Table \ref{tab:sys_ttbar_signal} for all \glspl{SR}. Jet systematic uncertainties arising from reconstruction, identification, flavor composition, resolution account for the largest contribution. Systematic uncertainties arising from the data-driven fake factor method are shown in Table \ref{tab:FF-syst-uncert}. The uncertainty listed as ``Fake factors: True \tauhad in the anti-\tauhad CR'' is a conservative uncertainty of 50\% applied to account for amount of \tauhad candidates that are subtracted when computing $N^{anti-\tau}_{fakes}$. Table \ref{tab:sys_combined_ttbar_signal} shows systematic uncertainties combined by their source. The combined fake factor systematic uncertainty is the largest contributor, followed by the jet systematics listed above. Theoretical uncertainties for signal and \ttbar background were considered in the last publication; at the time of writing this dissertation the simulations are being produced and therefore are not included. In the previous result, \Hpm signal modelling systematic errors were found to have an impact on expected limits of 2.5\% for $\mHpm=170$ GeV and 6.4\% for $\mHpm=1000$ GeV \cite{hpm-previous}.
 		
 		\begin{table}
 			\begin{center}
@@ -1065,7 +1125,6 @@
 		      Fake factors: True \tauhad in the anti-\tauhad CR & \begin{tabular}{c}+3.4\% \\-3.2\%\end{tabular} & \textcolor{red}{\ding{55}} & \begin{tabular}{c}+4\% \\-4.3\%\end{tabular} & \textcolor{red}{\ding{55}}\\\hline
 		      Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\ding{51}} & 2.7$\%$ & \textcolor{red}{\ding{51}}\\\hline
 		      Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\ding{55}} & 1.9\% & \textcolor{red}{\ding{55}}\\\hline
-		      Fake factors: Smirnov transform & 0$\%$ & \textcolor{red}{\ding{51}} & 0$\%$ & \textcolor{red}{\ding{51}}\\\hline          
 		      Fake factors: heavy flavor jet fraction & 6$\%$ & \textcolor{red}{\ding{51}} & 5.53$\%$ & \textcolor{red}{\ding{51}}\\
 		    \end{tabular}}
 		  \end{center}
@@ -1107,25 +1166,24 @@
         \end{center}
       \end{table}
 
-	\section{Results}\label{sec:results}
-		The expected event yields for backgrounds and signal\footnote{At the time of writing, the analysis is still blinded so Data is not included.} are summarized in Table \ref{tab:event_yields_SR_taujets} (\taujets) and Table \ref{tab:event_yields_SR_taulep} (\taulep).
+	\section{Expected Results}\label{sec:results}
+		The expected event yields for backgrounds and signal\footnote{At the time of writing, the analysis is still blinded so data is not included.} are summarized in Table \ref{tab:event_yields_SR_taujets} (\taujets) and Table \ref{tab:event_yields_SR_taulep} (\taulep).
 
 		\begin{table}
 			\begin{center}
-			\caption{\label{tab:event_yields_SR_taujets} Expected event yields for the backgrounds and a hypothetical \Hpm signal after applying all \taujets selection criteria, and comparison with \LUMI of data. The values shown for the signal assuming a charged Higgs boson mass of 170 GeV and 1000 GeV, with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ corresponding to $\tanb=40$ in the hMSSM benchmark scenario. Statistical and Systematic uncertainties are quoted, respectively.
+			\caption{\label{tab:event_yields_SR_taujets} Expected event yields for the backgrounds and a hypothetical \Hpm signal after applying all \taujets selection criteria, and comparison with \LUMI of data. The values shown for the signal assuming a charged Higgs boson mass of 170 GeV and 1000 GeV, with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ corresponding to $\tanb=40$ in the hMSSM benchmark scenario. Statistical and systematic uncertainties are quoted, respectively.
 			}
 			\resizebox{\textwidth}{!}{
 			\begin{tabular}{l|r}
 			Sample & Event yields $\tauhad$+jets          \\
 			\hline
-			True $\tau_{\text{had}}$  & \\
-			\hspace*{5mm}\ttbar & $\phantom{}18443.27\phantom{.0}\pm\phantom{0}48.35\phantom{.0}\phantom{0}\begin{tabular}{c}+1545.67 \\-1697.11\end{tabular}$    \\ \cline{2-2}
-			\hspace*{5mm}Single-top-quark  & $\phantom{0}2284.34\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+184.69 \\-207.49\end{tabular}$ \\ \cline{2-2}
-			\hspace*{5mm}$W \to \tau\nu$  & $\phantom{0}1979.17\phantom{.0}\pm\phantom{0}23.63\phantom{.0}\phantom{0}\begin{tabular}{c}+179.85 \\-229.80\end{tabular}$  \\ \cline{2-2}
-			\hspace*{5mm}$Z \to \tau\tau$  & $\phantom{00}242.12\phantom{.0}\pm\phantom{00}5.50\phantom{.0}\phantom{0}\begin{tabular}{c}+24.27 \\-32.88\end{tabular}$   \\ \cline{2-2}
-			\hspace*{5mm}Diboson ($WW, WZ, ZZ$) & $\phantom{00}133.76\phantom{.0}\pm\phantom{00}4.69\phantom{.0}\phantom{0}\begin{tabular}{c}+9.47 \\-12.61\end{tabular}$  \\ \cline{2-2}
-			Misidentified $e,\,\mu \to \tauhad$   & $\phantom{00}328.89\phantom{.0}\pm\phantom{00}6.85\phantom{.0}\phantom{0}\begin{tabular}{c}+25.60 \\-34.58\end{tabular}$  \\ \cline{2-2}
-			Misidentified $\mbox{jet} \to \tauhad$ & $\phantom{0}2506.28\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+130.53 \\-133.40\end{tabular}$ \\ \cline{2-2}
+			\ttbar & $\phantom{}18443.27\phantom{.0}\pm\phantom{0}48.35\phantom{.0}\phantom{0}\begin{tabular}{c}+1545.67 \\-1697.11\end{tabular}$    \\ \hline
+			Single-top-quark  & $\phantom{0}2284.34\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+184.69 \\-207.49\end{tabular}$ \\ \hline
+			$W \to \tau\nu$  & $\phantom{0}1979.17\phantom{.0}\pm\phantom{0}23.63\phantom{.0}\phantom{0}\begin{tabular}{c}+179.85 \\-229.80\end{tabular}$  \\ \hline
+			$Z \to \tau\tau$  & $\phantom{00}242.12\phantom{.0}\pm\phantom{00}5.50\phantom{.0}\phantom{0}\begin{tabular}{c}+24.27 \\-32.88\end{tabular}$   \\ \hline
+			Diboson ($WW, WZ, ZZ$) & $\phantom{00}133.76\phantom{.0}\pm\phantom{00}4.69\phantom{.0}\phantom{0}\begin{tabular}{c}+9.47 \\-12.61\end{tabular}$  \\ \hline
+			Misidentified $e,\,\mu \to \tauhad$   & $\phantom{00}328.89\phantom{.0}\pm\phantom{00}6.85\phantom{.0}\phantom{0}\begin{tabular}{c}+25.60 \\-34.58\end{tabular}$  \\ \hline
+			Misidentified $\mbox{jet} \to \tauhad$ & $\phantom{0}2506.28\phantom{.0}\pm\phantom{0}17.39\phantom{.0}\phantom{0}\begin{tabular}{c}+130.53 \\-133.40\end{tabular}$ \\ \hline
 			\hline
 			All backgrounds   & $25917.83\phantom{.0}\pm\phantom{0}59.82\phantom{.0}\phantom{0}\begin{tabular}{c}+1572.87 \\-1730.97\end{tabular}$  \\
 			\hline
@@ -1138,20 +1196,19 @@
 
 		\begin{table}
 			\begin{center}
-			\caption{\label{tab:event_yields_SR_taulep} Expected event yields for the backgrounds and a hypothetical \Hpm signal after applying all \taulep selection criteria, and comparison with \LUMI of data. The values shown for the signal assuming a charged Higgs boson mass of 170 GeV and 1000 GeV, with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ corresponding to $\tanb=40$ in the hMSSM benchmark scenario. Statistical and Systematic uncertainties are quoted, respectively.
+			\caption{\label{tab:event_yields_SR_taulep} Expected event yields for the backgrounds and a hypothetical \Hpm signal after applying all \taulep selection criteria, and comparison with \LUMI of data. The values shown for the signal assuming a charged Higgs boson mass of 170 GeV and 1000 GeV, with a cross-section times branching fraction $\sigma(\pp \to tb\Hpm) \times \mathrm{\cal{B}}(\Hpm \to \tau\nu)$ corresponding to $\tanb=40$ in the hMSSM benchmark scenario. Statistical and systematic uncertainties are quoted, respectively.
 			}
 			\resizebox{\textwidth}{!}{
 			\begin{tabular}{l|r|r}
 			Sample &   Event yields \tauel  & Event yields \taumu \\
 			\hline
-			True $\tau_{\text{had}}$  & \\
-			\hspace*{5mm}$t\bar{t}$ & $43813.50\phantom{.0}\pm\phantom{0}76.85\phantom{.0}\phantom{0}\begin{tabular}{c}+1749.82 \\-1833.87\end{tabular}$ & $44486.48\phantom{.0}\pm\phantom{0}75.33\phantom{.0}\phantom{0}\begin{tabular}{c}+1811.78 \\-1907.08\end{tabular}$  \\ \cline{2-3}
-			\hspace*{5mm}Single-top-quark  & $\phantom{0}3260.52\phantom{.0}\pm\phantom{0}20.81\phantom{.0}\phantom{0}\begin{tabular}{c}+124.27 \\-134.66\end{tabular}$ & $\phantom{0}3873.35\phantom{.0}\pm\phantom{0}22.06\phantom{.0}\phantom{0}\begin{tabular}{c}+158.03 \\-165.92\end{tabular}$  \\ \cline{2-3}
-			\hspace*{5mm}$W \to \tau\nu$  & $\phantom{0000}2.41\phantom{.0}\pm\phantom{00}0.56\phantom{.0}\phantom{0}\begin{tabular}{c}+0.22 \\-2.15\end{tabular}$ & $\phantom{0000}0.07\phantom{.0}\pm\phantom{00}0.12\phantom{.0}\phantom{0}\begin{tabular}{c}+0.08 \\-0.16\end{tabular}$  \\ \cline{2-3}
-			\hspace*{5mm}$Z \to \tau\tau$  & $\phantom{00}913.55\phantom{.0}\pm\phantom{0}20.42\phantom{.0}\phantom{0}\begin{tabular}{c}+64.56 \\-149.42\end{tabular}$  & $\phantom{00}845.89\phantom{.0}\pm\phantom{0}22.07\phantom{.0}\phantom{0}\begin{tabular}{c}+88.71 \\-111.03\end{tabular}$ \\ \cline{2-3}
-			\hspace*{5mm}Diboson ($WW, WZ, ZZ$) &  $\phantom{000}72.64\phantom{.0}\pm\phantom{00}1.52\phantom{.0}\phantom{0}\begin{tabular}{c}+5.25 \\-3.91\end{tabular}$ & $\phantom{000}80.81\phantom{.0}\pm\phantom{00}1.53\phantom{.0}\phantom{0}\begin{tabular}{c}+5.40 \\-6.45\end{tabular}$ \\ \cline{2-3}
-			Misidentified $e,\,\mu \to \tauhad$   &   $\phantom{0}1083.97\phantom{.0}\pm\phantom{0}24.33\phantom{.0}\phantom{0}\begin{tabular}{c}+41.65 \\-73.42\end{tabular}$ & $\phantom{0}1060.30\phantom{.0}\pm\phantom{0}15.84\phantom{.0}\phantom{0}\begin{tabular}{c}+43.44 \\-70.69\end{tabular}$ \\ \cline{2-3}
-			Misidentified $\mbox{jet} \to \tauhad$ &   $\phantom{0}8662.43\phantom{.0}\pm\phantom{0}37.49\phantom{.0}\phantom{0}\begin{tabular}{c}+450.65 \\-470.53\end{tabular}$ & $\phantom{0}8426.64\phantom{.0}\pm\phantom{0}37.12\phantom{.0}\phantom{0}\begin{tabular}{c}+440.04 \\-459.88\end{tabular}$ \\ \cline{2-3}
+			$t\bar{t}$ & $43813.50\phantom{.0}\pm\phantom{0}76.85\phantom{.0}\phantom{0}\begin{tabular}{c}+1749.82 \\-1833.87\end{tabular}$ & $44486.48\phantom{.0}\pm\phantom{0}75.33\phantom{.0}\phantom{0}\begin{tabular}{c}+1811.78 \\-1907.08\end{tabular}$  \\ \hline
+			Single-top-quark  & $\phantom{0}3260.52\phantom{.0}\pm\phantom{0}20.81\phantom{.0}\phantom{0}\begin{tabular}{c}+124.27 \\-134.66\end{tabular}$ & $\phantom{0}3873.35\phantom{.0}\pm\phantom{0}22.06\phantom{.0}\phantom{0}\begin{tabular}{c}+158.03 \\-165.92\end{tabular}$  \\ \hline
+			$W \to \tau\nu$  & $\phantom{0000}2.41\phantom{.0}\pm\phantom{00}0.56\phantom{.0}\phantom{0}\begin{tabular}{c}+0.22 \\-2.15\end{tabular}$ & $\phantom{0000}0.07\phantom{.0}\pm\phantom{00}0.12\phantom{.0}\phantom{0}\begin{tabular}{c}+0.08 \\-0.16\end{tabular}$  \\ \hline
+			$Z \to \tau\tau$  & $\phantom{00}913.55\phantom{.0}\pm\phantom{0}20.42\phantom{.0}\phantom{0}\begin{tabular}{c}+64.56 \\-149.42\end{tabular}$  & $\phantom{00}845.89\phantom{.0}\pm\phantom{0}22.07\phantom{.0}\phantom{0}\begin{tabular}{c}+88.71 \\-111.03\end{tabular}$ \\ \hline
+			Diboson ($WW, WZ, ZZ$) &  $\phantom{000}72.64\phantom{.0}\pm\phantom{00}1.52\phantom{.0}\phantom{0}\begin{tabular}{c}+5.25 \\-3.91\end{tabular}$ & $\phantom{000}80.81\phantom{.0}\pm\phantom{00}1.53\phantom{.0}\phantom{0}\begin{tabular}{c}+5.40 \\-6.45\end{tabular}$ \\ \hline
+			Misidentified $e,\,\mu \to \tauhad$   &   $\phantom{0}1083.97\phantom{.0}\pm\phantom{0}24.33\phantom{.0}\phantom{0}\begin{tabular}{c}+41.65 \\-73.42\end{tabular}$ & $\phantom{0}1060.30\phantom{.0}\pm\phantom{0}15.84\phantom{.0}\phantom{0}\begin{tabular}{c}+43.44 \\-70.69\end{tabular}$ \\ \hline
+			Misidentified $\mbox{jet} \to \tauhad$ &   $\phantom{0}8662.43\phantom{.0}\pm\phantom{0}37.49\phantom{.0}\phantom{0}\begin{tabular}{c}+450.65 \\-470.53\end{tabular}$ & $\phantom{0}8426.64\phantom{.0}\pm\phantom{0}37.12\phantom{.0}\phantom{0}\begin{tabular}{c}+440.04 \\-459.88\end{tabular}$ \\ \hline
 			\hline
 			All backgrounds   &  $57809.03\phantom{.0}\pm\phantom{0} 93.57\phantom{.0}\phantom{0}\begin{tabular}{c}+1812.82 \\-1846.46\end{tabular}$ & $58773.63\phantom{.0}\pm\phantom{0} 90.99\phantom{.0}\phantom{0}\begin{tabular}{c}+1873.75 \\-1970.06\end{tabular}$ \\
 			\hline
@@ -1172,8 +1229,9 @@
 		\end{array}
 		\right.
 		\end{equation}
+		Here, $\hat{\mu}$ and $\hat{\theta}$ are the values of the parameters that maximize the likelihood function. $\hat{\hat{\theta}}(\mu)$ corresponds to the values of the nuisance parameters that maximize the likelihood function for a given signal strength $\mu$.
 
-		The fit is performed on the \gls{PNN} score distributions in the three signal regions, \taujets, \tauel, \taumu, and the dilepton-btag control region which is enriched in the dominant \ttbar background. Pre-fit \gls{PNN} score distributions are shown in Figures \ref{fig:taujets_SR_PNNscores_body}, \ref{fig:taulepPNNscoreSR1_body}, and \ref{fig:taulepPNNscoreSR2_body}. At the time of writing this dissertation, the analysis is still blinded. Assuming the fit agrees with the background-only hypothesis expected limits of $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ are calculated. Exclusion limits are set at the 95\% confidence level (CL) using the $\mathrm{CL}_s$ procedure \cite{CL-setting}. The expected exclusion limits on $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ can be seen in Figure \ref{fig:expected-limits} compared to the previous 36.1 \ifb result. In all three subchannels an improvement across the entire \mHpm range can be seen. The \tauel and \taumu \glspl{SR} outperform the \taujets \gls{SR} at low \mHpm while the \taujets \gls{SR} excels at high mass values. In all three \glspl{SR} the limits turn upwards between 2500 GeV and 3000 GeV; this is due to the decreased signal acceptance shown in Figure \ref{fig:signal-acceptance}. At the time of writing the combination of the \taulep and \taujets subchannels is underway. As in the previous result \cite{hpm-previous} the combined limit will be extrapolated to set limits on \tanb.
+		The fit is performed on the \gls{PNN} score distributions in the three \glspl{SR}, \taujets, \tauel, \taumu, and the dilepton-btag \gls{CR} which is enriched in the dominant \ttbar background. Pre-fit \gls{PNN} score distributions are shown in Figures \ref{fig:taujets_SR_PNNscores_body-1} - \ref{fig:taulepPNNscoreSR2_body-2}. At the time of writing this dissertation, the analysis is still blinded. Assuming the fit agrees with the background-only hypothesis expected limits of $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ are calculated. Exclusion limits are set at the 95\% confidence level (CL) using the $\mathrm{CL}_s$ procedure \cite{CL-setting}. The expected exclusion limits on $\sigma(\pp \to tb\Hpm)\times \mathrm{\cal{B}}(\Hpm \to \tau \nu)$ can be seen in Figure \ref{fig:expected-limits} compared to the previous 36.1 \ifb result. In all three subchannels an improvement across the entire \mHpm range can be seen. The result of this search is expected to improve the limits by a factor of $\simeq 3 \times$ depending on the \mHpm value. The \tauel and \taumu \glspl{SR} outperform the \taujets \gls{SR} at low \mHpm while the \taujets \gls{SR} excels at high mass values. In all three \glspl{SR} the limits turn upwards between 2500 GeV and 3000 GeV; this is due to the decreased signal acceptance shown in Figure \ref{fig:signal-acceptance}. At the time of writing the combination of the \taulep and \taujets subchannels is underway. As in the previous result \cite{hpm-previous} the combined limit will be extrapolated to set limits on \tanb.
 
 		\begin{figure}
 		  \centering
@@ -1181,10 +1239,24 @@
 			\subfloat[\label{fig:taujets_SR_PNNscores_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_130to130_SR_TAUJET.png}} \\
 			\subfloat[\label{fig:taujets_SR_PNNscores_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_160to160_SR_TAUJET.png}}
 			\subfloat[\label{fig:taujets_SR_PNNscores_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_200to200_SR_TAUJET.png}} \\
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_500to500_SR_TAUJET.png}}
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_3000to3000_SR_TAUJET.png}}
+			  \caption{\label{fig:taujets_SR_PNNscores_body-1} \gls{PNN} score distributions in the
+			signal region of the \taujets channel, for chosen charged Higgs boson mass parameters.
+			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties. 
+			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+		  \centering
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_80to80_SR_TAUJET.png}}
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_130to130_SR_TAUJET.png}} \\
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_160to160_SR_TAUJET.png}}
+			% \subfloat[\label{fig:taujets_SR_PNNscores_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_200to200_SR_TAUJET.png}} \\
 			\subfloat[\label{fig:taujets_SR_PNNscores_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_500to500_SR_TAUJET.png}}
 			\subfloat[\label{fig:taujets_SR_PNNscores_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taujets/clf_score_GB200_mass_3000to3000_SR_TAUJET.png}}
-			  \caption{\label{fig:taujets_SR_PNNscores_body} \gls{PNN} score distributions in the
-			signal region of the \taujets channel, for the six charged Higgs boson mass parameters.
+			  \caption{\label{fig:taujets_SR_PNNscores_body-2} \gls{PNN} score distributions in the
+			signal region of the \taujets channel, for chosen charged Higgs boson mass parameters.
 			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties. 
 			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
 		\end{figure}
@@ -1195,10 +1267,24 @@
 			\subfloat[\label{fig:taulepPNNscoreSR1_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUEL.png}} \\
 			\subfloat[\label{fig:taulepPNNscoreSR1_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUEL.png}}
 			\subfloat[\label{fig:taulepPNNscoreSR1_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUEL.png}} \\
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUEL.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUEL.png}}
+			\caption{\label{fig:taulepPNNscoreSR1_body-1} \gls{PNN} score distributions in the
+			signal region of the \tauel sub-channel, for the chosen charged Higgs boson mass parameters.
+			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties.
+			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUEL.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUEL.png}} \\
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUEL.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR1_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUEL.png}} \\
 			\subfloat[\label{fig:taulepPNNscoreSR1_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUEL.png}}
 			\subfloat[\label{fig:taulepPNNscoreSR1_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUEL.png}}
-			\caption{\label{fig:taulepPNNscoreSR1_body} \gls{PNN} score distributions in the
-			signal region of the \tauel sub-channel, for the six charged Higgs boson mass parameters.
+			\caption{\label{fig:taulepPNNscoreSR1_body-2} \gls{PNN} score distributions in the
+			signal region of the \tauel sub-channel, for the chosen charged Higgs boson mass parameters.
 			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties.
 			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
 		\end{figure}
@@ -1209,10 +1295,24 @@
 			\subfloat[\label{fig:taulepPNNscoreSR2_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUMU.png}} \\
 			\subfloat[\label{fig:taulepPNNscoreSR2_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUMU.png}}
 			\subfloat[\label{fig:taulepPNNscoreSR2_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUMU.png}} \\
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUMU.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUMU.png}}
+			\caption{\label{fig:taulepPNNscoreSR2_body-1} \gls{PNN} score distributions in the
+			signal region of the \taumu sub-channel, for the chosen charged Higgs boson mass parameters.
+			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties.
+			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_a}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_80to80_SR_TAUMU.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_b}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_130to130_SR_TAUMU.png}} \\
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_c}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_160to160_SR_TAUMU.png}}
+			% \subfloat[\label{fig:taulepPNNscoreSR2_body_d}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_200to200_SR_TAUMU.png}} \\
 			\subfloat[\label{fig:taulepPNNscoreSR2_body_e}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_500to500_SR_TAUMU.png}}
 			\subfloat[\label{fig:taulepPNNscoreSR2_body_f}]{\includegraphics[width=0.45\linewidth]{chapters/chapter6_HPlus/images/taulep/clf_score_GB200_mass_3000to3000_SR_TAUMU.png}}
-			\caption{\label{fig:taulepPNNscoreSR2_body} \gls{PNN} score distributions in the
-			signal region of the \taumu sub-channel, for the six charged Higgs boson mass parameters.
+			\caption{\label{fig:taulepPNNscoreSR2_body-2} \gls{PNN} score distributions in the
+			signal region of the \taumu sub-channel, for the chosen charged Higgs boson mass parameters.
 			The lower panel of each plot shows the ratio of data to the \acrshort{SM} background prediction. The uncertainty bands include all statistical and systematic uncertainties.
 			The normalization of the signal (shown for illustration) corresponds to the integral of the background.}
 		\end{figure}
