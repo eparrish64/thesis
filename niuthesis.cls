@@ -348,7 +348,9 @@
        \th@author, \th@abbrevdegree\\
        \th@department\\
        \th@university, \th@degreeyear\\
-       \th@director, Director
+       \th@directorone, Co-Director\\
+       \th@directortwo, Co-Director
+
      \end{center}
      \vspace*{0.5in}
      \begin{doublespace}
@@ -396,8 +398,9 @@
          \centerline{\MakeUppercase{\th@department}} 
        \end{doublespace}
        \vfill
-       \hspace*{0in}\th@thesis\ Director: \\
-       \hspace*{0.3in} \th@director
+       \hspace*{0in}\th@thesis\ Doctoral Co-Directors: \\
+       \hspace*{0.3in} \th@directorone \\
+       \hspace*{0.3in} \th@directortwo
      \end{minipage}}
   \end{singlespace}
   \if@openright
@@ -491,6 +494,10 @@
   \gdef\th@degree{#3}}
 \newcommand*{\director}[1]{%
   \gdef\th@director{#1}}
+\newcommand*{\directorone}[1]{%
+  \gdef\th@directorone{#1}}
+\newcommand*{\directortwo}[1]{%
+  \gdef\th@directortwo{#1}}
 \newcommand*{\department}[1]{%
   \gdef\th@department{#1}}
 
