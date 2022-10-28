@@ -47,7 +47,7 @@
 		\end{figure}
 
 	\subsection{CERN Accelerator Complex}\label{ssec:cern-accelerators}
-		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN.\footnote{Figure \ref{fig:CERN-complex} shows the newer LINAC 4 at the start of Run-3. This work is concerning data taken with LINAC 2.} 
+		There are a series of accelerators used to get each beam up to its final energy of 6.5 TeV. The protons used in collisions are sourced from hydrogen atoms. The hydrogen is ionized, leaving the nucleus consisting of one proton, these protons are then accelerated in radiofrequency (RF) cavities. Figure \ref{fig:CERN-complex} shows in detail the full accelerator complex at CERN\footnote{Figure \ref{fig:CERN-complex} shows the newer LINAC 4 at the start of Run-3. This work is concerning data taken with LINAC 2.}.
 		\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/CERN-complex.png}
@@ -57,7 +57,7 @@
 		The protons used in the \gls{LHC} start the accelerating process in the linear accelerator LINAC 2. They then are accelerated in the booster, PS, SPS, and are finally injected at the \gls{LHC} where they are accelerated to the final 6.5 TeV beam energy. The final energies of protons from each accelerator can be seen in Table \ref{tab:accelerator-complex}.
 		\begin{table}[!thp]
 			\centering
-			\caption{Accelerator final energies.}
+			\caption{Accelerator final energies \cite{lhc-machine}.}
 			\begin{tabular}{| l | l |}  
 			\hline
 			Accelerator 					& Final Energy 	\\ \hline
@@ -90,14 +90,14 @@
 		\caption{ Cumulative luminosity versus time delivered to \gls{ATLAS} (green), recorded by \gls{ATLAS} (yellow), and certified to be good quality data (blue) during stable beams for pp collisions at 13 TeV center of mass energy in 2015-2018. The difference between the colored histograms reflects inefficiencies, especially those seen when restarting data taking \cite{luminositypublicresultsrun2}.}
 		\label{fig:lhc-lumi}
 		\end{figure}
-		The value of $\langle \mu \rangle$ changed throughout data taking and can be seen in Figure \ref{fig:run2-mu} It is referred to as pileup because the higher the $\langle \mu \rangle$ value, the more messy a collision becomes.
+		The value of $\langle \mu \rangle$ changed throughout data taking and can be seen in Figure \ref{fig:run2-mu}. It is referred to as pileup because the higher the $\langle \mu \rangle$ value, the more messy a collision becomes.
 		\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/mu_2015_2018.png}
 		\caption{ The luminosity-weighted distribution of the mean number of interactions per bunch crossing for the 2015-2018 \pp collision dataset at $13$ TeV center of mass energy \cite{luminositypublicresultsrun2}.}
 		\label{fig:run2-mu}
 		\end{figure}
-		The effect of high pileup can be seen in Figure \ref{fig:high-pileup-event-display}, a collision event taken in 2018 with 29 reconstructed vertices shown on the bottom right as colored circles.
+		The effect of high pileup can be seen in the bottom right insert of Figure \ref{fig:high-pileup-event-display}, a collision event taken in 2018 with 29 reconstructed vertices shown on the bottom right as colored circles. High pileup leads to many tracks being reconstructed from several vertices. This makes finding the primary interaction in the event difficult.
 		\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/event_display_r349114_e216445472_v4_wMoreTracks_v3_wAtlantisTrackColor_Inset.png}
@@ -106,7 +106,7 @@
 		\end{figure}
 
 
-		A common calculation using the total integrated luminosity is shown in Equation \ref{eqn:tot-proc-num}; where the number of times a particular process was produced $N_{x}$ is calculated as:
+		A common calculation using the total integrated luminosity is shown in Equation \ref{eqn:tot-proc-num}; the number of times a particular process was produced $N_{x}$ is calculated as:
 		\begin{equation}\label{eqn:tot-proc-num}
 		N_{x} = \mathcal{L} \sigma_{x}
 		\end{equation}
@@ -114,7 +114,7 @@
 
 
 \section{The \gls{ATLAS} Detector}\label{sec:ATLAS}
-	The \acrfull{ATLAS} detector is one of two general purpose particle detectors on the \gls{LHC}; the other being the \acrfull{CMS}. \gls{ATLAS} is comprised of four main components: the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy and trajectory of the original particle.\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:reco-etmiss}.} The full \gls{ATLAS} detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes \cite{ATLAS-JINST} . Figure \ref{fig:ATLAS} shows a 3D model of the \gls{ATLAS} detector.\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.} All of the subdetectors output data to the \gls{TDAQ} system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in Section \ref{ssec:trigger}. 
+	The \acrfull{ATLAS} detector is one of two general purpose particle detectors on the \gls{LHC}; the other being the \acrfull{CMS}. \gls{ATLAS} is comprised of four main components: the inner detector, calorimeters, muon system, and the magnet system. Each component has several types of technology in order to measure the energy and trajectory of the original particle\footnote{Neutrinos are not directly detected, but inferred via a missing transverse energy calculation described in Section \ref{sec:reco-etmiss}.}. The full \gls{ATLAS} detector measures 44 m in length, 25 m in diameter, and weighs over 7000 tonnes \cite{ATLAS-JINST} . Figure \ref{fig:ATLAS} shows a 3D model of the \gls{ATLAS} detector\footnote{Figure \ref{fig:ATLAS} shows the New Small Wheel muon-chambers. This dissertation concerns data collected with the old Small Wheel muon-chambers.}. All of the subdetectors output data to the \gls{TDAQ} system that selects collisions with interesting physics using a complex mix of hardware and software algorithms detailed in Section \ref{ssec:trigger}. 
 
 	\begin{figure}[!ht]
 	\centering
@@ -148,7 +148,7 @@
 		\end{equation}
 
 		% In the ATLAS detector, the central barrel section corresponds to $|\eta| < 2.5$
-		Figure \ref{fig:pseudorapidity} shows visually how $\eta$ relates to $\theta$. In the \gls{ATLAS} detector, the central barrel section generally corresponds to a range of $|\eta|<1$.\footnote{The exact $\abs{\eta}$ range differs between each subdetector.} 
+		Figure \ref{fig:pseudorapidity} shows visually how $\eta$ relates to $\theta$. In the \gls{ATLAS} detector, the central barrel section\footnote{The exact $\abs{\eta}$ range differs between each subdetector.}  generally corresponds to a range of $|\eta|<1$.
 
 		\begin{figure}[!ht]
 		\centering
@@ -185,7 +185,7 @@
 		\caption{\label{fig:ATLAS-ID} (a) Cut-away view of the \gls{ATLAS} Inner Detector. (b) Cross-sectional view of the ATLAS Inner Detector. Taken from Reference \cite{atlas-schematics}.}
 		\end{figure}
 
-		The \acrfull{ID} is the inner-most detector, closest to the \gls{IP} and is used to track the trajectory of charged particles leading to the measurement of electromagnetic charge and momentum. The \gls{ID} is immersed in the 2 T magnetic field provided by the central solenoid described in section \ref{sssec:solenoid} and covers a pseudorapidity range of $|\eta|<2.5$ \cite{ATLAS-ID}. The three subdetectors within the \gls{ID} can be seen in Figure \ref{fig:ATLAS-ID}, the Pixel, \gls{SCT}, and the \gls{TRT}. Like the toroid system, and many of the other subdetectors, the \gls{ID} is comprised of barrel and end-cap segments. The \gls{ID} barrel section is 1.6 m in length and covers $|\eta|<1$ while the end-caps measure over 7 m in length and cover $1 < |\eta| < 2.5$. 
+		The \acrfull{ID} is the inner-most detector, closest to the \gls{IP} and is used to track the trajectory of charged particles leading to the measurement of electromagnetic charge and momentum. The \gls{ID} is immersed in the 2 T magnetic field provided by the central solenoid described in Section \ref{sssec:solenoid} and covers a pseudorapidity range of $|\eta|<2.5$ \cite{ATLAS-ID}. The three subdetectors within the \gls{ID} can be seen in Figure \ref{fig:ATLAS-ID}, the Pixel, \gls{SCT}, and the \gls{TRT}. Like the toroid system, and many of the other subdetectors, the \gls{ID} is comprised of barrel and end-cap segments. The \gls{ID} barrel section is 1.6 m in length and covers $|\eta|<1$ while the end-caps measure over 7 m in length and cover $1 < |\eta| < 2.5$. 
 
 		A track is considered good if there are hits in at least 3 pixel layers and 8 strips \cite{tracking-2012}. The ID tracking system was designed with a resolution of 
 		\begin{equation}\label{eqn:tracking-resolution}
@@ -198,15 +198,15 @@
 			In order to keep up with the increased demand of Run-2 data taking conditions, an additional layer of pixels was installed in the Long Shutdown 1 (LS1) between 2013 and 2015. This \gls{IBL} provides even finer granularity tracking with pixel cells measuring $50 \, \mu m \times 250 \, \mu m$ installed at a radial distance of $R=33.25$ mm from the \gls{IP} and a spatial resolution of $8 \, \mu m (R-\phi) \times 40 \, \mu m (z)$ \cite{ATLAS-IBL}. The \gls{IBL} has proved incredibly useful in the reconstruction of displaced vertices from processes like \bjet hadronization and $\gamma \rightarrow e^+ e^-$.
 
 		\subsubsection{Semiconductor Tracker}\label{sssec:SCT}
-			Moving radially outward, at a radial distance of $299 \mathrm{mm} \leq R \leq 544 \mathrm{mm}$, the next subdetector is the \gls{SCT} that provides tracking in the intermediate radial range from the \gls{IP} and covers a range of $|\eta| < 2.5$. Similar to the Pixel Detector, the \gls{SCT} has 4 barrel layers and 9 end-cap wheels on each side. The \gls{SCT} provides four measurements per track via silicon microstrip detectors. Each microstrip is made of two $6.36 \times 6.40 \, cm^2$ detectors glued end to end so each microstrip is $12.8 \, cm$ long. Two microstrips are then glued back to back with a $40 \, \mu rad$ angle. In total there are 768 strips, giving 6.2 million readout channels. The \gls{SCT} has a spatial resolution of $17 \, \mu m (R-\phi) \times 580 \,\mu m (z)$ and can distinguish tracks with as small as a $200 \, \mu m$ separation \cite{ATLAS-ID}.
+			Moving radially outward, at a radial distance of $299 \, \mathrm{mm} \leq R \leq 544 \, \mathrm{mm}$, the next subdetector is the \gls{SCT} that provides tracking in the intermediate radial range from the \gls{IP} and covers a range of $|\eta| < 2.5$. Similar to the Pixel Detector, the \gls{SCT} has 4 barrel layers and 9 end-cap wheels on each side. The \gls{SCT} provides four measurements per track via silicon microstrip detectors. Each microstrip is made of two $6.36 \times 6.40 \, cm^2$ detectors glued end to end so each microstrip is $12.8 \, cm$ long. Two microstrips are then glued back to back with a $40 \, \mu rad$ angle. In total there are 768 strips, giving 6.2 million readout channels. The \gls{SCT} has a spatial resolution of $17 \, \mu m (R-\phi) \times 580 \,\mu m (z)$ and can distinguish tracks with as small as a $200 \, \mu m$ separation \cite{ATLAS-ID}.
 
 		\subsubsection{Transition Radiation Tracker}\label{sssec:TRT}
-			The final subdetector of the \gls{ID} is the \gls{TRT} $(R=554 \, \mathrm{mm} \, - 1082 \, \mathrm{mm})$ . Instead of silicon detectors the \gls{TRT} uses 4 mm diameter straw tubes; a hollow tube with a sense wire that is held at high voltage in the middle. The maximum length of a straw is 150 cm. The straws are filled with a gaseous mixture of $70\% \, \mathrm{Xe,} \, 27\% \, \mathrm{CO}_2, \, 3\% \, \mathrm{O}_2$.\footnote{During Run-2 the Xe was replaced with Ar as a cost saving measure. Ar provides similar performance as Xe in tracking, but is less efficient in absorbing X-rays from transition radiation.} Charged particles ionize the gas mixture, thereby releasing an electron and an ion. The ion drifts to the straw surface and the electron drifts to the wire; this charge drift is then measured as a signal. The \gls{TRT} checks the signals against two thresholds, a lower threshold for measuring the drift time to derive a position and a higher threshold that is used to identify transition radiation X-rays. Transition radiation occurs when a charged particle hits the boundary of two media with differing dielectric constants. The higher threshold provides discriminating power between charged pions and electrons.
+			The final subdetector of the \gls{ID} is the \gls{TRT} $(R=554 \, \mathrm{mm} \, - 1082 \, \mathrm{mm})$ . Instead of silicon detectors the \gls{TRT} uses 4 mm diameter straw tubes; a hollow tube with a sense wire that is held at high voltage in the middle. The maximum length of a straw is 150 cm. The straws are filled with a gaseous mixture\footnote{During Run-2 the Xe was replaced with Ar as a cost saving measure. Ar provides similar performance as Xe in tracking, but is less efficient in absorbing X-rays from transition radiation.} of $70\% \, \mathrm{Xe,} \, 27\% \, \mathrm{CO}_2, \, 3\% \, \mathrm{O}_2$. Charged particles ionize the gas mixture, thereby releasing an electron and an ion. The ion drifts to the straw surface and the electron drifts to the wire; this charge drift is then measured as a signal. The \gls{TRT} checks the signals against two thresholds, a lower threshold for measuring the drift time to derive a position and a higher threshold that is used to identify transition radiation X-rays. Transition radiation occurs when a charged particle hits the boundary of two media with differing dielectric constants. The higher threshold provides discriminating power between charged pions and electrons.
 
 			The \gls{TRT} consists of a barrel section and 18 wheels in each end-cap. In the barrel, there are 50,000 straws divided in two at the center to allow for two separate readouts. The end-caps have 320,000 straws. In total, there are 420,000 readout channels. Each straw provides a spatial resolution of $170 \mu m$ \cite{ATLAS-ID}.
 
 	\subsection{Calorimeters}\label{ssec:calorimeters}
-		The ATLAS detector makes use of two types of sampling calorimeters, one that uses liquid argon as the active medium and another that uses scintillating plastic tiles. Both types of calorimeters are designed to fully absorb particles via showering. Incoming particles interact with an absorber material and generate secondary particles. Those secondary particles interact with the absorber and create another set of particles. This cascading effect creates showers of particles inside the calorimeters. The shape and depth of these particles is important in the design choices for the calorimeters as well as particle identification. Two helpful variables when talking about shower depth are radiation length $\chi_0$ and nuclear interaction length $\lambda$. $\chi_0$ is defined as the distance where a particle has lost energy via bremsstrahlung equal to $\frac{1}{e}$\footnote{$\chi_0$ can also be defined as $\frac{7}{9}$ of the mean free path of a high energy photon.}, whereas $\lambda$ is the mean free path of a hadron before undergoing a inelastic nuclear interaction. In order to fully absorb a wide energy range of incident particles the calorimeters are designed such that any path through them is at least $25 \, \chi_0$ or $10 \, \lambda$ \cites{LAr-TDR}{ATLAS-tile}. Figure \ref{fig:calo-interaction-length} shows the calorimeter layers and their nuclear interaction lengths as a function of $\eta$.
+		The ATLAS detector makes use of two types of sampling calorimeters, one that uses liquid argon as the active medium and another that uses scintillating plastic tiles. Both types of calorimeters are designed to fully absorb particles via showering. Incoming particles interact with an absorber material and generate secondary particles. Those secondary particles interact with the absorber and create another set of particles. This cascading effect creates showers of particles inside the calorimeters. The shape and depth of these particles is important in the design choices for the calorimeters as well as particle identification. Two helpful variables when talking about shower depth are radiation length $\chi_0$ and nuclear interaction length $\lambda$. $\chi_0$ is defined as the distance where a particle has lost energy via bremsstrahlung\footnote{$\chi_0$ can also be defined as $\frac{7}{9}$ of the mean free path of a high energy photon.} equal to $\frac{1}{e}$, whereas $\lambda$ is the mean free path of a hadron before undergoing a inelastic nuclear interaction. In order to fully absorb a wide energy range of incident particles the calorimeters are designed such that any path through them is at least $25 \, \chi_0$ or $10 \, \lambda$ \cites{LAr-TDR}{ATLAS-tile}. Figure \ref{fig:calo-interaction-length} shows the calorimeter layers and their nuclear interaction lengths as a function of $\eta$.
 
 		\begin{figure}[!ht]
 		\centering
@@ -220,7 +220,7 @@
 		\begin{table}[!thp]
 		\centering
 		\caption{ Design resolution of EM and hadronic calorimeters in the \gls{ATLAS} Detector \cites{LAr-TDR}{ATLAS-tile}.}
-		\resizebox{.45\textwidth}{!}{\begin{tabular}{| c | c | c |}  
+		\resizebox{.75\textwidth}{!}{\begin{tabular}{| c | c | c |}  
 		\hline
 		Calorimeter											& Pseudorapidity range 																		& Resolution \\[1ex] \hline 
 		Electromagnetic 									& $| \eta | < 3.2$ 																			& $\frac{\sigma}{E} = \frac{10\%}{\sqrt{E}} \oplus 0.7\%$ \\[1ex] \hline
@@ -239,14 +239,14 @@
 		\end{figure}
 
 		\subsubsection{Liquid Argon Calorimeters}\label{sssec:LAr}
-			The \gls{LAr} calorimeters are based on a similar principle to the straw tubes of the \gls{TRT} described in section \ref{sssec:TRT}. In this case, the \gls{LAr} is the active medium that is ionized by the incoming particle. The free electron then drifts to an electrode, copper-tungsten in the case of the barrel \gls{LAr} calorimeter. The drifting electrons are then readout as an electrical signal; there are approximately 180,000 \gls{LAr} readout channels in the \gls{ATLAS} detector. \gls{LAr} was chosen as the active medium due to its intrinsic radiation hardness, stability over time, and linear response. The \gls{LAr} must be kept at very cold temperatures, around 85 K. To achieve this, the \gls{LAr} calorimeters are kept in cryostats, the barrel calorimeter shares the cryostat and vacuum with the central solenoid.
+			The \gls{LAr} calorimeters are based on a similar principle to the straw tubes of the \gls{TRT} described in Section \ref{sssec:TRT}. In this case, the \gls{LAr} is the active medium that is ionized by the incoming particle. The free electron then drifts to an electrode, copper-tungsten in the case of the barrel \gls{LAr} calorimeter. The drifting electrons are then readout as an electrical signal; there are approximately 180,000 \gls{LAr} readout channels in the \gls{ATLAS} detector. \gls{LAr} was chosen as the active medium due to its intrinsic radiation hardness, stability over time, and linear response. The \gls{LAr} must be kept at very cold temperatures, around 85 K. To achieve this, the \gls{LAr} calorimeters are kept in cryostats, the barrel calorimeter shares the cryostat and vacuum with the central solenoid.
 
 			There are four \gls{LAr} calorimeters within the \gls{ATLAS} detector. The \gls{EMB} is designed for electromagnetic calorimetry with a lead-stainless steel absorber and covers a pseudorapidity range of $|\eta|<2.5$. Extending to larger $\eta$ is the \gls{EMEC} that also uses lead-stainless steel absorber and the \gls{LAr} Hadronic End-Cap (HEC) which has a copper plate absorber; both \gls{EMEC} and \gls{HEC} cover $1.5 < |\eta| < 3.2$. The final \gls{LAr} calorimeter is the aptly named \gls{FCAL} that covers $|\eta|<4.9$ and has three modules. The first is optimized for \gls{EM} calorimetry and uses a copper absorber. The other two \gls{FCAL} modules are used to measure hadronic showers and use tungsten absorbers.
 
 			The \gls{EMB} and \gls{EMEC} both utilize an accordion geometry pictured in Figure \ref{fig:LAr-accordion} to ensure a full $\phi$ coverage. 
 			\begin{figure}[!ht]{}
 			\centering
-			\includegraphics[width=.45\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/LAr_Accordion_Geometry.png}
+			\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/LAr_Accordion_Geometry.png}
 			\caption{An \gls{EMB} module showing the accordion geometry and granularity \cite{LAr-TDR}.} %\cite{atlas-experiment}}
 			\label{fig:LAr-accordion}
 			\end{figure}
@@ -287,7 +287,7 @@
 	\subsection{Trigger System}\label{ssec:trigger}
 		The large luminosity provided by the \gls{LHC} is critical in collecting enough data to make detailed physics analyses. However, it also means that there is an incredibly large amount of data to sort through. So much that it is not possible to write out the data from every bunch crossing. As shown in the bottom inlay of Figure \ref{fig:high-pileup-event-display}, even one single event can contain a very large amount of data. Another issue arises due to the nature of hadron collisions; not all bunch crossing provide hard scatter inelastic collisions that are interesting enough to save data on. 
 
-		To solve this issue, the data coming out of \gls{ATLAS} is combed through in real time at a variable rate of 1 kHz to 40 MHz. This is done with a \gls{TDAQ} system. The \gls{TDAQ} system used in Run-2 is described in detail in Reference \cite{ATLAS-trigger-Run2}. The \gls{TDAQ} system reads in data from the \gls{ATLAS} detector, calculates relevant quantities, and makes a decision on if there was an event worth storing. A diagram showing the data flow into the \gls{TDAQ} system is show in \ref{fig:trigger-run2}.\footnote{Figure \ref{fig:trigger-run2} shows the Fast TracKer (FTK). During Run 2 FTK was undergoing commissioning and was not used in the active \gls{TDAQ} system.} 
+		To solve this issue, the data coming out of \gls{ATLAS} is combed through in real time at a variable rate of 1 kHz to 40 MHz. This is done with a \gls{TDAQ} system. The \gls{TDAQ} system used in Run-2 is described in detail in Reference \cite{ATLAS-trigger-Run2}. The \gls{TDAQ} system reads in data from the \gls{ATLAS} detector, calculates relevant quantities, and makes a decision on if there was an event worth storing. A diagram showing the data flow into the \gls{TDAQ} system\footnote{Figure \ref{fig:trigger-run2} shows the Fast TracKer (FTK). During Run 2 FTK was undergoing commissioning and was not used in the active \gls{TDAQ} system.} is shown in Figure \ref{fig:trigger-run2}.
 		\begin{figure}[!ht]
 		\centering
 		% \includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter3_experiment/images/Trigger_Run2.png}

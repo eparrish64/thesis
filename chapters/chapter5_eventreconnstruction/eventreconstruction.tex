@@ -81,7 +81,7 @@
 
 		\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=.65\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/egamma_flow_01.png}
+		\includegraphics[width=\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/egamma_flow_01.png}
 		\caption{\label{fig:egamma-reco} Algorithm flow diagram for the electron and photon reconstruction \cite{electron-perf}.}
 		\end{figure}
 
@@ -115,7 +115,7 @@
 
 		\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=.5\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/anti-kt-comparison.png}
+		\includegraphics[width=.75\textwidth,keepaspectratio=true]{chapters/chapter5_eventreconnstruction/images/anti-kt-comparison.png}
 		\caption{\label{fig:anti-kt-comparison} Comparison between several jet-finding algorithms \cite{anti-kt}.}
 		\end{figure}
 
@@ -145,7 +145,7 @@
 		The \tauhad candidates start with an anti-$k_t$ jet seed with $E_T>10$ GeV in the calorimeter; tracks and topoclusters within $\Delta R = 0.2$ are added to the \tauhad candidate. The axis of the original jet seed is redefined in the direction of the \tauhad candidate and calibration is done at the \tauhad scale \cite{tau-id-calib}. An overlap removal is done to ensure the \tauhad candidate is isolated from electrons and muons. Tracks are required to have $E_{T}>30$ GeV, $|\eta|<2.3$ and strictly either 1 or 3 tracks. A \tauhad candidate is referred to as 1-prong or 3-prong based on the associated number of tracks. To discern \tauhad objects from quark-initiated and gluon-initiated jets a \gls{RNN} is used \cite{tau-id-rnn}. The search described in this analysis uses a medium \gls{WP} that corresponds to 75\% identification efficiency for 1-prong and 60\% for 3-prong in $\gamma \to \tau \tau$ collision events with a rejection factor of $\sim 35-240$ for jets \cite{tau-id-rnn}.
  
 	\section{\Etm}\label{sec:reco-etmiss}
-		The final \acrshort{SM} particle in the reconstruction scheme is the neutrino\footnote{The W, Z and gluon do not have long enough lifetimes to leave signatures within the \gls{ATLAS} detector volume. Instead, their presence is inferred through their decay products}. The presence of a neutrino, or another minimally interacting particle, can be inferred through the calculation of \Etm\footnote{The choice of \Etm to represent missing transverse momentum is a common nomenclature. Other choices include $\pt^{miss}$, MET, and et miss.}; which takes advantage of the initial collision having a small momentum in the transverse plane ($\pt \simeq 0$). The initial momentum in the z direction (along the beamline) cannot be known due to the composite nature of the colliding protons and the associated PDFs of their components.
+		The final \acrshort{SM} particle in the reconstruction scheme is the neutrino\footnote{The W, Z and gluon do not have long enough lifetimes to leave signatures within the \gls{ATLAS} detector volume. Instead, their presence is inferred through their decay products.}. The presence of a neutrino, or another minimally interacting particle, can be inferred through the calculation\footnote{The choice of \Etm to represent missing transverse momentum is a common nomenclature. Other choices include $\pt^{miss}$, MET, and E T miss.} of \Etm; which takes advantage of the initial collision having a small momentum in the transverse plane ($\pt \simeq 0$). The initial momentum in the z direction (along the beamline) cannot be known due to the composite nature of the colliding protons and the associated PDFs of their components.
 
 		The calculation of \Etm in the \gls{ATLAS} detector is defined as
 		\begin{equation}\label{eqn:etmiss}

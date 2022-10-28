@@ -280,7 +280,7 @@
 %%%%%%%%%%% THESIS PROLOGUE PAGES:
 % Default values of storage variables.  Emits an error message.
 \newcommand*{\th@university}{Northern Illinois University}
-\newcommand*{\th@address}{De Kalb, Illinois}
+\newcommand*{\th@address}{DeKalb, Illinois}
 \newcommand*{\th@degreemonth}{\ifcase\month\or
   January\or February\or March\or April\or May\or June\or
   July\or August\or September\or October\or November\or December\fi}
