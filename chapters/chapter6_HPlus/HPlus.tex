@@ -904,13 +904,14 @@
 			    \label{Tab:taulepHPOLoss}
 					\resizebox{.65\textwidth}{!}{
 			    \begin{tabular}{| c | c | c | c |}
-			    Parameter  \\
+			    \hline
+			    \multicolumn{4}{c|}{Parameter}  \\
 			    \hline
 			    activation function & softsign & relu & LeakyReLU \\ \hline
 			    loss function & \fcolorbox{red}{white}{binary cross-entropy} & mean squared error & mean absolute error \\ \hline
-			    width & 32 & & \\ \hline
-			    depth & 10 & & \\ \hline
-			    batch size & 1025 &  & \\ \hline
+			    width & \multicolumn{3}{c|}{32} \\ \hline
+			    depth & \multicolumn{3}{c|}{10} \\ \hline
+			    batch size & \multicolumn{3}{c|}{1025} \\ \hline
 			    \end{tabular}}
 			  \end{center}
 			\end{table}
@@ -923,14 +924,15 @@
 			    }
 					\resizebox{.55\textwidth}{!}{
 			    \begin{tabular}{| c | c | c | c |}
-			    Parameter  \\
+			    \hline
+			    \multicolumn{4}{c|}{Parameter}  \\
 			    \hline
 			    width & 8 & 16 & 32 \\ \hline
 			    depth & 3 & 5 & 10 \\ \hline
 			    dropout & \fcolorbox{red}{white}{0.1} & 0.3 & \\ \hline
-			    activation function & softsign & & \\ \hline
-			    loss function & binary cross-entropy & & \\ \hline 
-			    batch size & 1024 &  & \\ \hline
+			    activation function & \multicolumn{3}{c|}{softsign} \\ \hline
+			    loss function & \multicolumn{3}{c|}{binary cross-entropy} \\ \hline 
+			    batch size & \multicolumn{3}{c|}{1024} \\ \hline
 			    \end{tabular}}
 			  \end{center}
 			\end{table}
@@ -942,14 +944,15 @@
 			  \begin{center}
 				\resizebox{.55\textwidth}{!}{
 			    \begin{tabular}{| c | c | c | c |}
-			    Parameter  \\
+			    \hline
+			    \multicolumn{4}{c|}{Parameter}  \\
 			    \hline
 			    width & 32 & 64 & 128 \\ \hline
 			    depth & 2 & 3 & 4 \\ \hline
 			    activation function & softsign & relu & \fcolorbox{red}{white}{LeakyReLU} \\ \hline
-			    dropout & 0.1 & & \\ \hline
-			    batch size & 1024 &  & \\ \hline
-			    loss function & binary cross-entropy  & & \\ \hline
+			    dropout & \multicolumn{3}{c|}{0.1} \\ \hline
+			    batch size & \multicolumn{3}{c|}{1024} \\ \hline
+			    loss function & \multicolumn{3}{c|}{binary cross-entropy} \\ \hline
 			    \end{tabular}}
 			    
 			  \end{center}
@@ -962,15 +965,16 @@
 			  \begin{center}
 				\resizebox{.55\textwidth}{!}{
 			  \begin{tabular}{| c | c | c | c | c |}
-			  Parameter  \\ 
+			    \hline
+			    \multicolumn{5}{c|}{Parameter}  \\ 
 			  \hline
 			  width & 32 & 64 & 128 & \\ \hline
 			  depth & 2 & 3 & 4 &  \\ \hline
 			  $\alpha$ & 0.01 & \fcolorbox{red}{white}{0.05} & 0.001 & 0.005 \\ \hline
-			  batch size & 1024 & & & \\ \hline
-			  dropout & 0.1 & & & \\ \hline
-			  activation function & LeakyReLU &  &  &  \\ \hline
-			  loss function & binary cross-entropy & & &  \\ \hline
+			  batch size & \multicolumn{4}{c|}{1024} \\ \hline
+			  dropout & \multicolumn{4}{c|}{0.1} \\ \hline
+			  activation function & \multicolumn{4}{c|}{LeakyReLU}  \\ \hline
+			  loss function & \multicolumn{4}{c|}{binary cross-entropy} \\ \hline
 			  \end{tabular}}
 			    
 			  \end{center}
@@ -983,16 +987,17 @@
 			    }
 				\resizebox{.55\textwidth}{!}{
 			  \begin{tabular}{| c | c | c | c | c |}
-			  Parameter  \\ 
+			  \hline
+			  \multicolumn{5}{c|}{Parameter}  \\ 
 			  \hline
 			  width & 32 & 64 & \fcolorbox{red}{white}{128} & 256 \\
 			  depth & 2 & \fcolorbox{red}{white}{3} & 4 & 5 \\
-			  batch size & 1024 &  & & \\ \hline
-			  dropout & 0.1 &  &  &  \\ \hline
-			  activation function & LeakyReLU &  &  &  \\ \hline
-			  batch size & 1024 & & & \\ \hline
-			  $\alpha$ & 0.05 &  &  &  \\ \hline
-			  loss function & binary cross-entropy & & &  \\ \hline
+			  batch size & \multicolumn{4}{c|}{1024} \\ \hline
+			  dropout & \multicolumn{4}{c|}{0.1} \\ \hline
+			  activation function & \multicolumn{4}{c|}{LeakyReLU} \\ \hline
+			  batch size & \multicolumn{4}{c|}{1024} \\ \hline
+			  $\alpha$ & \multicolumn{4}{c|}{0.05} \\ \hline
+			  loss function & \multicolumn{4}{c|}{binary cross-entropy} \\ \hline
 			  \end{tabular}}
 			    
 			  \end{center}
@@ -1123,6 +1128,7 @@
 		    }
 				\resizebox{\textwidth}{!}{
 		    \begin{tabular}{| l | c | c || c | c ||}
+		      \hline
 		      &  \multicolumn{2}{c||}{\taujets}  & \multicolumn{2}{c||}{\taulep} \\
 		      \hline
 		      Source of uncertainty & Effect on yield & Shape & Effect on yield & Shape \\
@@ -1132,6 +1138,7 @@
 		      Fake factors: tau RNN Identification SF & 2.7$\%$ & \textcolor{red}{\ding{51}} & 2.7$\%$ & \textcolor{red}{\ding{51}}\\\hline
 		      Fake factors: $\alpha_\text{MJ}$ uncertainty & 3.6\% & \textcolor{red}{\ding{55}} & 1.9\% & \textcolor{red}{\ding{55}}\\\hline
 		      Fake factors: heavy flavor jet fraction & 6$\%$ & \textcolor{red}{\ding{51}} & 5.53$\%$ & \textcolor{red}{\ding{51}}\\
+		      \hline
 		    \end{tabular}}
 		  \end{center}
 		\end{table}
