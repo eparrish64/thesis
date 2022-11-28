@@ -124,6 +124,7 @@
 % comment this to suppress prologue
 \MakeThesisPrologue % includes table of contents
 %\tableofcontents{}
+\printnoidxglossaries
 
 \include{chapters/chapter1_introduction/introduction}
 \include{chapters/chapter2_theory/theory}
@@ -133,21 +134,19 @@
 \include{chapters/chapter6_HPlus/HPlus}
 \include{chapters/chapter7_conclusion/conclusion}
 
+\include{refs}		% file with references
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices
 
 \appendix
 \appendixpage
 % \addappheadtotoc
-% \input{appendices/app_mva}			% file with Appendix A contents
+% \input{appendices/app_mva}      % file with Appendix A contents
 \input{appendices/app_tile}
 \input{appendices/app_fake_factors}
 \input{appendices/app_validation_plots}
 \input{appendices/app_pnn_scores}
-
-\printnoidxglossaries
-\addcontentsline{toc}{chapter}{Acronyms}
-\include{refs}		% file with references
 
 
 \end{document}

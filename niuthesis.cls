@@ -188,6 +188,8 @@
 \RequirePackage[nottoc]{tocbibind}
 % \tocfile is command in tocbibind for new listings
 \newcommand{\listofappend}{\tocfile{List of Appendices}{loa}}
+  % \newcommand{\listofAcron}{\tocfile{List of Acronyms}{loacr}}
+\newcommand{\listofacronyms}{\tocfile{Acronyms}{loc}}
 
 % extend the definition of \appendix in report.cls
 \def\appendix{\par
@@ -265,6 +267,7 @@
 \renewcommand*{\contentsname}{Table of Contents}
 \renewcommand*{\bibname}{References}
 \newcommand*{\listofappendname}{List of Appendices}
+\newcommand*{\listofacronymsname}{Acronyms}
 
 %%%%%%%%%% COMMANDS CHANGED FOR THIS CLASS
 % Unavailable commands
@@ -467,6 +470,7 @@
 \th@renewlox{\listoftables}{\listtablename}{lot}{Table}
 \th@renewlox{\listoffigures}{\listfigurename}{lof}{Figure}
 \th@renewlox{\listofappend}{\listofappendname}{loa}{Appendix}
+\th@renewlox{\listofacronyms}{\listofacronymsname}{loc}{Acronym}
 
 \def\th@loxheader#1#2{%
  \par\penalty-100
@@ -479,6 +483,7 @@
 \newcommand*{\lotheader}{\th@loxheader{lot}{Table}}
 \newcommand*{\lofheader}{\th@loxheader{lof}{Figure}}
 \newcommand*{\loaheader}{\th@loxheader{loa}{Appendix}}
+\newcommand*{\loacheader}{\th@loxheader{loc}{Acronym}}
 
 %%%%%%%%% USER COMMANDS FOR CONTROLLING THE PROLOGUE:
 \renewcommand*{\title}[1]{\gdef\th@title{#1}}
@@ -551,6 +556,7 @@
     \lox@header{lot}{Table}
     \lox@header{lof}{Figure}
     \lox@header{loa}{Appendix}
+    \lox@header{loc}{Acronym}
   \else
     \lox@header{toc}{Chapter}
   \fi
@@ -566,7 +572,7 @@
   %
   % \listofXXX is a hook dummy to add more stuff such as a List of Symbols
   % Enable it by using something like \newcommand{\listofXXX}{\input{symbols}}
-  % \@ifundefined{listofXXX}{}{\listofXXX}
+  % \@ifundefined{listofAcron}{}{\listofAcron}
   %
   \ifth@loxheaderflag 
     \addtocontents{toc}{\noindent Chapter\par} 
